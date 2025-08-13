@@ -7,30 +7,16 @@
   <meta name="description" content="Traverse Dynamics Global LLC - Colorado-based construction consulting specializing in upscale tiny homes, modular steel framing, and innovative building technology." />
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    :root {
-      --hero-min-h: 72vh;
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
-    @keyframes fadeIn { from { opacity: 0; transform: translateY(20px);} to { opacity: 1; transform: translateY(0);} }
-    .animate-fadeIn { animation: fadeIn 1s ease-out forwards; opacity: 0; }
-    .delay-200 { animation-delay: .2s; }
-    .delay-400 { animation-delay: .4s; }
-
-    /* Subtle text shadow to keep image "as is" but improve readability */
-    .txt-shadow { text-shadow: 0 2px 10px rgba(0,0,0,.35); }
-
-    /* Hero with perfect cropping via cover/center and no dark overlay */
-    .hero {
-      position: relative;
-      min-height: var(--hero-min-h);
-      background-image: url('images/scottsdale.jpg'); /* place your cropped steel framing hero here */
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
+    .animate-fadeIn {
+      animation: fadeIn 1s ease-out forwards;
+      opacity: 0;
     }
-    @media (max-width: 640px){
-      :root { --hero-min-h: 60vh; }
-      .hero { background-position: center 40%; } /* lift focal point slightly on phones */
-    }
+    .delay-200 { animation-delay: 0.2s; }
+    .delay-400 { animation-delay: 0.4s; }
   </style>
 </head>
 <body class="font-sans text-gray-800">
@@ -48,16 +34,13 @@
     </div>
   </header>
 
-  <!-- Hero (Scottsdale steel framing, "as is" with subtle text shadow) -->
-  <section class="hero flex flex-col justify-center items-center text-white text-center">
-    <div class="relative z-10 px-4 max-w-3xl pt-28">
-      <h1 class="txt-shadow text-4xl md:text-6xl font-bold mb-4 animate-fadeIn">Smart. Strong. Steel.</h1>
-      <p class="txt-shadow text-lg md:text-2xl mb-6 animate-fadeIn delay-200">
-        We help builders, developers, and visionaries create high-end tiny homes and modular spaces with precision steel framing and the latest in design engineering technology.
-      </p>
-      <a href="#contact" class="bg-yellow-500 hover:bg-yellow-600 text-black px-6 py-3 rounded-lg font-semibold shadow-lg animate-fadeIn delay-400">
-        Start Your Project
-      </a>
+  <!-- Hero -->
+  <section class="bg-cover bg-center h-screen flex flex-col justify-center items-center text-white text-center relative" style="background-image:url('images/scottsdale.jpg');">
+    <div class="bg-black/60 absolute inset-0"></div>
+    <div class="relative z-10 px-4 max-w-3xl">
+      <h1 class="text-4xl md:text-6xl font-bold mb-4 animate-fadeIn">Smart. Strong. Steel.</h1>
+      <p class="text-lg md:text-2xl mb-6 animate-fadeIn delay-200">We help builders, developers, and visionaries create high-end tiny homes and modular spaces with precision steel framing and the latest in design engineering technology.</p>
+      <a href="#contact" class="bg-yellow-500 hover:bg-yellow-600 text-black px-6 py-3 rounded-lg font-semibold shadow-lg animate-fadeIn delay-400">Start Your Project</a>
     </div>
   </section>
 
@@ -86,10 +69,10 @@
     </div>
   </section>
 
-  <!-- About (QuonsetCyd image) -->
+  <!-- About -->
   <section id="about" class="py-20">
     <div class="container mx-auto px-6 max-w-5xl grid md:grid-cols-2 gap-10 items-center">
-      <img src="images/quonsetcyd.jpg" alt="Traverse Dynamics steel Quonset hut HQ" class="rounded-xl shadow-lg" loading="lazy">
+      <img src="images/quonsetcyd.jpg" alt="Steel Quonset Hut Headquarters" class="rounded-xl shadow-lg">
       <div>
         <h2 class="text-3xl font-bold mb-6">About Us</h2>
         <p class="mb-4">
@@ -109,50 +92,34 @@
   <section id="projects" class="py-20 bg-gray-50">
     <div class="container mx-auto px-6 max-w-6xl">
       <h2 class="text-3xl font-bold text-center mb-12">Past Projects</h2>
-
-      <!-- Row 1: Tiny Homes -->
-      <div class="grid gap-8 md:grid-cols-3 mb-10">
+      <div class="grid gap-8 md:grid-cols-3">
         <div class="bg-white rounded-xl shadow hover:shadow-lg transition overflow-hidden">
-          <img src="images/squarestream.jpg" alt="SquareStream tiny home exterior" class="w-full h-48 object-cover" loading="lazy">
+          <img src="images/tinyhome1.jpeg" alt="Luxury Tiny Home" class="w-full h-48 object-cover">
           <div class="p-6">
-            <h3 class="font-semibold text-lg">SquareStream Tiny Home</h3>
-            <p class="text-sm text-gray-600 mt-1">Compact luxury layout with precision steel framing and high-efficiency envelope.</p>
+            <h3 class="font-semibold text-lg">Luxury Tiny Home</h3>
           </div>
         </div>
         <div class="bg-white rounded-xl shadow hover:shadow-lg transition overflow-hidden">
-          <img src="images/tinyhome1.jpeg" alt="Tiny Home I exterior" class="w-full h-48 object-cover" loading="lazy">
+          <img src="images/squarestream.jpg" alt="Square Stream Tiny Home" class="w-full h-48 object-cover">
           <div class="p-6">
-            <h3 class="font-semibold text-lg">Tiny Home I</h3>
-            <p class="text-sm text-gray-600 mt-1">Modern micro-living design modeled in BIM and engineered for fast assembly.</p>
+            <h3 class="font-semibold text-lg">Square Stream Tiny Home</h3>
           </div>
         </div>
         <div class="bg-white rounded-xl shadow hover:shadow-lg transition overflow-hidden">
-          <img src="images/tinyhome2.jpg" alt="Tiny Home II exterior" class="w-full h-48 object-cover" loading="lazy">
+          <img src="images/tinyhome2.jpg" alt="Tiny Home Project" class="w-full h-48 object-cover">
           <div class="p-6">
-            <h3 class="font-semibold text-lg">Tiny Home II</h3>
-            <p class="text-sm text-gray-600 mt-1">Refined interior/exterior package with cold-formed steel frame.</p>
+            <h3 class="font-semibold text-lg">Tiny Home Project</h3>
           </div>
         </div>
       </div>
-
-      <!-- Row 2: Steel Framing -->
-      <div class="grid gap-8 md:grid-cols-2">
+      <div class="mt-8">
         <div class="bg-white rounded-xl shadow hover:shadow-lg transition overflow-hidden">
-          <img src="images/scottsdale-card.jpg" alt="Steel framing installation project" class="w-full h-56 object-cover" loading="lazy">
+          <img src="images/booth.jpg" alt="Scottsdale Booth Steel Framing" class="w-full object-contain">
           <div class="p-6">
-            <h3 class="font-semibold text-lg">Steel Framing Project</h3>
-            <p class="text-sm text-gray-600 mt-1">Cold-formed steel assembly leveraging Scottsdale Construction Systems roll forming.</p>
-          </div>
-        </div>
-        <div class="bg-white rounded-xl shadow hover:shadow-lg transition overflow-hidden">
-          <img src="images/booth.jpg" alt="Scottsdale steel framing booth" class="w-full h-56 object-cover" loading="lazy">
-          <div class="p-6">
-            <h3 class="font-semibold text-lg">Steel Framing Booth</h3>
-            <p class="text-sm text-gray-600 mt-1">Showcase of steel framing system capabilities and component precision.</p>
+            <h3 class="font-semibold text-lg">Scottsdale Booth Steel Framing</h3>
           </div>
         </div>
       </div>
-
     </div>
   </section>
 
