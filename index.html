@@ -7,13 +7,10 @@
   <meta name="description" content="Traverse Dynamics Global LLC - Colorado-based construction consulting specializing in upscale tiny homes, modular steel framing, and innovative building technology." />
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(20px);} to { opacity: 1; transform: translateY(0);} }
     .animate-fadeIn { animation: fadeIn 1s ease-out forwards; opacity: 0; }
-    .delay-200 { animation-delay: 0.2s; }
-    .delay-400 { animation-delay: 0.4s; }
+    .delay-200 { animation-delay: .2s; }
+    .delay-400 { animation-delay: .4s; }
   </style>
 </head>
 <body class="font-sans text-gray-800">
@@ -91,33 +88,39 @@
     <div class="container mx-auto px-6 max-w-6xl">
       <h2 class="text-3xl font-bold text-center mb-10">Projects</h2>
 
-      <!-- Row 1: Three large Tiny Home photos -->
-      <div class="grid gap-8 md:grid-cols-3">
+      <!-- Row 1 -->
+      <div class="grid gap-8 md:grid-cols-2">
         <div class="bg-white rounded-xl shadow hover:shadow-lg transition overflow-hidden">
-          <img src="images/tinyhome1.jpeg" alt="Tiny Home" class="w-full h-80 object-cover">
+          <img src="images/tinyhome1.jpeg" alt="Tiny Home 1" class="w-full h-[28rem] object-cover">
         </div>
         <div class="bg-white rounded-xl shadow hover:shadow-lg transition overflow-hidden">
-          <img src="images/squarestream.jpg" alt="Square Stream Tiny Home" class="w-full h-80 object-cover">
-        </div>
-        <div class="bg-white rounded-xl shadow hover:shadow-lg transition overflow-hidden">
-          <img src="images/tinyhome2.jpg" alt="Tiny Home" class="w-full h-80 object-cover">
+          <img src="images/tinyhome2.jpg" alt="Tiny Home 2" class="w-full h-[28rem] object-cover">
         </div>
       </div>
 
-      <!-- Row 2: Steel Framing project card -->
+      <!-- Row 2 -->
+      <div class="grid gap-8 md:grid-cols-2 mt-8">
+        <div class="bg-white rounded-xl shadow hover:shadow-lg transition overflow-hidden">
+          <img src="images/squarestream.jpg" alt="SquareStream" class="w-full h-[28rem] object-cover">
+        </div>
+        <div class="bg-white rounded-xl shadow hover:shadow-lg transition overflow-hidden">
+          <img src="images/tinyhousetink.jpg" alt="Tiny House Tink" class="w-full h-[28rem] object-cover">
+        </div>
+      </div>
+
+      <!-- Row 3 -->
       <div class="grid gap-8 md:grid-cols-1 mt-8">
         <div class="bg-white rounded-xl shadow hover:shadow-lg transition overflow-hidden">
-          <img src="images/scottsdale-card.jpg" alt="Steel Framing Project" class="w-full h-80 object-cover">
+          <img src="images/scottsdale-card.jpg" alt="Steel Framing Project" class="w-full h-[28rem] object-cover">
         </div>
       </div>
 
-      <!-- Row 3: Full-width Scottsdale Booth portrait (show entire image) -->
+      <!-- Row 4 -->
       <div class="mt-8">
         <div class="bg-white rounded-xl shadow hover:shadow-lg transition overflow-hidden">
-          <img src="images/booth.jpg" alt="Scottsdale Booth" class="w-full object-contain" style="max-height: 700px;">
+          <img src="images/booth.jpg" alt="Scottsdale Booth" class="w-full object-contain">
         </div>
       </div>
-
     </div>
   </section>
 
@@ -125,7 +128,7 @@
   <section id="contact" class="py-20">
     <div class="container mx-auto px-6 max-w-xl text-center">
       <h2 class="text-3xl font-bold mb-6">Request a Consultation</h2>
-      <form action="https://formspree.io/f/movlrryk" method="POST" class="bg-white p-8 rounded-xl shadow space-y-4">
+      <form action="https://formspree.io/f/movlrryk" method="POST" class="bg-white p-8 rounded-xl shadow space-y-4" >
         <input type="text" name="name" placeholder="Your Name" class="w-full border border-gray-300 rounded-lg p-3" required />
         <input type="email" name="_replyto" placeholder="Your Email" class="w-full border border-gray-300 rounded-lg p-3" required />
         <select name="project_type" class="w-full border border-gray-300 rounded-lg p-3" required>
@@ -142,20 +145,17 @@
     </div>
   </section>
 
-  <!-- Footer: two columns, matching header color -->
+  <!-- Footer -->
   <footer class="bg-gray-900 text-white py-10">
-    <div class="container mx-auto px-6 max-w-6xl grid md:grid-cols-2 gap-6 items-start">
+    <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-4">
       <div>
-        <p class="text-xl font-semibold">Cydney Skeens</p>
-        <p class="text-sm opacity-90">Traverse Dynamics Global LLC</p>
-        <p class="mt-3">
-          <a href="tel:+12147630146" class="hover:text-yellow-400">+1-214-763-0146</a><br>
-          <a href="mailto:cydneyskeens@gmail.com" class="hover:text-yellow-400">cydneyskeens@gmail.com</a>
-        </p>
+        <p class="font-bold">Traverse Dynamics Global LLC</p>
+        <p>© 2025 All Rights Reserved.</p>
       </div>
       <div class="md:text-right">
-        <p><a href="https://www.linkedin.com/in/cydney-skeens/" target="_blank" rel="noopener" class="hover:text-yellow-400">linkedin.com/in/cydney-skeens</a></p>
-        <p class="mt-3 text-sm opacity-90">© 2025 Traverse Dynamics Global LLC. All Rights Reserved.</p>
+        <p>Cydney Skeens</p>
+        <p>📞 +1-214-763-0146</p>
+        <p><a href="https://www.linkedin.com/in/cydney-skeens/" class="text-yellow-400 hover:underline" target="_blank">LinkedIn</a></p>
       </div>
     </div>
   </footer>
