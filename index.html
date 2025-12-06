@@ -3,258 +3,844 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>TDG Steel Frame </title>
+  <title>TDG Steel Frame</title>
   <meta name="description" content="Traverse Dynamics Global LLC - Colorado-based construction consulting specializing in upscale tiny homes, modular steel framing, and innovative building technology." />
-  <script src="https://cdn.tailwindcss.com"></script>
+
   <style>
-    @keyframes fadeIn { from { opacity: 0; transform: translateY(20px);} to { opacity: 1; transform: translateY(0);} }
-    .animate-fadeIn { animation: fadeIn 1s ease-out forwards; opacity: 0; }
-    .delay-200 { animation-delay: .2s; }
-    .delay-400 { animation-delay: .4s; }
+    /* ===============================
+       TDG – Premium Architectural Theme
+       =============================== */
+
+    :root {
+      --bg-main: #f5f5f7;
+      --bg-light: #ffffff;
+      --bg-soft: #f0f2f5;
+      --text-main: #191919;
+      --text-muted: #5f6470;
+      --accent: #f5b300;
+      --accent-dark: #d89a00;
+      --border-soft: #e0e3ea;
+      --nav-bg: rgba(255, 255, 255, 0.96);
+      --shadow-soft: 0 12px 30px rgba(0, 0, 0, 0.08);
+      --radius-card: 16px;
+      --transition-fast: 0.25s ease;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+        "Helvetica Neue", Arial, sans-serif;
+      background: var(--bg-main);
+      color: var(--text-main);
+      line-height: 1.6;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    /* -------- Layout -------- */
+
+    .container {
+      width: 100%;
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    main {
+      padding-top: 72px; /* offset for fixed navbar */
+    }
+
+    .section {
+      padding: 4.5rem 0;
+    }
+
+    .section-light {
+      background: var(--bg-soft);
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 1.9rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin-bottom: 2.75rem;
+      color: #2a2f36;
+    }
+
+    /* -------- Navbar -------- */
+
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 50;
+      background: var(--nav-bg);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.06);
+    }
+
+    .navbar-inner {
+      display: flex;
+      align-items: center;
+      gap: 2.25rem;
+      padding: 0.6rem 1.5rem;
+    }
+
+    .navbar-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      white-space: nowrap;
+    }
+
+    .navbar-logo img {
+      height: 40px;
+      width: auto;
+    }
+
+    .navbar-logo-text {
+      font-weight: 700;
+      font-size: 1rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #242933;
+    }
+
+    .navbar-nav {
+      margin-left: auto;
+      display: flex;
+      gap: 1.75rem;
+      font-size: 0.95rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #505665;
+    }
+
+    .navbar-nav a {
+      position: relative;
+      padding-bottom: 0.3rem;
+      transition: color var(--transition-fast);
+    }
+
+    .navbar-nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 2px;
+      background: var(--accent);
+      transition: width var(--transition-fast);
+    }
+
+    .navbar-nav a:hover {
+      color: #22252c;
+    }
+
+    .navbar-nav a:hover::after {
+      width: 100%;
+    }
+
+    /* -------- Hero -------- */
+
+    .hero {
+      position: relative;
+      min-height: 80vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url("images/eagleslndg.jpeg");
+      background-size: cover;
+      background-position: center;
+      transform: scale(1.03);
+      filter: brightness(0.75);
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.45),
+        rgba(0, 0, 0, 0.7)
+      );
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 720px;
+      padding: 0 1.5rem;
+    }
+
+    .hero-title {
+      font-size: clamp(2.4rem, 4vw, 3.6rem);
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      margin-bottom: 1.25rem;
+    }
+
+    .hero-subtitle {
+      font-size: 1.1rem;
+      max-width: 36rem;
+      margin: 0 auto 2rem;
+      color: #e8ebf1;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      padding: 0.8rem 2.4rem;
+      border-radius: 999px;
+      background: var(--accent);
+      color: #111111;
+      font-weight: 600;
+      font-size: 0.95rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35);
+      transition: background var(--transition-fast), transform var(--transition-fast),
+        box-shadow var(--transition-fast);
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-dark);
+      transform: translateY(-1px);
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.45);
+    }
+
+    /* --- Simple fade-in animation for hero --- */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(18px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .hero-title,
+    .hero-subtitle,
+    .btn-primary {
+      opacity: 0;
+      animation: fadeInUp 0.9s ease forwards;
+    }
+
+    .hero-subtitle {
+      animation-delay: 0.15s;
+    }
+
+    .btn-primary {
+      animation-delay: 0.3s;
+    }
+
+    /* -------- Services -------- */
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1.75rem;
+    }
+
+    .service-card {
+      background: var(--bg-light);
+      border-radius: var(--radius-card);
+      border: 1px solid var(--border-soft);
+      box-shadow: var(--shadow-soft);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+    }
+
+    .service-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
+    }
+
+    .service-image-wrap {
+      position: relative;
+      height: 160px;
+      overflow: hidden;
+    }
+
+    .service-image-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: scale(1.03);
+      transition: transform 0.5s ease;
+    }
+
+    .service-card:hover .service-image-wrap img {
+      transform: scale(1.07);
+    }
+
+    .service-content {
+      padding: 1.1rem 1.2rem 1.4rem;
+    }
+
+    .service-title {
+      font-size: 1.05rem;
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .service-text {
+      font-size: 0.93rem;
+      color: var(--text-muted);
+    }
+
+    /* -------- About -------- */
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.3fr);
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .about-image {
+      border-radius: var(--radius-card);
+      overflow: hidden;
+      border: 1px solid var(--border-soft);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .about-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .about-text h2 {
+      font-size: 1.7rem;
+      margin-bottom: 1.2rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #252a33;
+    }
+
+    .about-text p {
+      margin-bottom: 0.9rem;
+      color: var(--text-muted);
+      font-size: 0.98rem;
+    }
+
+    /* -------- Projects -------- */
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.5rem;
+    }
+
+    .project-card {
+      background: var(--bg-light);
+      border-radius: var(--radius-card);
+      overflow: hidden;
+      border: 1px solid var(--border-soft);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .project-card img {
+      width: 100%;
+      height: 22rem;
+      object-fit: cover;
+    }
+
+    /* One-column full-width row */
+    .projects-grid-full {
+      margin-top: 1.5rem;
+    }
+
+    .projects-grid-full .project-card img {
+      height: 24rem;
+      object-fit: cover;
+    }
+
+    /* Extra row for additional images */
+    .projects-grid-extra {
+      margin-top: 1.5rem;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.5rem;
+    }
+
+    /* -------- Contact -------- */
+
+    .contact-wrapper {
+      max-width: 520px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .contact-title {
+      font-size: 1.7rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      margin-bottom: 1.9rem;
+      color: #262b34;
+    }
+
+    .status-message {
+      border-radius: 12px;
+      padding: 0.8rem 1rem;
+      margin-bottom: 1rem;
+      font-size: 0.92rem;
+    }
+
+    .status-success {
+      background: #e7f7ea;
+      color: #206b33;
+      border: 1px solid #c2e7c9;
+    }
+
+    .status-error {
+      background: #fde7e7;
+      color: #8f1f1f;
+      border: 1px solid #f4b5b5;
+    }
+
+    .contact-form {
+      background: var(--bg-light);
+      padding: 2rem 2.1rem;
+      border-radius: var(--radius-card);
+      box-shadow: var(--shadow-soft);
+      border: 1px solid var(--border-soft);
+      text-align: left;
+    }
+
+    .form-group {
+      margin-bottom: 1rem;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 0.7rem 0.8rem;
+      border-radius: 10px;
+      border: 1px solid #cdd2dd;
+      font-size: 0.95rem;
+      font-family: inherit;
+      transition: border-color var(--transition-fast),
+        box-shadow var(--transition-fast);
+      resize: vertical;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(245, 179, 0, 0.25);
+    }
+
+    .form-submit {
+      margin-top: 0.5rem;
+    }
+
+    .btn-full {
+      width: 100%;
+      text-align: center;
+    }
+
+    /* -------- Footer -------- */
+
+    .footer {
+      background: #101218;
+      color: #d7d8dd;
+      padding: 2.2rem 0;
+      margin-top: 2rem;
+    }
+
+    .footer-inner {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.9rem;
+    }
+
+    .footer a {
+      color: var(--accent);
+      text-decoration: none;
+      transition: color var(--transition-fast);
+    }
+
+    .footer a:hover {
+      color: var(--accent-dark);
+    }
+
+    /* -------- Responsive -------- */
+
+    @media (max-width: 960px) {
+      .services-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .projects-grid,
+      .projects-grid-extra {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .navbar-inner {
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        padding: 0.5rem 1rem;
+      }
+
+      .navbar-nav {
+        width: 100%;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        gap: 1.2rem;
+        font-size: 0.85rem;
+      }
+
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .projects-grid,
+      .projects-grid-extra {
+        grid-template-columns: 1fr;
+      }
+
+      .project-card img {
+        height: 15rem;
+      }
+
+      .projects-grid-full .project-card img {
+        height: 18rem;
+      }
+
+      .hero {
+        min-height: 70vh;
+      }
+
+      .hero-title {
+        letter-spacing: 0.12em;
+      }
+    }
   </style>
 </head>
-<body class="font-sans text-gray-800">
+<body>
 
-<!-- Navbar -->
-<header class="bg-gray-900 text-white fixed w-full z-50 shadow-lg">
-  <div class="container mx-auto flex items-center px-6 py-4 gap-10">
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="container navbar-inner">
 
-    <!-- Logo -->
-    <a href="/" class="flex items-center space-x-3">
-      <img src="images/logo.png" alt="TDG Steel Frame Logo" class="h-13 w-auto">
-      <span class="text-2xl font-bold hidden sm:inline">
-        Steel Frame Construction Consulting
-      </span>
-    </a>
+      <a href="#top" class="navbar-logo">
+        <img src="images/logo.png" alt="TDG Steel Frame Logo">
+        <span class="navbar-logo-text">Steel Frame Construction Consulting</span>
+      </a>
 
-    <!-- Nav -->
-    <nav class="space-x-6 hidden md:block ml-auto">
-      <a href="#services" class="hover:text-yellow-400">Services</a>
-      <a href="#about" class="hover:text-yellow-400">About</a>
-      <a href="#projects" class="hover:text-yellow-400">Projects</a>
-      <a href="#contact" class="hover:text-yellow-400">Contact</a>
-    </nav>
-
-  </div>
-</header>
-
-
-
-  <!-- Hero -->
-  <section class="bg-cover bg-center h-screen flex flex-col justify-center items-center text-white text-center relative"
-    style="background-image:url('images/eagleslndg.jpeg');">
-    <div class="bg-black/40 absolute inset-0"></div>
-    <div class="relative z-10 px-4 max-w-3xl">
-      <h1 class="text-4xl md:text-6xl font-bold mb-4 animate-fadeIn">Smart. Strong. Steel.</h1>
-      <p class="text-lg md:text-2xl mb-6 animate-fadeIn delay-200">High-end tiny homes & modular spaces with precision steel framing and cutting-edge engineering.</p>
-      <a href="#contact" class="bg-yellow-500 hover:bg-yellow-600 text-black px-6 py-3 rounded-lg font-semibold shadow-lg animate-fadeIn delay-400">Start Your Project</a>
-    </div>
-  </section>
-
- <!-- Services -->
-<section id="services" class="py-20 bg-gray-50">
-  <div class="container mx-auto px-6 max-w-6xl">
-    <h2 class="text-3xl font-bold text-center mb-12">Our Expertise</h2>
-
-    <div class="grid gap-10 md:grid-cols-4">
-
-      <!-- Service 1 -->
-      <div class="steel-card">
-        <div class="h-50 w-full overflow-hidden rounded-lg mb-4">
-          <img src="images/tinyhome2.jpg" 
-               alt="Tiny Home from Steel Panels"
-               class="w-full h-full object-cover">
-        </div>
-        <h3 class="text-xl font-semibold mb-2">Upscale Tiny Homes</h3>
-        <p>Luxury micro-living with smart, efficient layouts.</p>
-      </div>
-
-      <!-- Service 2 -->
-      <div class="steel-card">
-        <div class="h-50 w-full overflow-hidden rounded-lg mb-4">
-          <img src="images/greenhouse1.jpeg" 
-               alt="Steel Framing"
-               class="w-full h-full object-cover">
-        </div>
-        <h3 class="text-xl font-semibold mb-2">Steel Framing</h3>
-        <p>Cold-formed steel using Scottsdale Construction Systems.</p>
-      </div>
-
-      <!-- Service 3 -->
-      <div class="steel-card">
-        <div class="h-50 w-full overflow-hidden rounded-lg mb-4">
-          <img src="images/greenhouse.jpeg" 
-               alt="Design and Engineering"
-               class="w-full h-full object-cover">
-        </div>
-        <h3 class="text-xl font-semibold mb-2">Design & Engineering</h3>
-        <p>BIM + 3D modeling for design-to-build precision.</p>
-      </div>
-
-      <!-- Service 4 -->
-      <div class="steel-card">
-        <div class="h-50 w-full overflow-hidden rounded-lg mb-4">
-          <img src="images/7090g2.jpeg" 
-               alt="Roll Forming Equipment"
-               class="w-full h-full object-cover">
-        </div>
-        <h3 class="text-xl font-semibold mb-2">DIY Manufacturing</h3>
-        <p>Roll-former setup & production consulting.</p>
-      </div>
+      <nav class="navbar-nav">
+        <a href="#services">Services</a>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </nav>
 
     </div>
-  </div>
-</section>
+  </header>
 
+  <main id="top">
 
-  <!-- About -->
-  <section id="about" class="py-20">
-    <div class="container mx-auto px-6 max-w-5xl grid md:grid-cols-2 gap-10 items-center">
-      <img src="images/quonsetcyd.jpg" alt="Steel Quonset Hut Headquarters" class="rounded-xl shadow-lg">
-      <div>
-        <h2 class="text-3xl font-bold mb-6">About Us</h2>
-        <p class="mb-4">
-          Traverse Dynamics Global LLC is a Colorado-based construction consulting firm specializing in high-end tiny homes, modular residential and commercial projects, utilizing advanced steel framing techniques. Operating out of our steel Quonset hut HQ, we combine rugged durability with cutting-edge technology.
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-bg"></div>
+      <div class="hero-overlay"></div>
+
+      <div class="hero-inner">
+        <h1 class="hero-title">Smart. Strong. Steel.</h1>
+        <p class="hero-subtitle">
+          High-end tiny homes & modular spaces with precision steel framing and cutting-edge engineering.
         </p>
-        <p class="mb-4">
-          Led by Cydney Skeens, we blend deep industry experience with a DIY manufacturing approach using Scottsdale Construction Systems roll formers and state-of-the-art design & engineering software.
-        </p>
-        <p>
-          Our mission: deliver precision, efficiency, and innovation—projects that stand the test of time while reducing cost and environmental impact.
-        </p>
+        <a href="#contact" class="btn-primary">Start Your Project</a>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Projects -->
-  <section id="projects" class="py-20 bg-gray-50">
-    <div class="container mx-auto px-6 max-w-6xl">
-      <h2 class="text-3xl font-bold text-center mb-10">Projects</h2>
+    <!-- Services -->
+    <section id="services" class="section section-light">
+      <div class="container">
+        <h2 class="section-title">Our Expertise</h2>
 
-      <!-- Row 1 -->
-      <div class="grid gap-8 md:grid-cols-2">
-        <div class="bg-white rounded-xl shadow hover:shadow-lg transition overflow-hidden">
-          <img src="images/tinyhome1.jpeg" alt="Tiny Home 1" class="w-full h-[28rem] object-cover">
-        </div>
-        <div class="bg-white rounded-xl shadow hover:shadow-lg transition overflow-hidden">
-          <img src="images/tinyhome2.jpg" alt="Tiny Home 2" class="w-full h-[28rem] object-cover">
+        <div class="services-grid">
+
+          <article class="service-card">
+            <div class="service-image-wrap">
+              <img src="images/tinyhome2.jpeg" alt="Tiny Home from Steel Panels">
+            </div>
+            <div class="service-content">
+              <h3 class="service-title">Upscale Tiny Homes</h3>
+              <p class="service-text">
+                Luxury micro-living with efficient layouts, premium finishes, and resilient steel framing.
+              </p>
+            </div>
+          </article>
+
+          <article class="service-card">
+            <div class="service-image-wrap">
+              <img src="images/greenhouse1.jpeg" alt="Steel Framing">
+            </div>
+            <div class="service-content">
+              <h3 class="service-title">Steel Framing</h3>
+              <p class="service-text">
+                Cold-formed steel systems using Scottsdale Construction equipment for precise, repeatable builds.
+              </p>
+            </div>
+          </article>
+
+          <article class="service-card">
+            <div class="service-image-wrap">
+              <img src="images/greenhouse.jpeg" alt="Design and Engineering">
+            </div>
+            <div class="service-content">
+              <h3 class="service-title">Design &amp; Engineering</h3>
+              <p class="service-text">
+                BIM and 3D modeling workflows that connect design, detailing, and fabrication into one process.
+              </p>
+            </div>
+          </article>
+
+          <article class="service-card">
+            <div class="service-image-wrap">
+              <img src="images/7090g2.jpeg" alt="Roll Former Equipment">
+            </div>
+            <div class="service-content">
+              <h3 class="service-title">DIY Manufacturing</h3>
+              <p class="service-text">
+                Consulting on roll-former setup, production flow, and on-site steel frame manufacturing.
+              </p>
+            </div>
+          </article>
+
         </div>
       </div>
+    </section>
 
-      <!-- Row 2 -->
-      <div class="grid gap-8 md:grid-cols-2 mt-8">
-        <div class="bg-white rounded-xl shadow hover:shadow-lg transition overflow-hidden">
-          <img src="images/squarestream.jpg" alt="SquareStream" class="w-full h-[28rem] object-cover">
+    <!-- About -->
+    <section id="about" class="section">
+      <div class="container about-grid">
+        <div class="about-image">
+          <img src="images/quonsetcyd.jpg" alt="Steel Quonset Hut Headquarters">
         </div>
-        <div class="bg-white rounded-xl shadow hover:shadow-lg transition overflow-hidden">
-          <img src="images/tinyhousetink.jpeg" alt="Tiny House Tink" class="w-full h-[28rem] object-cover">
-        </div>
-      </div>
-
-       <!-- Row 3 -->
-      <div class="grid gap-8 md:grid-cols-2 mt-8">
-        <div class="bg-white rounded-xl shadow hover:shadow-lg transition overflow-hidden">
-          <img src="images/greenhouse.jpeg" alt="Greenhouse" class="w-full h-[28rem] object-cover">
-        </div>
-        <div class="bg-white rounded-xl shadow hover:shadow-lg transition overflow-hidden">
-          <img src="images/greenhouse1.jpeg" alt="Greenhouse 1" class="w-full h-[28rem] object-cover">
-        </div>
-      </div>
-
-       <!-- Row 4 -->
-      <div class="grid gap-8 md:grid-cols-2 mt-8">
-        <div class="bg-white rounded-xl shadow hover:shadow-lg transition overflow-hidden">
-          <img src="images/greenhouse2.jpeg" alt="Greenhouse 2" class="w-full h-[28rem] object-cover">
-        </div>
-        <div class="bg-white rounded-xl shadow hover:shadow-lg transition overflow-hidden">
-          <img src="images/eagleslndg.jpeg" alt="MetalCon Expo" class="w-full h-[28rem] object-cover">
+        <div class="about-text">
+          <h2>About Us</h2>
+          <p>
+            Traverse Dynamics Global LLC is a Colorado-based construction consulting firm specializing in high-end
+            tiny homes and modular residential and commercial projects utilizing advanced steel framing techniques.
+          </p>
+          <p>
+            Operating out of our steel Quonset hut HQ, we combine rugged durability with clean, minimal design and
+            modern building technology.
+          </p>
+          <p>
+            Led by Cydney Skeens, we blend deep industry experience with a DIY manufacturing mindset using Scottsdale
+            Construction Systems roll formers and state-of-the-art design and engineering software. Our mission is to
+            deliver precision, efficiency, and innovation—projects that stand the test of time while reducing cost and
+            environmental impact.
+          </p>
         </div>
       </div>
+    </section>
 
-  <!-- Contact -->
-<section id="contact" class="py-20">
-  <div class="container mx-auto px-6 max-w-xl text-center">
-    <h2 class="text-3xl font-bold mb-6">Request a Consultation</h2>
+    <!-- Projects -->
+    <section id="projects" class="section section-light">
+      <div class="container">
+        <h2 class="section-title">Projects</h2>
 
-    <!-- Success Message -->
-    <div id="successMessage" class="hidden bg-green-100 text-green-800 p-4 rounded-lg mb-4">
-      ✅ Your message has been sent successfully! Redirecting...
-    </div>
+        <div class="projects-grid">
+          <div class="project-card">
+            <img src="images/tinyhome1.jpeg" alt="Tiny Home 1">
+          </div>
+          <div class="project-card">
+            <img src="images/tinyhome2.jpg" alt="Tiny Home 2">
+          </div>
+        </div>
 
-    <!-- Error Message -->
-    <div id="errorMessage" class="hidden bg-red-100 text-red-800 p-4 rounded-lg mb-4">
-      ❌ Something went wrong. Please try again.
-    </div>
+        <div class="projects-grid" style="margin-top: 1.5rem;">
+          <div class="project-card">
+            <img src="images/squarestream.jpg" alt="SquareStream">
+          </div>
+            <div class="project-card">
+            <img src="images/tinyhousetink.jpeg" alt="Tiny House Tink">
+          </div>
+        </div>
 
-    <form id="contactForm" action="https://formspree.io/f/movlrryk" method="POST" class="bg-white p-8 rounded-xl shadow space-y-4">
-      <input type="text" name="name" placeholder="Your Name" class="w-full border border-gray-300 rounded-lg p-3" required />
+        <div class="projects-grid" style="margin-top: 1.5rem;">
+          <div class="project-card">
+            <img src="images/greenhouse.jpeg" alt="Greenhouse">
+          </div>
+          <div class="project-card">
+            <img src="images/greenhouse1.jpeg" alt="Greenhouse 1">
+          </div>
+        </div>
 
-      <input type="email" name="email" placeholder="Your Email" class="w-full border border-gray-300 rounded-lg p-3" required />
+        <div class="projects-grid-extra">
+          <div class="project-card">
+            <img src="images/greenhouse2.jpeg" alt="Greenhouse 2">
+          </div>
+          <div class="project-card">
+            <img src="images/eagleslndg.jpeg" alt="MetalCon Expo">
+          </div>
+        </div>
 
-      <select name="project_type" class="w-full border border-gray-300 rounded-lg p-3" required>
-        <option value="" disabled selected>Select Project Type</option>
-        <option value="Tiny Home">Tiny Home</option>
-        <option value="Modular Residential">Modular Residential</option>
-        <option value="Modular Commercial">Modular Commercial</option>
-        <option value="Other">Other</option>
-      </select>
+      </div>
+    </section>
 
-      <textarea name="message" placeholder="Your Message" class="w-full border border-gray-300 rounded-lg p-3" rows="5" required></textarea>
+    <!-- Contact -->
+    <section id="contact" class="section">
+      <div class="container contact-wrapper">
+        <h2 class="contact-title">Request a Consultation</h2>
 
-      <!-- Hidden bot trap -->
-      <input type="text" name="_gotcha" style="display:none" />
+        <div id="successMessage" class="status-message status-success hidden">
+          ✅ Your message has been sent successfully! Redirecting...
+        </div>
 
-      <button type="submit" class="bg-yellow-500 hover:bg-yellow-600 text-black px-6 py-3 rounded-lg font-semibold shadow-lg w-full">
-        Send Message
-      </button>
-    </form>
-  </div>
-</section>
+        <div id="errorMessage" class="status-message status-error hidden">
+          ❌ Something went wrong. Please try again.
+        </div>
 
+        <form id="contactForm"
+              action="https://formspree.io/f/movlrryk"
+              method="POST"
+              class="contact-form">
+
+          <div class="form-group">
+            <input type="text" name="name" placeholder="Your Name" required>
+          </div>
+
+          <div class="form-group">
+            <input type="email" name="email" placeholder="Your Email" required>
+          </div>
+
+          <div class="form-group">
+            <select name="project_type" required>
+              <option value="" disabled selected>Select Project Type</option>
+              <option value="Tiny Home">Tiny Home</option>
+              <option value="Modular Residential">Modular Residential</option>
+              <option value="Modular Commercial">Modular Commercial</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+          </div>
+
+          <!-- Hidden bot trap -->
+          <input type="text" name="_gotcha" style="display:none" />
+
+          <div class="form-submit">
+            <button type="submit" class="btn-primary btn-full">
+              Send Message
+            </button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+  </main>
 
   <!-- Footer -->
-  <footer class="bg-gray-900 text-white py-10">
-    <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-4">
+  <footer class="footer">
+    <div class="container footer-inner">
       <div>
-        <p class="font-bold">Traverse Dynamics Global LLC</p>
-        <p>Steel Frame Services</p>
-        <p>© 2025 All Rights Reserved.</p>
+        <strong>Traverse Dynamics Global LLC</strong><br>
+        Steel Frame Services<br>
+        © 2025 All Rights Reserved.
       </div>
-      <div class="md:text-right">
-        <p>Cydney Skeens</p>
-        <p>📞 +1-214-763-0146</p>
-        <p><a href="https://www.linkedin.com/in/cydney-skeens/" class="text-yellow-400 hover:underline" target="_blank">LinkedIn</a></p>
+      <div style="text-align: right;">
+        <div>Cydney Skeens</div>
+        <div>📞 +1-214-763-0146</div>
+        <div>
+          <a href="https://www.linkedin.com/in/cydney-skeens/" target="_blank" rel="noopener">
+            LinkedIn
+          </a>
+        </div>
       </div>
     </div>
   </footer>
+
   <script>
-  const form = document.getElementById("contactForm");
-  const successMsg = document.getElementById("successMessage");
-  const errorMsg = document.getElementById("errorMessage");
+    const form = document.getElementById("contactForm");
+    const successMsg = document.getElementById("successMessage");
+    const errorMsg = document.getElementById("errorMessage");
 
-  form.addEventListener("submit", async (e) => {
-    e.preventDefault();
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
 
-    const formData = new FormData(form);
+      const formData = new FormData(form);
 
-    try {
-      const res = await fetch(form.action, { method: "POST", body: formData, headers: { Accept: "application/json" } });
+      try {
+        const res = await fetch(form.action, {
+          method: "POST",
+          body: formData,
+          headers: { Accept: "application/json" },
+        });
 
-      if (res.ok) {
-        form.reset();
-        successMsg.classList.remove("hidden");
+        if (res.ok) {
+          form.reset();
+          errorMsg.classList.add("hidden");
+          successMsg.classList.remove("hidden");
 
-        setTimeout(() => {
-          window.location.href = "#";
-        }, 3000);
-      } else {
+          setTimeout(() => {
+            window.location.href = "#top";
+          }, 3000);
+        } else {
+          successMsg.classList.add("hidden");
+          errorMsg.classList.remove("hidden");
+        }
+      } catch (err) {
+        successMsg.classList.add("hidden");
         errorMsg.classList.remove("hidden");
       }
-    } catch (err) {
-      errorMsg.classList.remove("hidden");
-    }
-  });
-</script>
+    });
+  </script>
 
 </body>
 </html>
