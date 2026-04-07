@@ -1,0 +1,932 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  
+  <!-- SEO Meta Tags -->
+  <title>TDG Steel Frame | Premium Steel Frame Construction & Consulting</title>
+  <meta name="description" content="TDG Steel Frame specializes in high-end steel frame construction for tiny homes, modular spaces, and commercial projects. Expert consulting, design engineering, and roll-forming manufacturing." />
+  <meta name="keywords" content="steel framing, tiny homes, modular construction, steel frame consulting, cold-formed steel, Scottsdale Construction Systems, Traverse Dynamics Global, steel building" />
+  <meta name="author" content="Traverse Dynamics Global LLC" />
+  <meta name="robots" content="index, follow" />
+  
+  <!-- Open Graph / Social Media -->
+  <meta property="og:title" content="TDG Steel Frame | Smart. Strong. Steel." />
+  <meta property="og:description" content="Precision steel framing for luxury tiny homes and modular structures." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.tdgsteelframe.com/" />
+  <meta property="og:image" content="images/og-preview.jpg" />
+  <meta property="og:site_name" content="TDG Steel Frame" />
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="TDG Steel Frame | Smart. Strong. Steel." />
+  <meta name="twitter:description" content="Precision steel framing for luxury tiny homes and modular structures." />
+  
+  <link rel="canonical" href="https://www.tdgsteelframe.com/" />
+  <link rel="icon" type="image/x-icon" href="images/logo.ico" />
+  <link rel="shortcut icon" type="image/x-icon" href="images/logo.ico" />
+  
+  <!-- Font Awesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <style>
+    /* =====================================================
+       TDG — PREMIUM ATTRACTIVE & INTERACTIVE WEBSITE
+       Modern Animations | Parallax | Interactive Elements
+       ===================================================== */
+
+    :root {
+      --bg-main: #f5f5f7;
+      --bg-light: #ffffff;
+      --text-main: #1a1a1a;
+      --text-muted: #5b5e68;
+      --accent: #f5b300;
+      --accent-dark: #d89a00;
+      --accent-light: #ffdd88;
+      --border-soft: #e1e3ea;
+      --shadow-soft: 0 10px 30px rgba(0,0,0,0.09);
+      --shadow-hover: 0 20px 35px -12px rgba(0,0,0,0.15);
+      --radius: 16px;
+      --transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Helvetica Neue', Arial, sans-serif;
+      background: var(--bg-main);
+      color: var(--text-main);
+      line-height: 1.6;
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #e0e0e0;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: var(--accent);
+      border-radius: 10px;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* ===============================
+       PREMIUM NAVBAR
+       =============================== */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+      z-index: 1000;
+      transition: var(--transition);
+    }
+
+    .navbar.shrink {
+      padding: 0;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 70px;
+      transition: height 0.2s ease;
+    }
+
+    .navbar.shrink .navbar-inner {
+      height: 56px;
+    }
+
+    .logo-img {
+      height: 44px;
+      width: auto;
+      transition: height 0.2s ease;
+    }
+
+    .navbar.shrink .logo-img {
+      height: 34px;
+    }
+
+    .navbar-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .navbar-logo-text {
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      background: linear-gradient(135deg, #1e2a3a 0%, #2c3e4e 100%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .navbar-nav {
+      display: flex;
+      gap: 2rem;
+      text-transform: uppercase;
+      font-size: 0.85rem;
+      letter-spacing: 0.12em;
+      font-weight: 600;
+    }
+
+    .navbar-nav a {
+      color: #2c3e4e;
+      position: relative;
+      padding-bottom: 6px;
+      transition: color 0.3s;
+    }
+
+    .navbar-nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 2px;
+      background: var(--accent);
+      transition: width 0.3s ease;
+    }
+
+    .navbar-nav a:hover::after,
+    .navbar-nav a.active::after {
+      width: 100%;
+    }
+
+    .navbar-nav a.active {
+      color: var(--accent-dark);
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      width: 28px;
+      height: 24px;
+      flex-direction: column;
+      justify-content: space-between;
+      cursor: pointer;
+    }
+
+    .mobile-menu-btn span {
+      width: 100%;
+      height: 2.5px;
+      background: #1e2a3a;
+      border-radius: 2px;
+      transition: 0.2s;
+    }
+
+    .mobile-menu {
+      display: none;
+      flex-direction: column;
+      background: rgba(255, 255, 255, 0.98);
+      padding: 1.2rem 1.8rem;
+      gap: 1.2rem;
+    }
+
+    .mobile-menu.open {
+      display: flex;
+    }
+
+    @media (max-width: 860px) {
+      .navbar-nav {
+        display: none;
+      }
+      .mobile-menu-btn {
+        display: flex;
+      }
+    }
+
+    /* ===============================
+       HERO WITH PARALLAX & ANIMATION
+       =============================== */
+    .hero {
+      position: relative;
+      height: 100vh;
+      min-height: 600px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url("images/eagleslndg.jpeg");
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      transform: scale(1);
+      transition: transform 8s ease;
+    }
+
+    .hero:hover .hero-bg {
+      transform: scale(1.05);
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(0,0,0,0.6), rgba(0,0,0,0.75));
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 3;
+      max-width: 800px;
+      padding: 0 1.5rem;
+      animation: fadeInUp 1s ease;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .hero-title {
+      font-size: clamp(2.5rem, 7vw, 4.5rem);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: 800;
+      margin-bottom: 1rem;
+      text-shadow: 0 2px 20px rgba(0,0,0,0.3);
+    }
+
+    .hero-subtitle {
+      font-size: clamp(1rem, 3vw, 1.25rem);
+      margin-bottom: 2rem;
+      opacity: 0.95;
+    }
+
+    .btn-primary {
+      padding: 1rem 2.5rem;
+      border-radius: 50px;
+      background: var(--accent);
+      color: #1f2a36;
+      text-transform: uppercase;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      border: none;
+      cursor: pointer;
+      transition: var(--transition);
+      display: inline-block;
+      font-size: 0.9rem;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-dark);
+      transform: translateY(-3px);
+      box-shadow: 0 20px 35px rgba(0,0,0,0.3);
+    }
+
+    /* ===============================
+       SECTION STYLES
+       =============================== */
+    .section {
+      padding: 5rem 0;
+    }
+
+    .section-dark {
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+      color: white;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: clamp(1.8rem, 5vw, 2.5rem);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 3rem;
+      position: relative;
+    }
+
+    .section-title:after {
+      content: '';
+      display: block;
+      width: 70px;
+      height: 3px;
+      background: var(--accent);
+      margin: 1rem auto 0;
+    }
+
+    /* Stats Counter Section */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      text-align: center;
+    }
+
+    .stat-card {
+      padding: 2rem;
+      background: rgba(255,255,255,0.1);
+      border-radius: 20px;
+      backdrop-filter: blur(10px);
+      transition: var(--transition);
+    }
+
+    .stat-card:hover {
+      transform: translateY(-8px);
+      background: rgba(255,255,255,0.15);
+    }
+
+    .stat-number {
+      font-size: 3rem;
+      font-weight: 800;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+
+    .stat-label {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* Services Grid Enhanced */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    .service-card {
+      background: white;
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow-soft);
+      transition: var(--transition);
+      cursor: pointer;
+    }
+
+    .service-card:hover {
+      transform: translateY(-10px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .service-image {
+      height: 240px;
+      overflow: hidden;
+    }
+
+    .service-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+
+    .service-card:hover .service-image img {
+      transform: scale(1.08);
+    }
+
+    .service-content {
+      padding: 1.8rem;
+    }
+
+    .service-title {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .service-title i {
+      color: var(--accent);
+    }
+
+    /* Testimonials Slider */
+    .testimonials-slider {
+      display: flex;
+      gap: 2rem;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      padding: 1rem 0.5rem;
+      scrollbar-width: thin;
+    }
+
+    .testimonial-card {
+      min-width: 320px;
+      flex: 0 0 auto;
+      scroll-snap-align: start;
+      background: white;
+      border-radius: 24px;
+      padding: 2rem;
+      box-shadow: var(--shadow-soft);
+      transition: var(--transition);
+    }
+
+    .testimonial-card:hover {
+      transform: scale(1.02);
+    }
+
+    .testimonial-text {
+      font-size: 1rem;
+      color: var(--text-muted);
+      font-style: italic;
+      margin-bottom: 1rem;
+    }
+
+    .testimonial-author {
+      font-weight: 700;
+      color: var(--accent-dark);
+    }
+
+    /* Projects Gallery */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 1.8rem;
+    }
+
+    .project-card {
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    .project-card img {
+      width: 100%;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .project-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+      display: flex;
+      align-items: flex-end;
+      padding: 1.5rem;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+
+    .project-card:hover .project-overlay {
+      opacity: 1;
+    }
+
+    .project-card:hover img {
+      transform: scale(1.05);
+    }
+
+    .project-title {
+      color: white;
+      font-weight: 600;
+      font-size: 1.1rem;
+    }
+
+    /* Contact Form */
+    .contact-wrapper {
+      max-width: 620px;
+      margin: auto;
+    }
+
+    .contact-form {
+      background: white;
+      padding: 2.5rem;
+      border-radius: 28px;
+      box-shadow: var(--shadow-hover);
+    }
+
+    .form-group {
+      margin-bottom: 1.2rem;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 1rem;
+      border-radius: 16px;
+      border: 1.5px solid #e2e6ef;
+      transition: var(--transition);
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--accent);
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(245,179,0,0.2);
+    }
+
+    /* Footer with Icons */
+    .footer {
+      background: #0a0e17;
+      color: #a0a5b5;
+      padding: 3rem 0 2rem;
+    }
+
+    .footer-inner {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+
+    .footer-section h4 {
+      color: var(--accent);
+      margin-bottom: 1rem;
+      font-size: 1.1rem;
+    }
+
+    .footer-section p {
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .social-icons a {
+      width: 40px;
+      height: 40px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+      font-size: 1.2rem;
+    }
+
+    .social-icons a:hover {
+      background: var(--accent);
+      color: #1a1a2e;
+      transform: translateY(-3px);
+    }
+
+    .copyright {
+      text-align: center;
+      padding-top: 2rem;
+      margin-top: 2rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      font-size: 0.85rem;
+    }
+
+    @media (max-width: 768px) {
+      .section {
+        padding: 3rem 0;
+      }
+      .hero {
+        height: 80vh;
+      }
+      .hero-bg {
+        background-attachment: scroll;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header class="navbar" id="navbar">
+  <div class="container navbar-inner">
+    <a href="#top" class="navbar-logo">
+      <img src="images/logo.png" alt="TDG Steel Frame" class="logo-img" onerror="this.src='https://placehold.co/120x40/f5b300/1a1a1a?text=TDG'">
+      <span class="navbar-logo-text">Steel Frame Consulting</span>
+    </a>
+    <nav class="navbar-nav">
+      <a href="#services" data-link="services">Services</a>
+      <a href="#about" data-link="about">About</a>
+      <a href="#projects" data-link="projects">Projects</a>
+      <a href="#contact" data-link="contact">Contact</a>
+    </nav>
+    <button class="mobile-menu-btn" id="mobileMenuBtn">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#services">Services</a>
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </div>
+</header>
+
+<main>
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-inner">
+      <h1 class="hero-title">Smart. Strong. Steel.</h1>
+      <p class="hero-subtitle">High-end tiny homes & modular spaces with precision steel framing and cutting-edge engineering.</p>
+      <a href="#contact" class="btn-primary">Start Your Project <i class="fas fa-arrow-right"></i></a>
+    </div>
+  </section>
+
+  <!-- Stats Counter Section -->
+  <section class="section section-dark">
+    <div class="container">
+      <h2 class="section-title">Our Impact</h2>
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-number" data-target="150">0</div>
+          <div class="stat-label">Projects Completed</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number" data-target="25">0</div>
+          <div class="stat-label">Years Experience</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number" data-target="100">0</div>
+          <div class="stat-label">Happy Clients</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number" data-target="5">0</div>
+          <div class="stat-label">States Served</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" class="section">
+    <div class="container">
+      <h2 class="section-title">Our Expertise</h2>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-image"><img src="images/tinyhome1.jpeg" alt="Tiny Homes" loading="lazy"></div>
+          <div class="service-content">
+            <h3 class="service-title"><i class="fas fa-home"></i> Upscale Tiny Homes</h3>
+            <p>Luxury micro-living with efficient layouts and precision-built steel framing.</p>
+          </div>
+        </div>
+        <div class="service-card">
+          <div class="service-image"><img src="images/greenhouse1.jpeg" alt="Steel Framing" loading="lazy"></div>
+          <div class="service-content">
+            <h3 class="service-title"><i class="fas fa-drafting-compass"></i> Steel Framing</h3>
+            <p>Cold-formed steel systems using Scottsdale Construction Systems for accurate fabrication.</p>
+          </div>
+        </div>
+        <div class="service-card">
+          <div class="service-image"><img src="images/greenhouse.jpeg" alt="Design" loading="lazy"></div>
+          <div class="service-content">
+            <h3 class="service-title"><i class="fas fa-cube"></i> Design & Engineering</h3>
+            <p>BIM + 3D workflows that connect concept, detailing, and manufacturing.</p>
+          </div>
+        </div>
+        <div class="service-card">
+          <div class="service-image"><img src="images/7090g2.jpeg" alt="Manufacturing" loading="lazy"></div>
+          <div class="service-content">
+            <h3 class="service-title"><i class="fas fa-industry"></i> DIY Manufacturing</h3>
+            <p>Roll-former setup, production optimization, and on-site light-gauge steel manufacturing.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="section section-light">
+    <div class="container about-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 2.8rem; align-items: center;">
+      <div class="about-image"><img src="images/quonsetcyd.jpg" alt="HQ" style="border-radius: 24px; width: 100%;"></div>
+      <div class="about-text">
+        <h2>About Us</h2>
+        <p>Traverse Dynamics Global LLC specializes in modular and steel-frame residential and commercial construction consulting.</p>
+        <p>Operating from a steel Quonset hut HQ, we merge rugged durability with clean architectural precision and modern build processes.</p>
+        <p>We utilize Scottsdale Construction Systems roll-forming machines and advanced engineering tools to deliver efficient, durable structures.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Slider -->
+  <section class="section section-dark">
+    <div class="container">
+      <h2 class="section-title">What Clients Say</h2>
+      <div class="testimonials-slider">
+        <div class="testimonial-card">
+          <p class="testimonial-text">"TDG delivered our tiny home on time and within budget. The steel frame is incredibly solid. Highly recommend!"</p>
+          <p class="testimonial-author">— Sarah M., Homeowner</p>
+        </div>
+        <div class="testimonial-card">
+          <p class="testimonial-text">"Professional team, excellent engineering support. They helped us set up our roll-forming line seamlessly."</p>
+          <p class="testimonial-author">— James K., Construction Manager</p>
+        </div>
+        <div class="testimonial-card">
+          <p class="testimonial-text">"The attention to detail and quality of steel framing is unmatched. A true partner in our modular builds."</p>
+          <p class="testimonial-author">— Maria L., Developer</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Gallery -->
+  <section id="projects" class="section">
+    <div class="container">
+      <h2 class="section-title">Our Projects</h2>
+      <div class="projects-grid">
+        <div class="project-card"><img src="images/tinyhome1.jpeg" alt="Project 1"><div class="project-overlay"><span class="project-title">Modern Tiny Home</span></div></div>
+        <div class="project-card"><img src="images/tinyhome2.jpg" alt="Project 2"><div class="project-overlay"><span class="project-title">Steel Frame Residence</span></div></div>
+        <div class="project-card"><img src="images/squarestream.jpg" alt="Project 3"><div class="project-overlay"><span class="project-title">Square Stream Design</span></div></div>
+        <div class="project-card"><img src="images/tinyhousetink.jpeg" alt="Project 4"><div class="project-overlay"><span class="project-title">Tiny House Workshop</span></div></div>
+        <div class="project-card"><img src="images/greenhouse.jpeg" alt="Project 5"><div class="project-overlay"><span class="project-title">Steel Greenhouse</span></div></div>
+        <div class="project-card"><img src="images/eagleslndg.jpeg" alt="Project 6"><div class="project-overlay"><span class="project-title">Eagles Landing</span></div></div>
+      </div>
+      <div class="photo-management-note" style="text-align: center; margin-top: 2rem; padding: 1rem; background: #f8f9fa; border-radius: 12px;">
+        📸 <strong>Easy Photo Management:</strong> Add new photos by copying <code>&lt;div class="project-card"&gt;&lt;img src="your-image.jpg"&gt;&lt;div class="project-overlay"&gt;&lt;span class="project-title"&gt;Title&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;</code>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="section section-light">
+    <div class="container contact-wrapper">
+      <h2 class="section-title">Request a Consultation</h2>
+      <div id="successMessage" class="status-success" style="display:none;">✓ Message sent successfully!</div>
+      <div id="errorMessage" class="status-error" style="display:none;">✖ Submission error.</div>
+      <form id="contactForm" action="https://formspree.io/f/movlrryk" method="POST" class="contact-form">
+        <div class="form-group"><input type="text" name="name" placeholder="Full Name *" required></div>
+        <div class="form-group"><input type="email" name="email" placeholder="Email Address *" required></div>
+        <div class="form-group"><select name="project_type" required><option disabled selected>Select Project Type *</option><option>Tiny Home</option><option>Residential</option><option>Commercial</option><option>Other</option></select></div>
+        <div class="form-group"><textarea name="message" rows="4" placeholder="Tell us about your project... *" required></textarea></div>
+        <input type="text" name="_gotcha" style="display:none">
+        <button type="submit" class="btn-primary" style="width:100%;">Send Message <i class="fas fa-paper-plane"></i></button>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-section">
+        <h4><i class="fas fa-building"></i> TDG Steel Frame</h4>
+        <p><i class="fas fa-map-marker-alt"></i> Traverse Dynamics Global LLC</p>
+        <p><i class="fas fa-hard-hat"></i> Premium Steel Construction</p>
+      </div>
+      <div class="footer-section">
+        <h4><i class="fas fa-phone-alt"></i> Contact</h4>
+        <p><i class="fas fa-user"></i> Cydney Skeens</p>
+        <p><i class="fas fa-phone"></i> +1-214-763-0146</p>
+        <div class="social-icons">
+          <a href="https://www.linkedin.com/in/cydney-skeens/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+      <div class="footer-section">
+        <h4><i class="fas fa-link"></i> Quick Links</h4>
+        <p><a href="#services">→ Our Services</a></p>
+        <p><a href="#projects">→ Project Gallery</a></p>
+        <p><a href="#contact">→ Get Quote</a></p>
+      </div>
+    </div>
+    <div class="copyright">
+      © 2025 Traverse Dynamics Global LLC. All Rights Reserved. | Built with Steel & Precision
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Navbar scroll effect
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('shrink', window.scrollY > 30);
+    
+    // Active link highlight
+    const sections = document.querySelectorAll('section');
+    let current = '';
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop - 100;
+      if (scrollY >= sectionTop) {
+        current = section.getAttribute('id');
+      }
+    });
+    document.querySelectorAll('.navbar-nav a, .mobile-menu a').forEach(link => {
+      link.classList.remove('active');
+      if (link.getAttribute('href') === `#${current}`) {
+        link.classList.add('active');
+      }
+    });
+  });
+
+  // Mobile menu
+  const mobileBtn = document.getElementById('mobileMenuBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  mobileBtn?.addEventListener('click', () => mobileMenu.classList.toggle('open'));
+  mobileMenu?.querySelectorAll('a').forEach(link => link.addEventListener('click', () => mobileMenu.classList.remove('open')));
+
+  // Counter animation
+  const counters = document.querySelectorAll('.stat-number');
+  const speed = 200;
+  const animateCounters = () => {
+    counters.forEach(counter => {
+      const updateCount = () => {
+        const target = parseInt(counter.getAttribute('data-target'));
+        const count = parseInt(counter.innerText);
+        const increment = target / speed;
+        if (count < target) {
+          counter.innerText = Math.ceil(count + increment);
+          setTimeout(updateCount, 20);
+        } else {
+          counter.innerText = target;
+        }
+      };
+      updateCount();
+    });
+  };
+  
+  const observerOptions = { threshold: 0.5 };
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        animateCounters();
+        observer.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+  
+  const statsSection = document.querySelector('.stats-grid');
+  if (statsSection) observer.observe(statsSection);
+
+  // Contact form
+  const form = document.getElementById('contactForm');
+  const successDiv = document.getElementById('successMessage');
+  const errorDiv = document.getElementById('errorMessage');
+  
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const formData = new FormData(form);
+    try {
+      const res = await fetch(form.action, { method: 'POST', body: formData, headers: { 'Accept': 'application/json' } });
+      if (res.ok) {
+        form.reset();
+        successDiv.style.display = 'block';
+        errorDiv.style.display = 'none';
+        setTimeout(() => successDiv.style.display = 'none', 5000);
+      } else throw new Error();
+    } catch {
+      errorDiv.style.display = 'block';
+      successDiv.style.display = 'none';
+      setTimeout(() => errorDiv.style.display = 'none', 5000);
+    }
+  });
+
+  // Smooth scroll
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  });
+</script>
+</body>
+</html>
