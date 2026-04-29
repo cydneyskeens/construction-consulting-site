@@ -7,15 +7,19 @@
   <!-- SEO Meta Tags -->
   <title>TDG Steel Frame | Premium Steel Frame Construction & Consulting</title>
   <meta name="description" content="TDG Steel Frame specializes in high-end steel frame construction for tiny homes, modular spaces, and commercial projects. Expert consulting, design engineering, and roll-forming manufacturing." />
-  <meta name="keywords" content="steel framing, tiny homes, modular construction, steel frame consulting, cold-formed steel, Scottsdale Construction Systems, Traverse Dynamics Global" />
+  <!-- UPDATED SEO KEYWORDS per client request -->
+  <meta name="keywords" content="tiny homes, modular, prefab construction, off site construction, on site construction, steel framing, light gauge steel, roll forming, cold form steel frame, steel frame consulting, Scottsdale Construction Systems, Traverse Dynamics Global, steel building" />
   <meta name="author" content="Traverse Dynamics Global LLC" />
   <meta name="robots" content="index, follow" />
-  
-  <!-- Open Graph / Social Media -->
+  <meta name="language" content="English" />
+  <meta name="revisit-after" content="7 days" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+  <!-- Open Graph / Social Media Meta Tags -->
   <meta property="og:title" content="TDG Steel Frame | Smart. Strong. Steel." />
-  <meta property="og:description" content="Precision steel framing for luxury tiny homes and modular structures." />
+  <meta property="og:description" content="Precision steel framing for luxury tiny homes and modular structures. Engineering, manufacturing & consulting." />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://www.tdgsteelframe.com/" />
+  <meta property="og:url" content="https://www.cydneyskeens.com/" />
   <meta property="og:image" content="images/og-preview.jpg" />
   <meta property="og:site_name" content="TDG Steel Frame" />
   
@@ -24,299 +28,498 @@
   <meta name="twitter:title" content="TDG Steel Frame | Smart. Strong. Steel." />
   <meta name="twitter:description" content="Precision steel framing for luxury tiny homes and modular structures." />
   
-  <link rel="canonical" href="https://www.tdgsteelframe.com/" />
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://www.cydneyskeens.com/" />
+  
+  <!-- Favicon -->
   <link rel="icon" type="image/x-icon" href="images/logo.ico" />
-  <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico" />
-  <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
-  
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  
+  <link rel="shortcut icon" type="image/x-icon" href="images/logo.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png" />
+
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: "Inter", -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
-    }
+    /* =====================================================
+       TDG — PREMIUM ARCHITECTURAL PLATFORM
+       Fully Responsive | Mobile-First | Optimized Images
+       ===================================================== */
 
-    html, body {
-      height: 100%;
-      width: 100%;
-      overflow-x: hidden;
-      transition: background-color 0.3s ease, color 0.3s ease;
-    }
-
-    /* Light Theme (Default) */
     :root {
-      --bg-primary: #f5f5f7;
-      --bg-secondary: #ffffff;
-      --bg-dark: #0d131c;
-      --text-primary: #1a1a1a;
-      --text-secondary: #5b5e68;
-      --text-light: #a0a5b5;
+      --bg-main: #f5f5f7;
+      --bg-light: #ffffff;
+      --text-main: #1a1a1a;
+      --text-muted: #5b5e68;
       --accent: #f5b300;
       --accent-dark: #d89a00;
-      --border-color: #e1e3ea;
-      --card-bg: #ffffff;
-      --overlay-bg: rgba(0,0,0,0.5);
-      --footer-bg: #0d131c;
-      --footer-text: #a0a5b5;
+      --accent-light: #ffdd88;
+      --border-soft: #e1e3ea;
+      --shadow-soft: 0 10px 30px rgba(0,0,0,0.09);
+      --shadow-hover: 0 20px 35px -12px rgba(0,0,0,0.15);
+      --radius: 16px;
+      --transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
     }
 
-    /* Dark Theme */
-    body.dark {
-      --bg-primary: #121212;
-      --bg-secondary: #1e1e1e;
-      --text-primary: #ffffff;
-      --text-secondary: #b0b0b0;
-      --border-color: #333333;
-      --card-bg: #2a2a2a;
-      --overlay-bg: rgba(0,0,0,0.7);
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Helvetica Neue', Arial, sans-serif;
+      background: var(--bg-main);
+      color: var(--text-main);
+      line-height: 1.6;
+      scroll-behavior: smooth;
+      overflow-x: hidden;
     }
 
-    body.dark #page2,
-    body.dark #page3,
-    body.dark #page5 {
-      background-color: var(--bg-secondary);
+    img { max-width: 100%; height: auto; display: block; }
+    a { text-decoration: none; color: inherit; }
+
+    .container {
+      width: 100%;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
     }
 
-    body.dark #about-section {
-      background-color: #1a1a2e;
-    }
-
-    body.dark .btm-text h2,
-    body.dark .about-text p,
-    body.dark .service-text {
-      color: var(--text-secondary);
-    }
-
-    body.dark .service-card,
-    body.dark .project-card,
-    body.dark .contact-wrapper {
-      background-color: var(--card-bg);
-      border-color: var(--border-color);
-    }
-
-    /* Theme Toggle Button */
-    .theme-toggle {
+    /* ===============================
+       NAVBAR
+       =============================== */
+    .navbar {
       position: fixed;
-      bottom: 30px;
-      right: 30px;
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      background: var(--accent);
-      color: #1a1a1a;
-      border: none;
-      cursor: pointer;
-      z-index: 9998;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.5rem;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-      transition: all 0.3s ease;
+      top: 0; left: 0; right: 0;
+      background: rgba(255,255,255,0.96);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+      z-index: 1000;
+      transition: var(--transition);
     }
 
-    .theme-toggle:hover {
-      transform: scale(1.1);
-    }
-
-    /* Custom Cursor */
-    #cursor {
-      height: 6vw;
-      width: 6vw;
-      max-width: 80px;
-      max-height: 80px;
-      background-color: var(--accent);
-      border-radius: 50%;
-      position: fixed;
-      z-index: 9999;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #1a1a1a;
-      transform: translate(-50%, -50%);
-      pointer-events: none;
-      mix-blend-mode: difference;
-      transition: transform 0.2s ease;
-    }
-
-    @media (max-width: 768px) {
-      #cursor { display: none; }
-    }
-
-    /* Loader */
-    #loader {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: #0d131c;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      z-index: 10000;
-    }
-
-    #loader h3 {
-      color: white;
-      font-size: clamp(1.2rem, 4vw, 2rem);
-      font-weight: 300;
-      letter-spacing: 0.1em;
-    }
-
-    /* Page 1 - Hero */
-    #page1 {
-      height: 100vh;
-      width: 100%;
-      position: relative;
-      overflow: hidden;
-    }
-
-    #page1 video {
-      height: 100%;
-      width: 100%;
-      object-fit: cover;
-      position: absolute;
-      top: 0;
-      left: 0;
-    }
-
-    #page1-content {
-      height: 100%;
-      width: 100%;
-      background-color: var(--overlay-bg);
-      position: relative;
-      z-index: 2;
-      color: white;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    nav {
+    .navbar-inner {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      width: 100%;
-      padding: 1.5rem 2rem;
-      flex-wrap: wrap;
-      gap: 1rem;
+      height: 70px;
+      transition: height 0.2s ease;
     }
 
-    @media (min-width: 768px) {
-      nav { padding: 2rem 3rem; }
-    }
-
-    .logo-area {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-    }
+    .navbar.shrink .navbar-inner { height: 56px; }
 
     .logo-img {
-      height: 45px;
-      width: auto;
+      height: 44px; width: auto;
+      transition: height 0.2s ease;
       object-fit: contain;
     }
 
-    .nav-links {
+    .navbar.shrink .logo-img { height: 34px; }
+
+    .navbar-logo {
       display: flex;
-      gap: 1.5rem;
-      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.75rem;
+      flex-shrink: 0;
     }
 
-    .nav-links a {
-      color: white;
-      text-decoration: none;
+    .navbar-logo-text {
       font-size: 0.85rem;
-      font-weight: 500;
-      letter-spacing: 0.08em;
+      font-weight: 600;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
-      transition: opacity 0.3s;
+      background: linear-gradient(135deg, #1e2a3a 0%, #2c3e4e 100%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
     }
 
-    .nav-links a:hover { opacity: 0.7; }
-
-    #menuBtn {
-      cursor: pointer;
-      font-size: clamp(0.9rem, 3vw, 1.1rem);
+    .navbar-nav {
+      display: flex;
+      gap: 2rem;
+      text-transform: uppercase;
+      font-size: 0.85rem;
+      letter-spacing: 0.12em;
       font-weight: 500;
     }
 
-    #page1-content h1 {
-      font-size: clamp(2.5rem, 12vw, 8rem);
+    .navbar-nav a {
+      color: #2c3e4e;
+      position: relative;
+      padding-bottom: 6px;
+      transition: color 0.2s;
+    }
+
+    .navbar-nav a::after {
+      content: "";
+      position: absolute;
+      left: 0; bottom: 0;
+      width: 0; height: 2px;
+      background: var(--accent);
+      transition: width 0.25s ease;
+    }
+
+    .navbar-nav a:hover::after,
+    .navbar-nav a.active::after { width: 100%; }
+    .navbar-nav a.active { color: #000; font-weight: 600; }
+
+    .mobile-menu-btn {
+      display: none;
+      border: none; background: none;
+      width: 28px; height: 24px;
+      flex-direction: column;
+      justify-content: space-between;
+      cursor: pointer; padding: 0;
+    }
+
+    .mobile-menu-btn span {
+      width: 100%; height: 2.5px;
+      background: #1e2a3a;
+      border-radius: 2px;
+      transition: 0.2s;
+    }
+
+    .mobile-menu {
+      display: none;
+      flex-direction: column;
+      background: rgba(255,255,255,0.98);
+      backdrop-filter: blur(12px);
+      padding: 1.2rem 1.8rem;
+      gap: 1.2rem;
+      border-top: 1px solid rgba(0,0,0,0.05);
+    }
+
+    .mobile-menu.open { display: flex; }
+
+    .mobile-menu a {
+      font-size: 1rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 500;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid #eceef2;
+    }
+
+    @media (max-width: 860px) {
+      .navbar-nav { display: none; }
+      .mobile-menu-btn { display: flex; }
+      .navbar-logo-text { font-size: 0.7rem; }
+    }
+
+    @media (max-width: 480px) {
+      .navbar-logo-text { display: none; }
+      .logo-img { height: 38px; }
+      .container { padding: 0 1rem; }
+    }
+
+    /* ===============================
+       HERO SECTION
+       =============================== */
+    .hero {
+      position: relative;
+      height: 85vh;
+      min-height: 500px;
+      max-height: 800px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute; inset: 0;
+      background-image: url("images/eagleslndg.jpeg");
+      background-size: cover;
+      background-position: center 30%;
+      filter: brightness(0.7);
+      transform: scale(1.02);
+      transition: transform 6s ease;
+    }
+
+    .hero-video {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: none;
+    }
+
+    .hero.has-video .hero-bg { display: none; }
+    .hero.has-video .hero-video { display: block; }
+    .hero:hover .hero-bg { transform: scale(1.05); }
+
+    .hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(0,0,0,0.5), rgba(0,0,0,0.7));
+    }
+
+    .hero-inner {
+      position: relative; z-index: 3;
+      max-width: 800px;
+      padding: 0 1.5rem;
+      animation: fadeUp 0.9s ease;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(28px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero-title {
+      font-size: clamp(2rem, 6vw, 3.8rem);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 800;
+      margin-bottom: 1rem;
+      text-shadow: 0 2px 12px rgba(0,0,0,0.3);
+    }
+
+    .hero-subtitle {
+      font-size: clamp(0.95rem, 3vw, 1.15rem);
+      margin-bottom: 2rem;
+      color: #f0f2f8;
+      max-width: 600px;
+      margin-left: auto; margin-right: auto;
+    }
+
+    .btn-primary {
+      padding: 0.85rem 2rem;
+      border-radius: 60px;
+      background: var(--accent);
+      color: #1f2a36;
+      text-transform: uppercase;
       font-weight: 700;
+      letter-spacing: 0.08em;
+      border: none;
+      cursor: pointer;
+      transition: var(--transition);
+      box-shadow: 0 12px 22px rgba(0,0,0,0.25);
+      display: inline-block;
+      font-size: 0.9rem;
+    }
+
+    .btn-primary:hover {
+      background: #ffc324;
+      transform: translateY(-3px);
+      box-shadow: 0 20px 28px -8px rgba(0,0,0,0.35);
+    }
+
+    @media (max-width: 768px) {
+      .hero { height: 70vh; min-height: 450px; }
+      .btn-primary { padding: 0.7rem 1.6rem; font-size: 0.85rem; }
+    }
+
+    /* ===============================
+       SECTIONS
+       =============================== */
+    .section { padding: 5rem 0; }
+    .section-light { background: #ffffff; }
+
+    .section-title {
+      text-align: center;
+      font-size: clamp(1.6rem, 5vw, 2.2rem);
       letter-spacing: 0.08em;
       text-transform: uppercase;
       margin-bottom: 3rem;
-      text-align: center;
-      line-height: 1.2;
-      padding: 0 1rem;
+      position: relative;
     }
 
-    #page1-content h1 span {
-      display: inline-block;
+    .section-title:after {
+      content: '';
+      display: block;
+      width: 60px; height: 3px;
+      background: var(--accent);
+      margin: 0.8rem auto 0;
     }
 
-    /* Page 2 - About Text */
-    #page2 {
-      padding: 4rem 1.5rem;
-      background-color: var(--bg-secondary);
+    @media (max-width: 768px) {
+      .section { padding: 3.5rem 0; }
+      .section-title { margin-bottom: 2rem; }
     }
 
-    @media (min-width: 768px) {
-      #page2 { padding: 5rem 2rem; }
-    }
-
-    #page2-nav {
-      display: flex;
-      justify-content: space-between;
-      font-size: clamp(0.9rem, 3vw, 1.1rem);
-      color: var(--text-secondary);
-      flex-wrap: wrap;
-      gap: 1rem;
-      margin-bottom: 2rem;
-    }
-
-    hr { border-color: var(--border-color); margin: 1rem 0; }
-
-    .btm-text h2 {
-      font-size: clamp(1.2rem, 4vw, 2.2rem);
-      font-weight: 500;
-      line-height: 1.3;
-      margin: 0.5rem 0;
-      opacity: 0;
-      transform: translateY(50px);
-      color: var(--text-primary);
-    }
-
-    /* About Section */
-    #about-section {
-      padding: 5rem 1.5rem;
-      background: linear-gradient(135deg, #f5f5f7 0%, #e8e9ef 100%);
-    }
-
-    body.dark #about-section {
-      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-    }
-
-    .about-container {
-      max-width: 1280px;
-      margin: 0 auto;
+    /* ===============================
+       SERVICES GRID
+       =============================== */
+    .services-grid {
       display: grid;
-      grid-template-columns: 1fr;
-      gap: 2.5rem;
-      align-items: center;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
     }
 
-    @media (min-width: 900px) {
-      .about-container { grid-template-columns: 1fr 1fr; gap: 3rem; }
+    .service-card {
+      background: white;
+      border-radius: var(--radius);
+      border: 1px solid var(--border-soft);
+      overflow: hidden;
+      box-shadow: var(--shadow-soft);
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .service-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    /* Linked card style */
+    a.service-card-link {
+      display: block;
+      color: inherit;
+      text-decoration: none;
+    }
+
+    a.service-card-link .service-card {
+      cursor: pointer;
+    }
+
+    a.service-card-link .service-card .service-title::after {
+      content: ' ↗';
+      font-size: 0.8em;
+      opacity: 0.6;
+    }
+
+    .service-image {
+      height: 220px;
+      overflow: hidden;
+      background: #eef2f5;
+    }
+
+    .service-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .service-card:hover .service-image img { transform: scale(1.05); }
+
+    .service-content { padding: 1.5rem; }
+
+    .service-title {
+      font-weight: 700;
+      font-size: 1.2rem;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.6rem;
+      text-transform: uppercase;
+    }
+
+    .service-text {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    @media (max-width: 640px) {
+      .services-grid { gap: 1.2rem; }
+      .service-image { height: 200px; }
+      .service-content { padding: 1.2rem; }
+    }
+
+    /* ===============================
+       DIY DROPDOWN MODAL
+       =============================== */
+    .diy-options-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.55);
+      z-index: 2000;
+      justify-content: center;
+      align-items: center;
+      padding: 1rem;
+    }
+
+    .diy-options-overlay.open {
+      display: flex;
+    }
+
+    .diy-options-box {
+      background: #fff;
+      border-radius: 24px;
+      padding: 2.5rem 2rem;
+      max-width: 480px;
+      width: 100%;
+      box-shadow: 0 30px 60px rgba(0,0,0,0.2);
+      position: relative;
+      animation: popIn 0.3s cubic-bezier(0.2,0.9,0.4,1.1);
+    }
+
+    @keyframes popIn {
+      from { opacity: 0; transform: scale(0.9); }
+      to   { opacity: 1; transform: scale(1); }
+    }
+
+    .diy-options-box h3 {
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .diy-options-box p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .diy-option-btn {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      width: 100%;
+      padding: 1rem 1.2rem;
+      margin-bottom: 0.8rem;
+      background: var(--bg-main);
+      border: 2px solid var(--border-soft);
+      border-radius: 14px;
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 0.95rem;
+      font-weight: 500;
+      text-align: left;
+      transition: var(--transition);
+      color: var(--text-main);
+      text-decoration: none;
+    }
+
+    .diy-option-btn:hover {
+      border-color: var(--accent);
+      background: #fffbee;
+      transform: translateX(4px);
+    }
+
+    .diy-option-label {
+      width: 32px; height: 32px;
+      background: var(--accent);
+      color: #1a1a1a;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 0.85rem;
+      flex-shrink: 0;
+    }
+
+    .diy-close-btn {
+      position: absolute;
+      top: 1rem; right: 1.2rem;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: #999;
+      line-height: 1;
+    }
+
+    .diy-close-btn:hover { color: #333; }
+
+    /* ===============================
+       ABOUT
+       =============================== */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.8rem;
+      align-items: center;
     }
 
     .about-image {
@@ -325,375 +528,312 @@
       box-shadow: 0 20px 32px -12px rgba(0,0,0,0.2);
     }
 
-    .about-image img { width: 100%; height: auto; display: block; transition: transform 0.4s; }
-    .about-image:hover img { transform: scale(1.02); }
+    .about-image img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      transition: 0.4s;
+    }
 
     .about-text h2 {
-      font-size: clamp(1.6rem, 5vw, 2.2rem);
       text-transform: uppercase;
       letter-spacing: 0.08em;
-      margin-bottom: 1.5rem;
-      color: var(--text-primary);
-    }
-
-    .about-text h2:after {
-      content: '';
-      display: block;
-      width: 60px;
-      height: 3px;
-      background: var(--accent);
-      margin-top: 0.5rem;
-    }
-
-    .about-text p {
       margin-bottom: 1rem;
-      color: var(--text-secondary);
-      line-height: 1.6;
+      font-size: clamp(1.4rem, 4vw, 1.8rem);
     }
 
-    /* Services */
-    #page3 {
-      padding: 5rem 1.5rem;
-      background-color: var(--bg-secondary);
+    .about-text p { margin-bottom: 1rem; color: var(--text-muted); }
+
+    @media (max-width: 800px) {
+      .about-grid { grid-template-columns: 1fr; gap: 2rem; text-align: center; }
+      .about-text { text-align: center; }
     }
 
-    @media (min-width: 768px) { #page3 { padding: 5rem 2rem; } }
-
-    #page3-top { text-align: center; margin-bottom: 3rem; }
-    #page3-top h4 { color: var(--text-secondary); margin-bottom: 1rem; }
-    #page3-top h4 span { background: var(--accent); color: #1a1a1a; padding: 0.2rem 0.6rem; border-radius: 20px; }
-    #page3-top h2 { font-size: clamp(1.5rem, 5vw, 2.5rem); font-weight: 600; color: var(--text-primary); }
-
-    #page3-nav {
-      display: flex;
-      justify-content: space-between;
-      color: var(--text-secondary);
-      margin-bottom: 2rem;
-      flex-wrap: wrap;
-      gap: 1rem;
-    }
-
-    #page3-elements {
-      display: flex;
-      gap: 1.5rem;
-      flex-wrap: wrap;
-    }
-
-    .box {
-      flex: 1;
-      min-width: 280px;
-      height: 400px;
-      position: relative;
-      overflow: hidden;
-      border-radius: 20px;
-      cursor: pointer;
-    }
-
-    @media (min-width: 768px) { .box { height: 450px; } }
-    @media (max-width: 900px) { #page3-elements { flex-direction: column; } .box { height: 350px; } }
-
-    .box video { height: 100%; width: 100%; object-fit: cover; }
-    .box img {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: opacity 0.5s ease;
-      top: 0;
-      left: 0;
-    }
-    .box:hover img { opacity: 0; }
-
-    /* Stats */
-    #page4 {
-      padding: 5rem 1.5rem;
-      background: linear-gradient(135deg, #0d131c 0%, #1a1a2e 100%);
-      color: white;
-    }
-
-    .stats-container {
-      display: flex;
-      justify-content: space-around;
-      flex-wrap: wrap;
-      gap: 2rem;
-      text-align: center;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .stat-item { flex: 1; min-width: 150px; }
-    .stat-number { font-size: clamp(2rem, 6vw, 3.5rem); font-weight: 700; color: var(--accent); }
-    .stat-label { font-size: clamp(0.8rem, 3vw, 1rem); text-transform: uppercase; letter-spacing: 0.1em; }
-
-    /* Projects Gallery - 8 Specific Images */
-    #page5 {
-      padding: 5rem 1.5rem;
-      background-color: var(--bg-secondary);
-    }
-
-    @media (min-width: 768px) { #page5 { padding: 5rem 2rem; } }
-
-    #page5 h1 {
-      font-size: clamp(2rem, 8vw, 4rem);
-      font-weight: 600;
-      margin-bottom: 2rem;
-      border-bottom: 2px solid var(--accent);
-      display: inline-block;
-      color: var(--text-primary);
-    }
-
+    /* ===============================
+       PROJECTS GALLERY
+       =============================== */
     .projects-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
       gap: 1.8rem;
-      margin-top: 2rem;
     }
 
-    @media (min-width: 768px) { .projects-grid { gap: 2rem; } }
-
     .project-card {
-      position: relative;
+      background: white;
       border-radius: 20px;
       overflow: hidden;
-      cursor: pointer;
-      background: var(--card-bg);
-      box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border: 1px solid var(--border-soft);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.05);
+      transition: var(--transition);
     }
 
     .project-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 20px 35px rgba(0,0,0,0.15);
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-hover);
     }
 
     .project-card img {
       width: 100%;
-      aspect-ratio: 4/3;
+      aspect-ratio: 4 / 3;
       object-fit: cover;
-      transition: transform 0.5s ease;
+      display: block;
+      transition: transform 0.4s ease;
     }
 
-    .project-card:hover img { transform: scale(1.05); }
+    .project-card:hover img { transform: scale(1.02); }
 
-    .project-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to top, rgba(0,0,0,0.85), transparent);
-      display: flex;
-      align-items: flex-end;
-      padding: 1.5rem;
-      opacity: 0;
-      transition: opacity 0.4s ease;
+    @media (max-width: 740px) {
+      .projects-grid { grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.2rem; }
+      .project-card img { aspect-ratio: 16 / 11; }
     }
 
-    .project-card:hover .project-overlay { opacity: 1; }
-    .project-title { color: white; font-weight: 600; font-size: 1rem; letter-spacing: 0.02em; }
-
-    .photo-note {
-      text-align: center;
-      margin-top: 2.5rem;
-      padding: 1rem;
-      background: var(--bg-primary);
-      border-radius: 12px;
-      font-size: 0.85rem;
-      color: var(--text-secondary);
-      border: 1px dashed var(--border-color);
+    @media (max-width: 480px) {
+      .projects-grid { grid-template-columns: 1fr; }
     }
 
-    .photo-note code {
-      background: var(--bg-secondary);
-      padding: 0.2rem 0.5rem;
-      border-radius: 6px;
-      font-family: monospace;
-      font-size: 0.75rem;
-      color: var(--accent);
-    }
+    /* ===============================
+       CONTACT FORM
+       =============================== */
+    .contact-wrapper { max-width: 620px; margin: auto; }
 
-    /* Contact */
-    #page6 {
-      padding: 5rem 1.5rem;
-      background: linear-gradient(135deg, var(--bg-primary) 0%, #e8e9ef 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    body.dark #page6 { background: linear-gradient(135deg, #1a1a2e 0%, #0d131c 100%); }
-
-    .contact-wrapper {
-      max-width: 600px;
-      width: 100%;
-      background: var(--card-bg);
-      padding: 2rem;
-      border-radius: 30px;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-    }
-
-    @media (min-width: 768px) { .contact-wrapper { padding: 3rem; } }
-
-    .contact-wrapper h2 {
-      text-align: center;
-      margin-bottom: 2rem;
-      color: var(--text-primary);
+    .contact-form {
+      background: white;
+      padding: 2.5rem;
+      border-radius: 28px;
+      box-shadow: 0 20px 35px -10px rgba(0,0,0,0.08);
+      border: 1px solid #eef0f5;
     }
 
     .form-group { margin-bottom: 1.2rem; }
-    .form-group input, .form-group select, .form-group textarea {
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
       width: 100%;
-      padding: 1rem;
-      border-radius: 16px;
-      border: 1.5px solid var(--border-color);
-      background: var(--bg-secondary);
-      color: var(--text-primary);
-      transition: all 0.3s;
+      padding: 0.9rem 1rem;
+      font-size: 0.95rem;
+      border-radius: 18px;
+      border: 1.5px solid #e2e6ef;
+      transition: var(--transition);
+      background: #fefefe;
+      font-family: inherit;
     }
 
-    .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
       border-color: var(--accent);
       outline: none;
       box-shadow: 0 0 0 3px rgba(245,179,0,0.2);
     }
 
-    .btn-submit {
-      width: 100%;
-      padding: 1rem;
-      background: var(--accent);
-      color: #1a1a1a;
-      border: none;
-      border-radius: 50px;
-      font-weight: 700;
-      cursor: pointer;
-      transition: all 0.3s;
-    }
-
-    .btn-submit:hover { background: var(--accent-dark); transform: translateY(-2px); }
-
     .status-success, .status-error {
-      padding: 0.8rem;
-      border-radius: 12px;
+      padding: 0.8rem 1rem;
+      border-radius: 40px;
       margin-bottom: 1rem;
       display: none;
+      font-weight: 500;
       text-align: center;
     }
 
-    .status-success { background: #e3f7e8; color: #1f6e43; }
-    .status-error { background: #ffe6e5; color: #b13b2d; }
+    .status-success { background: #e3f7e8; color: #1f6e43; border-left: 5px solid #2b8c4e; }
+    .status-error   { background: #ffe6e5; color: #b13b2d; border-left: 5px solid #e55a4a; }
 
-    /* Footer */
-    footer {
-      background: var(--footer-bg);
-      color: var(--footer-text);
-      padding: 3rem 1.5rem;
+    @media (max-width: 640px) {
+      .contact-form { padding: 1.5rem; }
+      .form-group input,
+      .form-group select,
+      .form-group textarea { padding: 0.75rem 0.9rem; }
     }
 
-    .footer-inner {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 2rem;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .footer-section h4 { color: var(--accent); margin-bottom: 1rem; }
-    .footer-section p { margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.8rem; flex-wrap: wrap; }
-
-    .social-icons {
-      display: flex;
-      gap: 1rem;
+    /* ===============================
+       FOOTER
+       =============================== */
+    .footer {
+      background: #0d131c;
+      color: #cbd5e1;
+      padding: 2.5rem 0;
       margin-top: 1rem;
     }
 
-    .social-icons a {
-      width: 40px;
-      height: 40px;
-      background: rgba(255,255,255,0.1);
-      border-radius: 50%;
+    .footer-inner {
       display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: all 0.3s;
-      color: white;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1.5rem;
     }
 
-    .social-icons a:hover { background: var(--accent); color: #1a1a1a; transform: translateY(-3px); }
+    .footer a { color: var(--accent); transition: 0.2s; }
+    .footer a:hover { color: #ffcf4a; text-decoration: underline; }
 
-    .copyright {
-      text-align: center;
-      padding-top: 2rem;
-      margin-top: 2rem;
-      border-top: 1px solid rgba(255,255,255,0.1);
+    .footer-links {
+      display: flex;
+      gap: 12px;
+      margin-top: 8px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .footer-links a {
+      color: var(--accent);
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 0.88rem;
     }
 
     @media (max-width: 640px) {
-      .footer-inner { text-align: center; }
-      .footer-section p { justify-content: center; }
-      .social-icons { justify-content: center; }
-      .nav-links { display: none; }
+      .footer-inner { flex-direction: column; text-align: center; gap: 1rem; }
+      .footer-links { justify-content: center; }
+    }
+
+    /* ===============================
+       SEO HIDDEN KEYWORDS BLOCK
+       =============================== */
+    .seo-keywords {
+      position: absolute;
+      width: 1px; height: 1px;
+      overflow: hidden;
+      clip: rect(0,0,0,0);
+      white-space: nowrap;
     }
   </style>
 </head>
 <body>
 
-<div id="loader">
-  <h3>Precision</h3>
-  <h3>Steel</h3>
-  <h3>Framing</h3>
-</div>
+<!-- HIDDEN SEO KEYWORDS (crawlable by Google, invisible to users) -->
+<p class="seo-keywords">
+  tiny homes, modular, prefab construction, off site construction, on site construction, steel framing, light gauge steel, roll forming, cold form steel frame
+</p>
 
-<div id="cursor"><h5>Explore</h5></div>
-<button class="theme-toggle" id="themeToggle"><i class="fas fa-moon"></i></button>
-
-<main id="main">
-  <!-- Hero Section -->
-  <div id="page1">
-    <video autoplay loop muted playsinline>
-      <source src="video.mp4" type="video/mp4">
-    </video>
-    <div id="page1-content">
-      <nav>
-        <div class="logo-area">
-          <img src="images/logo (2).png" alt="TDG Steel Frame" class="logo-img" onerror="this.src='https://placehold.co/120x40/f5b300/1a1a1a?text=TDG'">
-        </div>
-        <div class="nav-links">
-          <a href="#page2">About</a>
-          <a href="#about-section">Company</a>
-          <a href="#page3">Services</a>
-          <a href="#page5">Projects</a>
-          <a href="#page6">Contact</a>
-        </div>
-        <h4 id="menuBtn">Menu ✦</h4>
-      </nav>
-      <h1>
-        <span>S</span><span>m</span><span>a</span><span>r</span><span>t</span><span>.</span>
-        <span>S</span><span>t</span><span>r</span><span>o</span><span>n</span><span>g</span><span>.</span>
-        <span>S</span><span>t</span><span>e</span><span>e</span><span>l</span><span>.</span>
-      </h1>
-    </div>
+<header class="navbar" id="navbar">
+  <div class="container navbar-inner">
+    <a href="#top" class="navbar-logo">
+      <img src="images/logo.png" alt="TDG Steel Frame - Premium Steel Construction" class="logo-img" id="navbarLogo" onerror="this.src='https://placehold.co/120x40/f5b300/1a1a1a?text=TDG'">
+      <span class="navbar-logo-text">Steel Frame Consulting</span>
+    </a>
+    <nav class="navbar-nav" id="desktopNav">
+      <a href="#services" data-link="services">Services</a>
+      <a href="#about" data-link="about">About</a>
+      <a href="#projects" data-link="projects">Projects</a>
+      <a href="#contact" data-link="contact">Contact</a>
+    </nav>
+    <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
   </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#services" data-link="services">Services</a>
+    <a href="#about" data-link="about">About</a>
+    <a href="#projects" data-link="projects">Projects</a>
+    <a href="#contact" data-link="contact">Contact</a>
+  </div>
+</header>
 
-  <!-- About Text Animation -->
-  <div id="page2">
-    <div id="page2-nav">
-      <div>Full-service steel construction consulting.<br> Precision engineering & manufacturing.</div>
-      <div>Nationwide Service</div>
+<main id="top">
+
+  <!-- HERO SECTION - VIDEO READY -->
+  <section class="hero" id="heroSection">
+    <div class="hero-bg"></div>
+    <!-- VIDEO: Uncomment when video is ready -->
+    <!--
+    <video class="hero-video" autoplay muted loop playsinline poster="images/hero-poster.jpg">
+      <source src="videos/tdg-hero.mp4" type="video/mp4">
+    </video>
+    -->
+    <div class="hero-overlay"></div>
+    <div class="hero-inner">
+      <h1 class="hero-title">Smart. Strong. Steel.</h1>
+      <p class="hero-subtitle">High-end tiny homes & modular spaces with precision steel framing and cutting-edge engineering.</p>
+      <a href="#contact" class="btn-primary">Start Your Project</a>
     </div>
-    <hr>
-    <div class="page2-bottom">
-      <div class="btm-text">
-        <h2 class="up">We engineer and fabricate high-performance</h2>
-        <h2 class="up">steel frame structures for tiny homes, modular</h2>
-        <h2 class="up">spaces, and commercial buildings. Using advanced</h2>
-        <h2 class="up">Scottsdale Construction Systems roll-forming technology,</h2>
-        <h2 class="up">we deliver precision, durability, and efficiency.</h2>
-        <h2 class="up">Your vision, built in steel.</h2>
+  </section>
+
+  <!-- SERVICES SECTION -->
+  <!-- CHANGE 1: "Our Expertise" → "Expertise" -->
+  <!-- CHANGE 2: "Upscale Tiny Homes" card removed -->
+  <!-- CHANGE 3: Steel Framing → links to hardyhomes.us.com -->
+  <!-- CHANGE 4: Design & Engineering → photo changed to design software image -->
+  <!-- CHANGE 5: DIY Manufacturing → click opens option popup -->
+  <section id="services" class="section section-light">
+    <div class="container">
+      <h2 class="section-title">Expertise</h2>
+      <div class="services-grid">
+
+        <!-- STEEL FRAMING — linked to hardyhomes.us.com -->
+        <a href="https://hardyhomes.us.com" target="_blank" rel="noopener noreferrer" class="service-card-link">
+          <div class="service-card">
+            <div class="service-image">
+              <img src="images/greenhouse1.jpeg" alt="Cold-formed steel framing system by Scottsdale Construction" loading="lazy">
+            </div>
+            <div class="service-content">
+              <h3 class="service-title">Steel Framing</h3>
+              <p class="service-text">Cold-formed steel systems using Scottsdale Construction Systems for accurate fabrication.</p>
+            </div>
+          </div>
+        </a>
+
+        <!-- DESIGN & ENGINEERING — photo changed to design software image -->
+        <!-- 📸 ACTION NEEDED: Upload your design software screenshot as "images/designsoftware.jpg" -->
+        <div class="service-card">
+          <div class="service-image">
+            <img src="images/designsoftware.jpg" alt="BIM and design engineering software interface" loading="lazy"
+              onerror="this.src='images/greenhouse.jpeg'">
+          </div>
+          <div class="service-content">
+            <h3 class="service-title">Design / Engineering Consultations</h3>
+            <p class="service-text">BIM + 3D workflows that connect concept, detailing, and manufacturing.</p>
+          </div>
+        </div>
+
+        <!-- DIY MANUFACTURING — click opens options popup -->
+        <div class="service-card" id="diyCard" style="cursor:pointer;" onclick="openDIYOptions()">
+          <div class="service-image">
+            <img src="images/7090g2.jpeg" alt="Roll forming machine for DIY steel manufacturing" loading="lazy">
+          </div>
+          <div class="service-content">
+            <h3 class="service-title">DIY Manufacturing</h3>
+            <p class="service-text">Roll-former setup, production optimization, and on-site light-gauge steel manufacturing. <strong style="color:var(--accent);">Click to explore options →</strong></p>
+          </div>
+        </div>
+
       </div>
     </div>
+  </section>
+
+  <!-- DIY OPTIONS POPUP MODAL -->
+  <div class="diy-options-overlay" id="diyOverlay" onclick="closeDIYOptions(event)">
+    <div class="diy-options-box">
+      <button class="diy-close-btn" onclick="closeDIYOptions(null, true)">×</button>
+      <h3>DIY Manufacturing</h3>
+      <p>What would you like to do? Select an option below:</p>
+
+      <!-- OPTION A: Rent a roll former — links to contact form -->
+      <a href="#contact" class="diy-option-btn" onclick="setDIYContact('I want to rent a roll former')">
+        <span class="diy-option-label">A</span>
+        I want to rent a roll former
+      </a>
+
+      <!-- OPTION B: Help setting up roll former — links to contact form -->
+      <a href="#contact" class="diy-option-btn" onclick="setDIYContact('I need help setting up my roll former')">
+        <span class="diy-option-label">B</span>
+        Help setting up my roll former
+      </a>
+
+      <!-- OPTION C: Explore purchasing — links to contact form -->
+      <a href="#contact" class="diy-option-btn" onclick="setDIYContact('I want to explore purchasing my own roll former')">
+        <span class="diy-option-label">C</span>
+        Explore purchasing my own roll former
+      </a>
+    </div>
   </div>
 
-  <!-- About Us Section -->
-  <div id="about-section">
-    <div class="about-container">
-      <div class="about-image"><img src="images/quonsetcyd.jpg" alt="Headquarters"></div>
+  <!-- ABOUT SECTION -->
+  <section id="about" class="section">
+    <div class="container about-grid">
+      <div class="about-image">
+        <img src="images/quonsetcyd.jpg" alt="Traverse Dynamics Global Steel Quonset hut headquarters" loading="lazy">
+      </div>
       <div class="about-text">
         <h2>About Us</h2>
         <p>Traverse Dynamics Global LLC specializes in modular and steel-frame residential and commercial construction consulting.</p>
@@ -701,182 +841,235 @@
         <p>We utilize Scottsdale Construction Systems roll-forming machines and advanced engineering tools to deliver efficient, durable structures.</p>
       </div>
     </div>
-  </div>
+  </section>
 
-  <!-- Services -->
-  <div id="page3">
-    <div id="page3-top">
-      <h4>Our Expertise <span>✦ Premium Services</span></h4>
-      <h2>Engineered for Excellence</h2>
-      <h2>Built to Last</h2>
-    </div>
-    <div id="page3-nav">
-      <div>Transforming visions into steel structures.</div>
-      <div>↵ Explore services</div>
-    </div>
-    <div id="page3-elements">
-      <div class="box"><img src="images/tinyhome1.jpeg" alt="Tiny Homes"><video autoplay loop muted playsinline><source src="video1.mp4" type="video/mp4"></video></div>
-      <div class="box"><img src="images/greenhouse1.jpeg" alt="Steel Framing"><video autoplay loop muted playsinline><source src="video2.mp4" type="video/mp4"></video></div>
-      <div class="box"><img src="images/7090g2.jpeg" alt="Manufacturing"><video autoplay loop muted playsinline><source src="video3.mp4" type="video/mp4"></video></div>
-    </div>
-  </div>
+  <!-- PROJECTS GALLERY -->
+  <!--
+    ============================================================
+    HOW TO ADD NEW PHOTOS — EASY PHOTO MANAGEMENT:
 
-  <!-- Stats -->
-  <div id="page4">
-    <div class="stats-container">
-      <div class="stat-item"><div class="stat-number" data-target="150">0</div><div class="stat-label">Projects Completed</div></div>
-      <div class="stat-item"><div class="stat-number" data-target="25">0</div><div class="stat-label">Years Experience</div></div>
-      <div class="stat-item"><div class="stat-number" data-target="100">0</div><div class="stat-label">Happy Clients</div></div>
-      <div class="stat-item"><div class="stat-number" data-target="12">0</div><div class="stat-label">States Served</div></div>
-    </div>
-  </div>
+    1. Upload your image file into the /images/ folder on your server
+    2. Copy this block and paste it anywhere inside the projects-grid div:
 
-  <!-- Projects Gallery - 8 Specific Images -->
-  <div id="page5">
-    <h1>Featured Projects</h1>
-    <div class="projects-grid" id="projectGrid">
-      <!-- 
-        ============================================================
-        PHOTO MANAGEMENT SYSTEM - HOW TO ADD MORE PHOTOS:
-        Simply copy the div below and paste it before the closing tag.
-        Each new project should be: 
-        <div class="project-card">
-          <img src="images/your-new-photo.jpg" alt="Description of project" loading="lazy">
+       <div class="project-card">
+         <img src="images/YOUR-PHOTO-NAME.jpg" alt="Brief description" loading="lazy">
+       </div>
+
+    That's it! The grid automatically adjusts to show all photos.
+    ============================================================
+  -->
+  <section id="projects" class="section section-light">
+    <div class="container">
+      <h2 class="section-title">Projects</h2>
+      <div class="projects-grid" id="projectGrid">
+
+        <div class="project-card"><img src="images/tinyhome1.jpeg" alt="Modern tiny home with steel frame structure" loading="lazy"></div>
+        <div class="project-card"><img src="images/tinyhome2.jpg" alt="Contemporary steel frame residence exterior" loading="lazy"></div>
+        <div class="project-card"><img src="images/squarestream.jpg" alt="Square stream architectural steel design" loading="lazy"></div>
+        <div class="project-card"><img src="images/tinyhousetink.jpeg" alt="Tiny house workshop steel framing" loading="lazy"></div>
+        <div class="project-card"><img src="images/greenhouse.jpeg" alt="Steel frame greenhouse construction" loading="lazy"></div>
+        <div class="project-card"><img src="images/greenhouse1.jpeg" alt="Advanced steel greenhouse structure" loading="lazy"></div>
+        <div class="project-card"><img src="images/greenhouse2.jpeg" alt="Sustainable steel frame greenhouse project" loading="lazy"></div>
+        <div class="project-card"><img src="images/eagleslndg.jpeg" alt="Eagles Landing steel frame project showcase" loading="lazy"></div>
+
+        <!-- ✅ ADD YOUR 6 NEW PHOTOS BELOW — just copy the line pattern above -->
+        <!-- <div class="project-card"><img src="images/newphoto1.jpg" alt="Description" loading="lazy"></div> -->
+        <!-- <div class="project-card"><img src="images/newphoto2.jpg" alt="Description" loading="lazy"></div> -->
+        <!-- <div class="project-card"><img src="images/newphoto3.jpg" alt="Description" loading="lazy"></div> -->
+        <!-- <div class="project-card"><img src="images/newphoto4.jpg" alt="Description" loading="lazy"></div> -->
+        <!-- <div class="project-card"><img src="images/newphoto5.jpg" alt="Description" loading="lazy"></div> -->
+        <!-- <div class="project-card"><img src="images/newphoto6.jpg" alt="Description" loading="lazy"></div> -->
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT SECTION -->
+  <section id="contact" class="section">
+    <div class="container contact-wrapper">
+      <h2 class="section-title">Request a Consultation</h2>
+      <div id="successMessage" class="status-success">✓ Message sent successfully! We'll respond within 24 hours.</div>
+      <div id="errorMessage" class="status-error">✖ Submission error. Please check your information or try again later.</div>
+      <form id="contactForm" action="https://formspree.io/f/movlrryk" method="POST" class="contact-form">
+        <div class="form-group">
+          <input type="text" name="name" placeholder="Full Name *" required autocomplete="name">
         </div>
-        ============================================================
-      -->
-      <div class="project-card"><img src="images/tinyhome1.jpeg" alt="Modern tiny home with steel frame structure" loading="lazy"><div class="project-overlay"><span class="project-title">Modern Tiny Home</span></div></div>
-      <div class="project-card"><img src="images/tinyhome2.jpg" alt="Contemporary steel frame residence exterior" loading="lazy"><div class="project-overlay"><span class="project-title">Steel Frame Residence</span></div></div>
-      <div class="project-card"><img src="images/squarestream.jpg" alt="Square stream architectural steel design" loading="lazy"><div class="project-overlay"><span class="project-title">Square Stream Design</span></div></div>
-      <div class="project-card"><img src="images/tinyhousetink.jpeg" alt="Tiny house workshop steel framing" loading="lazy"><div class="project-overlay"><span class="project-title">Tiny House Workshop</span></div></div>
-      <div class="project-card"><img src="images/greenhouse.jpeg" alt="Steel frame greenhouse construction" loading="lazy"><div class="project-overlay"><span class="project-title">Steel Greenhouse</span></div></div>
-      <div class="project-card"><img src="images/greenhouse1.jpeg" alt="Advanced steel greenhouse structure" loading="lazy"><div class="project-overlay"><span class="project-title">Eco Greenhouse</span></div></div>
-      <div class="project-card"><img src="images/greenhouse2.jpeg" alt="Sustainable steel frame greenhouse project" loading="lazy"><div class="project-overlay"><span class="project-title">Sustainable Structure</span></div></div>
-      <div class="project-card"><img src="images/eagleslndg.jpeg" alt="Eagles Landing steel frame project showcase" loading="lazy"><div class="project-overlay"><span class="project-title">Eagles Landing</span></div></div>
-    </div>
-    <!-- <div class="photo-note">
-      📸 <strong>Easy Photo Management:</strong> To add new photos, simply copy 
-      <code>&lt;div class="project-card"&gt;&lt;img src="images/your-photo.jpg" alt="description" loading="lazy"&gt;&lt;div class="project-overlay"&gt;&lt;span class="project-title"&gt;Title&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;</code> 
-      and paste it in the grid above. Images will automatically adjust to all devices.
-    </div> -->
-  </div>
-
-  <!-- Contact -->
-  <div id="page6">
-    <div class="contact-wrapper">
-      <h2>Request a Consultation</h2>
-      <div id="successMessage" class="status-success">✓ Message sent successfully!</div>
-      <div id="errorMessage" class="status-error">✖ Submission error. Please try again.</div>
-      <form id="contactForm" action="https://formspree.io/f/movlrryk" method="POST">
-        <div class="form-group"><input type="text" name="name" placeholder="Full Name *" required></div>
-        <div class="form-group"><input type="email" name="email" placeholder="Email Address *" required></div>
-        <div class="form-group"><select name="project_type" required><option disabled selected>Select Project Type *</option><option>Tiny Home</option><option>Residential</option><option>Commercial</option><option>Other</option></select></div>
-        <div class="form-group"><textarea name="message" rows="4" placeholder="Tell us about your project... *" required></textarea></div>
-        <input type="text" name="_gotcha" style="display:none">
-        <button type="submit" class="btn-submit">Send Message <i class="fas fa-arrow-right"></i></button>
+        <div class="form-group">
+          <input type="email" name="email" placeholder="Email Address *" required autocomplete="email">
+        </div>
+        <div class="form-group">
+          <select name="project_type" id="projectTypeSelect" required>
+            <option value="" disabled selected>Select Project Type *</option>
+            <option>Tiny Home</option>
+            <option>Residential</option>
+            <option>Commercial</option>
+            <option value="Rent a Roll Former">Rent a Roll Former</option>
+            <option value="Roll Former Setup Help">Roll Former Setup Help</option>
+            <option value="Purchase a Roll Former">Purchase a Roll Former</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <textarea name="message" id="contactMessage" rows="4" placeholder="Tell us about your steel frame project... *" required></textarea>
+        </div>
+        <!-- Honeypot anti-spam -->
+        <input type="text" name="_gotcha" style="display:none" />
+        <input type="hidden" name="_subject" value="New TDG Steel Frame Consultation Request" />
+        <button type="submit" class="btn-primary" style="width:100%;">Send Message</button>
       </form>
     </div>
-  </div>
+  </section>
+
 </main>
 
-<!-- Footer -->
-<footer>
-  <div class="footer-inner">
-    <div class="footer-section"><h4><i class="fas fa-building"></i> TDG Steel Frame</h4><p><i class="fas fa-map-marker-alt"></i> Traverse Dynamics Global LLC</p><p><i class="fas fa-hard-hat"></i> Premium Steel Construction</p></div>
-    <div class="footer-section"><h4><i class="fas fa-phone-alt"></i> Contact</h4><p><i class="fas fa-user"></i> Cydney Skeens</p><p><i class="fas fa-phone"></i> +1-214-763-0146</p><div class="social-icons"><a href="https://www.linkedin.com/in/cydney-skeens/" target="_blank"><i class="fab fa-linkedin-in"></i></a><a href="#"><i class="fab fa-instagram"></i></a><a href="#"><i class="fab fa-facebook-f"></i></a></div></div>
-    <div class="footer-section"><h4><i class="fas fa-link"></i> Quick Links</h4><p><a href="#page3" style="color:#a0a5b5;">→ Our Services</a></p><p><a href="#page5" style="color:#a0a5b5;">→ Project Gallery</a></p><p><a href="#page6" style="color:#a0a5b5;">→ Get Quote</a></p></div>
+<!-- FOOTER — UPDATED: single LinkedIn, Google Business, landscaping site links -->
+<footer class="footer">
+  <div class="container footer-inner">
+    <div>
+      <strong>Traverse Dynamics Global LLC</strong><br>
+      Steel Frame Services<br>
+      © 2026 All Rights Reserved.
+    </div>
+    <div>
+      <div>Cydney Skeens</div>
+      <div>📞 <a href="tel:+12147630146">+1-214-763-0146</a></div>
+      <div class="footer-links">
+
+        <!-- LinkedIn — single link, duplicate removed -->
+        <a href="https://www.linkedin.com/in/cydney-skeens/" target="_blank" rel="noopener noreferrer" title="LinkedIn">
+          <i class="fab fa-linkedin"></i> LinkedIn
+        </a>
+
+        <!-- GOOGLE BUSINESS PAGE — replace URL with your actual Google Business link -->
+        <a href="https://g.co/kgs/YOUR_GOOGLE_BUSINESS_ID" target="_blank" rel="noopener noreferrer" title="Google Business">
+          <i class="fab fa-google"></i> Google Business
+        </a>
+
+        <!-- LANDSCAPING WEBSITE — replace URL with your actual landscaping site -->
+        <a href="https://YOUR-LANDSCAPING-SITE.com" target="_blank" rel="noopener noreferrer" title="Landscaping Services">
+          🌿 Landscaping Services
+        </a>
+
+      </div>
+    </div>
   </div>
-  <div class="copyright">© 2026 Traverse Dynamics Global LLC. All Rights Reserved. | Built with Steel & Precision</div>
 </footer>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-
 <script>
-  // Loader
-  const tl = gsap.timeline();
-  tl.from("#loader h3", { x: 40, opacity: 0, duration: 1, stagger: 0.1 })
-    .to("#loader h3", { opacity: 0, x: -40, stagger: 0.1, duration: 0.8 })
-    .to("#loader", { opacity: 0, duration: 0.5, onComplete: () => document.querySelector("#loader").style.display = "none" });
+(function() {
 
-  // Hero text animation
-  tl.from("#page1-content h1 span", { y: 100, opacity: 0, stagger: 0.05, duration: 0.8, ease: "power3.out" }, "-=0.3");
+  /* ---- Navbar scroll shrink + active link ---- */
+  const navbar  = document.getElementById('navbar');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const mobileBtn  = document.getElementById('mobileMenuBtn');
+  const navLinks   = document.querySelectorAll('[data-link]');
+  const sections   = ['services','about','projects','contact'];
 
-  // Custom cursor
-  const cursor = document.querySelector("#cursor");
-  const page1 = document.querySelector("#page1");
-  if (cursor && page1) {
-    page1.addEventListener("mousemove", (dets) => gsap.to(cursor, { x: dets.x, y: dets.y, duration: 0.2 }));
-    page1.addEventListener("mouseenter", () => gsap.to(cursor, { scale: 1, opacity: 1, duration: 0.3 }));
-    page1.addEventListener("mouseleave", () => gsap.to(cursor, { scale: 0, opacity: 0, duration: 0.3 }));
-  }
-
-  // Scroll text animation
-  gsap.utils.toArray('.btm-text .up').forEach(el => {
-    gsap.fromTo(el, { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 0.8, ease: 'power2.out', scrollTrigger: { trigger: el, start: 'top 85%', toggleActions: 'play none none reverse' } });
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('shrink', window.scrollY > 30);
+    let current = '';
+    for (let id of sections) {
+      const sec = document.getElementById(id);
+      if (sec) {
+        const r = sec.getBoundingClientRect();
+        if (r.top <= 200 && r.bottom >= 100) { current = id; break; }
+      }
+    }
+    navLinks.forEach(l => l.classList.toggle('active', l.dataset.link === current));
   });
 
-  // Counter animation
-  const counters = document.querySelectorAll('.stat-number');
-  const animateCounters = () => {
-    counters.forEach(counter => {
-      const target = parseInt(counter.dataset.target);
-      let count = 0;
-      const update = () => {
-        count += Math.ceil(target / 100);
-        if (count < target) { counter.innerText = count; setTimeout(update, 20); }
-        else counter.innerText = target;
-      };
-      update();
-    });
-  };
-  const observer = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) { animateCounters(); observer.unobserve(e.target); } }); }, { threshold: 0.5 });
-  const statsSection = document.querySelector('.stats-container');
-  if (statsSection) observer.observe(statsSection);
+  /* ---- Mobile menu ---- */
+  if (mobileBtn && mobileMenu) {
+    mobileBtn.addEventListener('click', () => mobileMenu.classList.toggle('open'));
+    mobileMenu.querySelectorAll('a').forEach(l => l.addEventListener('click', () => mobileMenu.classList.remove('open')));
+  }
 
-  // Contact form
-  const form = document.getElementById('contactForm');
+  /* ---- Contact form ---- */
+  const form       = document.getElementById('contactForm');
   const successDiv = document.getElementById('successMessage');
-  const errorDiv = document.getElementById('errorMessage');
+  const errorDiv   = document.getElementById('errorMessage');
+
   if (form) {
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
       successDiv.style.display = 'none';
-      errorDiv.style.display = 'none';
-      const formData = new FormData(form);
+      errorDiv.style.display   = 'none';
+
+      const fd   = new FormData(form);
+      const name = fd.get('name')?.trim();
+      const email= fd.get('email')?.trim();
+      const msg  = fd.get('message')?.trim();
+      const proj = fd.get('project_type');
+
+      if (!name || !email || !msg || !proj) {
+        errorDiv.textContent = 'Please fill in all required fields.';
+        errorDiv.style.display = 'block';
+        return;
+      }
+      if (!email.includes('@') || !email.includes('.')) {
+        errorDiv.textContent = 'Please enter a valid email address.';
+        errorDiv.style.display = 'block';
+        return;
+      }
+
       try {
-        const res = await fetch(form.action, { method: 'POST', body: formData, headers: { 'Accept': 'application/json' } });
-        if (res.ok) { form.reset(); successDiv.style.display = 'block'; setTimeout(() => successDiv.style.display = 'none', 5000); }
-        else throw new Error();
-      } catch { errorDiv.style.display = 'block'; setTimeout(() => errorDiv.style.display = 'none', 5000); }
+        const res = await fetch(form.action, {
+          method: 'POST', body: fd, headers: { 'Accept': 'application/json' }
+        });
+        if (res.ok) {
+          form.reset();
+          successDiv.style.display = 'block';
+          setTimeout(() => successDiv.style.display = 'none', 6000);
+        } else { throw new Error(); }
+      } catch {
+        errorDiv.style.display = 'block';
+        setTimeout(() => errorDiv.style.display = 'none', 6000);
+      }
     });
   }
 
-  // Smooth scroll
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-      const target = document.querySelector(this.getAttribute('href'));
-      if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth' }); }
+  /* ---- Smooth scroll ---- */
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', function(e) {
+      const id = this.getAttribute('href');
+      if (id === '#') return;
+      const target = document.querySelector(id);
+      if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
     });
   });
 
-  // Menu button
-  const menuBtn = document.getElementById('menuBtn');
-  if (menuBtn) menuBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+})();
 
-  // Dark/Light Theme Toggle
-  const themeToggle = document.getElementById('themeToggle');
-  themeToggle.addEventListener('click', () => {
-    document.body.classList.toggle('dark');
-    const icon = themeToggle.querySelector('i');
-    if (document.body.classList.contains('dark')) {
-      icon.classList.remove('fa-moon');
-      icon.classList.add('fa-sun');
-    } else {
-      icon.classList.remove('fa-sun');
-      icon.classList.add('fa-moon');
+/* ---- DIY Manufacturing popup ---- */
+function openDIYOptions() {
+  document.getElementById('diyOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeDIYOptions(e, force) {
+  if (force || (e && e.target === document.getElementById('diyOverlay'))) {
+    document.getElementById('diyOverlay').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+}
+
+/* Pre-fill contact form message from DIY option selection */
+function setDIYContact(optionText) {
+  closeDIYOptions(null, true);
+  setTimeout(() => {
+    const msgField  = document.getElementById('contactMessage');
+    const typeSelect= document.getElementById('projectTypeSelect');
+    if (msgField)   msgField.value = optionText;
+    if (typeSelect) {
+      for (let opt of typeSelect.options) {
+        if (opt.value.toLowerCase().includes('roll former') || opt.value.toLowerCase().includes('roll')) {
+          opt.selected = true;
+          break;
+        }
+      }
     }
-  });
+  }, 400);
+}
 </script>
 </body>
 </html>
