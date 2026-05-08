@@ -4,10 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   
-  <!-- SEO Meta Tags -->
   <title>TDG Steel Frame | Premium Steel Frame Construction & Consulting</title>
   <meta name="description" content="TDG Steel Frame specializes in high-end steel frame construction for tiny homes, modular spaces, and commercial projects. Expert consulting, design engineering, and roll-forming manufacturing." />
-  <!-- UPDATED SEO KEYWORDS per client request -->
   <meta name="keywords" content="tiny homes, modular, prefab construction, off site construction, on site construction, steel framing, light gauge steel, roll forming, cold form steel frame, steel frame consulting, Scottsdale Construction Systems, Traverse Dynamics Global, steel building" />
   <meta name="author" content="Traverse Dynamics Global LLC" />
   <meta name="robots" content="index, follow" />
@@ -15,7 +13,6 @@
   <meta name="revisit-after" content="7 days" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
-  <!-- Open Graph / Social Media Meta Tags -->
   <meta property="og:title" content="TDG Steel Frame | Smart. Strong. Steel." />
   <meta property="og:description" content="Precision steel framing for luxury tiny homes and modular structures. Engineering, manufacturing & consulting." />
   <meta property="og:type" content="website" />
@@ -23,15 +20,11 @@
   <meta property="og:image" content="images/og-preview.jpg" />
   <meta property="og:site_name" content="TDG Steel Frame" />
   
-  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="TDG Steel Frame | Smart. Strong. Steel." />
   <meta name="twitter:description" content="Precision steel framing for luxury tiny homes and modular structures." />
   
-  <!-- Canonical URL -->
   <link rel="canonical" href="https://www.cydneyskeens.com/" />
-  
-  <!-- Favicon -->
   <link rel="icon" type="image/x-icon" href="images/logo.ico" />
   <link rel="shortcut icon" type="image/x-icon" href="images/logo.ico" />
   <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png" />
@@ -359,16 +352,13 @@
       box-shadow: var(--shadow-hover);
     }
 
-    /* Linked card style */
     a.service-card-link {
       display: block;
       color: inherit;
       text-decoration: none;
     }
 
-    a.service-card-link .service-card {
-      cursor: pointer;
-    }
+    a.service-card-link .service-card { cursor: pointer; }
 
     a.service-card-link .service-card .service-title::after {
       content: ' ↗';
@@ -427,9 +417,7 @@
       padding: 1rem;
     }
 
-    .diy-options-overlay.open {
-      display: flex;
-    }
+    .diy-options-overlay.open { display: flex; }
 
     .diy-options-box {
       background: #fff;
@@ -550,45 +538,232 @@
     }
 
     /* ===============================
-       PROJECTS GALLERY
+       PROJECTS GALLERY — PREMIUM REDESIGN
        =============================== */
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-      gap: 1.8rem;
+    #projects {
+      background: #0d131c;
+      padding: 5rem 0 6rem;
     }
 
-    .project-card {
-      background: white;
-      border-radius: 20px;
+    #projects .section-title {
+      color: #ffffff;
+    }
+
+    #projects .section-title:after {
+      background: var(--accent);
+    }
+
+    /* Filter tabs */
+    .gallery-filters {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-bottom: 2.8rem;
+    }
+
+    .filter-btn {
+      padding: 0.5rem 1.3rem;
+      border-radius: 40px;
+      border: 1.5px solid rgba(255,255,255,0.18);
+      background: transparent;
+      color: rgba(255,255,255,0.65);
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      cursor: pointer;
+      font-family: inherit;
+      transition: all 0.22s ease;
+    }
+
+    .filter-btn:hover,
+    .filter-btn.active {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #1a1a1a;
+    }
+
+    /* Masonry grid */
+    .gallery-masonry {
+      columns: 4 260px;
+      column-gap: 14px;
+    }
+
+    .gallery-item {
+      break-inside: avoid;
+      margin-bottom: 14px;
+      border-radius: 14px;
       overflow: hidden;
-      border: 1px solid var(--border-soft);
-      box-shadow: 0 8px 24px rgba(0,0,0,0.05);
-      transition: var(--transition);
-    }
-
-    .project-card:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--shadow-hover);
-    }
-
-    .project-card img {
-      width: 100%;
-      aspect-ratio: 4 / 3;
-      object-fit: cover;
+      position: relative;
+      cursor: pointer;
       display: block;
-      transition: transform 0.4s ease;
     }
 
-    .project-card:hover img { transform: scale(1.02); }
-
-    @media (max-width: 740px) {
-      .projects-grid { grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.2rem; }
-      .project-card img { aspect-ratio: 16 / 11; }
+    .gallery-item img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      border-radius: 14px;
     }
 
-    @media (max-width: 480px) {
-      .projects-grid { grid-template-columns: 1fr; }
+    /* Hover overlay */
+    .gallery-item-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0) 55%);
+      opacity: 0;
+      transition: opacity 0.35s ease;
+      border-radius: 14px;
+      display: flex;
+      align-items: flex-end;
+      padding: 1rem 1.1rem;
+    }
+
+    .gallery-item-caption {
+      color: #fff;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      transform: translateY(6px);
+      transition: transform 0.3s ease;
+    }
+
+    .gallery-zoom-icon {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(0.7);
+      width: 44px; height: 44px;
+      background: rgba(245,179,0,0.95);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #1a1a1a;
+      font-size: 1rem;
+      opacity: 0;
+      transition: all 0.3s ease;
+    }
+
+    .gallery-item:hover img { transform: scale(1.06); }
+    .gallery-item:hover .gallery-item-overlay { opacity: 1; }
+    .gallery-item:hover .gallery-item-caption { transform: translateY(0); }
+    .gallery-item:hover .gallery-zoom-icon {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1);
+    }
+
+    /* Hide filtered items */
+    .gallery-item.hidden {
+      display: none;
+    }
+
+    /* Lightbox */
+    .lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.94);
+      z-index: 9999;
+      justify-content: center;
+      align-items: center;
+      padding: 1.5rem;
+      cursor: zoom-out;
+    }
+
+    .lightbox.open { display: flex; }
+
+    .lightbox-img-wrap {
+      position: relative;
+      max-width: 90vw;
+      max-height: 90vh;
+      animation: lbFadeIn 0.25s ease;
+    }
+
+    @keyframes lbFadeIn {
+      from { opacity: 0; transform: scale(0.93); }
+      to   { opacity: 1; transform: scale(1); }
+    }
+
+    .lightbox-img-wrap img {
+      max-width: 90vw;
+      max-height: 85vh;
+      object-fit: contain;
+      border-radius: 10px;
+      box-shadow: 0 30px 80px rgba(0,0,0,0.6);
+      display: block;
+    }
+
+    .lightbox-close {
+      position: fixed;
+      top: 1.2rem; right: 1.5rem;
+      width: 44px; height: 44px;
+      background: rgba(255,255,255,0.12);
+      border: none;
+      border-radius: 50%;
+      color: #fff;
+      font-size: 1.4rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s;
+      z-index: 10000;
+    }
+
+    .lightbox-close:hover { background: rgba(245,179,0,0.9); color: #1a1a1a; }
+
+    .lightbox-nav {
+      position: fixed;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 48px; height: 48px;
+      background: rgba(255,255,255,0.1);
+      border: 1.5px solid rgba(255,255,255,0.2);
+      border-radius: 50%;
+      color: #fff;
+      font-size: 1.1rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s;
+      z-index: 10000;
+    }
+
+    .lightbox-nav:hover {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #1a1a1a;
+    }
+
+    .lightbox-prev { left: 1.2rem; }
+    .lightbox-next { right: 1.2rem; }
+
+    .lightbox-counter {
+      position: fixed;
+      bottom: 1.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      color: rgba(255,255,255,0.5);
+      font-size: 0.8rem;
+      letter-spacing: 0.1em;
+      font-weight: 500;
+    }
+
+    @media (max-width: 768px) {
+      .gallery-masonry { columns: 2 140px; column-gap: 10px; }
+      .gallery-item { margin-bottom: 10px; border-radius: 10px; }
+      .gallery-item img { border-radius: 10px; }
+      .gallery-item-overlay { border-radius: 10px; }
+      .lightbox-nav { display: none; }
+    }
+
+    @media (max-width: 440px) {
+      .gallery-masonry { columns: 2 120px; }
     }
 
     /* ===============================
@@ -687,9 +862,6 @@
       .footer-links { justify-content: center; }
     }
 
-    /* ===============================
-       SEO HIDDEN KEYWORDS BLOCK
-       =============================== */
     .seo-keywords {
       position: absolute;
       width: 1px; height: 1px;
@@ -701,7 +873,6 @@
 </head>
 <body>
 
-<!-- HIDDEN SEO KEYWORDS (crawlable by Google, invisible to users) -->
 <p class="seo-keywords">
   tiny homes, modular, prefab construction, off site construction, on site construction, steel framing, light gauge steel, roll forming, cold form steel frame
 </p>
@@ -732,15 +903,9 @@
 
 <main id="top">
 
-  <!-- HERO SECTION - VIDEO READY -->
+  <!-- HERO SECTION -->
   <section class="hero" id="heroSection">
     <div class="hero-bg"></div>
-    <!-- VIDEO: Uncomment when video is ready -->
-    <!--
-    <video class="hero-video" autoplay muted loop playsinline poster="images/hero-poster.jpg">
-      <source src="videos/tdg-hero.mp4" type="video/mp4">
-    </video>
-    -->
     <div class="hero-overlay"></div>
     <div class="hero-inner">
       <h1 class="hero-title">Smart. Strong. Steel.</h1>
@@ -750,17 +915,11 @@
   </section>
 
   <!-- SERVICES SECTION -->
-  <!-- CHANGE 1: "Our Expertise" → "Expertise" -->
-  <!-- CHANGE 2: "Upscale Tiny Homes" card removed -->
-  <!-- CHANGE 3: Steel Framing → links to hardyhomes.us.com -->
-  <!-- CHANGE 4: Design & Engineering → photo changed to design software image -->
-  <!-- CHANGE 5: DIY Manufacturing → click opens option popup -->
   <section id="services" class="section section-light">
     <div class="container">
       <h2 class="section-title">Expertise</h2>
       <div class="services-grid">
 
-        <!-- STEEL FRAMING — linked to hardyhomes.us.com -->
         <a href="https://hardyhomes.us.com" target="_blank" rel="noopener noreferrer" class="service-card-link">
           <div class="service-card">
             <div class="service-image">
@@ -773,8 +932,6 @@
           </div>
         </a>
 
-        <!-- DESIGN & ENGINEERING — photo changed to design software image -->
-        <!-- 📸 ACTION NEEDED: Upload your design software screenshot as "images/designsoftware.jpg" -->
         <div class="service-card">
           <div class="service-image">
             <img src="images/designsoftware.jpg" alt="BIM and design engineering software interface" loading="lazy"
@@ -786,7 +943,6 @@
           </div>
         </div>
 
-        <!-- DIY MANUFACTURING — click opens options popup -->
         <div class="service-card" id="diyCard" style="cursor:pointer;" onclick="openDIYOptions()">
           <div class="service-image">
             <img src="images/7090g2.jpeg" alt="Roll forming machine for DIY steel manufacturing" loading="lazy">
@@ -808,19 +964,16 @@
       <h3>DIY Manufacturing</h3>
       <p>What would you like to do? Select an option below:</p>
 
-      <!-- OPTION A: Rent a roll former — links to contact form -->
       <a href="#contact" class="diy-option-btn" onclick="setDIYContact('I want to rent a roll former')">
         <span class="diy-option-label">A</span>
         I want to rent a roll former
       </a>
 
-      <!-- OPTION B: Help setting up roll former — links to contact form -->
       <a href="#contact" class="diy-option-btn" onclick="setDIYContact('I need help setting up my roll former')">
         <span class="diy-option-label">B</span>
         Help setting up my roll former
       </a>
 
-      <!-- OPTION C: Explore purchasing — links to contact form -->
       <a href="#contact" class="diy-option-btn" onclick="setDIYContact('I want to explore purchasing my own roll former')">
         <span class="diy-option-label">C</span>
         Explore purchasing my own roll former
@@ -843,122 +996,225 @@
     </div>
   </section>
 
-  <!-- PROJECTS GALLERY -->
-  <!--
-    ============================================================
-    HOW TO ADD NEW PHOTOS — EASY PHOTO MANAGEMENT:
-
-    1. Upload your image file into the /images/ folder on your server
-    2. Copy this block and paste it anywhere inside the projects-grid div:
-
-       <div class="project-card">
-         <img src="images/YOUR-PHOTO-NAME.jpg" alt="Brief description" loading="lazy">
-       </div>
-
-    That's it! The grid automatically adjusts to show all photos.
-    ============================================================
-  -->
-  <section id="projects" class="section section-light">
+  <!-- ===============================
+       PROJECTS GALLERY — PREMIUM
+       =============================== -->
+  <section id="projects">
     <div class="container">
       <h2 class="section-title">Projects</h2>
-      <div class="projects-grid" id="projectGrid">
 
-     <div class="project-card">
-  <img src="images/tinyhome1.jpeg" alt="Modern tiny home with steel frame structure" loading="lazy">
-</div>
-
-<div class="project-card">
-  <img src="images/tinyhome2.jpg" alt="Contemporary steel frame residence exterior" loading="lazy">
-</div>
-
-<div class="project-card">
-  <img src="images/squarestream.jpg" alt="Square stream architectural steel design" loading="lazy">
-</div>
-
-<div class="project-card">
-  <img src="images/tinyhousetink.jpeg" alt="Tiny house workshop steel framing" loading="lazy">
-</div>
-
-<div class="project-card">
-  <img src="images/greenhouse.jpeg" alt="Steel frame greenhouse construction" loading="lazy">
-</div>
-
-<div class="project-card">
-  <img src="images/greenhouse1.jpeg" alt="Advanced steel greenhouse structure" loading="lazy">
-</div>
-
-<div class="project-card">
-  <img src="images/greenhouse2.jpeg" alt="Sustainable steel frame greenhouse project" loading="lazy">
-</div>
-
-<div class="project-card">
-  <img src="images/eagleslndg.jpeg" alt="Eagles Landing steel frame project showcase" loading="lazy">
-</div>
-
-<!-- ✅ NEW ADDED IMAGES -->
-
-<div class="project-card">
-  <img src="images/panel1.jpeg" alt="Steel panel frame project" loading="lazy">
-</div>
-
-<div class="project-card">
-  <img src="images/panel2.jpeg" alt="Metal wall panel construction" loading="lazy">
-</div>
-
-<div class="project-card">
-  <img src="images/panel3.jpeg" alt="Steel panel installation project" loading="lazy">
-</div>
-
-<div class="project-card">
-  <img src="images/panel4.jpeg" alt="Custom steel frame panels" loading="lazy">
-</div>
-
-<div class="project-card">
-  <img src="images/greenhouseshed.jpeg" alt="Greenhouse shed 3D design model" loading="lazy">
-</div>
-
-<div class="project-card">
-  <img src="images/greenhouseshed2.png" alt="Completed greenhouse shed structure" loading="lazy">
-</div>
-
-<div class="project-card">
-  <img src="images/tinyhome.jpeg" alt="Tiny home exterior steel structure" loading="lazy">
-</div>
-
-<div class="project-card">
-  <img src="images/3rollformer.png" alt="Industrial roll former machine" loading="lazy">
-</div>
-
-<div class="project-card">
-  <img src="images/4rollformer1.jpeg" alt="Steel roll forming equipment" loading="lazy">
-</div>
-
-<div class="project-card">
-  <img src="images/1sculptures.jpeg" alt="Custom metal sculpture fabrication" loading="lazy">
-</div>
-
-<div class="project-card">
-  <img src="images/scottsdalebooth.jpeg" alt="Scottsdale booth steel structure" loading="lazy">
-</div>
-
-<div class="project-card">
-  <img src="images/quonsetcyd.JPG" alt="Quonset steel building project" loading="lazy">
-</div>
-
-<div class="project-card">
-  <img src="images/1ScotCyd.png" alt="Scot cylinder machine setup" loading="lazy">
-</div>
-
-<div class="project-card">
-  <img src="images/chair.jpeg" alt="Custom metal chair design" loading="lazy">
-</div>
-
-<div class="project-card">
-  <img src="images/panel.png" alt="Steel frame panel render design" loading="lazy">
-</div>
+      <!-- Filter Tabs -->
+      <div class="gallery-filters">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="homes">Homes</button>
+        <button class="filter-btn" data-filter="greenhouse">Greenhouse</button>
+        <button class="filter-btn" data-filter="panels">Panels</button>
+        <button class="filter-btn" data-filter="equipment">Equipment</button>
+        <button class="filter-btn" data-filter="other">Other</button>
       </div>
+
+      <!-- Masonry Gallery -->
+      <div class="gallery-masonry" id="galleryMasonry">
+
+        <div class="gallery-item" data-category="homes" data-caption="Modern Tiny Home" onclick="openLightbox(this)">
+          <img src="images/tinyhome1.jpeg" alt="Modern tiny home with steel frame structure" loading="lazy">
+          <div class="gallery-item-overlay">
+            <span class="gallery-item-caption">Modern Tiny Home</span>
+          </div>
+          <div class="gallery-zoom-icon"><i class="fas fa-expand-alt"></i></div>
+        </div>
+
+        <div class="gallery-item" data-category="homes" data-caption="Steel Frame Residence" onclick="openLightbox(this)">
+          <img src="images/tinyhome2.jpg" alt="Contemporary steel frame residence exterior" loading="lazy">
+          <div class="gallery-item-overlay">
+            <span class="gallery-item-caption">Steel Frame Residence</span>
+          </div>
+          <div class="gallery-zoom-icon"><i class="fas fa-expand-alt"></i></div>
+        </div>
+
+        <div class="gallery-item" data-category="homes" data-caption="Square Stream Design" onclick="openLightbox(this)">
+          <img src="images/squarestream.jpg" alt="Square stream architectural steel design" loading="lazy">
+          <div class="gallery-item-overlay">
+            <span class="gallery-item-caption">Square Stream Design</span>
+          </div>
+          <div class="gallery-zoom-icon"><i class="fas fa-expand-alt"></i></div>
+        </div>
+
+        <div class="gallery-item" data-category="homes" data-caption="Tiny House Workshop" onclick="openLightbox(this)">
+          <img src="images/tinyhousetink.jpeg" alt="Tiny house workshop steel framing" loading="lazy">
+          <div class="gallery-item-overlay">
+            <span class="gallery-item-caption">Tiny House Workshop</span>
+          </div>
+          <div class="gallery-zoom-icon"><i class="fas fa-expand-alt"></i></div>
+        </div>
+
+        <div class="gallery-item" data-category="greenhouse" data-caption="Steel Frame Greenhouse" onclick="openLightbox(this)">
+          <img src="images/greenhouse.jpeg" alt="Steel frame greenhouse construction" loading="lazy">
+          <div class="gallery-item-overlay">
+            <span class="gallery-item-caption">Steel Frame Greenhouse</span>
+          </div>
+          <div class="gallery-zoom-icon"><i class="fas fa-expand-alt"></i></div>
+        </div>
+
+        <div class="gallery-item" data-category="greenhouse" data-caption="Advanced Greenhouse Structure" onclick="openLightbox(this)">
+          <img src="images/greenhouse1.jpeg" alt="Advanced steel greenhouse structure" loading="lazy">
+          <div class="gallery-item-overlay">
+            <span class="gallery-item-caption">Advanced Greenhouse Structure</span>
+          </div>
+          <div class="gallery-zoom-icon"><i class="fas fa-expand-alt"></i></div>
+        </div>
+
+        <div class="gallery-item" data-category="greenhouse" data-caption="Sustainable Greenhouse" onclick="openLightbox(this)">
+          <img src="images/greenhouse2.jpeg" alt="Sustainable steel frame greenhouse project" loading="lazy">
+          <div class="gallery-item-overlay">
+            <span class="gallery-item-caption">Sustainable Greenhouse</span>
+          </div>
+          <div class="gallery-zoom-icon"><i class="fas fa-expand-alt"></i></div>
+        </div>
+
+        <div class="gallery-item" data-category="homes" data-caption="Eagles Landing Project" onclick="openLightbox(this)">
+          <img src="images/eagleslndg.jpeg" alt="Eagles Landing steel frame project showcase" loading="lazy">
+          <div class="gallery-item-overlay">
+            <span class="gallery-item-caption">Eagles Landing</span>
+          </div>
+          <div class="gallery-zoom-icon"><i class="fas fa-expand-alt"></i></div>
+        </div>
+
+        <div class="gallery-item" data-category="panels" data-caption="Steel Panel Frame" onclick="openLightbox(this)">
+          <img src="images/panel1.jpeg" alt="Steel panel frame project" loading="lazy">
+          <div class="gallery-item-overlay">
+            <span class="gallery-item-caption">Steel Panel Frame</span>
+          </div>
+          <div class="gallery-zoom-icon"><i class="fas fa-expand-alt"></i></div>
+        </div>
+
+        <div class="gallery-item" data-category="panels" data-caption="Metal Wall Panels" onclick="openLightbox(this)">
+          <img src="images/panel2.jpeg" alt="Metal wall panel construction" loading="lazy">
+          <div class="gallery-item-overlay">
+            <span class="gallery-item-caption">Metal Wall Panels</span>
+          </div>
+          <div class="gallery-zoom-icon"><i class="fas fa-expand-alt"></i></div>
+        </div>
+
+        <div class="gallery-item" data-category="panels" data-caption="Panel Installation" onclick="openLightbox(this)">
+          <img src="images/panel3.jpeg" alt="Steel panel installation project" loading="lazy">
+          <div class="gallery-item-overlay">
+            <span class="gallery-item-caption">Panel Installation</span>
+          </div>
+          <div class="gallery-zoom-icon"><i class="fas fa-expand-alt"></i></div>
+        </div>
+
+        <div class="gallery-item" data-category="panels" data-caption="Custom Steel Panels" onclick="openLightbox(this)">
+          <img src="images/panel4.jpeg" alt="Custom steel frame panels" loading="lazy">
+          <div class="gallery-item-overlay">
+            <span class="gallery-item-caption">Custom Steel Panels</span>
+          </div>
+          <div class="gallery-zoom-icon"><i class="fas fa-expand-alt"></i></div>
+        </div>
+
+        <div class="gallery-item" data-category="greenhouse" data-caption="Greenhouse Shed 3D Model" onclick="openLightbox(this)">
+          <img src="images/greenhouseshed.jpeg" alt="Greenhouse shed 3D design model" loading="lazy">
+          <div class="gallery-item-overlay">
+            <span class="gallery-item-caption">Greenhouse Shed 3D</span>
+          </div>
+          <div class="gallery-zoom-icon"><i class="fas fa-expand-alt"></i></div>
+        </div>
+
+        <div class="gallery-item" data-category="greenhouse" data-caption="Greenhouse Shed Complete" onclick="openLightbox(this)">
+          <img src="images/greenhouseshed2.png" alt="Completed greenhouse shed structure" loading="lazy">
+          <div class="gallery-item-overlay">
+            <span class="gallery-item-caption">Greenhouse Shed Complete</span>
+          </div>
+          <div class="gallery-zoom-icon"><i class="fas fa-expand-alt"></i></div>
+        </div>
+
+        <div class="gallery-item" data-category="homes" data-caption="Tiny Home Exterior" onclick="openLightbox(this)">
+          <img src="images/tinyhome.jpeg" alt="Tiny home exterior steel structure" loading="lazy">
+          <div class="gallery-item-overlay">
+            <span class="gallery-item-caption">Tiny Home Exterior</span>
+          </div>
+          <div class="gallery-zoom-icon"><i class="fas fa-expand-alt"></i></div>
+        </div>
+
+        <div class="gallery-item" data-category="equipment" data-caption="Industrial Roll Former" onclick="openLightbox(this)">
+          <img src="images/3rollformer.png" alt="Industrial roll former machine" loading="lazy">
+          <div class="gallery-item-overlay">
+            <span class="gallery-item-caption">Industrial Roll Former</span>
+          </div>
+          <div class="gallery-zoom-icon"><i class="fas fa-expand-alt"></i></div>
+        </div>
+
+        <div class="gallery-item" data-category="equipment" data-caption="Roll Forming Equipment" onclick="openLightbox(this)">
+          <img src="images/4rollformer1.jpeg" alt="Steel roll forming equipment" loading="lazy">
+          <div class="gallery-item-overlay">
+            <span class="gallery-item-caption">Roll Forming Equipment</span>
+          </div>
+          <div class="gallery-zoom-icon"><i class="fas fa-expand-alt"></i></div>
+        </div>
+
+        <div class="gallery-item" data-category="other" data-caption="Metal Sculpture" onclick="openLightbox(this)">
+          <img src="images/1sculptures.jpeg" alt="Custom metal sculpture fabrication" loading="lazy">
+          <div class="gallery-item-overlay">
+            <span class="gallery-item-caption">Metal Sculpture</span>
+          </div>
+          <div class="gallery-zoom-icon"><i class="fas fa-expand-alt"></i></div>
+        </div>
+
+        <div class="gallery-item" data-category="other" data-caption="Scottsdale Booth" onclick="openLightbox(this)">
+          <img src="images/scottsdalebooth.jpeg" alt="Scottsdale booth steel structure" loading="lazy">
+          <div class="gallery-item-overlay">
+            <span class="gallery-item-caption">Scottsdale Booth</span>
+          </div>
+          <div class="gallery-zoom-icon"><i class="fas fa-expand-alt"></i></div>
+        </div>
+
+        <div class="gallery-item" data-category="other" data-caption="Quonset Building" onclick="openLightbox(this)">
+          <img src="images/quonsetcyd.JPG" alt="Quonset steel building project" loading="lazy">
+          <div class="gallery-item-overlay">
+            <span class="gallery-item-caption">Quonset Building</span>
+          </div>
+          <div class="gallery-zoom-icon"><i class="fas fa-expand-alt"></i></div>
+        </div>
+
+        <div class="gallery-item" data-category="equipment" data-caption="Scottsdale Machine Setup" onclick="openLightbox(this)">
+          <img src="images/1ScotCyd.png" alt="Scot cylinder machine setup" loading="lazy">
+          <div class="gallery-item-overlay">
+            <span class="gallery-item-caption">Machine Setup</span>
+          </div>
+          <div class="gallery-zoom-icon"><i class="fas fa-expand-alt"></i></div>
+        </div>
+
+        <div class="gallery-item" data-category="other" data-caption="Custom Metal Chair" onclick="openLightbox(this)">
+          <img src="images/chair.jpeg" alt="Custom metal chair design" loading="lazy">
+          <div class="gallery-item-overlay">
+            <span class="gallery-item-caption">Custom Metal Chair</span>
+          </div>
+          <div class="gallery-zoom-icon"><i class="fas fa-expand-alt"></i></div>
+        </div>
+
+        <div class="gallery-item" data-category="panels" data-caption="Panel Render Design" onclick="openLightbox(this)">
+          <img src="images/panel.png" alt="Steel frame panel render design" loading="lazy">
+          <div class="gallery-item-overlay">
+            <span class="gallery-item-caption">Panel Render Design</span>
+          </div>
+          <div class="gallery-zoom-icon"><i class="fas fa-expand-alt"></i></div>
+        </div>
+
+      </div>
+      <!-- End gallery-masonry -->
     </div>
   </section>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox" onclick="closeLightboxOnBg(event)">
+    <button class="lightbox-close" onclick="closeLightbox()">×</button>
+    <button class="lightbox-nav lightbox-prev" onclick="navigateLightbox(-1)">&#8249;</button>
+    <div class="lightbox-img-wrap">
+      <img id="lightboxImg" src="" alt="">
+    </div>
+    <button class="lightbox-nav lightbox-next" onclick="navigateLightbox(1)">&#8250;</button>
+    <div class="lightbox-counter" id="lightboxCounter"></div>
+  </div>
 
   <!-- CONTACT SECTION -->
   <section id="contact" class="section">
@@ -988,7 +1244,6 @@
         <div class="form-group">
           <textarea name="message" id="contactMessage" rows="4" placeholder="Tell us about your steel frame project... *" required></textarea>
         </div>
-        <!-- Honeypot anti-spam -->
         <input type="text" name="_gotcha" style="display:none" />
         <input type="hidden" name="_subject" value="New TDG Steel Frame Consultation Request" />
         <button type="submit" class="btn-primary" style="width:100%;">Send Message</button>
@@ -998,7 +1253,6 @@
 
 </main>
 
-<!-- FOOTER — UPDATED: single LinkedIn, Google Business, landscaping site links -->
 <footer class="footer">
   <div class="container footer-inner">
     <div>
@@ -1010,22 +1264,15 @@
       <div>Cydney Skeens</div>
       <div>📞 <a href="tel:+12147630146">+1-214-763-0146</a></div>
       <div class="footer-links">
-
-        <!-- LinkedIn — single link, duplicate removed -->
         <a href="https://www.linkedin.com/in/cydney-skeens/" target="_blank" rel="noopener noreferrer" title="LinkedIn">
           <i class="fab fa-linkedin"></i> LinkedIn
         </a>
-
-        <!-- GOOGLE BUSINESS PAGE — replace URL with your actual Google Business link -->
         <a href="https://share.google/lHoXPqYAc87M6GEiz" target="_blank" rel="noopener noreferrer" title="Google Business">
           <i class="fab fa-google"></i> Google Business
         </a>
-
-        <!-- LANDSCAPING WEBSITE — replace URL with your actual landscaping site -->
         <a href="https://www.cls23.com/" target="_blank" rel="noopener noreferrer" title="Landscaping Services">
           🌿 Landscaping Services
         </a>
-
       </div>
     </div>
   </div>
@@ -1114,6 +1361,25 @@
     });
   });
 
+  /* ---- Gallery filter ---- */
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const galleryItems = document.querySelectorAll('.gallery-item');
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const filter = btn.dataset.filter;
+      galleryItems.forEach(item => {
+        if (filter === 'all' || item.dataset.category === filter) {
+          item.classList.remove('hidden');
+        } else {
+          item.classList.add('hidden');
+        }
+      });
+    });
+  });
+
 })();
 
 /* ---- DIY Manufacturing popup ---- */
@@ -1129,7 +1395,6 @@ function closeDIYOptions(e, force) {
   }
 }
 
-/* Pre-fill contact form message from DIY option selection */
 function setDIYContact(optionText) {
   closeDIYOptions(null, true);
   setTimeout(() => {
@@ -1146,6 +1411,55 @@ function setDIYContact(optionText) {
     }
   }, 400);
 }
+
+/* ---- Lightbox ---- */
+let currentLightboxIndex = 0;
+let visibleItems = [];
+
+function getVisibleItems() {
+  return Array.from(document.querySelectorAll('.gallery-item:not(.hidden)'));
+}
+
+function openLightbox(el) {
+  visibleItems = getVisibleItems();
+  currentLightboxIndex = visibleItems.indexOf(el);
+  showLightboxImage(currentLightboxIndex);
+  document.getElementById('lightbox').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function showLightboxImage(index) {
+  visibleItems = getVisibleItems();
+  if (index < 0) index = visibleItems.length - 1;
+  if (index >= visibleItems.length) index = 0;
+  currentLightboxIndex = index;
+  const item = visibleItems[index];
+  const img = item.querySelector('img');
+  document.getElementById('lightboxImg').src = img.src;
+  document.getElementById('lightboxImg').alt = img.alt;
+  document.getElementById('lightboxCounter').textContent = (index + 1) + ' / ' + visibleItems.length;
+}
+
+function closeLightbox() {
+  document.getElementById('lightbox').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function closeLightboxOnBg(e) {
+  if (e.target === document.getElementById('lightbox')) closeLightbox();
+}
+
+function navigateLightbox(dir) {
+  showLightboxImage(currentLightboxIndex + dir);
+}
+
+document.addEventListener('keydown', (e) => {
+  const lb = document.getElementById('lightbox');
+  if (!lb.classList.contains('open')) return;
+  if (e.key === 'Escape') closeLightbox();
+  if (e.key === 'ArrowRight') navigateLightbox(1);
+  if (e.key === 'ArrowLeft') navigateLightbox(-1);
+});
 </script>
 </body>
 </html>
