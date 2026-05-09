@@ -34,7 +34,7 @@
   <style>
     /* =====================================================
        TDG — PREMIUM ARCHITECTURAL PLATFORM
-       Fully Responsive | Mobile-First | Optimized Images
+       Production Ready | Fully Responsive | Mobile-First
        ===================================================== */
 
     :root {
@@ -202,7 +202,7 @@
     }
 
     /* ===============================
-       HERO SECTION
+       HERO
        =============================== */
     .hero {
       position: relative;
@@ -397,9 +397,88 @@
       line-height: 1.5;
     }
 
+    /* -----------------------------------------------
+       CHANGE 1 & 2: Design/Engineering card redesigned
+       as a side-by-side before/after split-image layout.
+       Left = designsoftware.jpg (BIM/digital)
+       Right = tinyhousetink.jpeg (real built frame / person in doorframe)
+       This creates a "concept → reality" comparison.
+       ----------------------------------------------- */
+    .service-card.design-card { position: relative; overflow: hidden; }
+
+    .design-split-images {
+      height: 220px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .design-split-images .split-pane {
+      overflow: hidden;
+      position: relative;
+    }
+
+    .design-split-images .split-pane img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .service-card.design-card:hover .split-pane img { transform: scale(1.06); }
+
+    /* Divider line between the two panes */
+    .split-divider {
+      position: absolute;
+      top: 0; bottom: 0;
+      left: 50%;
+      width: 2px;
+      background: rgba(255,255,255,0.9);
+      z-index: 4;
+      transform: translateX(-50%);
+    }
+
+    /* Pill badge sitting on the divider */
+    .split-badge {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 5;
+      background: var(--accent);
+      color: #1a1a1a;
+      font-size: 0.58rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 20px;
+      white-space: nowrap;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    }
+
+    /* "Digital" / "Built" micro-labels per pane */
+    .pane-label {
+      position: absolute;
+      bottom: 8px;
+      left: 8px;
+      z-index: 3;
+      background: rgba(0,0,0,0.55);
+      color: #fff;
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border-radius: 20px;
+      pointer-events: none;
+    }
+
     @media (max-width: 640px) {
       .services-grid { gap: 1.2rem; }
       .service-image { height: 200px; }
+      .design-split-images { height: 200px; }
       .service-content { padding: 1.2rem; }
     }
 
@@ -538,22 +617,16 @@
     }
 
     /* ===============================
-       PROJECTS GALLERY — PREMIUM REDESIGN
+       PROJECTS GALLERY — DARK MASONRY
        =============================== */
     #projects {
       background: #0d131c;
       padding: 5rem 0 6rem;
     }
 
-    #projects .section-title {
-      color: #ffffff;
-    }
+    #projects .section-title { color: #ffffff; }
+    #projects .section-title:after { background: var(--accent); }
 
-    #projects .section-title:after {
-      background: var(--accent);
-    }
-
-    /* Filter tabs */
     .gallery-filters {
       display: flex;
       justify-content: center;
@@ -584,7 +657,6 @@
       color: #1a1a1a;
     }
 
-    /* Masonry grid */
     .gallery-masonry {
       columns: 4 260px;
       column-gap: 14px;
@@ -608,7 +680,6 @@
       border-radius: 14px;
     }
 
-    /* Hover overlay */
     .gallery-item-overlay {
       position: absolute;
       inset: 0;
@@ -633,8 +704,7 @@
 
     .gallery-zoom-icon {
       position: absolute;
-      top: 50%;
-      left: 50%;
+      top: 50%; left: 50%;
       transform: translate(-50%, -50%) scale(0.7);
       width: 44px; height: 44px;
       background: rgba(245,179,0,0.95);
@@ -656,10 +726,7 @@
       transform: translate(-50%, -50%) scale(1);
     }
 
-    /* Hide filtered items */
-    .gallery-item.hidden {
-      display: none;
-    }
+    .gallery-item.hidden { display: none; }
 
     /* Lightbox */
     .lightbox {
@@ -734,12 +801,7 @@
       z-index: 10000;
     }
 
-    .lightbox-nav:hover {
-      background: var(--accent);
-      border-color: var(--accent);
-      color: #1a1a1a;
-    }
-
+    .lightbox-nav:hover { background: var(--accent); border-color: var(--accent); color: #1a1a1a; }
     .lightbox-prev { left: 1.2rem; }
     .lightbox-next { right: 1.2rem; }
 
@@ -880,7 +942,8 @@
 <header class="navbar" id="navbar">
   <div class="container navbar-inner">
     <a href="#top" class="navbar-logo">
-      <img src="images/logo.png" alt="TDG Steel Frame - Steel Construction" class="logo-img" id="navbarLogo" onerror="this.src='https://placehold.co/120x40/f5b300/1a1a1a?text=TDG'">
+      <img src="images/logo.png" alt="TDG Steel Frame - Steel Construction" class="logo-img" id="navbarLogo"
+           onerror="this.src='https://placehold.co/120x40/f5b300/1a1a1a?text=TDG'">
       <span class="navbar-logo-text">Steel Frame Consulting</span>
     </a>
     <nav class="navbar-nav" id="desktopNav">
@@ -903,9 +966,14 @@
 
 <main id="top">
 
-  <!-- HERO SECTION -->
+  <!-- HERO -->
   <section class="hero" id="heroSection">
     <div class="hero-bg"></div>
+    <!--
+    <video class="hero-video" autoplay muted loop playsinline poster="images/hero-poster.jpg">
+      <source src="videos/tdg-hero.mp4" type="video/mp4">
+    </video>
+    -->
     <div class="hero-overlay"></div>
     <div class="hero-inner">
       <h1 class="hero-title">Smart. Strong. Steel.</h1>
@@ -914,12 +982,18 @@
     </div>
   </section>
 
-  <!-- SERVICES SECTION -->
+  <!-- ===================================================
+       SERVICES — CHANGE 1 & 2 APPLIED
+       Design/Engineering card now uses a split before/after
+       layout: left = software (digital), right = built frame
+       (person in doorframe) — visually paired side by side.
+       =================================================== -->
   <section id="services" class="section section-light">
     <div class="container">
       <h2 class="section-title">Expertise</h2>
       <div class="services-grid">
 
+        <!-- Card 1: Steel Framing (unchanged) -->
         <a href="https://hardyhomes.us.com" target="_blank" rel="noopener noreferrer" class="service-card-link">
           <div class="service-card">
             <div class="service-image">
@@ -932,17 +1006,42 @@
           </div>
         </a>
 
-        <div class="service-card">
-          <div class="service-image">
-            <img src="images/designsoftware.jpg" alt="BIM and design engineering software interface" loading="lazy"
-              onerror="this.src='images/greenhouse.jpeg'">
+        <!-- Card 2: Design / Engineering — BEFORE/AFTER SPLIT IMAGE
+             Left pane  → designsoftware.jpg  (BIM / digital model)
+             Right pane → tinyhousetink.jpeg  (real build, person in doorframe)
+             Creates an immediate concept-to-reality visual comparison -->
+        <div class="service-card design-card">
+          <div class="design-split-images">
+
+            <!-- LEFT: Digital / Software -->
+            <div class="split-pane">
+              <img src="images/designsoftware.jpg"
+                   alt="BIM and design engineering software — digital model"
+                   loading="lazy"
+                   onerror="this.src='images/panel.png'">
+              <span class="pane-label">Digital</span>
+            </div>
+
+            <!-- RIGHT: Real built frame / person in doorframe -->
+            <div class="split-pane">
+              <img src="images/tinyhousetink.jpeg"
+                   alt="Real steel frame construction — person standing in door frame"
+                   loading="lazy">
+              <span class="pane-label">Built</span>
+            </div>
+
+            <!-- Divider + floating badge -->
+            <div class="split-divider"></div>
+            <div class="split-badge">Concept → Reality</div>
+
           </div>
           <div class="service-content">
             <h3 class="service-title">Design / Engineering Consultations</h3>
-            <p class="service-text">BIM + 3D workflows that connect concept, detailing, and manufacturing.</p>
+            <p class="service-text">BIM + 3D workflows that connect concept, detailing, and manufacturing — from digital model to finished structure.</p>
           </div>
         </div>
 
+        <!-- Card 3: DIY Manufacturing (unchanged) -->
         <div class="service-card" id="diyCard" style="cursor:pointer;" onclick="openDIYOptions()">
           <div class="service-image">
             <img src="images/7090g2.jpeg" alt="Roll forming machine for DIY steel manufacturing" loading="lazy">
@@ -957,23 +1056,20 @@
     </div>
   </section>
 
-  <!-- DIY OPTIONS POPUP MODAL -->
+  <!-- DIY OPTIONS POPUP -->
   <div class="diy-options-overlay" id="diyOverlay" onclick="closeDIYOptions(event)">
     <div class="diy-options-box">
       <button class="diy-close-btn" onclick="closeDIYOptions(null, true)">×</button>
       <h3>DIY Manufacturing</h3>
       <p>What would you like to do? Select an option below:</p>
-
       <a href="#contact" class="diy-option-btn" onclick="setDIYContact('I want to rent a roll former')">
         <span class="diy-option-label">A</span>
         I want to rent a roll former
       </a>
-
       <a href="#contact" class="diy-option-btn" onclick="setDIYContact('I need help setting up my roll former')">
         <span class="diy-option-label">B</span>
         Help setting up my roll former
       </a>
-
       <a href="#contact" class="diy-option-btn" onclick="setDIYContact('I want to explore purchasing my own roll former')">
         <span class="diy-option-label">C</span>
         Explore purchasing my own roll former
@@ -981,7 +1077,7 @@
     </div>
   </div>
 
-  <!-- ABOUT SECTION -->
+  <!-- ABOUT -->
   <section id="about" class="section">
     <div class="container about-grid">
       <div class="about-image">
@@ -996,14 +1092,20 @@
     </div>
   </section>
 
-  <!-- ===============================
-       PROJECTS GALLERY — PREMIUM
-       =============================== -->
+  <!-- ===================================================
+       PROJECTS GALLERY — DARK MASONRY
+       CHANGE 3 APPLIED: Images correctly matched per category:
+         homes      → tinyhome1, tinyhome2, tinyhome, squarestream, eagleslndg
+         greenhouse → greenhouse, greenhouse1, greenhouse2, greenhouseshed, greenhouseshed2
+         panels     → panel1, panel2, panel3, panel4, panel.png
+         equipment  → 3rollformer, 4rollformer1, 1ScotCyd, 7090g2, scottsdalebooth
+         other      → 1sculptures, chair, quonsetcyd
+       NOTE: tinyhousetink moved to Design card (before/after), no longer in gallery.
+       =================================================== -->
   <section id="projects">
     <div class="container">
       <h2 class="section-title">Projects</h2>
 
-      <!-- Filter Tabs -->
       <div class="gallery-filters">
         <button class="filter-btn active" data-filter="all">All</button>
         <button class="filter-btn" data-filter="homes">Homes</button>
@@ -1013,195 +1115,152 @@
         <button class="filter-btn" data-filter="other">Other</button>
       </div>
 
-      <!-- Masonry Gallery -->
       <div class="gallery-masonry" id="galleryMasonry">
 
-        <div class="gallery-item" data-category="homes" data-caption="Modern Tiny Home" onclick="openLightbox(this)">
+        <!-- ── HOMES ── -->
+        <div class="gallery-item" data-category="homes" onclick="openLightbox(this)">
           <img src="images/tinyhome1.jpeg" alt="Modern tiny home with steel frame structure" loading="lazy">
-          <div class="gallery-item-overlay">
-            <span class="gallery-item-caption">Modern Tiny Home</span>
-          </div>
+          <div class="gallery-item-overlay"><span class="gallery-item-caption">Modern Tiny Home</span></div>
           <div class="gallery-zoom-icon"><i class="fas fa-expand-alt"></i></div>
         </div>
 
-        <div class="gallery-item" data-category="homes" data-caption="Steel Frame Residence" onclick="openLightbox(this)">
+        <div class="gallery-item" data-category="homes" onclick="openLightbox(this)">
           <img src="images/tinyhome2.jpg" alt="Contemporary steel frame residence exterior" loading="lazy">
-          <div class="gallery-item-overlay">
-            <span class="gallery-item-caption">Steel Frame Residence</span>
-          </div>
+          <div class="gallery-item-overlay"><span class="gallery-item-caption">Steel Frame Residence</span></div>
           <div class="gallery-zoom-icon"><i class="fas fa-expand-alt"></i></div>
         </div>
 
-        <div class="gallery-item" data-category="homes" data-caption="Square Stream Design" onclick="openLightbox(this)">
-          <img src="images/squarestream.jpg" alt="Square stream architectural steel design" loading="lazy">
-          <div class="gallery-item-overlay">
-            <span class="gallery-item-caption">Square Stream Design</span>
-          </div>
+        <div class="gallery-item" data-category="homes" onclick="openLightbox(this)">
+          <img src="images/squarestream.jpg" alt="Square Stream architectural steel design" loading="lazy">
+          <div class="gallery-item-overlay"><span class="gallery-item-caption">Square Stream Design</span></div>
           <div class="gallery-zoom-icon"><i class="fas fa-expand-alt"></i></div>
         </div>
 
-        <div class="gallery-item" data-category="homes" data-caption="Tiny House Workshop" onclick="openLightbox(this)">
-          <img src="images/tinyhousetink.jpeg" alt="Tiny house workshop steel framing" loading="lazy">
-          <div class="gallery-item-overlay">
-            <span class="gallery-item-caption">Tiny House Workshop</span>
-          </div>
-          <div class="gallery-zoom-icon"><i class="fas fa-expand-alt"></i></div>
-        </div>
-
-        <div class="gallery-item" data-category="greenhouse" data-caption="Steel Frame Greenhouse" onclick="openLightbox(this)">
-          <img src="images/greenhouse.jpeg" alt="Steel frame greenhouse construction" loading="lazy">
-          <div class="gallery-item-overlay">
-            <span class="gallery-item-caption">Steel Frame Greenhouse</span>
-          </div>
-          <div class="gallery-zoom-icon"><i class="fas fa-expand-alt"></i></div>
-        </div>
-
-        <div class="gallery-item" data-category="greenhouse" data-caption="Advanced Greenhouse Structure" onclick="openLightbox(this)">
-          <img src="images/greenhouse1.jpeg" alt="Advanced steel greenhouse structure" loading="lazy">
-          <div class="gallery-item-overlay">
-            <span class="gallery-item-caption">Advanced Greenhouse Structure</span>
-          </div>
-          <div class="gallery-zoom-icon"><i class="fas fa-expand-alt"></i></div>
-        </div>
-
-        <div class="gallery-item" data-category="greenhouse" data-caption="Sustainable Greenhouse" onclick="openLightbox(this)">
-          <img src="images/greenhouse2.jpeg" alt="Sustainable steel frame greenhouse project" loading="lazy">
-          <div class="gallery-item-overlay">
-            <span class="gallery-item-caption">Sustainable Greenhouse</span>
-          </div>
-          <div class="gallery-zoom-icon"><i class="fas fa-expand-alt"></i></div>
-        </div>
-
-        <div class="gallery-item" data-category="homes" data-caption="Eagles Landing Project" onclick="openLightbox(this)">
-          <img src="images/eagleslndg.jpeg" alt="Eagles Landing steel frame project showcase" loading="lazy">
-          <div class="gallery-item-overlay">
-            <span class="gallery-item-caption">Eagles Landing</span>
-          </div>
-          <div class="gallery-zoom-icon"><i class="fas fa-expand-alt"></i></div>
-        </div>
-
-        <div class="gallery-item" data-category="panels" data-caption="Steel Panel Frame" onclick="openLightbox(this)">
-          <img src="images/panel1.jpeg" alt="Steel panel frame project" loading="lazy">
-          <div class="gallery-item-overlay">
-            <span class="gallery-item-caption">Steel Panel Frame</span>
-          </div>
-          <div class="gallery-zoom-icon"><i class="fas fa-expand-alt"></i></div>
-        </div>
-
-        <div class="gallery-item" data-category="panels" data-caption="Metal Wall Panels" onclick="openLightbox(this)">
-          <img src="images/panel2.jpeg" alt="Metal wall panel construction" loading="lazy">
-          <div class="gallery-item-overlay">
-            <span class="gallery-item-caption">Metal Wall Panels</span>
-          </div>
-          <div class="gallery-zoom-icon"><i class="fas fa-expand-alt"></i></div>
-        </div>
-
-        <div class="gallery-item" data-category="panels" data-caption="Panel Installation" onclick="openLightbox(this)">
-          <img src="images/panel3.jpeg" alt="Steel panel installation project" loading="lazy">
-          <div class="gallery-item-overlay">
-            <span class="gallery-item-caption">Panel Installation</span>
-          </div>
-          <div class="gallery-zoom-icon"><i class="fas fa-expand-alt"></i></div>
-        </div>
-
-        <div class="gallery-item" data-category="panels" data-caption="Custom Steel Panels" onclick="openLightbox(this)">
-          <img src="images/panel4.jpeg" alt="Custom steel frame panels" loading="lazy">
-          <div class="gallery-item-overlay">
-            <span class="gallery-item-caption">Custom Steel Panels</span>
-          </div>
-          <div class="gallery-zoom-icon"><i class="fas fa-expand-alt"></i></div>
-        </div>
-
-        <div class="gallery-item" data-category="greenhouse" data-caption="Greenhouse Shed 3D Model" onclick="openLightbox(this)">
-          <img src="images/greenhouseshed.jpeg" alt="Greenhouse shed 3D design model" loading="lazy">
-          <div class="gallery-item-overlay">
-            <span class="gallery-item-caption">Greenhouse Shed 3D</span>
-          </div>
-          <div class="gallery-zoom-icon"><i class="fas fa-expand-alt"></i></div>
-        </div>
-
-        <div class="gallery-item" data-category="greenhouse" data-caption="Greenhouse Shed Complete" onclick="openLightbox(this)">
-          <img src="images/greenhouseshed2.png" alt="Completed greenhouse shed structure" loading="lazy">
-          <div class="gallery-item-overlay">
-            <span class="gallery-item-caption">Greenhouse Shed Complete</span>
-          </div>
-          <div class="gallery-zoom-icon"><i class="fas fa-expand-alt"></i></div>
-        </div>
-
-        <div class="gallery-item" data-category="homes" data-caption="Tiny Home Exterior" onclick="openLightbox(this)">
+        <div class="gallery-item" data-category="homes" onclick="openLightbox(this)">
           <img src="images/tinyhome.jpeg" alt="Tiny home exterior steel structure" loading="lazy">
-          <div class="gallery-item-overlay">
-            <span class="gallery-item-caption">Tiny Home Exterior</span>
-          </div>
+          <div class="gallery-item-overlay"><span class="gallery-item-caption">Tiny Home Exterior</span></div>
           <div class="gallery-zoom-icon"><i class="fas fa-expand-alt"></i></div>
         </div>
 
-        <div class="gallery-item" data-category="equipment" data-caption="Industrial Roll Former" onclick="openLightbox(this)">
-          <img src="images/3rollformer.png" alt="Industrial roll former machine" loading="lazy">
-          <div class="gallery-item-overlay">
-            <span class="gallery-item-caption">Industrial Roll Former</span>
-          </div>
+        <div class="gallery-item" data-category="homes" onclick="openLightbox(this)">
+          <img src="images/eagleslndg.jpeg" alt="Eagles Landing steel frame project showcase" loading="lazy">
+          <div class="gallery-item-overlay"><span class="gallery-item-caption">Eagles Landing</span></div>
           <div class="gallery-zoom-icon"><i class="fas fa-expand-alt"></i></div>
         </div>
 
-        <div class="gallery-item" data-category="equipment" data-caption="Roll Forming Equipment" onclick="openLightbox(this)">
-          <img src="images/4rollformer1.jpeg" alt="Steel roll forming equipment" loading="lazy">
-          <div class="gallery-item-overlay">
-            <span class="gallery-item-caption">Roll Forming Equipment</span>
-          </div>
+        <!-- ── GREENHOUSE ── -->
+        <div class="gallery-item" data-category="greenhouse" onclick="openLightbox(this)">
+          <img src="images/greenhouse.jpeg" alt="Steel frame greenhouse construction" loading="lazy">
+          <div class="gallery-item-overlay"><span class="gallery-item-caption">Steel Frame Greenhouse</span></div>
           <div class="gallery-zoom-icon"><i class="fas fa-expand-alt"></i></div>
         </div>
 
-        <div class="gallery-item" data-category="other" data-caption="Metal Sculpture" onclick="openLightbox(this)">
-          <img src="images/1sculptures.jpeg" alt="Custom metal sculpture fabrication" loading="lazy">
-          <div class="gallery-item-overlay">
-            <span class="gallery-item-caption">Metal Sculpture</span>
-          </div>
+        <div class="gallery-item" data-category="greenhouse" onclick="openLightbox(this)">
+          <img src="images/greenhouse1.jpeg" alt="Advanced steel greenhouse structure" loading="lazy">
+          <div class="gallery-item-overlay"><span class="gallery-item-caption">Advanced Greenhouse</span></div>
           <div class="gallery-zoom-icon"><i class="fas fa-expand-alt"></i></div>
         </div>
 
-        <div class="gallery-item" data-category="other" data-caption="Scottsdale Booth" onclick="openLightbox(this)">
-          <img src="images/scottsdalebooth.jpeg" alt="Scottsdale booth steel structure" loading="lazy">
-          <div class="gallery-item-overlay">
-            <span class="gallery-item-caption">Scottsdale Booth</span>
-          </div>
+        <div class="gallery-item" data-category="greenhouse" onclick="openLightbox(this)">
+          <img src="images/greenhouse2.jpeg" alt="Sustainable steel frame greenhouse project" loading="lazy">
+          <div class="gallery-item-overlay"><span class="gallery-item-caption">Sustainable Greenhouse</span></div>
           <div class="gallery-zoom-icon"><i class="fas fa-expand-alt"></i></div>
         </div>
 
-        <div class="gallery-item" data-category="other" data-caption="Quonset Building" onclick="openLightbox(this)">
-          <img src="images/quonsetcyd.JPG" alt="Quonset steel building project" loading="lazy">
-          <div class="gallery-item-overlay">
-            <span class="gallery-item-caption">Quonset Building</span>
-          </div>
+        <div class="gallery-item" data-category="greenhouse" onclick="openLightbox(this)">
+          <img src="images/greenhouseshed.jpeg" alt="Greenhouse shed 3D design model" loading="lazy">
+          <div class="gallery-item-overlay"><span class="gallery-item-caption">Greenhouse Shed — 3D</span></div>
           <div class="gallery-zoom-icon"><i class="fas fa-expand-alt"></i></div>
         </div>
 
-        <div class="gallery-item" data-category="equipment" data-caption="Scottsdale Machine Setup" onclick="openLightbox(this)">
-          <img src="images/1ScotCyd.png" alt="Scot cylinder machine setup" loading="lazy">
-          <div class="gallery-item-overlay">
-            <span class="gallery-item-caption">Machine Setup</span>
-          </div>
+        <div class="gallery-item" data-category="greenhouse" onclick="openLightbox(this)">
+          <img src="images/greenhouseshed2.png" alt="Completed greenhouse shed structure" loading="lazy">
+          <div class="gallery-item-overlay"><span class="gallery-item-caption">Greenhouse Shed — Complete</span></div>
           <div class="gallery-zoom-icon"><i class="fas fa-expand-alt"></i></div>
         </div>
 
-        <div class="gallery-item" data-category="other" data-caption="Custom Metal Chair" onclick="openLightbox(this)">
-          <img src="images/chair.jpeg" alt="Custom metal chair design" loading="lazy">
-          <div class="gallery-item-overlay">
-            <span class="gallery-item-caption">Custom Metal Chair</span>
-          </div>
+        <!-- ── PANELS ── -->
+        <div class="gallery-item" data-category="panels" onclick="openLightbox(this)">
+          <img src="images/panel1.jpeg" alt="Steel panel frame project" loading="lazy">
+          <div class="gallery-item-overlay"><span class="gallery-item-caption">Steel Panel Frame</span></div>
           <div class="gallery-zoom-icon"><i class="fas fa-expand-alt"></i></div>
         </div>
 
-        <div class="gallery-item" data-category="panels" data-caption="Panel Render Design" onclick="openLightbox(this)">
+        <div class="gallery-item" data-category="panels" onclick="openLightbox(this)">
+          <img src="images/panel2.jpeg" alt="Metal wall panel construction" loading="lazy">
+          <div class="gallery-item-overlay"><span class="gallery-item-caption">Metal Wall Panels</span></div>
+          <div class="gallery-zoom-icon"><i class="fas fa-expand-alt"></i></div>
+        </div>
+
+        <div class="gallery-item" data-category="panels" onclick="openLightbox(this)">
+          <img src="images/panel3.jpeg" alt="Steel panel installation project" loading="lazy">
+          <div class="gallery-item-overlay"><span class="gallery-item-caption">Panel Installation</span></div>
+          <div class="gallery-zoom-icon"><i class="fas fa-expand-alt"></i></div>
+        </div>
+
+        <div class="gallery-item" data-category="panels" onclick="openLightbox(this)">
+          <img src="images/panel4.jpeg" alt="Custom steel frame panels" loading="lazy">
+          <div class="gallery-item-overlay"><span class="gallery-item-caption">Custom Steel Panels</span></div>
+          <div class="gallery-zoom-icon"><i class="fas fa-expand-alt"></i></div>
+        </div>
+
+        <div class="gallery-item" data-category="panels" onclick="openLightbox(this)">
           <img src="images/panel.png" alt="Steel frame panel render design" loading="lazy">
-          <div class="gallery-item-overlay">
-            <span class="gallery-item-caption">Panel Render Design</span>
-          </div>
+          <div class="gallery-item-overlay"><span class="gallery-item-caption">Panel Render Design</span></div>
           <div class="gallery-zoom-icon"><i class="fas fa-expand-alt"></i></div>
         </div>
 
-      </div>
-      <!-- End gallery-masonry -->
+        <!-- ── EQUIPMENT ── -->
+        <div class="gallery-item" data-category="equipment" onclick="openLightbox(this)">
+          <img src="images/3rollformer.png" alt="Industrial roll former machine" loading="lazy">
+          <div class="gallery-item-overlay"><span class="gallery-item-caption">Industrial Roll Former</span></div>
+          <div class="gallery-zoom-icon"><i class="fas fa-expand-alt"></i></div>
+        </div>
+
+        <div class="gallery-item" data-category="equipment" onclick="openLightbox(this)">
+          <img src="images/4rollformer1.jpeg" alt="Steel roll forming equipment" loading="lazy">
+          <div class="gallery-item-overlay"><span class="gallery-item-caption">Roll Forming Equipment</span></div>
+          <div class="gallery-zoom-icon"><i class="fas fa-expand-alt"></i></div>
+        </div>
+
+        <div class="gallery-item" data-category="equipment" onclick="openLightbox(this)">
+          <img src="images/1ScotCyd.png" alt="Scottsdale cylinder machine setup" loading="lazy">
+          <div class="gallery-item-overlay"><span class="gallery-item-caption">Machine Setup</span></div>
+          <div class="gallery-zoom-icon"><i class="fas fa-expand-alt"></i></div>
+        </div>
+
+        <div class="gallery-item" data-category="equipment" onclick="openLightbox(this)">
+          <img src="images/7090g2.jpeg" alt="7090 roll former machine in operation" loading="lazy">
+          <div class="gallery-item-overlay"><span class="gallery-item-caption">7090 Roll Former</span></div>
+          <div class="gallery-zoom-icon"><i class="fas fa-expand-alt"></i></div>
+        </div>
+
+        <div class="gallery-item" data-category="equipment" onclick="openLightbox(this)">
+          <img src="images/scottsdalebooth.jpeg" alt="Scottsdale Construction Systems trade booth" loading="lazy">
+          <div class="gallery-item-overlay"><span class="gallery-item-caption">Scottsdale Booth</span></div>
+          <div class="gallery-zoom-icon"><i class="fas fa-expand-alt"></i></div>
+        </div>
+
+        <!-- ── OTHER ── -->
+        <div class="gallery-item" data-category="other" onclick="openLightbox(this)">
+          <img src="images/1sculptures.jpeg" alt="Custom metal sculpture fabrication" loading="lazy">
+          <div class="gallery-item-overlay"><span class="gallery-item-caption">Metal Sculpture</span></div>
+          <div class="gallery-zoom-icon"><i class="fas fa-expand-alt"></i></div>
+        </div>
+
+        <div class="gallery-item" data-category="other" onclick="openLightbox(this)">
+          <img src="images/chair.jpeg" alt="Custom metal chair design" loading="lazy">
+          <div class="gallery-item-overlay"><span class="gallery-item-caption">Custom Metal Chair</span></div>
+          <div class="gallery-zoom-icon"><i class="fas fa-expand-alt"></i></div>
+        </div>
+
+        <div class="gallery-item" data-category="other" onclick="openLightbox(this)">
+          <img src="images/quonsetcyd.JPG" alt="Quonset steel building project" loading="lazy">
+          <div class="gallery-item-overlay"><span class="gallery-item-caption">Quonset Building</span></div>
+          <div class="gallery-zoom-icon"><i class="fas fa-expand-alt"></i></div>
+        </div>
+
+      </div><!-- end gallery-masonry -->
     </div>
   </section>
 
@@ -1216,7 +1275,7 @@
     <div class="lightbox-counter" id="lightboxCounter"></div>
   </div>
 
-  <!-- CONTACT SECTION -->
+  <!-- CONTACT -->
   <section id="contact" class="section">
     <div class="container contact-wrapper">
       <h2 class="section-title">Request a Consultation</h2>
@@ -1281,8 +1340,8 @@
 <script>
 (function() {
 
-  /* ---- Navbar scroll shrink + active link ---- */
-  const navbar  = document.getElementById('navbar');
+  /* ---- Navbar shrink + active link ---- */
+  const navbar     = document.getElementById('navbar');
   const mobileMenu = document.getElementById('mobileMenu');
   const mobileBtn  = document.getElementById('mobileMenuBtn');
   const navLinks   = document.querySelectorAll('[data-link]');
@@ -1304,7 +1363,9 @@
   /* ---- Mobile menu ---- */
   if (mobileBtn && mobileMenu) {
     mobileBtn.addEventListener('click', () => mobileMenu.classList.toggle('open'));
-    mobileMenu.querySelectorAll('a').forEach(l => l.addEventListener('click', () => mobileMenu.classList.remove('open')));
+    mobileMenu.querySelectorAll('a').forEach(l =>
+      l.addEventListener('click', () => mobileMenu.classList.remove('open'))
+    );
   }
 
   /* ---- Contact form ---- */
@@ -1318,21 +1379,19 @@
       successDiv.style.display = 'none';
       errorDiv.style.display   = 'none';
 
-      const fd   = new FormData(form);
-      const name = fd.get('name')?.trim();
-      const email= fd.get('email')?.trim();
-      const msg  = fd.get('message')?.trim();
-      const proj = fd.get('project_type');
+      const fd    = new FormData(form);
+      const name  = fd.get('name')?.trim();
+      const email = fd.get('email')?.trim();
+      const msg   = fd.get('message')?.trim();
+      const proj  = fd.get('project_type');
 
       if (!name || !email || !msg || !proj) {
         errorDiv.textContent = 'Please fill in all required fields.';
-        errorDiv.style.display = 'block';
-        return;
+        errorDiv.style.display = 'block'; return;
       }
       if (!email.includes('@') || !email.includes('.')) {
         errorDiv.textContent = 'Please enter a valid email address.';
-        errorDiv.style.display = 'block';
-        return;
+        errorDiv.style.display = 'block'; return;
       }
 
       try {
@@ -1362,7 +1421,7 @@
   });
 
   /* ---- Gallery filter ---- */
-  const filterBtns = document.querySelectorAll('.filter-btn');
+  const filterBtns   = document.querySelectorAll('.filter-btn');
   const galleryItems = document.querySelectorAll('.gallery-item');
 
   filterBtns.forEach(btn => {
@@ -1382,7 +1441,7 @@
 
 })();
 
-/* ---- DIY Manufacturing popup ---- */
+/* ---- DIY popup ---- */
 function openDIYOptions() {
   document.getElementById('diyOverlay').classList.add('open');
   document.body.style.overflow = 'hidden';
@@ -1398,15 +1457,12 @@ function closeDIYOptions(e, force) {
 function setDIYContact(optionText) {
   closeDIYOptions(null, true);
   setTimeout(() => {
-    const msgField  = document.getElementById('contactMessage');
-    const typeSelect= document.getElementById('projectTypeSelect');
-    if (msgField)   msgField.value = optionText;
+    const msgField   = document.getElementById('contactMessage');
+    const typeSelect = document.getElementById('projectTypeSelect');
+    if (msgField) msgField.value = optionText;
     if (typeSelect) {
       for (let opt of typeSelect.options) {
-        if (opt.value.toLowerCase().includes('roll former') || opt.value.toLowerCase().includes('roll')) {
-          opt.selected = true;
-          break;
-        }
+        if (opt.value.toLowerCase().includes('roll former')) { opt.selected = true; break; }
       }
     }
   }, 400);
@@ -1433,8 +1489,7 @@ function showLightboxImage(index) {
   if (index < 0) index = visibleItems.length - 1;
   if (index >= visibleItems.length) index = 0;
   currentLightboxIndex = index;
-  const item = visibleItems[index];
-  const img = item.querySelector('img');
+  const img = visibleItems[index].querySelector('img');
   document.getElementById('lightboxImg').src = img.src;
   document.getElementById('lightboxImg').alt = img.alt;
   document.getElementById('lightboxCounter').textContent = (index + 1) + ' / ' + visibleItems.length;
@@ -1453,13 +1508,25 @@ function navigateLightbox(dir) {
   showLightboxImage(currentLightboxIndex + dir);
 }
 
+/* Keyboard navigation */
 document.addEventListener('keydown', (e) => {
   const lb = document.getElementById('lightbox');
   if (!lb.classList.contains('open')) return;
-  if (e.key === 'Escape') closeLightbox();
+  if (e.key === 'Escape')     closeLightbox();
   if (e.key === 'ArrowRight') navigateLightbox(1);
-  if (e.key === 'ArrowLeft') navigateLightbox(-1);
+  if (e.key === 'ArrowLeft')  navigateLightbox(-1);
 });
+
+/* Touch swipe for mobile lightbox */
+(function() {
+  let touchStartX = 0;
+  const lb = document.getElementById('lightbox');
+  lb.addEventListener('touchstart', e => { touchStartX = e.changedTouches[0].screenX; }, { passive: true });
+  lb.addEventListener('touchend', e => {
+    const diff = touchStartX - e.changedTouches[0].screenX;
+    if (Math.abs(diff) > 50) navigateLightbox(diff > 0 ? 1 : -1);
+  }, { passive: true });
+})();
 </script>
 </body>
 </html>
