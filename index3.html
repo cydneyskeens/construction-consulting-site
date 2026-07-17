@@ -33,14 +33,14 @@
 
   <!-- ===================================================
        GOOGLE ANALYTICS 4
-       Live Measurement ID connected: G-6T99W2C8M8
+       Live Measurement ID connected: G-XPZSK33GTF
        =================================================== -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-6T99W2C8M8"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XPZSK33GTF"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'G-6T99W2C8M8');
+    gtag('config', 'G-XPZSK33GTF');
   </script>
 
   <!-- ===================================================
@@ -1059,6 +1059,51 @@
       border: none;
     }
 
+    .video-cta {
+      display: block;
+      text-decoration: none;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .video-cta:hover { transform: translateY(-4px); }
+
+    .video-cta-inner {
+      position: absolute; inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      gap: 0.6rem;
+      padding: 1.5rem;
+      background: linear-gradient(135deg, #1a2130 0%, #0d131c 100%);
+    }
+
+    .video-cta-icon {
+      width: 64px; height: 64px;
+      border-radius: 50%;
+      background: var(--accent);
+      color: #1a1a1a;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+    }
+
+    .video-cta-text {
+      color: #fff;
+      font-weight: 700;
+      font-size: 1.1rem;
+      letter-spacing: 0.02em;
+    }
+
+    .video-cta-sub {
+      color: #aab1bd;
+      font-size: 0.85rem;
+      max-width: 320px;
+    }
+
     .scotcyd-side h3 { margin-bottom: 0.75rem; }
     .scotcyd-side p { color: #c4c9d4; margin-bottom: 1.5rem; }
 
@@ -1088,7 +1133,7 @@
     }
 
     /* ===============================
-       3D MODEL VIEWER (SKETCHFAB)
+       3D MODEL VIEWER (LOCAL DXF, THREE.JS)
        =============================== */
     #model-viewer { background: #0d131c; color: #fff; }
     #model-viewer .section-title { color: #ffffff; }
@@ -1101,52 +1146,101 @@
       color: #c4c9d4;
     }
 
-    .model-embed-wrap {
-      position: relative;
-      width: 100%;
+    .model-viewer-shell {
       max-width: 960px;
       margin: 0 auto;
-      padding-top: 56.25%;
+    }
+
+    .model-toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .model-select {
+      padding: 0.65rem 1.1rem;
+      border-radius: 12px;
+      border: 1.5px solid rgba(255,255,255,0.18);
+      background: #161d29;
+      color: #fff;
+      font-size: 0.88rem;
+      font-weight: 600;
+      font-family: inherit;
+      cursor: pointer;
+      max-width: 100%;
+    }
+
+    .model-hint {
+      font-size: 0.78rem;
+      color: #838c9b;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .model-canvas-wrap {
+      position: relative;
+      width: 100%;
+      padding-top: 62%;
       border-radius: var(--radius);
       overflow: hidden;
       box-shadow: var(--shadow-soft);
-      background: #000;
+      background: radial-gradient(circle at 50% 40%, #1a2130 0%, #0a0d13 100%);
+      border: 1px solid rgba(255,255,255,0.08);
     }
 
-    .model-embed-wrap iframe {
+    .model-canvas-wrap canvas {
       position: absolute; inset: 0;
-      width: 100%; height: 100%;
-      border: none;
+      width: 100% !important; height: 100% !important;
+      display: block;
+      cursor: grab;
     }
 
-    .model-select-bar {
+    .model-canvas-wrap canvas:active { cursor: grabbing; }
+
+    .model-loading {
+      position: absolute; inset: 0;
       display: flex;
-      flex-wrap: wrap;
+      flex-direction: column;
+      align-items: center;
       justify-content: center;
-      gap: 0.6rem;
-      margin-top: 1.5rem;
+      gap: 0.75rem;
+      color: #c4c9d4;
+      font-size: 0.85rem;
+      background: rgba(10,13,19,0.85);
+      z-index: 5;
+      transition: opacity 0.25s ease;
     }
 
-    .model-select-btn {
-      padding: 0.5rem 1.2rem;
-      border-radius: 40px;
-      border: 1.5px solid rgba(255,255,255,0.18);
-      background: transparent;
-      color: rgba(255,255,255,0.75);
-      font-size: 0.8rem;
-      font-weight: 600;
-      letter-spacing: 0.06em;
-      cursor: pointer;
-      font-family: inherit;
-      transition: all 0.22s ease;
+    .model-loading.hidden { opacity: 0; pointer-events: none; }
+
+    .model-spinner {
+      width: 34px; height: 34px;
+      border-radius: 50%;
+      border: 3px solid rgba(245,179,0,0.2);
+      border-top-color: var(--accent);
+      animation: modelSpin 0.8s linear infinite;
     }
 
-    .model-select-btn:hover,
-    .model-select-btn.active {
-      background: var(--accent);
-      border-color: var(--accent);
-      color: #1a1a1a;
+    @keyframes modelSpin { to { transform: rotate(360deg); } }
+
+    .model-error {
+      position: absolute; inset: 0;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem;
+      color: #ffb4a8;
+      font-size: 0.88rem;
+      background: rgba(10,13,19,0.9);
+      z-index: 6;
     }
+
+    .model-error.visible { display: flex; }
   </style>
 </head>
 <body>
@@ -1163,11 +1257,11 @@
     </a>
     <nav class="navbar-nav" id="desktopNav">
       <a href="#services" data-link="services">Services</a>
-      <a href="#about" data-link="about">About</a>
-      <a href="#projects" data-link="projects">Projects</a>
       <a href="#model-viewer" data-link="model-viewer">3D Models</a>
       <a href="#scotcyd" data-link="scotcyd">ScotCyd</a>
+      <a href="#projects" data-link="projects">Projects</a>
       <a href="#resources" data-link="resources">Resources</a>
+      <a href="#about" data-link="about">About</a>
       <a href="#contact" data-link="contact">Contact</a>
     </nav>
     <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu">
@@ -1176,11 +1270,11 @@
   </div>
   <div class="mobile-menu" id="mobileMenu">
     <a href="#services" data-link="services">Services</a>
-    <a href="#about" data-link="about">About</a>
-    <a href="#projects" data-link="projects">Projects</a>
     <a href="#model-viewer" data-link="model-viewer">3D Models</a>
     <a href="#scotcyd" data-link="scotcyd">ScotCyd</a>
+    <a href="#projects" data-link="projects">Projects</a>
     <a href="#resources" data-link="resources">Resources</a>
+    <a href="#about" data-link="about">About</a>
     <a href="#contact" data-link="contact">Contact</a>
   </div>
 </header>
@@ -1295,20 +1389,77 @@
         <span class="diy-option-label">C</span>
         Explore purchasing my own roll former
       </a>
+      <a href="https://youtu.be/XLMFMtCB9yY" target="_blank" rel="noopener noreferrer" class="diy-option-btn" onclick="gaEvent('select_content', { content_type: 'diy_video', item_id: 'production_process' })">
+        <span class="diy-option-label"><i class="fas fa-play" style="font-size:0.75rem;"></i></span>
+        See the machines in action (video)
+      </a>
     </div>
   </div>
 
-  <!-- ABOUT -->
-  <section id="about" class="section">
-    <div class="container about-grid">
-      <div class="about-image">
-        <img src="images/quonsetcyd.jpg" alt="Traverse Dynamics Global Steel Quonset hut headquarters" loading="lazy">
+  <!-- ===================================================
+       3D MODEL VIEWER — LOCAL DXF FILES (Three.js)
+       Renders Cyd's actual project DXF files (3DFACE mesh
+       data) directly in-browser. Files live in /DXFFiles/.
+       =================================================== -->
+  <section id="model-viewer" class="section">
+    <div class="container">
+      <h2 class="section-title">3D Model Viewer</h2>
+      <p class="model-viewer-intro">Explore real TDG project structures in interactive 3D — straight from the shop drawings. Drag to rotate, scroll to zoom.</p>
+
+      <div class="model-viewer-shell">
+        <div class="model-toolbar">
+          <select class="model-select" id="modelSelect">
+            <option value="DXFFiles/tiny-home-structure.dxf">Tiny Home Structure</option>
+            <option value="DXFFiles/container-house.dxf">Container House</option>
+            <option value="DXFFiles/2-story-residence-garage.dxf">2-Story Residence with Garage</option>
+            <option value="DXFFiles/modern-plan-940-00198.dxf">Modern Plan 940-00198</option>
+            <option value="DXFFiles/adu-project.dxf">ADU Project</option>
+            <option value="DXFFiles/encanto-modular.dxf">Encanto Modular</option>
+            <option value="DXFFiles/roq-puerto-vallarta.dxf">ROQ Puerto Vallarta</option>
+            <option value="DXFFiles/willow-green-she-shed-greenhouse.dxf">Willow Green She-Shed / Greenhouse</option>
+            <option value="DXFFiles/lean-to-addition-structure.dxf">Lean-To Addition Structure</option>
+            <option value="DXFFiles/powder-coat-booth-garage.dxf">Powder Coat Booth / Garage</option>
+          </select>
+          <div class="model-hint"><i class="fas fa-arrows-alt"></i> Drag to rotate &middot; Scroll to zoom</div>
+        </div>
+
+        <div class="model-canvas-wrap" id="modelCanvasWrap">
+          <div class="model-loading" id="modelLoading">
+            <div class="model-spinner"></div>
+            <span id="modelLoadingText">Loading model…</span>
+          </div>
+          <div class="model-error" id="modelError">Couldn't load this model. Make sure the /DXFFiles/ folder is uploaded alongside index.html.</div>
+        </div>
       </div>
-      <div class="about-text">
-        <h2>About Us</h2>
-        <p>Traverse Dynamics Global LLC specializes in modular and steel-frame residential and commercial construction consulting.</p>
-        <p>Operating from a steel Quonset hut HQ, we merge rugged durability with clean architectural precision and modern build processes.</p>
-        <p>We utilize Scottsdale Construction Systems roll-forming machines and advanced engineering tools to deliver efficient, durable structures.</p>
+    </div>
+  </section>
+
+  <!-- ===================================================
+       SCOTCYD VIDEO SERIES
+       =================================================== -->
+  <section id="scotcyd" class="section">
+    <div class="container">
+      <h2 class="section-title">ScotCyd Series</h2>
+      <p class="scotcyd-intro">Follow along as we walk through real steel-frame projects, roll-forming setups, and behind-the-scenes builds. Now on Episode 34 and streaming across Facebook, YouTube, Instagram, and LinkedIn.</p>
+
+      <div class="scotcyd-layout">
+        <a class="video-embed-wrap video-cta" href="https://www.youtube.com/@scottsdalenz/shorts" target="_blank" rel="noopener noreferrer">
+          <div class="video-cta-inner">
+            <div class="video-cta-icon"><i class="fab fa-youtube"></i></div>
+            <div class="video-cta-text">Watch ScotCyd Shorts</div>
+            <div class="video-cta-sub">Episode 34 and counting — tap to open the full series on YouTube</div>
+          </div>
+        </a>
+        <div class="scotcyd-side">
+          <h3>Watch the Latest Episode</h3>
+          <p>New episodes cover project walkthroughs, equipment setup, and steel framing tips straight from the field.</p>
+          <div class="platform-links">
+            <a class="platform-btn" href="https://www.youtube.com/@scottsdalenz/shorts" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i> YouTube</a>
+            <a class="platform-btn" href="https://www.facebook.com/scottsdaleconstructionsystems/reels/" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook"></i> Facebook</a>
+            <a class="platform-btn" href="https://www.instagram.com/scottsdaleconstructionsystems/reels/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i> Instagram</a>
+            <a class="platform-btn" href="https://www.linkedin.com/in/cydney-skeens/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i> LinkedIn</a>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -1497,56 +1648,6 @@
   </div>
 
   <!-- ===================================================
-       3D MODEL VIEWER (SKETCHFAB)
-       TODO: Replace MODEL_ID_1/2/3 with Cyd's actual Sketchfab
-       model IDs once her Sketchfab account + DXF/OBJ uploads
-       are ready. Each button swaps the iframe src.
-       =================================================== -->
-  <section id="model-viewer" class="section">
-    <div class="container">
-      <h2 class="section-title">3D Model Viewer</h2>
-      <p class="model-viewer-intro">Explore our steel frame structures in interactive 3D. Rotate, zoom, and inspect the build before it ever leaves the shop.</p>
-
-      <div class="model-embed-wrap">
-        <iframe id="sketchfabViewer" title="TDG Steel Frame 3D Model" src="https://sketchfab.com/models/MODEL_ID_1/embed" allow="autoplay; fullscreen; xr-spatial-tracking" allowfullscreen loading="lazy"></iframe>
-      </div>
-
-      <div class="model-select-bar" id="modelSelectBar">
-        <button class="model-select-btn active" data-model="MODEL_ID_1">Tiny Home Frame</button>
-        <button class="model-select-btn" data-model="MODEL_ID_2">Greenhouse Shed</button>
-        <button class="model-select-btn" data-model="MODEL_ID_3">Panel System</button>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===================================================
-       SCOTCYD VIDEO SERIES
-       =================================================== -->
-  <section id="scotcyd" class="section">
-    <div class="container">
-      <h2 class="section-title">ScotCyd Series</h2>
-      <p class="scotcyd-intro">Follow along as we walk through real steel-frame projects, roll-forming setups, and behind-the-scenes builds. Now on Episode 34 and streaming across Facebook, YouTube, Instagram, and LinkedIn.</p>
-
-      <div class="scotcyd-layout">
-        <div class="video-embed-wrap">
-          <!-- TODO: replace VIDEO_ID with the latest ScotCyd YouTube episode -->
-          <iframe src="https://www.youtube.com/embed/VIDEO_ID" title="ScotCyd Series" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
-        <div class="scotcyd-side">
-          <h3>Watch the Latest Episode</h3>
-          <p>New episodes cover project walkthroughs, equipment setup, and steel framing tips straight from the field.</p>
-          <div class="platform-links">
-            <a class="platform-btn" href="#" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i> YouTube</a>
-            <a class="platform-btn" href="#" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook"></i> Facebook</a>
-            <a class="platform-btn" href="#" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i> Instagram</a>
-            <a class="platform-btn" href="https://www.linkedin.com/in/cydney-skeens/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i> LinkedIn</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===================================================
        RESOURCES
        =================================================== -->
   <section id="resources" class="section section-light">
@@ -1557,22 +1658,55 @@
       <div class="resource-grid">
         <div class="resource-card">
           <span class="resource-tag">Article</span>
-          <h3>Steel Frame Article Title</h3>
-          <p>Short description of the article and why it's useful for readers researching steel frame construction.</p>
-          <a class="resource-link" href="#" target="_blank" rel="noopener noreferrer">Read Article &rarr;</a>
-        </div>
-        <div class="resource-card">
-          <span class="resource-tag">Download</span>
-          <h3>Roll-Forming Spec Sheet</h3>
-          <p>Downloadable technical reference for roll-forming equipment specifications and setup.</p>
-          <a class="resource-link" href="#" target="_blank" rel="noopener noreferrer">Download PDF &rarr;</a>
+          <h3>Steel vs. Wood Framing</h3>
+          <p>A breakdown of why steel framing outperforms traditional wood framing for durability, precision, and long-term value.</p>
+          <a class="resource-link" href="https://www.scottsdalesteelframes.com/building-with-steel/comparing-steel-vs-wood-framing-why-steel-is-better" target="_blank" rel="noopener noreferrer">Read Article &rarr;</a>
         </div>
         <div class="resource-card">
           <span class="resource-tag">Article</span>
-          <h3>Modular Construction Guide</h3>
-          <p>Short description of an external guide covering modular and off-site construction basics.</p>
-          <a class="resource-link" href="#" target="_blank" rel="noopener noreferrer">Read Article &rarr;</a>
+          <h3>Ordering Steel Coils for Roll Forming</h3>
+          <p>What to know before ordering coil stock — specs, tolerances, and how to order correctly for your roll-forming operation.</p>
+          <a class="resource-link" href="https://www.scottsdalesteelframes.com/scottsdale-machines/know-how-to-order-steel-coils-for-roll-forming-operations" target="_blank" rel="noopener noreferrer">Read Article &rarr;</a>
         </div>
+        <div class="resource-card">
+          <span class="resource-tag">Download</span>
+          <h3>Steel Coil Ordering Info (SM2)</h3>
+          <p>Downloadable reference sheet covering steel coil ordering specifications for roll-forming machines.</p>
+          <a class="resource-link" href="https://www.scottsdalesteelframes.com/wp-content/uploads/2024/12/SM2-Steel-coil-ordering-information-V2025.3.pdf" target="_blank" rel="noopener noreferrer">Download PDF &rarr;</a>
+        </div>
+        <div class="resource-card">
+          <span class="resource-tag">Article</span>
+          <h3>Introducing the ScotCyd Series</h3>
+          <p>The original Scottsdale Steel Frames writeup introducing the ScotCyd video series and what it covers.</p>
+          <a class="resource-link" href="https://www.scottsdalesteelframes.com/scottsdale-machines/roll-forming-with-scotcyd-a-new-video-series-on-steel-framing" target="_blank" rel="noopener noreferrer">Read Article &rarr;</a>
+        </div>
+        <div class="resource-card">
+          <span class="resource-tag">Article</span>
+          <h3>BuildSteel on the ScotCyd Series</h3>
+          <p>BuildSteel's feature covering the launch of the ScotCyd video series and its place in the steel framing industry.</p>
+          <a class="resource-link" href="https://www.linkedin.com/posts/buildsteel_buildsteel-steelframing-construction-activity-7461138406903857152-sbt2?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAABftapwBvCadtm06NQpCOuY7Ummmu2c02cg" target="_blank" rel="noopener noreferrer">Read Post &rarr;</a>
+        </div>
+        <div class="resource-card">
+          <span class="resource-tag">Article</span>
+          <h3>ScotCyd Demo at CFSEI Expo</h3>
+          <p>A look back at the ScotCyd demo at the CFSEI Expo in Long Beach, featuring engineers from across the industry.</p>
+          <a class="resource-link" href="https://www.linkedin.com/posts/cfsei_cfsei-cfseiexpo-engineers-activity-7462493679295873024-mwiE?utm_source=share&utm_medium=member_desktop&rcm=ACoAABftapwBvCadtm06NQpCOuY7Ummmu2c02cg" target="_blank" rel="noopener noreferrer">Read Post &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="section">
+    <div class="container about-grid">
+      <div class="about-image">
+        <img src="images/quonsetcyd.jpg" alt="Traverse Dynamics Global Steel Quonset hut headquarters" loading="lazy">
+      </div>
+      <div class="about-text">
+        <h2>About Us</h2>
+        <p>Traverse Dynamics Global LLC specializes in modular and steel-frame residential and commercial construction consulting.</p>
+        <p>Operating from a steel Quonset hut HQ, we merge rugged durability with clean architectural precision and modern build processes.</p>
+        <p>We utilize Scottsdale Construction Systems roll-forming machines and advanced engineering tools to deliver efficient, durable structures.</p>
       </div>
     </div>
   </section>
@@ -1634,12 +1768,16 @@
         <a href="https://www.cls23.com/" target="_blank" rel="noopener noreferrer" title="Landscaping Services">
           🌿 Landscaping Services
         </a>
-      
-        </a>
       </div>
     </div>
   </div>
 </footer>
+
+<!-- ===================================================
+     THREE.JS — powers the local DXF 3D Model Viewer
+     =================================================== -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
 
 <script>
 (function() {
@@ -1649,7 +1787,7 @@
   const mobileMenu = document.getElementById('mobileMenu');
   const mobileBtn  = document.getElementById('mobileMenuBtn');
   const navLinks   = document.querySelectorAll('[data-link]');
-  const sections   = ['services','about','projects','model-viewer','scotcyd','resources','contact'];
+  const sections   = ['services','model-viewer','scotcyd','projects','resources','about','contact'];
 
   window.addEventListener('scroll', () => {
     navbar.classList.toggle('shrink', window.scrollY > 30);
@@ -1744,22 +1882,6 @@
       });
     });
   });
-
-  /* ---- Sketchfab 3D model selector ---- */
-  const modelSelectBar = document.getElementById('modelSelectBar');
-  const sketchfabViewer = document.getElementById('sketchfabViewer');
-
-  if (modelSelectBar && sketchfabViewer) {
-    modelSelectBar.querySelectorAll('.model-select-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        modelSelectBar.querySelectorAll('.model-select-btn').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        const modelId = btn.dataset.model;
-        gaEvent('select_content', { content_type: '3d_model', item_id: modelId });
-        sketchfabViewer.src = `https://sketchfab.com/models/${modelId}/embed`;
-      });
-    });
-  }
 
   /* ---- Resource link clicks ---- */
   document.querySelectorAll('.resource-link').forEach(link => {
@@ -1906,6 +2028,226 @@ document.addEventListener('keydown', (e) => {
     const diff = touchStartX - e.changedTouches[0].screenX;
     if (Math.abs(diff) > 50) navigateLightbox(diff > 0 ? 1 : -1);
   }, { passive: true });
+})();
+
+/* ===================================================
+   LOCAL DXF 3D MODEL VIEWER
+   Parses 3DFACE mesh data straight out of the raw DXF
+   text (no external service, no conversion needed) and
+   renders it with Three.js. Files live in /DXFFiles/.
+   =================================================== */
+(function() {
+  const wrap       = document.getElementById('modelCanvasWrap');
+  const select      = document.getElementById('modelSelect');
+  const loadingEl   = document.getElementById('modelLoading');
+  const loadingText = document.getElementById('modelLoadingText');
+  const errorEl     = document.getElementById('modelError');
+
+  if (!wrap || !select || typeof THREE === 'undefined') return;
+
+  /* ---- Minimal DXF 3DFACE / LINE parser ----
+     Reads group-code/value pairs. We only need 3DFACE (mesh
+     faces) and LINE (edges) — everything else is ignored. */
+  function parseDXF(text) {
+    const lines = text.split(/\r\n|\r|\n/);
+    const positions = [];   // triangle vertex positions for 3DFACE mesh
+    let inEntities = false;
+    let i = 0;
+
+    function readEntity(type) {
+      const pt = { 10: null, 20: null, 30: null, 11: null, 21: null, 31: null,
+                   12: null, 22: null, 32: null, 13: null, 23: null, 33: null };
+      let j = i;
+      while (j < lines.length - 1) {
+        const code = lines[j].trim();
+        const val  = lines[j + 1] !== undefined ? lines[j + 1].trim() : '';
+        if (code === '0') break; // next entity starts
+        if (pt.hasOwnProperty(code)) pt[code] = parseFloat(val);
+        j += 2;
+      }
+      i = j;
+      return pt;
+    }
+
+    while (i < lines.length - 1) {
+      const code = lines[i].trim();
+      const val  = lines[i + 1] !== undefined ? lines[i + 1].trim() : '';
+
+      if (code === '2' && val === 'ENTITIES') { inEntities = true; i += 2; continue; }
+      if (code === '0' && inEntities && val === 'ENDSEC') { inEntities = false; i += 2; continue; }
+
+      if (code === '0' && inEntities && val === '3DFACE') {
+        i += 2;
+        const pt = readEntity('3DFACE');
+        if (pt[10] !== null && pt[11] !== null && pt[12] !== null) {
+          const v1 = [pt[10], pt[30], -pt[20]];
+          const v2 = [pt[11], pt[31], -pt[21]];
+          const v3 = [pt[12], pt[32], -pt[22]];
+          // triangle 1
+          positions.push(...v1, ...v2, ...v3);
+          // 4th point present and distinct → second triangle (quad face)
+          if (pt[13] !== null && (pt[13] !== pt[12] || pt[23] !== pt[22] || pt[33] !== pt[32])) {
+            const v4 = [pt[13], pt[33], -pt[23]];
+            positions.push(...v1, ...v3, ...v4);
+          }
+        }
+        continue;
+      }
+
+      if (code === '0' && inEntities) {
+        i += 2;
+        readEntity(val); // skip any other entity type
+        continue;
+      }
+
+      i += 2;
+    }
+
+    return positions;
+  }
+
+  /* ---- Three.js scene (created once, reused per model) ---- */
+  let renderer, scene, camera, controls, mesh, wireframe;
+  let resizeObserver;
+
+  function initScene() {
+    scene = new THREE.Scene();
+
+    camera = new THREE.PerspectiveCamera(45, 1, 0.1, 100000);
+
+    renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    wrap.appendChild(renderer.domElement);
+
+    const hemi = new THREE.HemisphereLight(0xffffff, 0x222233, 1.1);
+    scene.add(hemi);
+    const dir = new THREE.DirectionalLight(0xffffff, 0.9);
+    dir.position.set(1, 1.5, 1);
+    scene.add(dir);
+    const dir2 = new THREE.DirectionalLight(0xf5b300, 0.35);
+    dir2.position.set(-1, 0.5, -1);
+    scene.add(dir2);
+
+    controls = new THREE.OrbitControls(camera, renderer.domElement);
+    controls.enableDamping = true;
+    controls.dampingFactor = 0.08;
+
+    resizeRenderer();
+    resizeObserver = new ResizeObserver(resizeRenderer);
+    resizeObserver.observe(wrap);
+
+    animate();
+  }
+
+  function resizeRenderer() {
+    if (!renderer) return;
+    const w = wrap.clientWidth, h = wrap.clientHeight;
+    if (w === 0 || h === 0) return;
+    renderer.setSize(w, h);
+    camera.aspect = w / h;
+    camera.updateProjectionMatrix();
+  }
+
+  function animate() {
+    requestAnimationFrame(animate);
+    if (controls) controls.update();
+    if (renderer && scene && camera) renderer.render(scene, camera);
+  }
+
+  function clearModel() {
+    if (mesh) { scene.remove(mesh); mesh.geometry.dispose(); mesh.material.dispose(); mesh = null; }
+    if (wireframe) { scene.remove(wireframe); wireframe.geometry.dispose(); wireframe.material.dispose(); wireframe = null; }
+  }
+
+  function buildModel(positions) {
+    clearModel();
+
+    const geometry = new THREE.BufferGeometry();
+    geometry.setAttribute('position', new THREE.Float32BufferAttribute(positions, 3));
+    geometry.computeVertexNormals();
+
+    const material = new THREE.MeshStandardMaterial({
+      color: 0xb9c0cc,
+      metalness: 0.35,
+      roughness: 0.55,
+      side: THREE.DoubleSide,
+      flatShading: true
+    });
+    mesh = new THREE.Mesh(geometry, material);
+    scene.add(mesh);
+
+    const edgeGeo = new THREE.EdgesGeometry(geometry, 25);
+    const edgeMat = new THREE.LineBasicMaterial({ color: 0xf5b300, transparent: true, opacity: 0.35 });
+    wireframe = new THREE.LineSegments(edgeGeo, edgeMat);
+    scene.add(wireframe);
+
+    // Frame camera to the model's bounding sphere
+    geometry.computeBoundingSphere();
+    const sphere = geometry.boundingSphere;
+    const center = sphere.center;
+    const radius = Math.max(sphere.radius, 1);
+
+    controls.target.copy(center);
+    camera.position.set(
+      center.x + radius * 1.4,
+      center.y + radius * 1.1,
+      center.z + radius * 1.4
+    );
+    camera.near = radius / 100;
+    camera.far  = radius * 100;
+    camera.updateProjectionMatrix();
+    controls.update();
+  }
+
+  async function loadModel(path) {
+    loadingText.textContent = 'Loading model…';
+    loadingEl.classList.remove('hidden');
+    errorEl.classList.remove('visible');
+
+    try {
+      const res = await fetch(path);
+      if (!res.ok) throw new Error('fetch failed');
+      const text = await res.text();
+
+      loadingText.textContent = 'Rendering geometry…';
+      const positions = parseDXF(text);
+
+      if (positions.length === 0) throw new Error('no mesh data found');
+
+      if (!renderer) initScene();
+      buildModel(positions);
+
+      gaEvent('view_item', { item_name: path, item_category: '3d_model' });
+      loadingEl.classList.add('hidden');
+    } catch (err) {
+      loadingEl.classList.add('hidden');
+      errorEl.classList.add('visible');
+    }
+  }
+
+  select.addEventListener('change', () => {
+    gaEvent('select_content', { content_type: '3d_model', item_id: select.value });
+    loadModel(select.value);
+  });
+
+  // Load the first model once this section actually scrolls into view,
+  // so we're not fetching megabytes of DXF data on every page load.
+  const section = document.getElementById('model-viewer');
+  if ('IntersectionObserver' in window && section) {
+    let started = false;
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && !started) {
+          started = true;
+          loadModel(select.value);
+          io.disconnect();
+        }
+      });
+    }, { threshold: 0.2 });
+    io.observe(section);
+  } else {
+    loadModel(select.value);
+  }
 })();
 </script>
 </body>
