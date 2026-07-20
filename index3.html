@@ -11,6 +11,10 @@
   <meta name="robots" content="index, follow" />
   <meta name="language" content="English" />
   <meta name="revisit-after" content="7 days" />
+  <!-- Backup fix for YouTube Error 153 (video player configuration error):
+       ensures a proper referrer is always sent to YouTube's embedded
+       player even if a CDN/proxy strips it at the request level. -->
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
   <meta property="og:title" content="TDG Steel Frame | Smart. Strong. Steel." />
@@ -75,13 +79,13 @@
        ===================================================== */
 
     :root {
-      --bg-main: #f5f5f7;
+      --bg-main: #f5f6f4;
       --bg-light: #ffffff;
       --text-main: #1a1a1a;
       --text-muted: #5b5e68;
-      --accent: #f5b300;
-      --accent-dark: #d89a00;
-      --accent-light: #ffdd88;
+      --accent: #7CB342;
+      --accent-dark: #5C8C2E;
+      --accent-light: #DCEDC8;
       --border-soft: #e1e3ea;
       --shadow-soft: 0 10px 30px rgba(0,0,0,0.09);
       --shadow-hover: 0 20px 35px -12px rgba(0,0,0,0.15);
@@ -418,7 +422,7 @@
 
     .service-card:hover .service-image img { transform: scale(1.05); }
 
-    .service-content { padding: 1.5rem; }
+    .service-content { padding: 1.5rem; display: flex; flex-direction: column; }
 
     .service-title {
       font-weight: 700;
@@ -432,90 +436,12 @@
       color: var(--text-muted);
       font-size: 0.95rem;
       line-height: 1.5;
-    }
-
-    /* -----------------------------------------------
-       CHANGE 1 & 2: Design/Engineering card redesigned
-       as a side-by-side before/after split-image layout.
-       Left = designsoftware.jpg (BIM/digital)
-       Right = tinyhousetink.jpeg (real built frame / person in doorframe)
-       This creates a "concept → reality" comparison.
-       ----------------------------------------------- */
-    .service-card.design-card { position: relative; overflow: hidden; }
-
-    .design-split-images {
-      height: 220px;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .design-split-images .split-pane {
-      overflow: hidden;
-      position: relative;
-    }
-
-    .design-split-images .split-pane img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.5s ease;
-    }
-
-    .service-card.design-card:hover .split-pane img { transform: scale(1.06); }
-
-    /* Divider line between the two panes */
-    .split-divider {
-      position: absolute;
-      top: 0; bottom: 0;
-      left: 50%;
-      width: 2px;
-      background: rgba(255,255,255,0.9);
-      z-index: 4;
-      transform: translateX(-50%);
-    }
-
-    /* Pill badge sitting on the divider */
-    .split-badge {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      z-index: 5;
-      background: var(--accent);
-      color: #1a1a1a;
-      font-size: 0.58rem;
-      font-weight: 800;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      padding: 4px 10px;
-      border-radius: 20px;
-      white-space: nowrap;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
-    }
-
-    /* "Digital" / "Built" micro-labels per pane */
-    .pane-label {
-      position: absolute;
-      bottom: 8px;
-      left: 8px;
-      z-index: 3;
-      background: rgba(0,0,0,0.55);
-      color: #fff;
-      font-size: 0.6rem;
-      font-weight: 700;
-      letter-spacing: 0.09em;
-      text-transform: uppercase;
-      padding: 3px 8px;
-      border-radius: 20px;
-      pointer-events: none;
+      min-height: 4.5em; /* reserves space for 3 lines so all cards match */
     }
 
     @media (max-width: 640px) {
       .services-grid { gap: 1.2rem; }
       .service-image { height: 200px; }
-      .design-split-images { height: 200px; }
       .service-content { padding: 1.2rem; }
     }
 
@@ -657,7 +583,7 @@
        PROJECTS GALLERY — DARK MASONRY
        =============================== */
     #projects {
-      background: #0d131c;
+      background: #14181a;
       padding: 5rem 0 6rem;
     }
 
@@ -924,7 +850,7 @@
        FOOTER
        =============================== */
     .footer {
-      background: #0d131c;
+      background: #14181a;
       color: #cbd5e1;
       padding: 2.5rem 0;
       margin-top: 1rem;
@@ -989,15 +915,47 @@
       background: var(--bg-light);
       border: 1px solid var(--border-soft);
       border-radius: var(--radius);
-      padding: 1.75rem;
+      overflow: hidden;
       box-shadow: var(--shadow-soft);
       transition: var(--transition);
       display: flex;
       flex-direction: column;
-      gap: 0.75rem;
     }
 
     .resource-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover); }
+
+    .resource-thumb {
+      width: 100%;
+      height: 150px;
+      overflow: hidden;
+      background: linear-gradient(135deg, #1c231e 0%, #14181a 100%);
+    }
+
+    .resource-thumb img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+
+    .resource-card:hover .resource-thumb img { transform: scale(1.05); }
+
+    /* Used for sources without a usable public thumbnail (e.g. LinkedIn posts) */
+    .resource-thumb.resource-thumb-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent);
+      font-size: 2.2rem;
+    }
+
+    .resource-content {
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      flex-grow: 1;
+    }
 
     .resource-tag {
       align-self: flex-start;
@@ -1008,24 +966,24 @@
       padding: 0.25rem 0.6rem;
       border-radius: 999px;
       background: var(--accent-light);
-      color: #6b4e00;
+      color: #33691E;
     }
 
-    .resource-card h3 { font-size: 1.1rem; }
-    .resource-card p { color: var(--text-muted); font-size: 0.92rem; flex-grow: 1; }
+    .resource-content h3 { font-size: 1.1rem; }
+    .resource-content p { color: var(--text-muted); font-size: 0.92rem; flex-grow: 1; }
 
-    .resource-card a.resource-link {
+    .resource-content a.resource-link {
       font-weight: 600;
       font-size: 0.85rem;
       color: var(--accent-dark);
     }
 
-    .resource-card a.resource-link:hover { text-decoration: underline; }
+    .resource-content a.resource-link:hover { text-decoration: underline; }
 
     /* ===============================
        SCOTCYD VIDEO SERIES
        =============================== */
-    #scotcyd { background: #10161f; color: #fff; }
+    #scotcyd { background: #171c1a; color: #fff; }
     #scotcyd .section-title { color: #ffffff; }
     #scotcyd .section-title:after { background: var(--accent); }
 
@@ -1059,51 +1017,6 @@
       border: none;
     }
 
-    .video-cta {
-      display: block;
-      text-decoration: none;
-      cursor: pointer;
-      transition: var(--transition);
-    }
-
-    .video-cta:hover { transform: translateY(-4px); }
-
-    .video-cta-inner {
-      position: absolute; inset: 0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      gap: 0.6rem;
-      padding: 1.5rem;
-      background: linear-gradient(135deg, #1a2130 0%, #0d131c 100%);
-    }
-
-    .video-cta-icon {
-      width: 64px; height: 64px;
-      border-radius: 50%;
-      background: var(--accent);
-      color: #1a1a1a;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.6rem;
-    }
-
-    .video-cta-text {
-      color: #fff;
-      font-weight: 700;
-      font-size: 1.1rem;
-      letter-spacing: 0.02em;
-    }
-
-    .video-cta-sub {
-      color: #aab1bd;
-      font-size: 0.85rem;
-      max-width: 320px;
-    }
-
     .scotcyd-side h3 { margin-bottom: 0.75rem; }
     .scotcyd-side p { color: #c4c9d4; margin-bottom: 1.5rem; }
 
@@ -1135,7 +1048,7 @@
     /* ===============================
        3D MODEL VIEWER (LOCAL DXF, THREE.JS)
        =============================== */
-    #model-viewer { background: #0d131c; color: #fff; }
+    #model-viewer { background: #14181a; color: #fff; }
     #model-viewer .section-title { color: #ffffff; }
     #model-viewer .section-title:after { background: var(--accent); }
 
@@ -1164,7 +1077,7 @@
       padding: 0.65rem 1.1rem;
       border-radius: 12px;
       border: 1.5px solid rgba(255,255,255,0.18);
-      background: #161d29;
+      background: #1c231e;
       color: #fff;
       font-size: 0.88rem;
       font-weight: 600;
@@ -1188,7 +1101,7 @@
       border-radius: var(--radius);
       overflow: hidden;
       box-shadow: var(--shadow-soft);
-      background: radial-gradient(circle at 50% 40%, #1a2130 0%, #0a0d13 100%);
+      background: radial-gradient(circle at 50% 40%, #232b25 0%, #0f120f 100%);
       border: 1px solid rgba(255,255,255,0.08);
     }
 
@@ -1282,13 +1195,11 @@
 <main id="top">
 
   <!-- HERO -->
-  <section class="hero" id="heroSection">
+  <section class="hero has-video" id="heroSection">
     <div class="hero-bg"></div>
-    <!--
-    <video class="hero-video" autoplay muted loop playsinline poster="images/hero-poster.jpg">
+    <video class="hero-video" autoplay muted loop playsinline>
       <source src="videos/tdg-hero.mp4" type="video/mp4">
     </video>
-    -->
     <div class="hero-overlay"></div>
     <div class="hero-inner">
       <h1 class="hero-title">Smart. Strong. Steel.</h1>
@@ -1308,7 +1219,7 @@
       <h2 class="section-title">Expertise</h2>
       <div class="services-grid">
 
-        <!-- Card 1: Steel Framing (unchanged) -->
+        <!-- Card 1: Steel Framing -->
         <a href="https://hardyhomes.us.com" target="_blank" rel="noopener noreferrer" class="service-card-link">
           <div class="service-card">
             <div class="service-image">
@@ -1316,54 +1227,30 @@
             </div>
             <div class="service-content">
               <h3 class="service-title">Steel Framing</h3>
-              <p class="service-text">Cold-formed steel systems using Scottsdale Construction Systems for accurate fabrication.</p>
+              <p class="service-text">Cold-formed steel systems using Scottsdale Construction Systems roll-forming machines for precise, repeatable fabrication every time.</p>
             </div>
           </div>
         </a>
 
-        <!-- Card 2: Design / Engineering — BEFORE/AFTER SPLIT IMAGE
-             Left pane  → designsoftware.jpg  (BIM / digital model)
-             Right pane → tinyhousetink.jpeg  (real build, person in doorframe)
-             Creates an immediate concept-to-reality visual comparison -->
-        <div class="service-card design-card">
-          <div class="design-split-images">
-
-            <!-- LEFT: Digital / Software -->
-            <div class="split-pane">
-              <img src="images/greenhouseshed.jpeg"
-                   alt="BIM and design engineering software — digital model"
-                   loading="lazy"
-                   onerror="this.src='images/panel.png'">
-              <span class="pane-label">Digital</span>
-            </div>
-
-            <!-- RIGHT: Real built frame / person in doorframe -->
-            <div class="split-pane">
-              <img src="images/greenhouseshed2.png"
-                   alt="Real steel frame construction — person standing in door frame"
-                   loading="lazy">
-              <span class="pane-label">Built</span>
-            </div>
-
-            <!-- Divider + floating badge -->
-            <div class="split-divider"></div>
-            <div class="split-badge">Concept → Reality</div>
-
+        <!-- Card 2: Consultations -->
+        <div class="service-card">
+          <div class="service-image">
+            <img src="images/greenhouseshed.jpeg" alt="Design and engineering consultation — digital model workflow" loading="lazy" onerror="this.src='images/panel.png'">
           </div>
           <div class="service-content">
-            <h3 class="service-title">Design / Engineering Consultations</h3>
-            <p class="service-text">BIM + 3D workflows that connect concept, detailing, and manufacturing — from digital model to finished structure.</p>
+            <h3 class="service-title">Consultations</h3>
+            <p class="service-text">BIM and 3D design workflows connecting concept, engineering, and manufacturing — from digital model to finished structure.</p>
           </div>
         </div>
 
-        <!-- Card 3: DIY Manufacturing (unchanged) -->
+        <!-- Card 3: DIY Manufacturing -->
         <div class="service-card" id="diyCard" style="cursor:pointer;" onclick="openDIYOptions()">
           <div class="service-image">
             <img src="images/7090g2.jpeg" alt="Roll forming machine for DIY steel manufacturing" loading="lazy">
           </div>
           <div class="service-content">
             <h3 class="service-title">DIY Manufacturing</h3>
-            <p class="service-text">Roll-former setup, production optimization, and on-site light-gauge steel manufacturing. <strong style="color:var(--accent);">Click to explore options →</strong></p>
+            <p class="service-text">Roll-former setup, production optimization, and on-site light-gauge steel manufacturing support. <strong style="color:var(--accent-dark);">Click to explore.</strong></p>
           </div>
         </div>
 
@@ -1409,10 +1296,11 @@
       <div class="model-viewer-shell">
         <div class="model-toolbar">
           <select class="model-select" id="modelSelect">
+            <option value="__sample__">Sample Frame (instant preview)</option>
             <option value="DXFFiles/tiny-home-structure.dxf">Tiny Home Structure</option>
             <option value="DXFFiles/container-house.dxf">Container House</option>
             <option value="DXFFiles/2-story-residence-garage.dxf">2-Story Residence with Garage</option>
-            <option value="DXFFiles/modern-plan-940-00198.dxf">Modern Plan 940-00198</option>
+            <option value="DXFFiles/modern-plan-940-00198_dxf.dxf">Modern Plan 940-00198</option>
             <option value="DXFFiles/adu-project.dxf">ADU Project</option>
             <option value="DXFFiles/encanto-modular.dxf">Encanto Modular</option>
             <option value="DXFFiles/roq-puerto-vallarta.dxf">ROQ Puerto Vallarta</option>
@@ -1443,16 +1331,25 @@
       <p class="scotcyd-intro">Follow along as we walk through real steel-frame projects, roll-forming setups, and behind-the-scenes builds. Now on Episode 34 and streaming across Facebook, YouTube, Instagram, and LinkedIn.</p>
 
       <div class="scotcyd-layout">
-        <a class="video-embed-wrap video-cta" href="https://www.youtube.com/@scottsdalenz/shorts" target="_blank" rel="noopener noreferrer">
-          <div class="video-cta-inner">
-            <div class="video-cta-icon"><i class="fab fa-youtube"></i></div>
-            <div class="video-cta-text">Watch ScotCyd Shorts</div>
-            <div class="video-cta-sub">Episode 34 and counting — tap to open the full series on YouTube</div>
-          </div>
-        </a>
+        <div class="video-embed-wrap">
+          <!-- Uses YouTube's "uploads playlist" (channel ID with UC swapped
+               for UU) so this always auto-plays whatever the channel's most
+               recently published video is — no manual updates needed.
+               NOTE on Error 153 ("Video player configuration error"): this
+               almost always means YouTube didn't receive a proper referrer
+               header from the embedding page. The fix is the
+               referrerpolicy attribute below — without it, some browsers/
+               CDNs/ad-blockers strip the referrer and YouTube's player
+               refuses to initialize. If it ever comes back after this fix,
+               it means the UUK6Pu9BQUoyFKotIjGrV_Eg playlist ID itself is
+               wrong/private for this channel — open
+               https://www.youtube.com/playlist?list=UUK6Pu9BQUoyFKotIjGrV_Eg
+               directly to confirm it's a real, public "Uploads" playlist. -->
+          <iframe src="https://www.youtube-nocookie.com/embed/videoseries?list=UUK6Pu9BQUoyFKotIjGrV_Eg" title="ScotCyd Series — Latest Episode" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
         <div class="scotcyd-side">
           <h3>Watch the Latest Episode</h3>
-          <p>New episodes cover project walkthroughs, equipment setup, and steel framing tips straight from the field.</p>
+          <p>New episodes cover project walkthroughs, equipment setup, and steel framing tips straight from the field. The player automatically updates as new episodes go live.</p>
           <div class="platform-links">
             <a class="platform-btn" href="https://www.youtube.com/@scottsdalenz/shorts" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i> YouTube</a>
             <a class="platform-btn" href="https://www.facebook.com/scottsdaleconstructionsystems/reels/" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook"></i> Facebook</a>
@@ -1657,40 +1554,66 @@
 
       <div class="resource-grid">
         <div class="resource-card">
-          <span class="resource-tag">Article</span>
-          <h3>Steel vs. Wood Framing</h3>
-          <p>A breakdown of why steel framing outperforms traditional wood framing for durability, precision, and long-term value.</p>
-          <a class="resource-link" href="https://www.scottsdalesteelframes.com/building-with-steel/comparing-steel-vs-wood-framing-why-steel-is-better" target="_blank" rel="noopener noreferrer">Read Article &rarr;</a>
+          <div class="resource-thumb">
+            <img src="https://www.scottsdalesteelframes.com/wp-content/uploads/2025/02/Steel-vs-Wood-Framing-png.webp" alt="Steel vs. Wood Framing comparison" loading="lazy">
+          </div>
+          <div class="resource-content">
+            <span class="resource-tag">Article</span>
+            <h3>Steel vs. Wood Framing</h3>
+            <p>A breakdown of why steel framing outperforms traditional wood framing for durability, precision, and long-term value.</p>
+            <a class="resource-link" href="https://www.scottsdalesteelframes.com/building-with-steel/comparing-steel-vs-wood-framing-why-steel-is-better" target="_blank" rel="noopener noreferrer">Read Article &rarr;</a>
+          </div>
         </div>
         <div class="resource-card">
-          <span class="resource-tag">Article</span>
-          <h3>Ordering Steel Coils for Roll Forming</h3>
-          <p>What to know before ordering coil stock — specs, tolerances, and how to order correctly for your roll-forming operation.</p>
-          <a class="resource-link" href="https://www.scottsdalesteelframes.com/scottsdale-machines/know-how-to-order-steel-coils-for-roll-forming-operations" target="_blank" rel="noopener noreferrer">Read Article &rarr;</a>
+          <div class="resource-thumb">
+            <img src="https://www.scottsdalesteelframes.com/wp-content/uploads/2025/07/GOT-COIL-300x225.webp" alt="Ordering steel coils for roll forming" loading="lazy">
+          </div>
+          <div class="resource-content">
+            <span class="resource-tag">Article</span>
+            <h3>Ordering Steel Coils for Roll Forming</h3>
+            <p>What to know before ordering coil stock — specs, tolerances, and how to order correctly for your roll-forming operation.</p>
+            <a class="resource-link" href="https://www.scottsdalesteelframes.com/scottsdale-machines/know-how-to-order-steel-coils-for-roll-forming-operations" target="_blank" rel="noopener noreferrer">Read Article &rarr;</a>
+          </div>
         </div>
         <div class="resource-card">
-          <span class="resource-tag">Download</span>
-          <h3>Steel Coil Ordering Info (SM2)</h3>
-          <p>Downloadable reference sheet covering steel coil ordering specifications for roll-forming machines.</p>
-          <a class="resource-link" href="https://www.scottsdalesteelframes.com/wp-content/uploads/2024/12/SM2-Steel-coil-ordering-information-V2025.3.pdf" target="_blank" rel="noopener noreferrer">Download PDF &rarr;</a>
+          <div class="resource-thumb">
+            <img src="https://www.scottsdalesteelframes.com/wp-content/uploads/2025/07/GOT-COIL-300x225.webp" alt="Steel coil ordering information PDF" loading="lazy">
+          </div>
+          <div class="resource-content">
+            <span class="resource-tag">Download</span>
+            <h3>Steel Coil Ordering Info (SM2)</h3>
+            <p>Downloadable reference sheet covering steel coil ordering specifications for roll-forming machines.</p>
+            <a class="resource-link" href="https://www.scottsdalesteelframes.com/wp-content/uploads/2024/12/SM2-Steel-coil-ordering-information-V2025.3.pdf" target="_blank" rel="noopener noreferrer">Download PDF &rarr;</a>
+          </div>
         </div>
         <div class="resource-card">
-          <span class="resource-tag">Article</span>
-          <h3>Introducing the ScotCyd Series</h3>
-          <p>The original Scottsdale Steel Frames writeup introducing the ScotCyd video series and what it covers.</p>
-          <a class="resource-link" href="https://www.scottsdalesteelframes.com/scottsdale-machines/roll-forming-with-scotcyd-a-new-video-series-on-steel-framing" target="_blank" rel="noopener noreferrer">Read Article &rarr;</a>
+          <div class="resource-thumb">
+            <img src="https://www.scottsdalesteelframes.com/wp-content/uploads/2026/02/ScotCyd-Image-300x169.webp" alt="Introducing the ScotCyd video series" loading="lazy">
+          </div>
+          <div class="resource-content">
+            <span class="resource-tag">Article</span>
+            <h3>Introducing the ScotCyd Series</h3>
+            <p>The original Scottsdale Steel Frames writeup introducing the ScotCyd video series and what it covers.</p>
+            <a class="resource-link" href="https://www.scottsdalesteelframes.com/scottsdale-machines/roll-forming-with-scotcyd-a-new-video-series-on-steel-framing" target="_blank" rel="noopener noreferrer">Read Article &rarr;</a>
+          </div>
         </div>
         <div class="resource-card">
-          <span class="resource-tag">Article</span>
-          <h3>BuildSteel on the ScotCyd Series</h3>
-          <p>BuildSteel's feature covering the launch of the ScotCyd video series and its place in the steel framing industry.</p>
-          <a class="resource-link" href="https://www.linkedin.com/posts/buildsteel_buildsteel-steelframing-construction-activity-7461138406903857152-sbt2?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAABftapwBvCadtm06NQpCOuY7Ummmu2c02cg" target="_blank" rel="noopener noreferrer">Read Post &rarr;</a>
+          <div class="resource-thumb resource-thumb-icon"><i class="fab fa-linkedin"></i></div>
+          <div class="resource-content">
+            <span class="resource-tag">Article</span>
+            <h3>BuildSteel on the ScotCyd Series</h3>
+            <p>BuildSteel's feature covering the launch of the ScotCyd video series and its place in the steel framing industry.</p>
+            <a class="resource-link" href="https://www.linkedin.com/posts/buildsteel_buildsteel-steelframing-construction-activity-7461138406903857152-sbt2?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAABftapwBvCadtm06NQpCOuY7Ummmu2c02cg" target="_blank" rel="noopener noreferrer">Read Post &rarr;</a>
+          </div>
         </div>
         <div class="resource-card">
-          <span class="resource-tag">Article</span>
-          <h3>ScotCyd Demo at CFSEI Expo</h3>
-          <p>A look back at the ScotCyd demo at the CFSEI Expo in Long Beach, featuring engineers from across the industry.</p>
-          <a class="resource-link" href="https://www.linkedin.com/posts/cfsei_cfsei-cfseiexpo-engineers-activity-7462493679295873024-mwiE?utm_source=share&utm_medium=member_desktop&rcm=ACoAABftapwBvCadtm06NQpCOuY7Ummmu2c02cg" target="_blank" rel="noopener noreferrer">Read Post &rarr;</a>
+          <div class="resource-thumb resource-thumb-icon"><i class="fab fa-linkedin"></i></div>
+          <div class="resource-content">
+            <span class="resource-tag">Article</span>
+            <h3>ScotCyd Demo at CFSEI Expo</h3>
+            <p>A look back at the ScotCyd demo at the CFSEI Expo in Long Beach, featuring engineers from across the industry.</p>
+            <a class="resource-link" href="https://www.linkedin.com/posts/cfsei_cfsei-cfseiexpo-engineers-activity-7462493679295873024-mwiE?utm_source=share&utm_medium=member_desktop&rcm=ACoAABftapwBvCadtm06NQpCOuY7Ummmu2c02cg" target="_blank" rel="noopener noreferrer">Read Post &rarr;</a>
+          </div>
         </div>
       </div>
     </div>
@@ -2049,7 +1972,11 @@ document.addEventListener('keydown', (e) => {
      Reads group-code/value pairs. We only need 3DFACE (mesh
      faces) and LINE (edges) — everything else is ignored. */
   function parseDXF(text) {
-    const lines = text.split(/\r\n|\r|\n/);
+    // Normalize line endings once up front (fast) instead of matching a
+    // multi-alternative regex on every split — meaningfully faster on the
+    // larger files (some of these DXFs are 2-3MB+ with 15,000+ 3DFACE
+    // entities, which was causing long stalls/hangs on slower devices).
+    const lines = text.replace(/\r\n?/g, '\n').split('\n');
     const positions = [];   // triangle vertex positions for 3DFACE mesh
     let inEntities = false;
     let i = 0;
@@ -2128,15 +2055,59 @@ document.addEventListener('keydown', (e) => {
     dir2.position.set(-1, 0.5, -1);
     scene.add(dir2);
 
-    controls = new THREE.OrbitControls(camera, renderer.domElement);
-    controls.enableDamping = true;
-    controls.dampingFactor = 0.08;
+    if (typeof THREE.OrbitControls === 'function') {
+      controls = new THREE.OrbitControls(camera, renderer.domElement);
+      controls.enableDamping = true;
+      controls.dampingFactor = 0.08;
+    } else {
+      // OrbitControls script failed to load (CDN blocked, etc).
+      // Fall back to basic manual drag-to-rotate so the viewer still works.
+      console.error('[3D Model Viewer] THREE.OrbitControls not found — using manual fallback controls.');
+      controls = createFallbackControls(camera, renderer.domElement);
+    }
 
     resizeRenderer();
     resizeObserver = new ResizeObserver(resizeRenderer);
     resizeObserver.observe(wrap);
 
     animate();
+  }
+
+  /* Minimal drag-to-rotate / scroll-to-zoom fallback, used only if the
+     OrbitControls CDN script fails to load for some reason. */
+  function createFallbackControls(cam, domEl) {
+    const state = { target: new THREE.Vector3(), dragging: false, lastX: 0, lastY: 0, theta: 0.8, phi: 1.0, radius: 100 };
+
+    function applyPosition() {
+      const x = state.target.x + state.radius * Math.sin(state.phi) * Math.sin(state.theta);
+      const y = state.target.y + state.radius * Math.cos(state.phi);
+      const z = state.target.z + state.radius * Math.sin(state.phi) * Math.cos(state.theta);
+      cam.position.set(x, y, z);
+      cam.lookAt(state.target);
+    }
+
+    domEl.addEventListener('pointerdown', (e) => { state.dragging = true; state.lastX = e.clientX; state.lastY = e.clientY; });
+    window.addEventListener('pointerup', () => { state.dragging = false; });
+    window.addEventListener('pointermove', (e) => {
+      if (!state.dragging) return;
+      state.theta -= (e.clientX - state.lastX) * 0.007;
+      state.phi = Math.min(Math.max(state.phi - (e.clientY - state.lastY) * 0.007, 0.15), Math.PI - 0.15);
+      state.lastX = e.clientX; state.lastY = e.clientY;
+      applyPosition();
+    });
+    domEl.addEventListener('wheel', (e) => {
+      e.preventDefault();
+      state.radius = Math.max(state.radius * (1 + e.deltaY * 0.001), 0.5);
+      applyPosition();
+    }, { passive: false });
+
+    applyPosition();
+
+    return {
+      target: state.target,
+      update: applyPosition,
+      __setRadius(r) { state.radius = r; applyPosition(); }
+    };
   }
 
   function resizeRenderer() {
@@ -2188,15 +2159,56 @@ document.addEventListener('keydown', (e) => {
     const radius = Math.max(sphere.radius, 1);
 
     controls.target.copy(center);
-    camera.position.set(
-      center.x + radius * 1.4,
-      center.y + radius * 1.1,
-      center.z + radius * 1.4
-    );
     camera.near = radius / 100;
     camera.far  = radius * 100;
     camera.updateProjectionMatrix();
-    controls.update();
+
+    if (typeof controls.__setRadius === 'function') {
+      // fallback controls: let it recompute camera.position from target+radius
+      controls.__setRadius(radius * 2);
+    } else {
+      // real OrbitControls: set position directly, then sync
+      camera.position.set(
+        center.x + radius * 1.4,
+        center.y + radius * 1.1,
+        center.z + radius * 1.4
+      );
+      controls.update();
+    }
+  }
+
+  /* Builds a simple illustrative stud-wall-frame mesh entirely in
+     JS — no file fetch involved. Used as the default/fallback so
+     something always renders, even before real DXF files are
+     confirmed live on the server. */
+  function buildSampleFramePositions() {
+    const positions = [];
+    const addBox = (x, y, z, w, h, d) => {
+      const x0 = x - w/2, x1 = x + w/2;
+      const y0 = y,       y1 = y + h;
+      const z0 = z - d/2, z1 = z + d/2;
+      const v = [
+        [x0,y0,z0],[x1,y0,z0],[x1,y1,z0],[x0,y1,z0], // front
+        [x0,y0,z1],[x1,y0,z1],[x1,y1,z1],[x0,y1,z1]  // back
+      ];
+      const faces = [
+        [0,1,2],[0,2,3], [4,5,6],[4,6,7], // front, back
+        [0,1,5],[0,5,4], [3,2,6],[3,6,7], // bottom, top
+        [0,3,7],[0,7,4], [1,2,6],[1,6,5]  // left, right
+      ];
+      faces.forEach(f => f.forEach(i => positions.push(...v[i])));
+    };
+
+    // A simple stud-wall frame: sole plate, top plate, studs, one header.
+    const wallW = 240, wallH = 96, studD = 4, studW = 3.5;
+    addBox(0, 0, 0, wallW, 3.5, studD);          // sole plate
+    addBox(0, wallH - 3.5, 0, wallW, 3.5, studD); // top plate
+    for (let x = -wallW/2 + studW/2; x <= wallW/2 - studW/2; x += 16) {
+      addBox(x, 3.5, 0, studW, wallH - 7, studD);
+    }
+    addBox(0, wallH - 24, 0, 48, 6, studD); // header over a rough opening
+
+    return positions;
   }
 
   async function loadModel(path) {
@@ -2204,15 +2216,48 @@ document.addEventListener('keydown', (e) => {
     loadingEl.classList.remove('hidden');
     errorEl.classList.remove('visible');
 
+    if (typeof THREE === 'undefined') {
+      loadingEl.classList.add('hidden');
+      errorEl.textContent = 'The 3D library (Three.js) didn\'t load — check your internet connection or try disabling any ad/script blocker, then refresh.';
+      errorEl.classList.add('visible');
+      console.error('[3D Model Viewer] THREE is undefined — the three.js CDN script did not load.');
+      return;
+    }
+
+    // Built-in sample — no network fetch, always works.
+    if (path === '__sample__') {
+      try {
+        const positions = buildSampleFramePositions();
+        if (!renderer) initScene();
+        buildModel(positions);
+        gaEvent('view_item', { item_name: 'sample_frame', item_category: '3d_model' });
+        loadingEl.classList.add('hidden');
+      } catch (err) {
+        loadingEl.classList.add('hidden');
+        errorEl.textContent = 'Couldn\'t render the sample frame: ' + err.message;
+        errorEl.classList.add('visible');
+        console.error('[3D Model Viewer]', err);
+      }
+      return;
+    }
+
     try {
-      const res = await fetch(path);
-      if (!res.ok) throw new Error('fetch failed');
+      const res = await fetch(path, { cache: 'no-store' });
+      if (!res.ok) {
+        throw new Error(`HTTP ${res.status} for "${path}" — the file wasn't found at this path on the live site. Make sure a folder named exactly "DXFFiles" (this is case-sensitive on most hosts, even if your own computer isn't) is uploaded to the live site in the same directory as index.html, and that the filename inside it matches "${path.split('/').pop()}" exactly.`);
+      }
       const text = await res.text();
+
+      if (!text || text.trim().length === 0) {
+        throw new Error(`"${path}" loaded but was empty.`);
+      }
 
       loadingText.textContent = 'Rendering geometry…';
       const positions = parseDXF(text);
 
-      if (positions.length === 0) throw new Error('no mesh data found');
+      if (positions.length === 0) {
+        throw new Error(`Parsed "${path}" but found no 3DFACE mesh data in it.`);
+      }
 
       if (!renderer) initScene();
       buildModel(positions);
@@ -2221,7 +2266,9 @@ document.addEventListener('keydown', (e) => {
       loadingEl.classList.add('hidden');
     } catch (err) {
       loadingEl.classList.add('hidden');
+      errorEl.textContent = 'Couldn\'t load this model: ' + err.message;
       errorEl.classList.add('visible');
+      console.error('[3D Model Viewer]', err);
     }
   }
 
