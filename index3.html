@@ -330,7 +330,7 @@
     }
 
     .btn-primary:hover {
-      background: #ffc324;
+      background: var(--accent-dark);
       transform: translateY(-3px);
       box-shadow: 0 20px 28px -8px rgba(0,0,0,0.35);
     }
@@ -943,10 +943,20 @@
     /* Used for sources without a usable public thumbnail (e.g. LinkedIn posts) */
     .resource-thumb.resource-thumb-icon {
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
+      gap: 0.4rem;
       color: var(--accent);
       font-size: 2.2rem;
+    }
+
+    .thumb-placeholder-label {
+      font-size: 0.68rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: #6b7280;
+      font-weight: 600;
     }
 
     .resource-content {
@@ -996,7 +1006,7 @@
 
     .scotcyd-layout {
       display: grid;
-      grid-template-columns: 1.3fr 1fr;
+      grid-template-columns: 0.85fr 1.15fr;
       gap: 2.5rem;
       align-items: center;
     }
@@ -1004,7 +1014,11 @@
     .video-embed-wrap {
       position: relative;
       width: 100%;
-      padding-top: 56.25%;
+      max-width: 380px;
+      margin: 0 auto;
+      /* 9:16 vertical ratio — ScotCyd content is Reels/Shorts, not
+         widescreen video, so this replaces the old 56.25% (16:9) ratio. */
+      padding-top: 177.78%;
       border-radius: var(--radius);
       overflow: hidden;
       box-shadow: var(--shadow-soft);
@@ -1015,6 +1029,46 @@
       position: absolute; inset: 0;
       width: 100%; height: 100%;
       border: none;
+    }
+
+    .video-thumb-btn {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      border: none;
+      padding: 0;
+      cursor: pointer;
+      background: #000;
+    }
+
+    .video-thumb-btn img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+      opacity: 0.85;
+      transition: opacity 0.2s ease;
+    }
+
+    .video-thumb-btn:hover img { opacity: 1; }
+
+    .video-play-icon {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 64px; height: 64px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.92);
+      color: #1a1a1a;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.35);
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+
+    .video-thumb-btn:hover .video-play-icon {
+      transform: translate(-50%, -50%) scale(1.08);
+      background: var(--accent);
     }
 
     .scotcyd-side h3 { margin-bottom: 0.75rem; }
@@ -1331,25 +1385,22 @@
       <p class="scotcyd-intro">Follow along as we walk through real steel-frame projects, roll-forming setups, and behind-the-scenes builds. Now on Episode 34 and streaming across Facebook, YouTube, Instagram, and LinkedIn.</p>
 
       <div class="scotcyd-layout">
-        <div class="video-embed-wrap">
-          <!-- Uses YouTube's "uploads playlist" (channel ID with UC swapped
-               for UU) so this always auto-plays whatever the channel's most
-               recently published video is — no manual updates needed.
-               NOTE on Error 153 ("Video player configuration error"): this
-               almost always means YouTube didn't receive a proper referrer
-               header from the embedding page. The fix is the
-               referrerpolicy attribute below — without it, some browsers/
-               CDNs/ad-blockers strip the referrer and YouTube's player
-               refuses to initialize. If it ever comes back after this fix,
-               it means the UUK6Pu9BQUoyFKotIjGrV_Eg playlist ID itself is
-               wrong/private for this channel — open
-               https://www.youtube.com/playlist?list=UUK6Pu9BQUoyFKotIjGrV_Eg
-               directly to confirm it's a real, public "Uploads" playlist. -->
-          <iframe src="https://www.youtube-nocookie.com/embed/videoseries?list=UUK6Pu9BQUoyFKotIjGrV_Eg" title="ScotCyd Series — Latest Episode" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        <div class="video-embed-wrap" id="scotcydVideoWrap" data-video-id="lkLgA7loscs">
+          <!-- Click-to-play facade: shows YouTube's own thumbnail image
+               immediately (this always works — it's a plain <img>, not an
+               iframe, so it can't hit Error 153). The actual embedded
+               player only gets created on click, using the exact embed
+               code YouTube's own Share → Embed panel generates. This also
+               means visitors who never click never touch YouTube's player
+               at all — fewer places for anything to fail. -->
+          <button type="button" class="video-thumb-btn" id="scotcydPlayBtn" aria-label="Play video">
+            <img src="https://i.ytimg.com/vi/lkLgA7loscs/hqdefault.jpg" alt="ScotCyd Series — latest episode thumbnail" loading="lazy">
+            <span class="video-play-icon"><i class="fas fa-play"></i></span>
+          </button>
         </div>
         <div class="scotcyd-side">
           <h3>Watch the Latest Episode</h3>
-          <p>New episodes cover project walkthroughs, equipment setup, and steel framing tips straight from the field. The player automatically updates as new episodes go live.</p>
+          <p>New episodes cover project walkthroughs, equipment setup, and steel framing tips straight from the field. This player is set to the latest episode — swap in the new video ID each time a fresh one goes live.</p>
           <div class="platform-links">
             <a class="platform-btn" href="https://www.youtube.com/@scottsdalenz/shorts" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i> YouTube</a>
             <a class="platform-btn" href="https://www.facebook.com/scottsdaleconstructionsystems/reels/" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook"></i> Facebook</a>
@@ -1360,6 +1411,32 @@
       </div>
     </div>
   </section>
+
+  <script>
+    // ScotCyd video: click-to-play facade. Injects the real iframe only
+    // once, on first click, using the exact embed markup confirmed from
+    // YouTube's own Share → Embed panel.
+    (function () {
+      const wrap = document.getElementById('scotcydVideoWrap');
+      const btn = document.getElementById('scotcydPlayBtn');
+      if (!wrap || !btn) return;
+      btn.addEventListener('click', () => {
+        const videoId = wrap.dataset.videoId;
+        const iframe = document.createElement('iframe');
+        iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+        iframe.title = 'ScotCyd Series — Latest Episode';
+        iframe.setAttribute('frameborder', '0');
+        iframe.setAttribute('referrerpolicy', 'strict-origin-when-cross-origin');
+        iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share');
+        iframe.setAttribute('allowfullscreen', '');
+        wrap.innerHTML = '';
+        wrap.appendChild(iframe);
+        if (typeof gaEvent === 'function') {
+          gaEvent('select_content', { content_type: 'video', item_id: videoId });
+        }
+      }, { once: true });
+    })();
+  </script>
 
   <!-- ===================================================
        PROJECTS GALLERY — DARK MASONRY
@@ -1598,16 +1675,22 @@
           </div>
         </div>
         <div class="resource-card">
-          <div class="resource-thumb resource-thumb-icon"><i class="fab fa-linkedin"></i></div>
+          <div class="resource-thumb resource-thumb-icon" data-placeholder="true">
+            <i class="fab fa-linkedin"></i>
+            <span class="thumb-placeholder-label">Add post screenshot</span>
+          </div>
           <div class="resource-content">
             <span class="resource-tag">Article</span>
             <h3>BuildSteel on the ScotCyd Series</h3>
             <p>BuildSteel's feature covering the launch of the ScotCyd video series and its place in the steel framing industry.</p>
-            <a class="resource-link" href="https://www.linkedin.com/posts/buildsteel_buildsteel-steelframing-construction-activity-7461138406903857152-sbt2?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAABftapwBvCadtm06NQpCOuY7Ummmu2c02cg" target="_blank" rel="noopener noreferrer">Read Post &rarr;</a>
+            <a class="resource-link" href="https://www.linkedin.com/posts/buildsteel_cfsteel-steelframing-innovation-activity-7461123308202188800--SQl" target="_blank" rel="noopener noreferrer">Read Post &rarr;</a>
           </div>
         </div>
         <div class="resource-card">
-          <div class="resource-thumb resource-thumb-icon"><i class="fab fa-linkedin"></i></div>
+          <div class="resource-thumb resource-thumb-icon" data-placeholder="true">
+            <i class="fab fa-linkedin"></i>
+            <span class="thumb-placeholder-label">Add post screenshot</span>
+          </div>
           <div class="resource-content">
             <span class="resource-tag">Article</span>
             <h3>ScotCyd Demo at CFSEI Expo</h3>
@@ -1615,6 +1698,14 @@
             <a class="resource-link" href="https://www.linkedin.com/posts/cfsei_cfsei-cfseiexpo-engineers-activity-7462493679295873024-mwiE?utm_source=share&utm_medium=member_desktop&rcm=ACoAABftapwBvCadtm06NQpCOuY7Ummmu2c02cg" target="_blank" rel="noopener noreferrer">Read Post &rarr;</a>
           </div>
         </div>
+        <!-- LinkedIn blocks scraping/hotlinking images from posts (no public
+             API for it), so the two cards above use a placeholder instead of
+             a real photo. To swap in the real image: take a screenshot of
+             each post, upload it to your media library (same place as the
+             other resource images above), then replace
+             <div class="resource-thumb resource-thumb-icon" data-placeholder="true">...</div>
+             with <div class="resource-thumb"><img src="YOUR-UPLOADED-IMAGE-URL" alt="..." loading="lazy"></div> —
+             identical pattern to the two image-based cards above it. -->
       </div>
     </div>
   </section>
@@ -2241,22 +2332,38 @@ document.addEventListener('keydown', (e) => {
       return;
     }
 
+    // If this page is opened directly from disk (double-clicking the HTML
+    // file, or dragging it into a browser tab) instead of through an actual
+    // web server, the browser blocks fetch() for local files entirely — the
+    // console shows a CORS error and the model can NEVER load, regardless of
+    // whether DXFFiles/ exists. This is the single most common reason a 3D
+    // viewer "doesn't work" during testing, so we check for it directly.
+    if (location.protocol === 'file:') {
+      loadingEl.classList.add('hidden');
+      errorEl.textContent = 'This page is open as a local file (address bar starts with "file://"), and browsers block model loading in that mode for security reasons. Please test this on the actual live/deployed website instead — or run a local server (e.g. "npx serve" in this folder, or VS Code\'s "Live Server" extension) and open it via http://localhost.';
+      errorEl.classList.add('visible');
+      console.error('[3D Model Viewer] Blocked: page loaded via file:// — fetch() cannot load local files. Serve this over http(s) instead.');
+      return;
+    }
+
+    const absoluteUrl = new URL(path, document.baseURI).href;
+
     try {
       const res = await fetch(path, { cache: 'no-store' });
       if (!res.ok) {
-        throw new Error(`HTTP ${res.status} for "${path}" — the file wasn't found at this path on the live site. Make sure a folder named exactly "DXFFiles" (this is case-sensitive on most hosts, even if your own computer isn't) is uploaded to the live site in the same directory as index.html, and that the filename inside it matches "${path.split('/').pop()}" exactly.`);
+        throw new Error(`HTTP ${res.status} for "${absoluteUrl}" — the file wasn't found at this exact address on the live site. Open that URL directly in a new browser tab to confirm — if it 404s there too, make sure a folder named exactly "DXFFiles" (case-sensitive on most hosts, even if your own computer isn't) is deployed in the same directory as this page, and that the filename inside it matches "${path.split('/').pop()}" exactly.`);
       }
       const text = await res.text();
 
       if (!text || text.trim().length === 0) {
-        throw new Error(`"${path}" loaded but was empty.`);
+        throw new Error(`"${absoluteUrl}" loaded but was empty.`);
       }
 
       loadingText.textContent = 'Rendering geometry…';
       const positions = parseDXF(text);
 
       if (positions.length === 0) {
-        throw new Error(`Parsed "${path}" but found no 3DFACE mesh data in it.`);
+        throw new Error(`Parsed "${absoluteUrl}" but found no 3DFACE mesh data in it.`);
       }
 
       if (!renderer) initScene();
