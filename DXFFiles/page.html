@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Analytics Dashboard - Cydney Skeens</title>
+    <!-- Chart.js for charts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <!-- Google Identity Services for OAuth -->
+    <script src="https://accounts.google.com/gsi/client"></script>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: system-ui, -apple-system, sans-serif; }
+        body { background: #f5f7fb; padding: 2rem; color: #1e293b; }
+        .container { max-width: 1400px; margin: 0 auto; }
+        header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; flex-wrap: wrap; gap: 1rem; }
+        h1 { font-size: 1.8rem; font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+        h1 small { font-size: 1rem; font-weight: 400; color: #64748b; }
+        .btn { background: #1a73e8; color: white; border: none; padding: 0.6rem 1.4rem; border-radius: 8px; font-size: 0.95rem; cursor: pointer; transition: 0.2s; }
+        .btn:hover { background: #1557b0; }
+        .btn-secondary { background: #e2e8f0; color: #1e293b; }
+        .btn-secondary:hover { background: #cbd5e1; }
+        .btn-danger { background: #dc2626; }
+        .btn-danger:hover { background: #b91c1c; }
+        .grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1.2rem; margin-bottom: 2rem; }
+        .card { background: white; border-radius: 12px; padding: 1.2rem 1.5rem; box-shadow: 0 1px 3px rgba(0,0,0,0.06); border: 1px solid #e9eef3; }
+        .card h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.5px; color: #64748b; margin-bottom: 0.3rem; }
+        .card .value { font-size: 2rem; font-weight: 700; }
+        .card .change { font-size: 0.8rem; color: #22c55e; margin-left: 0.5rem; }
+        .grid-2 { display: grid; grid-template-columns: 2fr 1fr; gap: 1.5rem; margin-bottom: 2rem; }
+        .full-width { grid-column: 1 / -1; }
+        .chart-container { background: white; border-radius: 12px; padding: 1.5rem; border: 1px solid #e9eef3; box-shadow: 0 1px 3px rgba(0,0,0,0.06); }
+        .chart-container h2 { font-size: 1.1rem; margin-bottom: 1rem; color: #334155; }
+        .table-wrap { max-height: 300px; overflow-y: auto; }
+        table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+        th { text-align: left; padding: 0.6rem 0.3rem; border-bottom: 1px solid #e9eef3; color: #64748b; font-weight: 500; }
+        td { padding: 0.5rem 0.3rem; border-bottom: 1px solid #f1f5f9; }
+        tr:hover td { background: #f8fafc; }
+        .status-badge { display: inline-block; padding: 0.2rem 0.6rem; border-radius: 20px; font-size: 0.7rem; font-weight: 500; }
+        .status-badge.loading { background: #fef9c3; color: #854d0e; }
+        .status-badge.connected { background: #dcfce7; color: #166534; }
+        .status-badge.error { background: #fee2e2; color: #991b1b; }
+        .flex { display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; }
+        #auth-status { margin-left: 0.5rem; }
+        @media (max-width: 700px) { .grid-2 { grid-template-columns: 1fr; } body { padding: 1rem; } }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📊 Cydney Skeens <small>Analytics</small></h1>
+            <div class="flex">
+                <span id="auth-status" class="status-badge loading">⏳ Not authenticated</span>
+                <button id="auth-btn" class="btn">🔑 Sign in with Google</button>
+                <button id="refresh-btn" class="btn btn-secondary">⟳ Refresh</button>
+            </div>
+        </header>
+
+        <!-- KPI Cards -->
+        <div class="grid-4" id="kpi-cards">
+            <div class="card"><h3>Users</h3><div class="value" id="kpi-users">—</div></div>
+            <div class="card"><h3>Sessions</h3><div class="value" id="kpi-sessions">—</div></div>
+            <div class="card"><h3>Pageviews</h3><div class="value" id="kpi-pageviews">—</div></div>
+            <div class="card"><h3>Bounce Rate</h3><div class="value" id="kpi-bounce">—%</div></div>
+        </div>
+
+        <!-- Charts Row -->
+        <div class="grid-2">
+            <div class="chart-container">
+                <h2>📈 Pageviews (Last 7 days)</h2>
+                <canvas id="pageviewsChart" height="120"></canvas>
+            </div>
+            <div class="chart-container">
+                <h2>🌍 Top Cities</h2>
+                <div class="table-wrap" id="cities-table"><p style="color:#94a3b8;">No data yet</p></div>
+            </div>
+        </div>
+
+        <!-- Events Table -->
+        <div class="chart-container full-width">
+            <h2>🎯 Top Events</h2>
+            <div class="table-wrap" id="events-table"><p style="color:#94a3b8;">No event data</p></div>
+        </div>
+
+        <p style="margin-top:2rem; font-size:0.8rem; color:#94a3b8; text-align:center;">
+            Data from Google Analytics 4 property. Dashboard requires OAuth 2.0 authentication.
+        </p>
+    </div>
+
+    <script>
+        // ============================================================
+        // CONFIGURATION - UPDATED WITH YOUR STREAM DETAILS
+        // ============================================================
+        const GA_PROPERTY_ID = '15257561316';    // 👈 Your Stream ID
+        const GA_MEASUREMENT_ID = 'G-XPZSK33GTF'; // 👈 Your Measurement ID
+        const API_KEY = 'YOUR_API_KEY';          // 👈 REPLACE with your API Key
+        const CLIENT_ID = 'YOUR_CLIENT_ID';      // 👈 REPLACE with your OAuth Client ID
+
+        // ============================================================
+        // AUTH & STATE
+        // ============================================================
+        let accessToken = null;
+        let isAuthenticated = false;
+
+        const authBtn = document.getElementById('auth-btn');
+        const refreshBtn = document.getElementById('refresh-btn');
+        const authStatus = document.getElementById('auth-status');
+
+        // Initialize Google Identity Services
+        const tokenClient = google.accounts.oauth2.initTokenClient({
+            client_id: CLIENT_ID,
+            scope: 'https://www.googleapis.com/auth/analytics.readonly',
+            callback: (resp) => {
+                if (resp.error) {
+                    setAuthStatus('error', 'Auth error: ' + resp.error);
+                    return;
+                }
+                accessToken = resp.access_token;
+                isAuthenticated = true;
+                setAuthStatus('connected', '✅ Connected');
+                fetchAnalyticsData();
+            },
+        });
+
+        // Auth button handler
+        authBtn.addEventListener('click', () => {
+            if (isAuthenticated) {
+                // Sign out
+                accessToken = null;
+                isAuthenticated = false;
+                setAuthStatus('loading', '⏳ Signed out');
+                clearDashboard();
+                authBtn.textContent = '🔑 Sign in with Google';
+                return;
+            }
+            tokenClient.requestAccessToken();
+        });
+
+        function setAuthStatus(type, text) {
+            authStatus.className = 'status-badge ' + type;
+            authStatus.textContent = text;
+            if (isAuthenticated) {
+                authBtn.textContent = '🚪 Sign out';
+                authBtn.classList.add('btn-danger');
+                authBtn.classList.remove('btn');
+            } else {
+                authBtn.textContent = '🔑 Sign in with Google';
+                authBtn.classList.remove('btn-danger');
+                authBtn.classList.add('btn');
+            }
+        }
+
+        function clearDashboard() {
+            document.querySelectorAll('.value').forEach(el => el.textContent = '—');
+            document.getElementById('cities-table').innerHTML = '<p style="color:#94a3b8;">Sign in to view data</p>';
+            document.getElementById('events-table').innerHTML = '<p style="color:#94a3b8;">Sign in to view data</p>';
+            if (window.pageviewsChart) window.pageviewsChart.destroy();
+        }
+
+        // ============================================================
+        // API CALLS TO GOOGLE ANALYTICS DATA API
+        // ============================================================
+        async function fetchAnalyticsData() {
+            if (!accessToken) return;
+
+            // Show loading state
+            document.querySelectorAll('.value').forEach(el => el.textContent = '⋯');
+
+            try {
+                // 1. KPI: Users, Sessions, Pageviews, Bounce Rate (last 7 days)
+                const kpiData = await runReport([
+                    { name: 'users' },
+                    { name: 'sessions' },
+                    { name: 'screenPageViews' },
+                    { name: 'bounceRate' },
+                ], 'last7days');
+
+                if (kpiData) {
+                    document.getElementById('kpi-users').textContent = kpiData.users || 0;
+                    document.getElementById('kpi-sessions').textContent = kpiData.sessions || 0;
+                    document.getElementById('kpi-pageviews').textContent = kpiData.pageviews || 0;
+                    document.getElementById('kpi-bounce').textContent = (kpiData.bounceRate || 0) + '%';
+                }
+
+                // 2. Pageviews over last 7 days (for chart)
+                const pageviewsDaily = await runReportDaily('screenPageViews', 'last7days');
+                if (pageviewsDaily) {
+                    renderPageviewsChart(pageviewsDaily);
+                }
+
+                // 3. Top Cities (dimension: city)
+                const cities = await runReportWithDimension('city', 'sessions', 'last7days');
+                renderCitiesTable(cities);
+
+                // 4. Top Events (dimension: eventName)
+                const events = await runReportWithDimension('eventName', 'eventCount', 'last7days');
+                renderEventsTable(events);
+
+            } catch (err) {
+                console.error('Error fetching analytics:', err);
+                setAuthStatus('error', '⚠️ API Error');
+            }
+        }
+
+        // ---- Helper: Run a simple report with metrics ----
+        async function runReport(metrics, dateRange = 'last7days') {
+            const url = `https://analyticsdata.googleapis.com/v1beta/properties/${GA_PROPERTY_ID}:runReport`;
+            const body = {
+                metrics: metrics.map(m => ({ name: m.name })),
+                dateRanges: [{ startDate: dateRange, endDate: 'today' }],
+                returnPropertyQuota: false,
+            };
+
+            const response = await fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Authorization': `Bearer ${accessToken}`,
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(body),
+            });
+
+            if (!response.ok) throw new Error(`API error: ${response.status}`);
+            const data = await response.json();
+
+            // Parse rows: metrics are in order
+            const rows = data.rows || [];
+            const result = {};
+            if (rows.length > 0) {
+                const values = rows[0].metricValues.map(v => parseFloat(v.value) || 0);
+                metrics.forEach((m, idx) => {
+                    const key = m.name === 'screenPageViews' ? 'pageviews' :
+                               m.name === 'bounceRate' ? 'bounceRate' : m.name;
+                    result[key] = values[idx];
+                });
+            }
+            return result;
+        }
+
+        // ---- Helper: Daily time series ----
+        async function runReportDaily(metricName, dateRange = 'last7days') {
+            const url = `https://analyticsdata.googleapis.com/v1beta/properties/${GA_PROPERTY_ID}:runReport`;
+            const body = {
+                metrics: [{ name: metricName }],
+                dimensions: [{ name: 'date' }],
+                dateRanges: [{ startDate: dateRange, endDate: 'today' }],
+            };
+
+            const response = await fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Authorization': `Bearer ${accessToken}`,
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(body),
+            });
+
+            if (!response.ok) throw new Error(`API error: ${response.status}`);
+            const data = await response.json();
+
+            const rows = data.rows || [];
+            return rows.map(row => ({
+                date: row.dimensionValues[0].value,
+                value: parseFloat(row.metricValues[0].value) || 0,
+            }));
+        }
+
+        // ---- Helper: Report with one dimension ----
+        async function runReportWithDimension(dimensionName, metricName, dateRange = 'last7days', limit = 10) {
+            const url = `https://analyticsdata.googleapis.com/v1beta/properties/${GA_PROPERTY_ID}:runReport`;
+            const body = {
+                metrics: [{ name: metricName }],
+                dimensions: [{ name: dimensionName }],
+                dateRanges: [{ startDate: dateRange, endDate: 'today' }],
+                limit: limit,
+                orderBys: [{ metric: { metricName: metricName }, desc: true }],
+            };
+
+            const response = await fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Authorization': `Bearer ${accessToken}`,
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(body),
+            });
+
+            if (!response.ok) throw new Error(`API error: ${response.status}`);
+            const data = await response.json();
+
+            const rows = data.rows || [];
+            return rows.map(row => ({
+                dimension: row.dimensionValues[0].value,
+                metric: parseFloat(row.metricValues[0].value) || 0,
+            }));
+        }
+
+        // ============================================================
+        // RENDER FUNCTIONS
+        // ============================================================
+        let pageviewsChartInstance = null;
+
+        function renderPageviewsChart(dailyData) {
+            const ctx = document.getElementById('pageviewsChart').getContext('2d');
+            if (pageviewsChartInstance) pageviewsChartInstance.destroy();
+
+            const dates = dailyData.map(d => d.date.slice(4, 6) + '/' + d.date.slice(6, 8));
+            const values = dailyData.map(d => d.value);
+
+            pageviewsChartInstance = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: dates,
+                    datasets: [{
+                        label: 'Pageviews',
+                        data: values,
+                        borderColor: '#1a73e8',
+                        backgroundColor: 'rgba(26,115,232,0.05)',
+                        fill: true,
+                        tension: 0.2,
+                        pointRadius: 3,
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: true,
+                    plugins: { legend: { display: false } },
+                    scales: {
+                        y: { beginAtZero: true, grid: { color: '#f1f5f9' } },
+                        x: { grid: { display: false } }
+                    }
+                }
+            });
+        }
+
+        function renderCitiesTable(cities) {
+            const container = document.getElementById('cities-table');
+            if (!cities || cities.length === 0) {
+                container.innerHTML = '<p style="color:#94a3b8;">No city data available</p>';
+                return;
+            }
+            let html = `<table>
+                <thead><tr><th>City</th><th>Sessions</th></tr></thead><tbody>`;
+            cities.forEach(item => {
+                const city = item.dimension || '(not set)';
+                html += `<tr><td>${city}</td><td>${item.metric}</td></tr>`;
+            });
+            html += `</tbody></table>`;
+            container.innerHTML = html;
+        }
+
+        function renderEventsTable(events) {
+            const container = document.getElementById('events-table');
+            if (!events || events.length === 0) {
+                container.innerHTML = '<p style="color:#94a3b8;">No event data available</p>';
+                return;
+            }
+            let html = `<table>
+                <thead><tr><th>Event Name</th><th>Count</th></tr></thead><tbody>`;
+            events.forEach(item => {
+                const name = item.dimension || '(other)';
+                html += `<tr><td>${name}</td><td>${item.metric}</td></tr>`;
+            });
+            html += `</tbody></table>`;
+            container.innerHTML = html;
+        }
+
+        // ============================================================
+        // REFRESH & INIT
+        // ============================================================
+        refreshBtn.addEventListener('click', () => {
+            if (isAuthenticated && accessToken) {
+                fetchAnalyticsData();
+            } else {
+                alert('Please sign in first.');
+            }
+        });
+
+        // On page load, check if token exists (optional auto-login)
+        // We'll let user click sign-in manually for security.
+        console.log('Dashboard ready. Sign in with Google to view analytics.');
+        console.log('Using Property ID:', GA_PROPERTY_ID);
+        console.log('Measurement ID:', GA_MEASUREMENT_ID);
+    </script>
+</body>
+</html>
