@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  
+
   <title></title>
-  <meta name="description" content="TDG Steel Frame specializes in high-end steel frame construction for tiny homes, modular spaces, and commercial projects. Expert consulting, design engineering, and roll-forming manufacturing." />
-  <meta name="keywords" content="tiny homes, modular, prefab construction, off site construction, on site construction, steel framing, light gauge steel, roll forming, cold form steel frame, steel frame consulting, Scottsdale Construction Systems, Traverse Dynamics Global, steel building" />
+  <meta name="description"
+    content="TDG Steel Frame specializes in high-end steel frame construction for tiny homes, modular spaces, and commercial projects. Expert consulting, design engineering, and roll-forming manufacturing." />
+  <meta name="keywords"
+    content="tiny homes, modular, prefab construction, off site construction, on site construction, steel framing, light gauge steel, roll forming, cold form steel frame, steel frame consulting, Scottsdale Construction Systems, Traverse Dynamics Global, steel building" />
   <meta name="author" content="Traverse Dynamics Global LLC" />
   <meta name="robots" content="index, follow" />
   <meta name="language" content="English" />
@@ -18,16 +21,17 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
   <meta property="og:title" content="TDG Steel Frame | Smart. Strong. Steel." />
-  <meta property="og:description" content="Precision steel framing for luxury tiny homes and modular structures. Engineering, manufacturing & consulting." />
+  <meta property="og:description"
+    content="Precision steel framing for luxury tiny homes and modular structures. Engineering, manufacturing & consulting." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://www.cydneyskeens.com/" />
   <meta property="og:image" content="images/og-preview.jpg" />
   <meta property="og:site_name" content="TDG Steel Frame" />
-  
+
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="TDG Steel Frame | Smart. Strong. Steel." />
   <meta name="twitter:description" content="Precision steel framing for luxury tiny homes and modular structures." />
-  
+
   <link rel="canonical" href="https://www.cydneyskeens.com/" />
   <link rel="icon" type="image/x-icon" href="images/logo.ico" />
   <link rel="shortcut icon" type="image/x-icon" href="images/logo.ico" />
@@ -39,25 +43,36 @@
        GOOGLE ANALYTICS 4
        Live Measurement ID connected: G-XPZSK33GTF
        =================================================== -->
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-XPZSK33GTF"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XPZSK33GTF"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-XPZSK33GTF');
+  </script>
 
-  gtag('config', 'G-XPZSK33GTF');
-</script>
+  <!-- ===================================================
+       GA4 EVENT HELPER
+       Safe wrapper so custom events never break the page
+       if gtag hasn't loaded yet (ad blockers, slow network).
+       =================================================== -->
+  <script>
+    function gaEvent(name, params) {
+      if (typeof gtag === 'function') {
+        gtag('event', name, params || {});
+      }
+    }
+  </script>
 
   <!-- ===================================================
        MICROSOFT CLARITY
        TODO: Replace XXXXXXXXXX with Cyd's actual Clarity Project ID
        =================================================== -->
   <script type="text/javascript">
-    (function(c,l,a,r,i,t,y){
-      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-      t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    (function (c, l, a, r, i, t, y) {
+      c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
+      t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
+      y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
     })(window, document, "clarity", "script", "XXXXXXXXXX");
   </script>
 
@@ -76,13 +91,17 @@
       --accent-dark: #5C8C2E;
       --accent-light: #DCEDC8;
       --border-soft: #e1e3ea;
-      --shadow-soft: 0 10px 30px rgba(0,0,0,0.09);
-      --shadow-hover: 0 20px 35px -12px rgba(0,0,0,0.15);
+      --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.09);
+      --shadow-hover: 0 20px 35px -12px rgba(0, 0, 0, 0.15);
       --radius: 16px;
       --transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
     }
 
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
     body {
       font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Helvetica Neue', Arial, sans-serif;
@@ -93,8 +112,16 @@
       overflow-x: hidden;
     }
 
-    img { max-width: 100%; height: auto; display: block; }
-    a { text-decoration: none; color: inherit; }
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
 
     .container {
       width: 100%;
@@ -108,11 +135,13 @@
        =============================== */
     .navbar {
       position: fixed;
-      top: 0; left: 0; right: 0;
-      background: rgba(255,255,255,0.96);
+      top: 0;
+      left: 0;
+      right: 0;
+      background: rgba(255, 255, 255, 0.96);
       backdrop-filter: blur(14px);
-      border-bottom: 1px solid rgba(0,0,0,0.06);
-      box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
       z-index: 1000;
       transition: var(--transition);
     }
@@ -125,15 +154,20 @@
       transition: height 0.2s ease;
     }
 
-    .navbar.shrink .navbar-inner { height: 56px; }
+    .navbar.shrink .navbar-inner {
+      height: 56px;
+    }
 
     .logo-img {
-      height: 70px; width: auto;
+      height: 70px;
+      width: auto;
       transition: height 0.2s ease;
       object-fit: contain;
     }
 
-    .navbar.shrink .logo-img { height: 34px; }
+    .navbar.shrink .logo-img {
+      height: 34px;
+    }
 
     .navbar-logo {
       display: flex;
@@ -172,27 +206,39 @@
     .navbar-nav a::after {
       content: "";
       position: absolute;
-      left: 0; bottom: 0;
-      width: 0; height: 2px;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 2px;
       background: var(--accent);
       transition: width 0.25s ease;
     }
 
     .navbar-nav a:hover::after,
-    .navbar-nav a.active::after { width: 100%; }
-    .navbar-nav a.active { color: #000; font-weight: 600; }
+    .navbar-nav a.active::after {
+      width: 100%;
+    }
+
+    .navbar-nav a.active {
+      color: #000;
+      font-weight: 600;
+    }
 
     .mobile-menu-btn {
       display: none;
-      border: none; background: none;
-      width: 28px; height: 24px;
+      border: none;
+      background: none;
+      width: 28px;
+      height: 24px;
       flex-direction: column;
       justify-content: space-between;
-      cursor: pointer; padding: 0;
+      cursor: pointer;
+      padding: 0;
     }
 
     .mobile-menu-btn span {
-      width: 100%; height: 2.5px;
+      width: 100%;
+      height: 2.5px;
       background: #1e2a3a;
       border-radius: 2px;
       transition: 0.2s;
@@ -201,14 +247,16 @@
     .mobile-menu {
       display: none;
       flex-direction: column;
-      background: rgba(255,255,255,0.98);
+      background: rgba(255, 255, 255, 0.98);
       backdrop-filter: blur(12px);
       padding: 1.2rem 1.8rem;
       gap: 1.2rem;
-      border-top: 1px solid rgba(0,0,0,0.05);
+      border-top: 1px solid rgba(0, 0, 0, 0.05);
     }
 
-    .mobile-menu.open { display: flex; }
+    .mobile-menu.open {
+      display: flex;
+    }
 
     .mobile-menu a {
       font-size: 1rem;
@@ -220,15 +268,31 @@
     }
 
     @media (max-width: 860px) {
-      .navbar-nav { display: none; }
-      .mobile-menu-btn { display: flex; }
-      .navbar-logo-text { font-size: 0.7rem; }
+      .navbar-nav {
+        display: none;
+      }
+
+      .mobile-menu-btn {
+        display: flex;
+      }
+
+      .navbar-logo-text {
+        font-size: 0.7rem;
+      }
     }
 
     @media (max-width: 480px) {
-      .navbar-logo-text { display: none; }
-      .logo-img { height: 38px; }
-      .container { padding: 0 1rem; }
+      .navbar-logo-text {
+        display: none;
+      }
+
+      .logo-img {
+        height: 38px;
+      }
+
+      .container {
+        padding: 0 1rem;
+      }
     }
 
     /* ===============================
@@ -248,7 +312,8 @@
     }
 
     .hero-bg {
-      position: absolute; inset: 0;
+      position: absolute;
+      inset: 0;
       background-image: url("images/eagleslndg.jpeg");
       background-size: cover;
       background-position: center 30%;
@@ -258,31 +323,50 @@
     }
 
     .hero-video {
-      position: absolute; inset: 0;
-      width: 100%; height: 100%;
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
       object-fit: cover;
       display: none;
     }
 
-    .hero.has-video .hero-bg { display: none; }
-    .hero.has-video .hero-video { display: block; }
-    .hero:hover .hero-bg { transform: scale(1.05); }
+    .hero.has-video .hero-bg {
+      display: none;
+    }
+
+    .hero.has-video .hero-video {
+      display: block;
+    }
+
+    .hero:hover .hero-bg {
+      transform: scale(1.05);
+    }
 
     .hero-overlay {
-      position: absolute; inset: 0;
-      background: linear-gradient(135deg, rgba(0,0,0,0.5), rgba(0,0,0,0.7));
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7));
     }
 
     .hero-inner {
-      position: relative; z-index: 3;
+      position: relative;
+      z-index: 3;
       max-width: 800px;
       padding: 0 1.5rem;
       animation: fadeUp 0.9s ease;
     }
 
     @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(28px); }
-      to   { opacity: 1; transform: translateY(0); }
+      from {
+        opacity: 0;
+        transform: translateY(28px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     .hero-title {
@@ -291,7 +375,7 @@
       text-transform: uppercase;
       font-weight: 800;
       margin-bottom: 1rem;
-      text-shadow: 0 2px 12px rgba(0,0,0,0.3);
+      text-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
     }
 
     .hero-subtitle {
@@ -299,7 +383,8 @@
       margin-bottom: 2rem;
       color: #f0f2f8;
       max-width: 600px;
-      margin-left: auto; margin-right: auto;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     .btn-primary {
@@ -313,7 +398,7 @@
       border: none;
       cursor: pointer;
       transition: var(--transition);
-      box-shadow: 0 12px 22px rgba(0,0,0,0.25);
+      box-shadow: 0 12px 22px rgba(0, 0, 0, 0.25);
       display: inline-block;
       font-size: 0.9rem;
     }
@@ -321,19 +406,31 @@
     .btn-primary:hover {
       background: var(--accent-dark);
       transform: translateY(-3px);
-      box-shadow: 0 20px 28px -8px rgba(0,0,0,0.35);
+      box-shadow: 0 20px 28px -8px rgba(0, 0, 0, 0.35);
     }
 
     @media (max-width: 768px) {
-      .hero { height: 70vh; min-height: 450px; }
-      .btn-primary { padding: 0.7rem 1.6rem; font-size: 0.85rem; }
+      .hero {
+        height: 70vh;
+        min-height: 450px;
+      }
+
+      .btn-primary {
+        padding: 0.7rem 1.6rem;
+        font-size: 0.85rem;
+      }
     }
 
     /* ===============================
        SECTIONS
        =============================== */
-    .section { padding: 5rem 0; }
-    .section-light { background: #ffffff; }
+    .section {
+      padding: 5rem 0;
+    }
+
+    .section-light {
+      background: #ffffff;
+    }
 
     .section-title {
       text-align: center;
@@ -347,14 +444,20 @@
     .section-title:after {
       content: '';
       display: block;
-      width: 60px; height: 3px;
+      width: 60px;
+      height: 3px;
       background: var(--accent);
       margin: 0.8rem auto 0;
     }
 
     @media (max-width: 768px) {
-      .section { padding: 3.5rem 0; }
-      .section-title { margin-bottom: 2rem; }
+      .section {
+        padding: 3.5rem 0;
+      }
+
+      .section-title {
+        margin-bottom: 2rem;
+      }
     }
 
     /* ===============================
@@ -388,7 +491,9 @@
       text-decoration: none;
     }
 
-    a.service-card-link .service-card { cursor: pointer; }
+    a.service-card-link .service-card {
+      cursor: pointer;
+    }
 
     a.service-card-link .service-card .service-title::after {
       content: ' ↗';
@@ -409,9 +514,15 @@
       transition: transform 0.5s ease;
     }
 
-    .service-card:hover .service-image img { transform: scale(1.05); }
+    .service-card:hover .service-image img {
+      transform: scale(1.05);
+    }
 
-    .service-content { padding: 1.5rem; display: flex; flex-direction: column; }
+    .service-content {
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+    }
 
     .service-title {
       font-weight: 700;
@@ -425,13 +536,22 @@
       color: var(--text-muted);
       font-size: 0.95rem;
       line-height: 1.5;
-      min-height: 4.5em; /* reserves space for 3 lines so all cards match */
+      min-height: 4.5em;
+      /* reserves space for 3 lines so all cards match */
     }
 
     @media (max-width: 640px) {
-      .services-grid { gap: 1.2rem; }
-      .service-image { height: 200px; }
-      .service-content { padding: 1.2rem; }
+      .services-grid {
+        gap: 1.2rem;
+      }
+
+      .service-image {
+        height: 200px;
+      }
+
+      .service-content {
+        padding: 1.2rem;
+      }
     }
 
     /* ===============================
@@ -441,14 +561,16 @@
       display: none;
       position: fixed;
       inset: 0;
-      background: rgba(0,0,0,0.55);
+      background: rgba(0, 0, 0, 0.55);
       z-index: 2000;
       justify-content: center;
       align-items: center;
       padding: 1rem;
     }
 
-    .diy-options-overlay.open { display: flex; }
+    .diy-options-overlay.open {
+      display: flex;
+    }
 
     .diy-options-box {
       background: #fff;
@@ -456,14 +578,21 @@
       padding: 2.5rem 2rem;
       max-width: 480px;
       width: 100%;
-      box-shadow: 0 30px 60px rgba(0,0,0,0.2);
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
       position: relative;
-      animation: popIn 0.3s cubic-bezier(0.2,0.9,0.4,1.1);
+      animation: popIn 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
     }
 
     @keyframes popIn {
-      from { opacity: 0; transform: scale(0.9); }
-      to   { opacity: 1; transform: scale(1); }
+      from {
+        opacity: 0;
+        transform: scale(0.9);
+      }
+
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
     }
 
     .diy-options-box h3 {
@@ -506,7 +635,8 @@
     }
 
     .diy-option-label {
-      width: 32px; height: 32px;
+      width: 32px;
+      height: 32px;
       background: var(--accent);
       color: #1a1a1a;
       border-radius: 50%;
@@ -520,7 +650,8 @@
 
     .diy-close-btn {
       position: absolute;
-      top: 1rem; right: 1.2rem;
+      top: 1rem;
+      right: 1.2rem;
       background: none;
       border: none;
       font-size: 1.5rem;
@@ -529,7 +660,9 @@
       line-height: 1;
     }
 
-    .diy-close-btn:hover { color: #333; }
+    .diy-close-btn:hover {
+      color: #333;
+    }
 
     /* ===============================
        ABOUT
@@ -544,7 +677,7 @@
     .about-image {
       border-radius: 28px;
       overflow: hidden;
-      box-shadow: 0 20px 32px -12px rgba(0,0,0,0.2);
+      box-shadow: 0 20px 32px -12px rgba(0, 0, 0, 0.2);
     }
 
     .about-image img {
@@ -561,11 +694,21 @@
       font-size: clamp(1.4rem, 4vw, 1.8rem);
     }
 
-    .about-text p { margin-bottom: 1rem; color: var(--text-muted); }
+    .about-text p {
+      margin-bottom: 1rem;
+      color: var(--text-muted);
+    }
 
     @media (max-width: 800px) {
-      .about-grid { grid-template-columns: 1fr; gap: 2rem; text-align: center; }
-      .about-text { text-align: center; }
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        text-align: center;
+      }
+
+      .about-text {
+        text-align: center;
+      }
     }
 
     /* ===============================
@@ -576,8 +719,13 @@
       padding: 5rem 0 6rem;
     }
 
-    #projects .section-title { color: #ffffff; }
-    #projects .section-title:after { background: var(--accent); }
+    #projects .section-title {
+      color: #ffffff;
+    }
+
+    #projects .section-title:after {
+      background: var(--accent);
+    }
 
     .gallery-filters {
       display: flex;
@@ -590,9 +738,9 @@
     .filter-btn {
       padding: 0.5rem 1.3rem;
       border-radius: 40px;
-      border: 1.5px solid rgba(255,255,255,0.18);
+      border: 1.5px solid rgba(255, 255, 255, 0.18);
       background: transparent;
-      color: rgba(255,255,255,0.65);
+      color: rgba(255, 255, 255, 0.65);
       font-size: 0.78rem;
       font-weight: 600;
       letter-spacing: 0.1em;
@@ -635,7 +783,7 @@
     .gallery-item-overlay {
       position: absolute;
       inset: 0;
-      background: linear-gradient(to top, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0) 55%);
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.72) 0%, rgba(0, 0, 0, 0) 55%);
       opacity: 0;
       transition: opacity 0.35s ease;
       border-radius: 14px;
@@ -656,10 +804,12 @@
 
     .gallery-zoom-icon {
       position: absolute;
-      top: 50%; left: 50%;
+      top: 50%;
+      left: 50%;
       transform: translate(-50%, -50%) scale(0.7);
-      width: 44px; height: 44px;
-      background: rgba(245,179,0,0.95);
+      width: 44px;
+      height: 44px;
+      background: rgba(245, 179, 0, 0.95);
       border-radius: 50%;
       display: flex;
       align-items: center;
@@ -670,22 +820,33 @@
       transition: all 0.3s ease;
     }
 
-    .gallery-item:hover img { transform: scale(1.06); }
-    .gallery-item:hover .gallery-item-overlay { opacity: 1; }
-    .gallery-item:hover .gallery-item-caption { transform: translateY(0); }
+    .gallery-item:hover img {
+      transform: scale(1.06);
+    }
+
+    .gallery-item:hover .gallery-item-overlay {
+      opacity: 1;
+    }
+
+    .gallery-item:hover .gallery-item-caption {
+      transform: translateY(0);
+    }
+
     .gallery-item:hover .gallery-zoom-icon {
       opacity: 1;
       transform: translate(-50%, -50%) scale(1);
     }
 
-    .gallery-item.hidden { display: none; }
+    .gallery-item.hidden {
+      display: none;
+    }
 
     /* Lightbox */
     .lightbox {
       display: none;
       position: fixed;
       inset: 0;
-      background: rgba(0,0,0,0.94);
+      background: rgba(0, 0, 0, 0.94);
       z-index: 9999;
       justify-content: center;
       align-items: center;
@@ -693,7 +854,9 @@
       cursor: zoom-out;
     }
 
-    .lightbox.open { display: flex; }
+    .lightbox.open {
+      display: flex;
+    }
 
     .lightbox-img-wrap {
       position: relative;
@@ -703,8 +866,15 @@
     }
 
     @keyframes lbFadeIn {
-      from { opacity: 0; transform: scale(0.93); }
-      to   { opacity: 1; transform: scale(1); }
+      from {
+        opacity: 0;
+        transform: scale(0.93);
+      }
+
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
     }
 
     .lightbox-img-wrap img {
@@ -712,15 +882,17 @@
       max-height: 85vh;
       object-fit: contain;
       border-radius: 10px;
-      box-shadow: 0 30px 80px rgba(0,0,0,0.6);
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
       display: block;
     }
 
     .lightbox-close {
       position: fixed;
-      top: 1.2rem; right: 1.5rem;
-      width: 44px; height: 44px;
-      background: rgba(255,255,255,0.12);
+      top: 1.2rem;
+      right: 1.5rem;
+      width: 44px;
+      height: 44px;
+      background: rgba(255, 255, 255, 0.12);
       border: none;
       border-radius: 50%;
       color: #fff;
@@ -733,15 +905,19 @@
       z-index: 10000;
     }
 
-    .lightbox-close:hover { background: rgba(245,179,0,0.9); color: #1a1a1a; }
+    .lightbox-close:hover {
+      background: rgba(245, 179, 0, 0.9);
+      color: #1a1a1a;
+    }
 
     .lightbox-nav {
       position: fixed;
       top: 50%;
       transform: translateY(-50%);
-      width: 48px; height: 48px;
-      background: rgba(255,255,255,0.1);
-      border: 1.5px solid rgba(255,255,255,0.2);
+      width: 48px;
+      height: 48px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1.5px solid rgba(255, 255, 255, 0.2);
       border-radius: 50%;
       color: #fff;
       font-size: 1.1rem;
@@ -753,47 +929,80 @@
       z-index: 10000;
     }
 
-    .lightbox-nav:hover { background: var(--accent); border-color: var(--accent); color: #1a1a1a; }
-    .lightbox-prev { left: 1.2rem; }
-    .lightbox-next { right: 1.2rem; }
+    .lightbox-nav:hover {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #1a1a1a;
+    }
+
+    .lightbox-prev {
+      left: 1.2rem;
+    }
+
+    .lightbox-next {
+      right: 1.2rem;
+    }
 
     .lightbox-counter {
       position: fixed;
       bottom: 1.5rem;
       left: 50%;
       transform: translateX(-50%);
-      color: rgba(255,255,255,0.5);
+      color: rgba(255, 255, 255, 0.5);
       font-size: 0.8rem;
       letter-spacing: 0.1em;
       font-weight: 500;
     }
 
     @media (max-width: 768px) {
-      .gallery-masonry { columns: 2 140px; column-gap: 10px; }
-      .gallery-item { margin-bottom: 10px; border-radius: 10px; }
-      .gallery-item img { border-radius: 10px; }
-      .gallery-item-overlay { border-radius: 10px; }
-      .lightbox-nav { display: none; }
+      .gallery-masonry {
+        columns: 2 140px;
+        column-gap: 10px;
+      }
+
+      .gallery-item {
+        margin-bottom: 10px;
+        border-radius: 10px;
+      }
+
+      .gallery-item img {
+        border-radius: 10px;
+      }
+
+      .gallery-item-overlay {
+        border-radius: 10px;
+      }
+
+      .lightbox-nav {
+        display: none;
+      }
     }
 
     @media (max-width: 440px) {
-      .gallery-masonry { columns: 2 120px; }
+      .gallery-masonry {
+        columns: 2 120px;
+      }
     }
 
     /* ===============================
        CONTACT FORM
        =============================== */
-    .contact-wrapper { max-width: 620px; margin: auto; }
+    .contact-wrapper {
+      max-width: 620px;
+      margin: auto;
+    }
 
     .contact-form {
       background: white;
       padding: 2.5rem;
       border-radius: 28px;
-      box-shadow: 0 20px 35px -10px rgba(0,0,0,0.08);
+      box-shadow: 0 20px 35px -10px rgba(0, 0, 0, 0.08);
       border: 1px solid #eef0f5;
     }
 
-    .form-group { margin-bottom: 1.2rem; }
+    .form-group {
+      margin-bottom: 1.2rem;
+    }
 
     .form-group input,
     .form-group select,
@@ -813,10 +1022,11 @@
     .form-group textarea:focus {
       border-color: var(--accent);
       outline: none;
-      box-shadow: 0 0 0 3px rgba(245,179,0,0.2);
+      box-shadow: 0 0 0 3px rgba(245, 179, 0, 0.2);
     }
 
-    .status-success, .status-error {
+    .status-success,
+    .status-error {
       padding: 0.8rem 1rem;
       border-radius: 40px;
       margin-bottom: 1rem;
@@ -825,14 +1035,28 @@
       text-align: center;
     }
 
-    .status-success { background: #e3f7e8; color: #1f6e43; border-left: 5px solid #2b8c4e; }
-    .status-error   { background: #ffe6e5; color: #b13b2d; border-left: 5px solid #e55a4a; }
+    .status-success {
+      background: #e3f7e8;
+      color: #1f6e43;
+      border-left: 5px solid #2b8c4e;
+    }
+
+    .status-error {
+      background: #ffe6e5;
+      color: #b13b2d;
+      border-left: 5px solid #e55a4a;
+    }
 
     @media (max-width: 640px) {
-      .contact-form { padding: 1.5rem; }
+      .contact-form {
+        padding: 1.5rem;
+      }
+
       .form-group input,
       .form-group select,
-      .form-group textarea { padding: 0.75rem 0.9rem; }
+      .form-group textarea {
+        padding: 0.75rem 0.9rem;
+      }
     }
 
     /* ===============================
@@ -852,8 +1076,15 @@
       gap: 1.5rem;
     }
 
-    .footer a { color: var(--accent); transition: 0.2s; }
-    .footer a:hover { color: #ffcf4a; text-decoration: underline; }
+    .footer a {
+      color: var(--accent);
+      transition: 0.2s;
+    }
+
+    .footer a:hover {
+      color: #ffcf4a;
+      text-decoration: underline;
+    }
 
     .footer-links {
       display: flex;
@@ -872,15 +1103,23 @@
     }
 
     @media (max-width: 640px) {
-      .footer-inner { flex-direction: column; text-align: center; gap: 1rem; }
-      .footer-links { justify-content: center; }
+      .footer-inner {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+      }
+
+      .footer-links {
+        justify-content: center;
+      }
     }
 
     .seo-keywords {
       position: absolute;
-      width: 1px; height: 1px;
+      width: 1px;
+      height: 1px;
       overflow: hidden;
-      clip: rect(0,0,0,0);
+      clip: rect(0, 0, 0, 0);
       white-space: nowrap;
     }
 
@@ -911,7 +1150,10 @@
       flex-direction: column;
     }
 
-    .resource-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover); }
+    .resource-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-hover);
+    }
 
     .resource-thumb {
       width: 100%;
@@ -921,13 +1163,16 @@
     }
 
     .resource-thumb img {
-      width: 100%; height: 100%;
+      width: 100%;
+      height: 100%;
       object-fit: cover;
       display: block;
       transition: transform 0.4s ease;
     }
 
-    .resource-card:hover .resource-thumb img { transform: scale(1.05); }
+    .resource-card:hover .resource-thumb img {
+      transform: scale(1.05);
+    }
 
     /* Used for sources without a usable public thumbnail (e.g. LinkedIn posts) */
     .resource-thumb.resource-thumb-icon {
@@ -968,8 +1213,15 @@
       color: #33691E;
     }
 
-    .resource-content h3 { font-size: 1.1rem; }
-    .resource-content p { color: var(--text-muted); font-size: 0.92rem; flex-grow: 1; }
+    .resource-content h3 {
+      font-size: 1.1rem;
+    }
+
+    .resource-content p {
+      color: var(--text-muted);
+      font-size: 0.92rem;
+      flex-grow: 1;
+    }
 
     .resource-content a.resource-link {
       font-weight: 600;
@@ -977,14 +1229,25 @@
       color: var(--accent-dark);
     }
 
-    .resource-content a.resource-link:hover { text-decoration: underline; }
+    .resource-content a.resource-link:hover {
+      text-decoration: underline;
+    }
 
     /* ===============================
        SCOTCYD VIDEO SERIES
        =============================== */
-    #scotcyd { background: #171c1a; color: #fff; }
-    #scotcyd .section-title { color: #ffffff; }
-    #scotcyd .section-title:after { background: var(--accent); }
+    #scotcyd {
+      background: #171c1a;
+      color: #fff;
+    }
+
+    #scotcyd .section-title {
+      color: #ffffff;
+    }
+
+    #scotcyd .section-title:after {
+      background: var(--accent);
+    }
 
     .scotcyd-intro {
       max-width: 720px;
@@ -1015,14 +1278,18 @@
     }
 
     .video-embed-wrap iframe {
-      position: absolute; inset: 0;
-      width: 100%; height: 100%;
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
       border: none;
     }
 
     .video-thumb-btn {
-      position: absolute; inset: 0;
-      width: 100%; height: 100%;
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
       border: none;
       padding: 0;
       cursor: pointer;
@@ -1030,28 +1297,33 @@
     }
 
     .video-thumb-btn img {
-      width: 100%; height: 100%;
+      width: 100%;
+      height: 100%;
       object-fit: cover;
       display: block;
       opacity: 0.85;
       transition: opacity 0.2s ease;
     }
 
-    .video-thumb-btn:hover img { opacity: 1; }
+    .video-thumb-btn:hover img {
+      opacity: 1;
+    }
 
     .video-play-icon {
       position: absolute;
-      top: 50%; left: 50%;
+      top: 50%;
+      left: 50%;
       transform: translate(-50%, -50%);
-      width: 64px; height: 64px;
+      width: 64px;
+      height: 64px;
       border-radius: 50%;
-      background: rgba(255,255,255,0.92);
+      background: rgba(255, 255, 255, 0.92);
       color: #1a1a1a;
       display: flex;
       align-items: center;
       justify-content: center;
       font-size: 1.3rem;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.35);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
       transition: transform 0.2s ease, background 0.2s ease;
     }
 
@@ -1060,8 +1332,14 @@
       background: var(--accent);
     }
 
-    .scotcyd-side h3 { margin-bottom: 0.75rem; }
-    .scotcyd-side p { color: #c4c9d4; margin-bottom: 1.5rem; }
+    .scotcyd-side h3 {
+      margin-bottom: 0.75rem;
+    }
+
+    .scotcyd-side p {
+      color: #c4c9d4;
+      margin-bottom: 1.5rem;
+    }
 
     .platform-links {
       display: flex;
@@ -1075,25 +1353,39 @@
       gap: 0.5rem;
       padding: 0.65rem 1.1rem;
       border-radius: 999px;
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.14);
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.14);
       font-size: 0.85rem;
       font-weight: 600;
       transition: var(--transition);
     }
 
-    .platform-btn:hover { background: var(--accent); color: #1a1a1a; }
+    .platform-btn:hover {
+      background: var(--accent);
+      color: #1a1a1a;
+    }
 
     @media (max-width: 860px) {
-      .scotcyd-layout { grid-template-columns: 1fr; }
+      .scotcyd-layout {
+        grid-template-columns: 1fr;
+      }
     }
 
     /* ===============================
        3D MODEL VIEWER (LOCAL DXF, THREE.JS)
        =============================== */
-    #model-viewer { background: #14181a; color: #fff; }
-    #model-viewer .section-title { color: #ffffff; }
-    #model-viewer .section-title:after { background: var(--accent); }
+    #model-viewer {
+      background: #14181a;
+      color: #fff;
+    }
+
+    #model-viewer .section-title {
+      color: #ffffff;
+    }
+
+    #model-viewer .section-title:after {
+      background: var(--accent);
+    }
 
     .model-viewer-intro {
       max-width: 720px;
@@ -1119,7 +1411,7 @@
     .model-select {
       padding: 0.65rem 1.1rem;
       border-radius: 12px;
-      border: 1.5px solid rgba(255,255,255,0.18);
+      border: 1.5px solid rgba(255, 255, 255, 0.18);
       background: #1c231e;
       color: #fff;
       font-size: 0.88rem;
@@ -1145,20 +1437,25 @@
       overflow: hidden;
       box-shadow: var(--shadow-soft);
       background: radial-gradient(circle at 50% 40%, #232b25 0%, #0f120f 100%);
-      border: 1px solid rgba(255,255,255,0.08);
+      border: 1px solid rgba(255, 255, 255, 0.08);
     }
 
     .model-canvas-wrap canvas {
-      position: absolute; inset: 0;
-      width: 100% !important; height: 100% !important;
+      position: absolute;
+      inset: 0;
+      width: 100% !important;
+      height: 100% !important;
       display: block;
       cursor: grab;
     }
 
-    .model-canvas-wrap canvas:active { cursor: grabbing; }
+    .model-canvas-wrap canvas:active {
+      cursor: grabbing;
+    }
 
     .model-loading {
-      position: absolute; inset: 0;
+      position: absolute;
+      inset: 0;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -1166,25 +1463,34 @@
       gap: 0.75rem;
       color: #c4c9d4;
       font-size: 0.85rem;
-      background: rgba(10,13,19,0.85);
+      background: rgba(10, 13, 19, 0.85);
       z-index: 5;
       transition: opacity 0.25s ease;
     }
 
-    .model-loading.hidden { opacity: 0; pointer-events: none; }
+    .model-loading.hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
 
     .model-spinner {
-      width: 34px; height: 34px;
+      width: 34px;
+      height: 34px;
       border-radius: 50%;
-      border: 3px solid rgba(245,179,0,0.2);
+      border: 3px solid rgba(245, 179, 0, 0.2);
       border-top-color: var(--accent);
       animation: modelSpin 0.8s linear infinite;
     }
 
-    @keyframes modelSpin { to { transform: rotate(360deg); } }
+    @keyframes modelSpin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
 
     .model-error {
-      position: absolute; inset: 0;
+      position: absolute;
+      inset: 0;
       display: none;
       align-items: center;
       justify-content: center;
@@ -1192,26 +1498,44 @@
       padding: 2rem;
       color: #ffb4a8;
       font-size: 0.88rem;
-      background: rgba(10,13,19,0.9);
+      background: rgba(10, 13, 19, 0.9);
       z-index: 6;
     }
 
-    .model-error.visible { display: flex; }
+    .model-error.visible {
+      display: flex;
+    }
   </style>
 </head>
+
 <body>
 
-<p class="seo-keywords">
-  tiny homes, modular, prefab construction, off site construction, on site construction, steel framing, light gauge steel, roll forming, cold form steel frame
-</p>
+  <p class="seo-keywords">
+    tiny homes, modular, prefab construction, off site construction, on site construction, steel framing, light gauge
+    steel, roll forming, cold form steel frame
+  </p>
 
-<header class="navbar" id="navbar">
-  <div class="container navbar-inner">
-    <a href="#top" class="navbar-logo">
-   <img src="images/TDGlogo.webp" alt="TDG Steel Frame - Premium Steel Construction" class="logo-img" id="navbarLogo" onerror="this.src='https://placehold.co/120x40/f5b300/1a1a1a?text=TDG'">
-      <span class="navbar-logo-text"></span>
-    </a>
-    <nav class="navbar-nav" id="desktopNav">
+  <header class="navbar" id="navbar">
+    <div class="container navbar-inner">
+      <a href="#top" class="navbar-logo">
+        <img src="images/TDGlogo.webp" alt="TDG Steel Frame - Premium Steel Construction" class="logo-img"
+          id="navbarLogo" onerror="this.src='https://placehold.co/120x40/f5b300/1a1a1a?text=TDG'">
+        <span class="navbar-logo-text"></span>
+      </a>
+      <nav class="navbar-nav" id="desktopNav">
+        <a href="#services" data-link="services">Services</a>
+        <a href="#model-viewer" data-link="model-viewer">3D Models</a>
+        <a href="#scotcyd" data-link="scotcyd">ScotCyd</a>
+        <a href="#projects" data-link="projects">Projects</a>
+        <a href="#resources" data-link="resources">Resources</a>
+        <a href="#about" data-link="about">About</a>
+        <a href="#contact" data-link="contact">Contact</a>
+      </nav>
+      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
       <a href="#services" data-link="services">Services</a>
       <a href="#model-viewer" data-link="model-viewer">3D Models</a>
       <a href="#scotcyd" data-link="scotcyd">ScotCyd</a>
@@ -1219,114 +1543,109 @@
       <a href="#resources" data-link="resources">Resources</a>
       <a href="#about" data-link="about">About</a>
       <a href="#contact" data-link="contact">Contact</a>
-    </nav>
-    <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
-  <div class="mobile-menu" id="mobileMenu">
-    <a href="#services" data-link="services">Services</a>
-    <a href="#model-viewer" data-link="model-viewer">3D Models</a>
-    <a href="#scotcyd" data-link="scotcyd">ScotCyd</a>
-    <a href="#projects" data-link="projects">Projects</a>
-    <a href="#resources" data-link="resources">Resources</a>
-    <a href="#about" data-link="about">About</a>
-    <a href="#contact" data-link="contact">Contact</a>
-  </div>
-</header>
-
-<main id="top">
-
-  <!-- HERO -->
-  <section class="hero has-video" id="heroSection">
-    <div class="hero-bg"></div>
-    <video class="hero-video" autoplay muted loop playsinline>
-      <source src="videos/tdg-hero.mp4" type="video/mp4">
-    </video>
-    <div class="hero-overlay"></div>
-    <div class="hero-inner">
-      <h1 class="hero-title">Smart. Strong. Steel.</h1>
-      <p class="hero-subtitle">High-end tiny homes & modular spaces with precision steel framing and cutting-edge engineering.</p>
-      <a href="#contact" class="btn-primary">Start Your Project</a>
     </div>
-  </section>
+  </header>
 
-  <!-- ===================================================
+  <main id="top">
+
+    <!-- HERO -->
+    <section class="hero has-video" id="heroSection">
+      <div class="hero-bg"></div>
+      <video class="hero-video" autoplay muted loop playsinline>
+        <source src="videos/tdg-hero.mp4" type="video/mp4">
+      </video>
+      <div class="hero-overlay"></div>
+      <div class="hero-inner">
+        <h1 class="hero-title">Smart. Strong. Steel.</h1>
+        <p class="hero-subtitle">High-end tiny homes & modular spaces with precision steel framing and cutting-edge
+          engineering.</p>
+        <a href="#contact" class="btn-primary">Start Your Project</a>
+      </div>
+    </section>
+
+    <!-- ===================================================
        SERVICES — CHANGE 1 & 2 APPLIED
        Design/Engineering card now uses a split before/after
        layout: left = software (digital), right = built frame
        (person in doorframe) — visually paired side by side.
        =================================================== -->
-  <section id="services" class="section section-light">
-    <div class="container">
-      <h2 class="section-title">Expertise</h2>
-      <div class="services-grid">
+    <section id="services" class="section section-light">
+      <div class="container">
+        <h2 class="section-title">Expertise</h2>
+        <div class="services-grid">
 
-        <!-- Card 1: Steel Framing -->
-        <a href="https://hardyhomes.us.com" target="_blank" rel="noopener noreferrer" class="service-card-link">
+          <!-- Card 1: Steel Framing -->
+          <a href="https://hardyhomes.us.com" target="_blank" rel="noopener noreferrer" class="service-card-link">
+            <div class="service-card">
+              <div class="service-image">
+                <img src="images/greenhouse1.jpeg" alt="Cold-formed steel framing system by Scottsdale Construction"
+                  loading="lazy">
+              </div>
+              <div class="service-content">
+                <h3 class="service-title">Steel Framing</h3>
+                <p class="service-text">Cold-formed steel systems using Scottsdale Construction Systems roll-forming
+                  machines for precise, repeatable fabrication every time.</p>
+              </div>
+            </div>
+          </a>
+
+          <!-- Card 2: Consultations -->
           <div class="service-card">
             <div class="service-image">
-              <img src="images/greenhouse1.jpeg" alt="Cold-formed steel framing system by Scottsdale Construction" loading="lazy">
+              <img src="images/greenhouseshed.jpeg" alt="Design and engineering consultation — digital model workflow"
+                loading="lazy" onerror="this.src='images/panel.png'">
             </div>
             <div class="service-content">
-              <h3 class="service-title">Steel Framing</h3>
-              <p class="service-text">Cold-formed steel systems using Scottsdale Construction Systems roll-forming machines for precise, repeatable fabrication every time.</p>
+              <h3 class="service-title">Consultations</h3>
+              <p class="service-text">BIM and 3D design workflows connecting concept, engineering, and manufacturing —
+                from digital model to finished structure.</p>
             </div>
           </div>
+
+          <!-- Card 3: DIY Manufacturing -->
+          <div class="service-card" id="diyCard" style="cursor:pointer;" onclick="openDIYOptions()">
+            <div class="service-image">
+              <img src="images/7090g2.jpeg" alt="Roll forming machine for DIY steel manufacturing" loading="lazy">
+            </div>
+            <div class="service-content">
+              <h3 class="service-title">DIY Manufacturing</h3>
+              <p class="service-text">Roll-former setup, production optimization, and on-site light-gauge steel
+                manufacturing support. <strong style="color:var(--accent-dark);">Click to explore.</strong></p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- DIY OPTIONS POPUP -->
+    <div class="diy-options-overlay" id="diyOverlay" onclick="closeDIYOptions(event)">
+      <div class="diy-options-box">
+        <button class="diy-close-btn" onclick="closeDIYOptions(null, true)">×</button>
+        <h3>DIY Manufacturing</h3>
+        <p>What would you like to do? Select an option below:</p>
+        <a href="#contact" class="diy-option-btn" onclick="setDIYContact('I want to rent a roll former')">
+          <span class="diy-option-label">A</span>
+          I want to rent a roll former
         </a>
-
-        <!-- Card 2: Consultations -->
-        <div class="service-card">
-          <div class="service-image">
-            <img src="images/greenhouseshed.jpeg" alt="Design and engineering consultation — digital model workflow" loading="lazy" onerror="this.src='images/panel.png'">
-          </div>
-          <div class="service-content">
-            <h3 class="service-title">Consultations</h3>
-            <p class="service-text">BIM and 3D design workflows connecting concept, engineering, and manufacturing — from digital model to finished structure.</p>
-          </div>
-        </div>
-
-        <!-- Card 3: DIY Manufacturing -->
-        <div class="service-card" id="diyCard" style="cursor:pointer;" onclick="openDIYOptions()">
-          <div class="service-image">
-            <img src="images/7090g2.jpeg" alt="Roll forming machine for DIY steel manufacturing" loading="lazy">
-          </div>
-          <div class="service-content">
-            <h3 class="service-title">DIY Manufacturing</h3>
-            <p class="service-text">Roll-former setup, production optimization, and on-site light-gauge steel manufacturing support. <strong style="color:var(--accent-dark);">Click to explore.</strong></p>
-          </div>
-        </div>
-
+        <a href="#contact" class="diy-option-btn" onclick="setDIYContact('I need help setting up my roll former')">
+          <span class="diy-option-label">B</span>
+          Help setting up my roll former
+        </a>
+        <a href="#contact" class="diy-option-btn"
+          onclick="setDIYContact('I want to explore purchasing my own roll former')">
+          <span class="diy-option-label">C</span>
+          Explore purchasing my own roll former
+        </a>
+        <a href="https://youtu.be/XLMFMtCB9yY" target="_blank" rel="noopener noreferrer" class="diy-option-btn"
+          onclick="gaEvent('select_content', { content_type: 'diy_video', item_id: 'production_process' })">
+          <span class="diy-option-label"><i class="fas fa-play" style="font-size:0.75rem;"></i></span>
+          See the machines in action (video)
+        </a>
       </div>
     </div>
-  </section>
 
-  <!-- DIY OPTIONS POPUP -->
-  <div class="diy-options-overlay" id="diyOverlay" onclick="closeDIYOptions(event)">
-    <div class="diy-options-box">
-      <button class="diy-close-btn" onclick="closeDIYOptions(null, true)">×</button>
-      <h3>DIY Manufacturing</h3>
-      <p>What would you like to do? Select an option below:</p>
-      <a href="#contact" class="diy-option-btn" onclick="setDIYContact('I want to rent a roll former')">
-        <span class="diy-option-label">A</span>
-        I want to rent a roll former
-      </a>
-      <a href="#contact" class="diy-option-btn" onclick="setDIYContact('I need help setting up my roll former')">
-        <span class="diy-option-label">B</span>
-        Help setting up my roll former
-      </a>
-      <a href="#contact" class="diy-option-btn" onclick="setDIYContact('I want to explore purchasing my own roll former')">
-        <span class="diy-option-label">C</span>
-        Explore purchasing my own roll former
-      </a>
-      <a href="https://youtu.be/XLMFMtCB9yY" target="_blank" rel="noopener noreferrer" class="diy-option-btn" onclick="gaEvent('select_content', { content_type: 'diy_video', item_id: 'production_process' })">
-        <span class="diy-option-label"><i class="fas fa-play" style="font-size:0.75rem;"></i></span>
-        See the machines in action (video)
-      </a>
-    </div>
-  </div>
-
-  <!-- ===================================================
+    <!-- ===================================================
        3D MODEL VIEWER — EMBEDDED DXF DATA (Three.js)
        Renders Cyd's actual project DXF files (3DFACE mesh
        data) directly in-browser. The raw DXF text for every
@@ -1337,42 +1656,43 @@
        page is opened directly from disk (file://) and on any
        host, with zero server/deployment configuration needed.
        =================================================== -->
-  <section id="model-viewer" class="section">
-    <div class="container">
-      <h2 class="section-title">3D Model Viewer</h2>
-      <p class="model-viewer-intro">Explore real TDG project structures in interactive 3D — straight from the shop drawings. Drag to rotate, scroll to zoom.</p>
+    <section id="model-viewer" class="section">
+      <div class="container">
+        <h2 class="section-title">3D Model Viewer</h2>
+        <p class="model-viewer-intro">Explore real TDG project structures in interactive 3D — straight from the shop
+          drawings. Drag to rotate, scroll to zoom.</p>
 
-      <div class="model-viewer-shell">
-        <div class="model-toolbar">
-          <select class="model-select" id="modelSelect">
-            <option value="__sample__">Sample Frame (instant preview)</option>
-            <option value="tiny-home-structure">Tiny Home Structure</option>
-            <option value="container-house">Container House</option>
-            <option value="2-story-residence-garage">2-Story Residence with Garage</option>
-            <option value="modern-plan-940-00198_dxf">Modern Plan 940-00198</option>
-            <option value="adu-project">ADU Project</option>
-            <option value="encanto-modular">Encanto Modular</option>
-            <option value="roq-puerto-vallarta">ROQ Puerto Vallarta</option>
-            <option value="willow-green-she-shed-greenhouse">Willow Green She-Shed / Greenhouse</option>
-            <option value="lean-to-addition-structure">Lean-To Addition Structure</option>
-            <option value="powder-coat-booth-garage">Powder Coat Booth / Garage</option>
-          </select>
-          <div class="model-hint"><i class="fas fa-arrows-alt"></i> Drag to rotate &middot; Scroll to zoom</div>
-        </div>
-
-        <div class="model-canvas-wrap" id="modelCanvasWrap">
-          <div class="model-loading" id="modelLoading">
-            <div class="model-spinner"></div>
-            <span id="modelLoadingText">Loading model…</span>
+        <div class="model-viewer-shell">
+          <div class="model-toolbar">
+            <select class="model-select" id="modelSelect">
+              <option value="__sample__">Sample Frame (instant preview)</option>
+              <option value="tiny-home-structure">Tiny Home Structure</option>
+              <option value="container-house">Container House</option>
+              <option value="2-story-residence-garage">2-Story Residence with Garage</option>
+              <option value="modern-plan-940-00198_dxf">Modern Plan 940-00198</option>
+              <option value="adu-project">ADU Project</option>
+              <option value="encanto-modular">Encanto Modular</option>
+              <option value="roq-puerto-vallarta">ROQ Puerto Vallarta</option>
+              <option value="willow-green-she-shed-greenhouse">Willow Green She-Shed / Greenhouse</option>
+              <option value="lean-to-addition-structure">Lean-To Addition Structure</option>
+              <option value="powder-coat-booth-garage">Powder Coat Booth / Garage</option>
+            </select>
+            <div class="model-hint"><i class="fas fa-arrows-alt"></i> Drag to rotate &middot; Scroll to zoom</div>
           </div>
-          <div class="model-error" id="modelError">Couldn't load this model.</div>
+
+          <div class="model-canvas-wrap" id="modelCanvasWrap">
+            <div class="model-loading" id="modelLoading">
+              <div class="model-spinner"></div>
+              <span id="modelLoadingText">Loading model…</span>
+            </div>
+            <div class="model-error" id="modelError">Couldn't load this model.</div>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
 
-  <!-- ===================================================
+    <!-- ===================================================
        EMBEDDED DXF DATA
        Raw DXF text for every model in the dropdown above,
        embedded directly so the viewer has zero fetch()/
@@ -1380,7 +1700,7 @@
        never executed) until read via .textContent in the
        viewer script further down the page.
        =================================================== -->
-  <script type="text/plain" id="dxf-tiny-home-structure">0
+    <script type="text/plain" id="dxf-tiny-home-structure">0
 SECTION
 2
 HEADER
@@ -51733,7 +52053,7 @@ ENDSEC
 0
 EOF
 </script>
-  <script type="text/plain" id="dxf-container-house">0
+    <script type="text/plain" id="dxf-container-house">0
 SECTION
 2
 HEADER
@@ -187324,7 +187644,7 @@ ENDSEC
 0
 EOF
 </script>
-  <script type="text/plain" id="dxf-2-story-residence-garage">0
+    <script type="text/plain" id="dxf-2-story-residence-garage">0
 SECTION
 2
 HEADER
@@ -678555,7 +678875,7 @@ ENDSEC
 0
 EOF
 </script>
-  <script type="text/plain" id="dxf-modern-plan-940-00198_dxf">0
+    <script type="text/plain" id="dxf-modern-plan-940-00198_dxf">0
 SECTION
 2
 HEADER
@@ -884606,7 +884926,7 @@ ENDSEC
 0
 EOF
 </script>
-  <script type="text/plain" id="dxf-adu-project">0
+    <script type="text/plain" id="dxf-adu-project">0
 SECTION
 2
 HEADER
@@ -1064999,7 +1065319,7 @@ ENDSEC
 0
 EOF
 </script>
-  <script type="text/plain" id="dxf-encanto-modular">0
+    <script type="text/plain" id="dxf-encanto-modular">0
 SECTION
 2
 HEADER
@@ -1417880,7 +1418200,7 @@ ENDSEC
 0
 EOF
 </script>
-  <script type="text/plain" id="dxf-roq-puerto-vallarta">0
+    <script type="text/plain" id="dxf-roq-puerto-vallarta">0
 SECTION
 2
 HEADER
@@ -1720005,7 +1720325,7 @@ ENDSEC
 0
 EOF
 </script>
-  <script type="text/plain" id="dxf-willow-green-she-shed-greenhouse">0
+    <script type="text/plain" id="dxf-willow-green-she-shed-greenhouse">0
 SECTION
 2
 HEADER
@@ -1753802,7 +1754122,7 @@ ENDSEC
 0
 EOF
 </script>
-  <script type="text/plain" id="dxf-lean-to-addition-structure">0
+    <script type="text/plain" id="dxf-lean-to-addition-structure">0
 SECTION
 2
 HEADER
@@ -1857571,7 +1857891,7 @@ ENDSEC
 0
 EOF
 </script>
-  <script type="text/plain" id="dxf-powder-coat-booth-garage">0
+    <script type="text/plain" id="dxf-powder-coat-booth-garage">0
 SECTION
 2
 HEADER
@@ -1885375,69 +1885695,77 @@ ENDSEC
 EOF
 </script>
 
-  <!-- ===================================================
+    <!-- ===================================================
        SCOTCYD VIDEO SERIES
        =================================================== -->
-  <section id="scotcyd" class="section">
-    <div class="container">
-      <h2 class="section-title">ScotCyd Series</h2>
-      <p class="scotcyd-intro">Follow along as we walk through real steel-frame projects, roll-forming setups, and behind-the-scenes builds. Now on Episode 34 and streaming across Facebook, YouTube, Instagram, and LinkedIn.</p>
+    <section id="scotcyd" class="section">
+      <div class="container">
+        <h2 class="section-title">ScotCyd Series</h2>
+        <p class="scotcyd-intro">Follow along as we walk through real steel-frame projects, roll-forming setups, and
+          behind-the-scenes builds. Now on Episode 34 and streaming across Facebook, YouTube, Instagram, and LinkedIn.
+        </p>
 
-      <div class="scotcyd-layout">
-        <div class="video-embed-wrap" id="scotcydVideoWrap" data-video-id="lkLgA7loscs">
-          <!-- Click-to-play facade: shows YouTube's own thumbnail image
+        <div class="scotcyd-layout">
+          <div class="video-embed-wrap" id="scotcydVideoWrap" data-video-id="lkLgA7loscs">
+            <!-- Click-to-play facade: shows YouTube's own thumbnail image
                immediately (this always works — it's a plain <img>, not an
                iframe, so it can't hit Error 153). The actual embedded
                player only gets created on click, using the exact embed
                code YouTube's own Share → Embed panel generates. This also
                means visitors who never click never touch YouTube's player
                at all — fewer places for anything to fail. -->
-          <button type="button" class="video-thumb-btn" id="scotcydPlayBtn" aria-label="Play video">
-            <img src="https://i.ytimg.com/vi/lkLgA7loscs/hqdefault.jpg" alt="ScotCyd Series — latest episode thumbnail" loading="lazy">
-            <span class="video-play-icon"><i class="fas fa-play"></i></span>
-          </button>
-        </div>
-        <div class="scotcyd-side">
-          <h3>Watch the Latest Episode</h3>
-          <p>New episodes cover project walkthroughs, equipment setup, and steel framing tips straight from the field. This player is set to the latest episode — swap in the new video ID each time a fresh one goes live.</p>
-          <div class="platform-links">
-            <a class="platform-btn" href="https://www.youtube.com/@scottsdalenz/shorts" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i> YouTube</a>
-            <a class="platform-btn" href="https://www.facebook.com/scottsdaleconstructionsystems/reels/" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook"></i> Facebook</a>
-            <a class="platform-btn" href="https://www.instagram.com/scottsdaleconstructionsystems/reels/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i> Instagram</a>
-            <a class="platform-btn" href="https://www.linkedin.com/in/cydney-skeens/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i> LinkedIn</a>
+            <button type="button" class="video-thumb-btn" id="scotcydPlayBtn" aria-label="Play video">
+              <img src="https://i.ytimg.com/vi/lkLgA7loscs/hqdefault.jpg"
+                alt="ScotCyd Series — latest episode thumbnail" loading="lazy">
+              <span class="video-play-icon"><i class="fas fa-play"></i></span>
+            </button>
+          </div>
+          <div class="scotcyd-side">
+            <h3>Watch the Latest Episode</h3>
+            <p>New episodes cover project walkthroughs, equipment setup, and steel framing tips straight from the field.
+              This player is set to the latest episode — swap in the new video ID each time a fresh one goes live.</p>
+            <div class="platform-links">
+              <a class="platform-btn" href="https://www.youtube.com/@scottsdalenz/shorts" target="_blank"
+                rel="noopener noreferrer"><i class="fab fa-youtube"></i> YouTube</a>
+              <a class="platform-btn" href="https://www.facebook.com/scottsdaleconstructionsystems/reels/"
+                target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook"></i> Facebook</a>
+              <a class="platform-btn" href="https://www.instagram.com/scottsdaleconstructionsystems/reels/"
+                target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i> Instagram</a>
+              <a class="platform-btn" href="https://www.linkedin.com/in/cydney-skeens/" target="_blank"
+                rel="noopener noreferrer"><i class="fab fa-linkedin"></i> LinkedIn</a>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <script>
-    // ScotCyd video: click-to-play facade. Injects the real iframe only
-    // once, on first click, using the exact embed markup confirmed from
-    // YouTube's own Share → Embed panel.
-    (function () {
-      const wrap = document.getElementById('scotcydVideoWrap');
-      const btn = document.getElementById('scotcydPlayBtn');
-      if (!wrap || !btn) return;
-      btn.addEventListener('click', () => {
-        const videoId = wrap.dataset.videoId;
-        const iframe = document.createElement('iframe');
-        iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
-        iframe.title = 'ScotCyd Series — Latest Episode';
-        iframe.setAttribute('frameborder', '0');
-        iframe.setAttribute('referrerpolicy', 'strict-origin-when-cross-origin');
-        iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share');
-        iframe.setAttribute('allowfullscreen', '');
-        wrap.innerHTML = '';
-        wrap.appendChild(iframe);
-        if (typeof gaEvent === 'function') {
-          gaEvent('select_content', { content_type: 'video', item_id: videoId });
-        }
-      }, { once: true });
-    })();
-  </script>
+    <script>
+      // ScotCyd video: click-to-play facade. Injects the real iframe only
+      // once, on first click, using the exact embed markup confirmed from
+      // YouTube's own Share → Embed panel.
+      (function () {
+        const wrap = document.getElementById('scotcydVideoWrap');
+        const btn = document.getElementById('scotcydPlayBtn');
+        if (!wrap || !btn) return;
+        btn.addEventListener('click', () => {
+          const videoId = wrap.dataset.videoId;
+          const iframe = document.createElement('iframe');
+          iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+          iframe.title = 'ScotCyd Series — Latest Episode';
+          iframe.setAttribute('frameborder', '0');
+          iframe.setAttribute('referrerpolicy', 'strict-origin-when-cross-origin');
+          iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share');
+          iframe.setAttribute('allowfullscreen', '');
+          wrap.innerHTML = '';
+          wrap.appendChild(iframe);
+          if (typeof gaEvent === 'function') {
+            gaEvent('select_content', { content_type: 'video', item_id: videoId });
+          }
+        }, { once: true });
+      })();
+    </script>
 
-  <!-- ===================================================
+    <!-- ===================================================
        PROJECTS GALLERY — DARK MASONRY
        CHANGE 3 APPLIED: Images correctly matched per category:
          homes      → tinyhome1, tinyhome2, tinyhome, squarestream, eagleslndg
@@ -1885447,257 +1885775,279 @@ EOF
          other      → 1sculptures, chair, quonsetcyd
        NOTE: tinyhousetink moved to Design card (before/after), no longer in gallery.
        =================================================== -->
-  <section id="projects">
-    <div class="container">
-      <h2 class="section-title">Projects</h2>
+    <section id="projects">
+      <div class="container">
+        <h2 class="section-title">Projects</h2>
 
-      <div class="gallery-filters">
-        <button class="filter-btn active" data-filter="all">All</button>
-        <button class="filter-btn" data-filter="homes">Homes</button>
-        <button class="filter-btn" data-filter="greenhouse">Greenhouse</button>
-        <button class="filter-btn" data-filter="panels">Panels</button>
-        <button class="filter-btn" data-filter="equipment">Equipment</button>
-        <button class="filter-btn" data-filter="other">Other</button>
+        <div class="gallery-filters">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="homes">Homes</button>
+          <button class="filter-btn" data-filter="greenhouse">Greenhouse</button>
+          <button class="filter-btn" data-filter="panels">Panels</button>
+          <button class="filter-btn" data-filter="equipment">Equipment</button>
+          <button class="filter-btn" data-filter="other">Other</button>
+        </div>
+
+        <div class="gallery-masonry" id="galleryMasonry">
+
+          <!-- ── HOMES ── -->
+          <div class="gallery-item" data-category="homes" onclick="openLightbox(this)">
+            <img src="images/tinyhome1.jpeg" alt="Modern tiny home with steel frame structure" loading="lazy">
+            <div class="gallery-item-overlay"><span class="gallery-item-caption">Modern Tiny Home</span></div>
+            <div class="gallery-zoom-icon"><i class="fas fa-expand-alt"></i></div>
+          </div>
+
+          <div class="gallery-item" data-category="homes" onclick="openLightbox(this)">
+            <img src="images/tinyhome2.jpg" alt="Contemporary steel frame residence exterior" loading="lazy">
+            <div class="gallery-item-overlay"><span class="gallery-item-caption">Steel Frame Residence</span></div>
+            <div class="gallery-zoom-icon"><i class="fas fa-expand-alt"></i></div>
+          </div>
+
+          <div class="gallery-item" data-category="homes" onclick="openLightbox(this)">
+            <img src="images/squarestream.jpg" alt="Square Stream architectural steel design" loading="lazy">
+            <div class="gallery-item-overlay"><span class="gallery-item-caption">Square Stream Design</span></div>
+            <div class="gallery-zoom-icon"><i class="fas fa-expand-alt"></i></div>
+          </div>
+
+          <div class="gallery-item" data-category="homes" onclick="openLightbox(this)">
+            <img src="images/tinyhome.jpeg" alt="Tiny home exterior steel structure" loading="lazy">
+            <div class="gallery-item-overlay"><span class="gallery-item-caption">Tiny Home Exterior</span></div>
+            <div class="gallery-zoom-icon"><i class="fas fa-expand-alt"></i></div>
+          </div>
+
+          <div class="gallery-item" data-category="homes" onclick="openLightbox(this)">
+            <img src="images/eagleslndg.jpeg" alt="Eagles Landing steel frame project showcase" loading="lazy">
+            <div class="gallery-item-overlay"><span class="gallery-item-caption">Eagles Landing</span></div>
+            <div class="gallery-zoom-icon"><i class="fas fa-expand-alt"></i></div>
+          </div>
+
+          <!-- ── GREENHOUSE ── -->
+          <div class="gallery-item" data-category="greenhouse" onclick="openLightbox(this)">
+            <img src="images/greenhouse.jpeg" alt="Steel frame greenhouse construction" loading="lazy">
+            <div class="gallery-item-overlay"><span class="gallery-item-caption">Steel Frame Greenhouse</span></div>
+            <div class="gallery-zoom-icon"><i class="fas fa-expand-alt"></i></div>
+          </div>
+
+          <div class="gallery-item" data-category="greenhouse" onclick="openLightbox(this)">
+            <img src="images/greenhouse1.jpeg" alt="Advanced steel greenhouse structure" loading="lazy">
+            <div class="gallery-item-overlay"><span class="gallery-item-caption">Advanced Greenhouse</span></div>
+            <div class="gallery-zoom-icon"><i class="fas fa-expand-alt"></i></div>
+          </div>
+
+          <div class="gallery-item" data-category="greenhouse" onclick="openLightbox(this)">
+            <img src="images/greenhouse2.jpeg" alt="Sustainable steel frame greenhouse project" loading="lazy">
+            <div class="gallery-item-overlay"><span class="gallery-item-caption">Sustainable Greenhouse</span></div>
+            <div class="gallery-zoom-icon"><i class="fas fa-expand-alt"></i></div>
+          </div>
+
+          <div class="gallery-item" data-category="greenhouse" onclick="openLightbox(this)">
+            <img src="images/greenhouseshed.jpeg" alt="Greenhouse shed 3D design model" loading="lazy">
+            <div class="gallery-item-overlay"><span class="gallery-item-caption">Greenhouse Shed — 3D</span></div>
+            <div class="gallery-zoom-icon"><i class="fas fa-expand-alt"></i></div>
+          </div>
+
+          <div class="gallery-item" data-category="greenhouse" onclick="openLightbox(this)">
+            <img src="images/greenhouseshed2.png" alt="Completed greenhouse shed structure" loading="lazy">
+            <div class="gallery-item-overlay"><span class="gallery-item-caption">Greenhouse Shed — Complete</span></div>
+            <div class="gallery-zoom-icon"><i class="fas fa-expand-alt"></i></div>
+          </div>
+
+          <!-- ── PANELS ── -->
+          <div class="gallery-item" data-category="panels" onclick="openLightbox(this)">
+            <img src="images/panel1.jpeg" alt="Steel panel frame project" loading="lazy">
+            <div class="gallery-item-overlay"><span class="gallery-item-caption">Steel Panel Frame</span></div>
+            <div class="gallery-zoom-icon"><i class="fas fa-expand-alt"></i></div>
+          </div>
+
+          <div class="gallery-item" data-category="panels" onclick="openLightbox(this)">
+            <img src="images/panel2.jpeg" alt="Metal wall panel construction" loading="lazy">
+            <div class="gallery-item-overlay"><span class="gallery-item-caption">Metal Wall Panels</span></div>
+            <div class="gallery-zoom-icon"><i class="fas fa-expand-alt"></i></div>
+          </div>
+
+          <div class="gallery-item" data-category="panels" onclick="openLightbox(this)">
+            <img src="images/panel3.jpeg" alt="Steel panel installation project" loading="lazy">
+            <div class="gallery-item-overlay"><span class="gallery-item-caption">Panel Installation</span></div>
+            <div class="gallery-zoom-icon"><i class="fas fa-expand-alt"></i></div>
+          </div>
+
+          <div class="gallery-item" data-category="panels" onclick="openLightbox(this)">
+            <img src="images/panel4.jpeg" alt="Custom steel frame panels" loading="lazy">
+            <div class="gallery-item-overlay"><span class="gallery-item-caption">Custom Steel Panels</span></div>
+            <div class="gallery-zoom-icon"><i class="fas fa-expand-alt"></i></div>
+          </div>
+
+          <div class="gallery-item" data-category="panels" onclick="openLightbox(this)">
+            <img src="images/panel.png" alt="Steel frame panel render design" loading="lazy">
+            <div class="gallery-item-overlay"><span class="gallery-item-caption">Panel Render Design</span></div>
+            <div class="gallery-zoom-icon"><i class="fas fa-expand-alt"></i></div>
+          </div>
+
+          <!-- ── EQUIPMENT ── -->
+          <div class="gallery-item" data-category="equipment" onclick="openLightbox(this)">
+            <img src="images/3rollformer.png" alt="Industrial roll former machine" loading="lazy">
+            <div class="gallery-item-overlay"><span class="gallery-item-caption">Industrial Roll Former</span></div>
+            <div class="gallery-zoom-icon"><i class="fas fa-expand-alt"></i></div>
+          </div>
+
+          <div class="gallery-item" data-category="equipment" onclick="openLightbox(this)">
+            <img src="images/4rollformer1.jpeg" alt="Steel roll forming equipment" loading="lazy">
+            <div class="gallery-item-overlay"><span class="gallery-item-caption">Roll Forming Equipment</span></div>
+            <div class="gallery-zoom-icon"><i class="fas fa-expand-alt"></i></div>
+          </div>
+
+          <div class="gallery-item" data-category="equipment" onclick="openLightbox(this)">
+            <img src="images/1ScotCyd.png" alt="Scottsdale cylinder machine setup" loading="lazy">
+            <div class="gallery-item-overlay"><span class="gallery-item-caption">Machine Setup</span></div>
+            <div class="gallery-zoom-icon"><i class="fas fa-expand-alt"></i></div>
+          </div>
+
+          <div class="gallery-item" data-category="equipment" onclick="openLightbox(this)">
+            <img src="images/7090g2.jpeg" alt="7090 roll former machine in operation" loading="lazy">
+            <div class="gallery-item-overlay"><span class="gallery-item-caption">7090 Roll Former</span></div>
+            <div class="gallery-zoom-icon"><i class="fas fa-expand-alt"></i></div>
+          </div>
+
+          <div class="gallery-item" data-category="equipment" onclick="openLightbox(this)">
+            <img src="images/scottsdalebooth.jpeg" alt="Scottsdale Construction Systems trade booth" loading="lazy">
+            <div class="gallery-item-overlay"><span class="gallery-item-caption">Scottsdale Booth</span></div>
+            <div class="gallery-zoom-icon"><i class="fas fa-expand-alt"></i></div>
+          </div>
+
+          <!-- ── OTHER ── -->
+          <div class="gallery-item" data-category="other" onclick="openLightbox(this)">
+            <img src="images/1sculptures.jpeg" alt="Custom metal sculpture fabrication" loading="lazy">
+            <div class="gallery-item-overlay"><span class="gallery-item-caption">Metal Sculpture</span></div>
+            <div class="gallery-zoom-icon"><i class="fas fa-expand-alt"></i></div>
+          </div>
+
+          <div class="gallery-item" data-category="other" onclick="openLightbox(this)">
+            <img src="images/chair.jpeg" alt="Custom metal chair design" loading="lazy">
+            <div class="gallery-item-overlay"><span class="gallery-item-caption">Custom Metal Chair</span></div>
+            <div class="gallery-zoom-icon"><i class="fas fa-expand-alt"></i></div>
+          </div>
+
+          <div class="gallery-item" data-category="other" onclick="openLightbox(this)">
+            <img src="images/quonsetcyd.jpg" alt="Quonset steel building project" loading="lazy">
+            <div class="gallery-item-overlay"><span class="gallery-item-caption">Quonset Building</span></div>
+            <div class="gallery-zoom-icon"><i class="fas fa-expand-alt"></i></div>
+          </div>
+
+        </div><!-- end gallery-masonry -->
       </div>
+    </section>
 
-      <div class="gallery-masonry" id="galleryMasonry">
-
-        <!-- ── HOMES ── -->
-        <div class="gallery-item" data-category="homes" onclick="openLightbox(this)">
-          <img src="images/tinyhome1.jpeg" alt="Modern tiny home with steel frame structure" loading="lazy">
-          <div class="gallery-item-overlay"><span class="gallery-item-caption">Modern Tiny Home</span></div>
-          <div class="gallery-zoom-icon"><i class="fas fa-expand-alt"></i></div>
-        </div>
-
-        <div class="gallery-item" data-category="homes" onclick="openLightbox(this)">
-          <img src="images/tinyhome2.jpg" alt="Contemporary steel frame residence exterior" loading="lazy">
-          <div class="gallery-item-overlay"><span class="gallery-item-caption">Steel Frame Residence</span></div>
-          <div class="gallery-zoom-icon"><i class="fas fa-expand-alt"></i></div>
-        </div>
-
-        <div class="gallery-item" data-category="homes" onclick="openLightbox(this)">
-          <img src="images/squarestream.jpg" alt="Square Stream architectural steel design" loading="lazy">
-          <div class="gallery-item-overlay"><span class="gallery-item-caption">Square Stream Design</span></div>
-          <div class="gallery-zoom-icon"><i class="fas fa-expand-alt"></i></div>
-        </div>
-
-        <div class="gallery-item" data-category="homes" onclick="openLightbox(this)">
-          <img src="images/tinyhome.jpeg" alt="Tiny home exterior steel structure" loading="lazy">
-          <div class="gallery-item-overlay"><span class="gallery-item-caption">Tiny Home Exterior</span></div>
-          <div class="gallery-zoom-icon"><i class="fas fa-expand-alt"></i></div>
-        </div>
-
-        <div class="gallery-item" data-category="homes" onclick="openLightbox(this)">
-          <img src="images/eagleslndg.jpeg" alt="Eagles Landing steel frame project showcase" loading="lazy">
-          <div class="gallery-item-overlay"><span class="gallery-item-caption">Eagles Landing</span></div>
-          <div class="gallery-zoom-icon"><i class="fas fa-expand-alt"></i></div>
-        </div>
-
-        <!-- ── GREENHOUSE ── -->
-        <div class="gallery-item" data-category="greenhouse" onclick="openLightbox(this)">
-          <img src="images/greenhouse.jpeg" alt="Steel frame greenhouse construction" loading="lazy">
-          <div class="gallery-item-overlay"><span class="gallery-item-caption">Steel Frame Greenhouse</span></div>
-          <div class="gallery-zoom-icon"><i class="fas fa-expand-alt"></i></div>
-        </div>
-
-        <div class="gallery-item" data-category="greenhouse" onclick="openLightbox(this)">
-          <img src="images/greenhouse1.jpeg" alt="Advanced steel greenhouse structure" loading="lazy">
-          <div class="gallery-item-overlay"><span class="gallery-item-caption">Advanced Greenhouse</span></div>
-          <div class="gallery-zoom-icon"><i class="fas fa-expand-alt"></i></div>
-        </div>
-
-        <div class="gallery-item" data-category="greenhouse" onclick="openLightbox(this)">
-          <img src="images/greenhouse2.jpeg" alt="Sustainable steel frame greenhouse project" loading="lazy">
-          <div class="gallery-item-overlay"><span class="gallery-item-caption">Sustainable Greenhouse</span></div>
-          <div class="gallery-zoom-icon"><i class="fas fa-expand-alt"></i></div>
-        </div>
-
-        <div class="gallery-item" data-category="greenhouse" onclick="openLightbox(this)">
-          <img src="images/greenhouseshed.jpeg" alt="Greenhouse shed 3D design model" loading="lazy">
-          <div class="gallery-item-overlay"><span class="gallery-item-caption">Greenhouse Shed — 3D</span></div>
-          <div class="gallery-zoom-icon"><i class="fas fa-expand-alt"></i></div>
-        </div>
-
-        <div class="gallery-item" data-category="greenhouse" onclick="openLightbox(this)">
-          <img src="images/greenhouseshed2.png" alt="Completed greenhouse shed structure" loading="lazy">
-          <div class="gallery-item-overlay"><span class="gallery-item-caption">Greenhouse Shed — Complete</span></div>
-          <div class="gallery-zoom-icon"><i class="fas fa-expand-alt"></i></div>
-        </div>
-
-        <!-- ── PANELS ── -->
-        <div class="gallery-item" data-category="panels" onclick="openLightbox(this)">
-          <img src="images/panel1.jpeg" alt="Steel panel frame project" loading="lazy">
-          <div class="gallery-item-overlay"><span class="gallery-item-caption">Steel Panel Frame</span></div>
-          <div class="gallery-zoom-icon"><i class="fas fa-expand-alt"></i></div>
-        </div>
-
-        <div class="gallery-item" data-category="panels" onclick="openLightbox(this)">
-          <img src="images/panel2.jpeg" alt="Metal wall panel construction" loading="lazy">
-          <div class="gallery-item-overlay"><span class="gallery-item-caption">Metal Wall Panels</span></div>
-          <div class="gallery-zoom-icon"><i class="fas fa-expand-alt"></i></div>
-        </div>
-
-        <div class="gallery-item" data-category="panels" onclick="openLightbox(this)">
-          <img src="images/panel3.jpeg" alt="Steel panel installation project" loading="lazy">
-          <div class="gallery-item-overlay"><span class="gallery-item-caption">Panel Installation</span></div>
-          <div class="gallery-zoom-icon"><i class="fas fa-expand-alt"></i></div>
-        </div>
-
-        <div class="gallery-item" data-category="panels" onclick="openLightbox(this)">
-          <img src="images/panel4.jpeg" alt="Custom steel frame panels" loading="lazy">
-          <div class="gallery-item-overlay"><span class="gallery-item-caption">Custom Steel Panels</span></div>
-          <div class="gallery-zoom-icon"><i class="fas fa-expand-alt"></i></div>
-        </div>
-
-        <div class="gallery-item" data-category="panels" onclick="openLightbox(this)">
-          <img src="images/panel.png" alt="Steel frame panel render design" loading="lazy">
-          <div class="gallery-item-overlay"><span class="gallery-item-caption">Panel Render Design</span></div>
-          <div class="gallery-zoom-icon"><i class="fas fa-expand-alt"></i></div>
-        </div>
-
-        <!-- ── EQUIPMENT ── -->
-        <div class="gallery-item" data-category="equipment" onclick="openLightbox(this)">
-          <img src="images/3rollformer.png" alt="Industrial roll former machine" loading="lazy">
-          <div class="gallery-item-overlay"><span class="gallery-item-caption">Industrial Roll Former</span></div>
-          <div class="gallery-zoom-icon"><i class="fas fa-expand-alt"></i></div>
-        </div>
-
-        <div class="gallery-item" data-category="equipment" onclick="openLightbox(this)">
-          <img src="images/4rollformer1.jpeg" alt="Steel roll forming equipment" loading="lazy">
-          <div class="gallery-item-overlay"><span class="gallery-item-caption">Roll Forming Equipment</span></div>
-          <div class="gallery-zoom-icon"><i class="fas fa-expand-alt"></i></div>
-        </div>
-
-        <div class="gallery-item" data-category="equipment" onclick="openLightbox(this)">
-          <img src="images/1ScotCyd.png" alt="Scottsdale cylinder machine setup" loading="lazy">
-          <div class="gallery-item-overlay"><span class="gallery-item-caption">Machine Setup</span></div>
-          <div class="gallery-zoom-icon"><i class="fas fa-expand-alt"></i></div>
-        </div>
-
-        <div class="gallery-item" data-category="equipment" onclick="openLightbox(this)">
-          <img src="images/7090g2.jpeg" alt="7090 roll former machine in operation" loading="lazy">
-          <div class="gallery-item-overlay"><span class="gallery-item-caption">7090 Roll Former</span></div>
-          <div class="gallery-zoom-icon"><i class="fas fa-expand-alt"></i></div>
-        </div>
-
-        <div class="gallery-item" data-category="equipment" onclick="openLightbox(this)">
-          <img src="images/scottsdalebooth.jpeg" alt="Scottsdale Construction Systems trade booth" loading="lazy">
-          <div class="gallery-item-overlay"><span class="gallery-item-caption">Scottsdale Booth</span></div>
-          <div class="gallery-zoom-icon"><i class="fas fa-expand-alt"></i></div>
-        </div>
-
-        <!-- ── OTHER ── -->
-        <div class="gallery-item" data-category="other" onclick="openLightbox(this)">
-          <img src="images/1sculptures.jpeg" alt="Custom metal sculpture fabrication" loading="lazy">
-          <div class="gallery-item-overlay"><span class="gallery-item-caption">Metal Sculpture</span></div>
-          <div class="gallery-zoom-icon"><i class="fas fa-expand-alt"></i></div>
-        </div>
-
-        <div class="gallery-item" data-category="other" onclick="openLightbox(this)">
-          <img src="images/chair.jpeg" alt="Custom metal chair design" loading="lazy">
-          <div class="gallery-item-overlay"><span class="gallery-item-caption">Custom Metal Chair</span></div>
-          <div class="gallery-zoom-icon"><i class="fas fa-expand-alt"></i></div>
-        </div>
-
-        <div class="gallery-item" data-category="other" onclick="openLightbox(this)">
-          <img src="images/quonsetcyd.jpg" alt="Quonset steel building project" loading="lazy">
-          <div class="gallery-item-overlay"><span class="gallery-item-caption">Quonset Building</span></div>
-          <div class="gallery-zoom-icon"><i class="fas fa-expand-alt"></i></div>
-        </div>
-
-      </div><!-- end gallery-masonry -->
+    <!-- LIGHTBOX -->
+    <div class="lightbox" id="lightbox" onclick="closeLightboxOnBg(event)">
+      <button class="lightbox-close" onclick="closeLightbox()">×</button>
+      <button class="lightbox-nav lightbox-prev" onclick="navigateLightbox(-1)">&#8249;</button>
+      <div class="lightbox-img-wrap">
+        <img id="lightboxImg" src="" alt="">
+      </div>
+      <button class="lightbox-nav lightbox-next" onclick="navigateLightbox(1)">&#8250;</button>
+      <div class="lightbox-counter" id="lightboxCounter"></div>
     </div>
-  </section>
 
-  <!-- LIGHTBOX -->
-  <div class="lightbox" id="lightbox" onclick="closeLightboxOnBg(event)">
-    <button class="lightbox-close" onclick="closeLightbox()">×</button>
-    <button class="lightbox-nav lightbox-prev" onclick="navigateLightbox(-1)">&#8249;</button>
-    <div class="lightbox-img-wrap">
-      <img id="lightboxImg" src="" alt="">
-    </div>
-    <button class="lightbox-nav lightbox-next" onclick="navigateLightbox(1)">&#8250;</button>
-    <div class="lightbox-counter" id="lightboxCounter"></div>
-  </div>
-
-  <!-- ===================================================
+    <!-- ===================================================
        RESOURCES
        =================================================== -->
-  <section id="resources" class="section section-light">
-    <div class="container">
-      <h2 class="section-title">Resources</h2>
-      <p class="resources-intro">Articles, downloads, and technical content on steel framing, modular construction, and roll-forming — curated from around the industry, with more added over time.</p>
+    <section id="resources" class="section section-light">
+      <div class="container">
+        <h2 class="section-title">Resources</h2>
+        <p class="resources-intro">Articles, downloads, and technical content on steel framing, modular construction,
+          and roll-forming — curated from around the industry, with more added over time.</p>
 
-      <div class="resource-grid">
-        <div class="resource-card">
-          <div class="resource-thumb">
-            <img src="https://www.scottsdalesteelframes.com/wp-content/uploads/2025/02/Steel-vs-Wood-Framing-png.webp" alt="Steel vs. Wood Framing comparison" loading="lazy">
+        <div class="resource-grid">
+          <div class="resource-card">
+            <div class="resource-thumb">
+              <img src="https://www.scottsdalesteelframes.com/wp-content/uploads/2025/02/Steel-vs-Wood-Framing-png.webp"
+                alt="Steel vs. Wood Framing comparison" loading="lazy">
+            </div>
+            <div class="resource-content">
+              <span class="resource-tag">Article</span>
+              <h3>Steel vs. Wood Framing</h3>
+              <p>A breakdown of why steel framing outperforms traditional wood framing for durability, precision, and
+                long-term value.</p>
+              <a class="resource-link"
+                href="https://www.scottsdalesteelframes.com/building-with-steel/comparing-steel-vs-wood-framing-why-steel-is-better"
+                target="_blank" rel="noopener noreferrer">Read Article &rarr;</a>
+            </div>
           </div>
-          <div class="resource-content">
-            <span class="resource-tag">Article</span>
-            <h3>Steel vs. Wood Framing</h3>
-            <p>A breakdown of why steel framing outperforms traditional wood framing for durability, precision, and long-term value.</p>
-            <a class="resource-link" href="https://www.scottsdalesteelframes.com/building-with-steel/comparing-steel-vs-wood-framing-why-steel-is-better" target="_blank" rel="noopener noreferrer">Read Article &rarr;</a>
+          <div class="resource-card">
+            <div class="resource-thumb">
+              <img src="https://www.scottsdalesteelframes.com/wp-content/uploads/2025/07/GOT-COIL-300x225.webp"
+                alt="Ordering steel coils for roll forming" loading="lazy">
+            </div>
+            <div class="resource-content">
+              <span class="resource-tag">Article</span>
+              <h3>Ordering Steel Coils for Roll Forming</h3>
+              <p>What to know before ordering coil stock — specs, tolerances, and how to order correctly for your
+                roll-forming operation.</p>
+              <a class="resource-link"
+                href="https://www.scottsdalesteelframes.com/scottsdale-machines/know-how-to-order-steel-coils-for-roll-forming-operations"
+                target="_blank" rel="noopener noreferrer">Read Article &rarr;</a>
+            </div>
           </div>
-        </div>
-        <div class="resource-card">
-          <div class="resource-thumb">
-            <img src="https://www.scottsdalesteelframes.com/wp-content/uploads/2025/07/GOT-COIL-300x225.webp" alt="Ordering steel coils for roll forming" loading="lazy">
+          <div class="resource-card">
+            <div class="resource-thumb">
+              <img src="https://www.scottsdalesteelframes.com/wp-content/uploads/2025/07/GOT-COIL-300x225.webp"
+                alt="Steel coil ordering information PDF" loading="lazy">
+            </div>
+            <div class="resource-content">
+              <span class="resource-tag">Download</span>
+              <h3>Steel Coil Ordering Info (SM2)</h3>
+              <p>Downloadable reference sheet covering steel coil ordering specifications for roll-forming machines.</p>
+              <a class="resource-link"
+                href="https://www.scottsdalesteelframes.com/wp-content/uploads/2024/12/SM2-Steel-coil-ordering-information-V2025.3.pdf"
+                target="_blank" rel="noopener noreferrer">Download PDF &rarr;</a>
+            </div>
           </div>
-          <div class="resource-content">
-            <span class="resource-tag">Article</span>
-            <h3>Ordering Steel Coils for Roll Forming</h3>
-            <p>What to know before ordering coil stock — specs, tolerances, and how to order correctly for your roll-forming operation.</p>
-            <a class="resource-link" href="https://www.scottsdalesteelframes.com/scottsdale-machines/know-how-to-order-steel-coils-for-roll-forming-operations" target="_blank" rel="noopener noreferrer">Read Article &rarr;</a>
+          <div class="resource-card">
+            <div class="resource-thumb">
+              <img src="https://www.scottsdalesteelframes.com/wp-content/uploads/2026/02/ScotCyd-Image-300x169.webp"
+                alt="Introducing the ScotCyd video series" loading="lazy">
+            </div>
+            <div class="resource-content">
+              <span class="resource-tag">Article</span>
+              <h3>Introducing the ScotCyd Series</h3>
+              <p>The original Scottsdale Steel Frames writeup introducing the ScotCyd video series and what it covers.
+              </p>
+              <a class="resource-link"
+                href="https://www.scottsdalesteelframes.com/scottsdale-machines/roll-forming-with-scotcyd-a-new-video-series-on-steel-framing"
+                target="_blank" rel="noopener noreferrer">Read Article &rarr;</a>
+            </div>
           </div>
-        </div>
-        <div class="resource-card">
-          <div class="resource-thumb">
-            <img src="https://www.scottsdalesteelframes.com/wp-content/uploads/2025/07/GOT-COIL-300x225.webp" alt="Steel coil ordering information PDF" loading="lazy">
+          <div class="resource-card">
+            <div class="resource-thumb resource-thumb-icon" data-placeholder="true">
+              <i class="fab fa-linkedin"></i>
+              <span class="thumb-placeholder-label">Add post screenshot</span>
+            </div>
+            <div class="resource-content">
+              <span class="resource-tag">Article</span>
+              <h3>BuildSteel on the ScotCyd Series</h3>
+              <p>BuildSteel's feature covering the launch of the ScotCyd video series and its place in the steel framing
+                industry.</p>
+              <a class="resource-link"
+                href="https://www.linkedin.com/posts/buildsteel_cfsteel-steelframing-innovation-activity-7461123308202188800--SQl"
+                target="_blank" rel="noopener noreferrer">Read Post &rarr;</a>
+            </div>
           </div>
-          <div class="resource-content">
-            <span class="resource-tag">Download</span>
-            <h3>Steel Coil Ordering Info (SM2)</h3>
-            <p>Downloadable reference sheet covering steel coil ordering specifications for roll-forming machines.</p>
-            <a class="resource-link" href="https://www.scottsdalesteelframes.com/wp-content/uploads/2024/12/SM2-Steel-coil-ordering-information-V2025.3.pdf" target="_blank" rel="noopener noreferrer">Download PDF &rarr;</a>
+          <div class="resource-card">
+            <div class="resource-thumb resource-thumb-icon" data-placeholder="true">
+              <i class="fab fa-linkedin"></i>
+              <span class="thumb-placeholder-label">Add post screenshot</span>
+            </div>
+            <div class="resource-content">
+              <span class="resource-tag">Article</span>
+              <h3>ScotCyd Demo at CFSEI Expo</h3>
+              <p>A look back at the ScotCyd demo at the CFSEI Expo in Long Beach, featuring engineers from across the
+                industry.</p>
+              <a class="resource-link"
+                href="https://www.linkedin.com/posts/cfsei_cfsei-cfseiexpo-engineers-activity-7462493679295873024-mwiE?utm_source=share&utm_medium=member_desktop&rcm=ACoAABftapwBvCadtm06NQpCOuY7Ummmu2c02cg"
+                target="_blank" rel="noopener noreferrer">Read Post &rarr;</a>
+            </div>
           </div>
-        </div>
-        <div class="resource-card">
-          <div class="resource-thumb">
-            <img src="https://www.scottsdalesteelframes.com/wp-content/uploads/2026/02/ScotCyd-Image-300x169.webp" alt="Introducing the ScotCyd video series" loading="lazy">
-          </div>
-          <div class="resource-content">
-            <span class="resource-tag">Article</span>
-            <h3>Introducing the ScotCyd Series</h3>
-            <p>The original Scottsdale Steel Frames writeup introducing the ScotCyd video series and what it covers.</p>
-            <a class="resource-link" href="https://www.scottsdalesteelframes.com/scottsdale-machines/roll-forming-with-scotcyd-a-new-video-series-on-steel-framing" target="_blank" rel="noopener noreferrer">Read Article &rarr;</a>
-          </div>
-        </div>
-        <div class="resource-card">
-          <div class="resource-thumb resource-thumb-icon" data-placeholder="true">
-            <i class="fab fa-linkedin"></i>
-            <span class="thumb-placeholder-label">Add post screenshot</span>
-          </div>
-          <div class="resource-content">
-            <span class="resource-tag">Article</span>
-            <h3>BuildSteel on the ScotCyd Series</h3>
-            <p>BuildSteel's feature covering the launch of the ScotCyd video series and its place in the steel framing industry.</p>
-            <a class="resource-link" href="https://www.linkedin.com/posts/buildsteel_cfsteel-steelframing-innovation-activity-7461123308202188800--SQl" target="_blank" rel="noopener noreferrer">Read Post &rarr;</a>
-          </div>
-        </div>
-        <div class="resource-card">
-          <div class="resource-thumb resource-thumb-icon" data-placeholder="true">
-            <i class="fab fa-linkedin"></i>
-            <span class="thumb-placeholder-label">Add post screenshot</span>
-          </div>
-          <div class="resource-content">
-            <span class="resource-tag">Article</span>
-            <h3>ScotCyd Demo at CFSEI Expo</h3>
-            <p>A look back at the ScotCyd demo at the CFSEI Expo in Long Beach, featuring engineers from across the industry.</p>
-            <a class="resource-link" href="https://www.linkedin.com/posts/cfsei_cfsei-cfseiexpo-engineers-activity-7462493679295873024-mwiE?utm_source=share&utm_medium=member_desktop&rcm=ACoAABftapwBvCadtm06NQpCOuY7Ummmu2c02cg" target="_blank" rel="noopener noreferrer">Read Post &rarr;</a>
-          </div>
-        </div>
-        <!-- LinkedIn blocks scraping/hotlinking images from posts (no public
+          <!-- LinkedIn blocks scraping/hotlinking images from posts (no public
              API for it), so the two cards above use a placeholder instead of
              a real photo. To swap in the real image: take a screenshot of
              each post, upload it to your media library (same place as the
@@ -1885705,696 +1886055,707 @@ EOF
              <div class="resource-thumb resource-thumb-icon" data-placeholder="true">...</div>
              with <div class="resource-thumb"><img src="YOUR-UPLOADED-IMAGE-URL" alt="..." loading="lazy"></div> —
              identical pattern to the two image-based cards above it. -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="section">
+      <div class="container about-grid">
+        <div class="about-image">
+          <img src="images/quonsetcyd.jpg" alt="Traverse Dynamics Global Steel Quonset hut headquarters" loading="lazy">
+        </div>
+        <div class="about-text">
+          <h2>About Us</h2>
+          <p>Traverse Dynamics Global LLC specializes in modular and steel-frame residential and commercial construction
+            consulting.</p>
+          <p>Operating from a steel Quonset hut HQ, we merge rugged durability with clean architectural precision and
+            modern build processes.</p>
+          <p>We utilize Scottsdale Construction Systems roll-forming machines and advanced engineering tools to deliver
+            efficient, durable structures.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section">
+      <div class="container contact-wrapper">
+        <h2 class="section-title">Request a Consultation</h2>
+        <div id="successMessage" class="status-success">✓ Message sent successfully! We'll respond within 24 hours.
+        </div>
+        <div id="errorMessage" class="status-error">✖ Submission error. Please check your information or try again
+          later.</div>
+        <form id="contactForm" action="https://formspree.io/f/movlrryk" method="POST" class="contact-form">
+          <div class="form-group">
+            <input type="text" name="name" placeholder="Full Name *" required autocomplete="name">
+          </div>
+          <div class="form-group">
+            <input type="email" name="email" placeholder="Email Address *" required autocomplete="email">
+          </div>
+          <div class="form-group">
+            <select name="project_type" id="projectTypeSelect" required>
+              <option value="" disabled selected>Select Project Type *</option>
+              <option>Tiny Home</option>
+              <option>Residential</option>
+              <option>Commercial</option>
+              <option value="Rent a Roll Former">Rent a Roll Former</option>
+              <option value="Roll Former Setup Help">Roll Former Setup Help</option>
+              <option value="Purchase a Roll Former">Purchase a Roll Former</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <textarea name="message" id="contactMessage" rows="4"
+              placeholder="Tell us about your steel frame project... *" required></textarea>
+          </div>
+          <input type="text" name="_gotcha" style="display:none" />
+          <input type="hidden" name="_subject" value="New TDG Steel Frame Consultation Request" />
+          <button type="submit" class="btn-primary" style="width:100%;">Send Message</button>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div>
+        <strong>Traverse Dynamics Global LLC</strong><br>
+        Steel Frame Services<br>
+        © 2026 All Rights Reserved.
+      </div>
+      <div>
+        <div>Cydney Skeens</div>
+        <div>📞 <a href="tel:+12147630146">+1-214-763-0146</a></div>
+        <div class="footer-links">
+          <a href="https://www.linkedin.com/in/cydney-skeens/" target="_blank" rel="noopener noreferrer"
+            title="LinkedIn">
+            <i class="fab fa-linkedin"></i> LinkedIn
+          </a>
+          <a href="https://share.google/lHoXPqYAc87M6GEiz" target="_blank" rel="noopener noreferrer"
+            title="Google Business">
+            <i class="fab fa-google"></i> Google Business
+          </a>
+          <a href="https://www.cls23.com/" target="_blank" rel="noopener noreferrer" title="Landscaping Services">
+            🌿 Landscaping Services
+          </a>
+                <a href="analytics.html" target="_blank" rel="noopener noreferrer" title="">
+            🌿 Analytics page
+          </a>
+        </div>
       </div>
     </div>
-  </section>
+  </footer>
 
-  <!-- ABOUT -->
-  <section id="about" class="section">
-    <div class="container about-grid">
-      <div class="about-image">
-        <img src="images/quonsetcyd.jpg" alt="Traverse Dynamics Global Steel Quonset hut headquarters" loading="lazy">
-      </div>
-      <div class="about-text">
-        <h2>About Us</h2>
-        <p>Traverse Dynamics Global LLC specializes in modular and steel-frame residential and commercial construction consulting.</p>
-        <p>Operating from a steel Quonset hut HQ, we merge rugged durability with clean architectural precision and modern build processes.</p>
-        <p>We utilize Scottsdale Construction Systems roll-forming machines and advanced engineering tools to deliver efficient, durable structures.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section id="contact" class="section">
-    <div class="container contact-wrapper">
-      <h2 class="section-title">Request a Consultation</h2>
-      <div id="successMessage" class="status-success">✓ Message sent successfully! We'll respond within 24 hours.</div>
-      <div id="errorMessage" class="status-error">✖ Submission error. Please check your information or try again later.</div>
-      <form id="contactForm" action="https://formspree.io/f/movlrryk" method="POST" class="contact-form">
-        <div class="form-group">
-          <input type="text" name="name" placeholder="Full Name *" required autocomplete="name">
-        </div>
-        <div class="form-group">
-          <input type="email" name="email" placeholder="Email Address *" required autocomplete="email">
-        </div>
-        <div class="form-group">
-          <select name="project_type" id="projectTypeSelect" required>
-            <option value="" disabled selected>Select Project Type *</option>
-            <option>Tiny Home</option>
-            <option>Residential</option>
-            <option>Commercial</option>
-            <option value="Rent a Roll Former">Rent a Roll Former</option>
-            <option value="Roll Former Setup Help">Roll Former Setup Help</option>
-            <option value="Purchase a Roll Former">Purchase a Roll Former</option>
-            <option>Other</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <textarea name="message" id="contactMessage" rows="4" placeholder="Tell us about your steel frame project... *" required></textarea>
-        </div>
-        <input type="text" name="_gotcha" style="display:none" />
-        <input type="hidden" name="_subject" value="New TDG Steel Frame Consultation Request" />
-        <button type="submit" class="btn-primary" style="width:100%;">Send Message</button>
-      </form>
-    </div>
-  </section>
-
-</main>
-
-<footer class="footer">
-  <div class="container footer-inner">
-    <div>
-      <strong>Traverse Dynamics Global LLC</strong><br>
-      Steel Frame Services<br>
-      © 2026 All Rights Reserved.
-    </div>
-    <div>
-      <div>Cydney Skeens</div>
-      <div>📞 <a href="tel:+12147630146">+1-214-763-0146</a></div>
-      <div class="footer-links">
-        <a href="https://www.linkedin.com/in/cydney-skeens/" target="_blank" rel="noopener noreferrer" title="LinkedIn">
-          <i class="fab fa-linkedin"></i> LinkedIn
-        </a>
-        <a href="https://share.google/lHoXPqYAc87M6GEiz" target="_blank" rel="noopener noreferrer" title="Google Business">
-          <i class="fab fa-google"></i> Google Business
-        </a>
-        <a href="https://www.cls23.com/" target="_blank" rel="noopener noreferrer" title="Landscaping Services">
-          🌿 Landscaping Services
-        </a>
-           <a href="analytics.html" target="_blank" rel="noopener noreferrer" title="">
-          🌿 analytics page
-        </a>
-      </div>
-    </div>
-  </div>
-</footer>
-
-<!-- ===================================================
+  <!-- ===================================================
      THREE.JS — powers the local DXF 3D Model Viewer
      =================================================== -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
 
-<script>
-(function() {
+  <script>
+    (function () {
 
-  /* ---- Navbar shrink + active link ---- */
-  const navbar     = document.getElementById('navbar');
-  const mobileMenu = document.getElementById('mobileMenu');
-  const mobileBtn  = document.getElementById('mobileMenuBtn');
-  const navLinks   = document.querySelectorAll('[data-link]');
-  const sections   = ['services','model-viewer','scotcyd','projects','resources','about','contact'];
+      /* ---- Navbar shrink + active link ---- */
+      const navbar = document.getElementById('navbar');
+      const mobileMenu = document.getElementById('mobileMenu');
+      const mobileBtn = document.getElementById('mobileMenuBtn');
+      const navLinks = document.querySelectorAll('[data-link]');
+      const sections = ['services', 'model-viewer', 'scotcyd', 'projects', 'resources', 'about', 'contact'];
 
-  window.addEventListener('scroll', () => {
-    navbar.classList.toggle('shrink', window.scrollY > 30);
-    let current = '';
-    for (let id of sections) {
-      const sec = document.getElementById(id);
-      if (sec) {
-        const r = sec.getBoundingClientRect();
-        if (r.top <= 200 && r.bottom >= 100) { current = id; break; }
-      }
-    }
-    navLinks.forEach(l => l.classList.toggle('active', l.dataset.link === current));
-  });
+      window.addEventListener('scroll', () => {
+        navbar.classList.toggle('shrink', window.scrollY > 30);
+        let current = '';
+        for (let id of sections) {
+          const sec = document.getElementById(id);
+          if (sec) {
+            const r = sec.getBoundingClientRect();
+            if (r.top <= 200 && r.bottom >= 100) { current = id; break; }
+          }
+        }
+        navLinks.forEach(l => l.classList.toggle('active', l.dataset.link === current));
+      });
 
-  /* ---- Mobile menu ---- */
-  if (mobileBtn && mobileMenu) {
-    mobileBtn.addEventListener('click', () => mobileMenu.classList.toggle('open'));
-    mobileMenu.querySelectorAll('a').forEach(l =>
-      l.addEventListener('click', () => mobileMenu.classList.remove('open'))
-    );
-  }
-
-  /* ---- Contact form ---- */
-  const form       = document.getElementById('contactForm');
-  const successDiv = document.getElementById('successMessage');
-  const errorDiv   = document.getElementById('errorMessage');
-
-  if (form) {
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      successDiv.style.display = 'none';
-      errorDiv.style.display   = 'none';
-
-      const fd    = new FormData(form);
-      const name  = fd.get('name')?.trim();
-      const email = fd.get('email')?.trim();
-      const msg   = fd.get('message')?.trim();
-      const proj  = fd.get('project_type');
-
-      if (!name || !email || !msg || !proj) {
-        errorDiv.textContent = 'Please fill in all required fields.';
-        errorDiv.style.display = 'block'; return;
-      }
-      if (!email.includes('@') || !email.includes('.')) {
-        errorDiv.textContent = 'Please enter a valid email address.';
-        errorDiv.style.display = 'block'; return;
+      /* ---- Mobile menu ---- */
+      if (mobileBtn && mobileMenu) {
+        mobileBtn.addEventListener('click', () => mobileMenu.classList.toggle('open'));
+        mobileMenu.querySelectorAll('a').forEach(l =>
+          l.addEventListener('click', () => mobileMenu.classList.remove('open'))
+        );
       }
 
-      try {
-        const res = await fetch(form.action, {
-          method: 'POST', body: fd, headers: { 'Accept': 'application/json' }
+      /* ---- Contact form ---- */
+      const form = document.getElementById('contactForm');
+      const successDiv = document.getElementById('successMessage');
+      const errorDiv = document.getElementById('errorMessage');
+
+      if (form) {
+        form.addEventListener('submit', async (e) => {
+          e.preventDefault();
+          successDiv.style.display = 'none';
+          errorDiv.style.display = 'none';
+
+          const fd = new FormData(form);
+          const name = fd.get('name')?.trim();
+          const email = fd.get('email')?.trim();
+          const msg = fd.get('message')?.trim();
+          const proj = fd.get('project_type');
+
+          if (!name || !email || !msg || !proj) {
+            errorDiv.textContent = 'Please fill in all required fields.';
+            errorDiv.style.display = 'block'; return;
+          }
+          if (!email.includes('@') || !email.includes('.')) {
+            errorDiv.textContent = 'Please enter a valid email address.';
+            errorDiv.style.display = 'block'; return;
+          }
+
+          try {
+            const res = await fetch(form.action, {
+              method: 'POST', body: fd, headers: { 'Accept': 'application/json' }
+            });
+            if (res.ok) {
+              gaEvent('generate_lead', { form_id: 'contactForm', project_type: proj });
+              form.reset();
+              successDiv.style.display = 'block';
+              setTimeout(() => successDiv.style.display = 'none', 6000);
+            } else { throw new Error(); }
+          } catch {
+            errorDiv.style.display = 'block';
+            setTimeout(() => errorDiv.style.display = 'none', 6000);
+          }
         });
-        if (res.ok) {
-          gaEvent('generate_lead', { form_id: 'contactForm', project_type: proj });
-          form.reset();
-          successDiv.style.display = 'block';
-          setTimeout(() => successDiv.style.display = 'none', 6000);
-        } else { throw new Error(); }
-      } catch {
-        errorDiv.style.display = 'block';
-        setTimeout(() => errorDiv.style.display = 'none', 6000);
       }
+
+      /* ---- Smooth scroll ---- */
+      document.querySelectorAll('a[href^="#"]').forEach(a => {
+        a.addEventListener('click', function (e) {
+          const id = this.getAttribute('href');
+          if (id === '#') return;
+          const target = document.querySelector(id);
+          if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+        });
+      });
+
+      /* ---- Gallery filter ---- */
+      const filterBtns = document.querySelectorAll('.filter-btn');
+      const galleryItems = document.querySelectorAll('.gallery-item');
+
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          filterBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          const filter = btn.dataset.filter;
+          gaEvent('select_content', { content_type: 'gallery_filter', item_id: filter });
+          galleryItems.forEach(item => {
+            if (filter === 'all' || item.dataset.category === filter) {
+              item.classList.remove('hidden');
+            } else {
+              item.classList.add('hidden');
+            }
+          });
+        });
+      });
+
+      /* ---- Resource link clicks ---- */
+      document.querySelectorAll('.resource-link').forEach(link => {
+        link.addEventListener('click', () => {
+          const title = link.closest('.resource-card')?.querySelector('h3')?.textContent || 'unknown';
+          gaEvent('select_content', { content_type: 'resource', item_id: title });
+        });
+      });
+
+      /* ---- ScotCyd platform link clicks ---- */
+      document.querySelectorAll('.platform-btn').forEach(link => {
+        link.addEventListener('click', () => {
+          const platform = link.textContent.trim();
+          gaEvent('select_content', { content_type: 'scotcyd_platform', item_id: platform });
+        });
+      });
+
+      /* ---- Scroll depth tracking ---- */
+      const scrollMilestones = [25, 50, 75, 90, 100];
+      const scrollFired = new Set();
+
+      function checkScrollDepth() {
+        const scrollTop = window.scrollY;
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        if (docHeight <= 0) return;
+        const pct = Math.round((scrollTop / docHeight) * 100);
+        scrollMilestones.forEach(milestone => {
+          if (pct >= milestone && !scrollFired.has(milestone)) {
+            scrollFired.add(milestone);
+            gaEvent('scroll_depth', { percent_scrolled: milestone });
+          }
+        });
+      }
+      window.addEventListener('scroll', checkScrollDepth, { passive: true });
+
+      /* ---- Project impression tracking (which projects actually get seen) ---- */
+      if ('IntersectionObserver' in window) {
+        const seenProjects = new Set();
+        const projectObserver = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              const caption = entry.target.querySelector('.gallery-item-caption')?.textContent || 'unknown';
+              if (!seenProjects.has(caption)) {
+                seenProjects.add(caption);
+                gaEvent('view_item', { item_name: caption, item_category: entry.target.dataset.category });
+              }
+            }
+          });
+        }, { threshold: 0.5 });
+        galleryItems.forEach(item => projectObserver.observe(item));
+      }
+
+      /* ---- Time-on-page ping (fires once at 30s and once at 2min, catches engaged visitors) ---- */
+      [30, 120].forEach(seconds => {
+        setTimeout(() => gaEvent('engagement_time', { seconds }), seconds * 1000);
+      });
+
+    })();
+
+    /* ---- DIY popup ---- */
+    function openDIYOptions() {
+      document.getElementById('diyOverlay').classList.add('open');
+      document.body.style.overflow = 'hidden';
+      gaEvent('select_content', { content_type: 'diy_card', item_id: 'open_options' });
+    }
+
+    function closeDIYOptions(e, force) {
+      if (force || (e && e.target === document.getElementById('diyOverlay'))) {
+        document.getElementById('diyOverlay').classList.remove('open');
+        document.body.style.overflow = '';
+      }
+    }
+
+    function setDIYContact(optionText) {
+      gaEvent('select_content', { content_type: 'diy_option', item_id: optionText });
+      closeDIYOptions(null, true);
+      setTimeout(() => {
+        const msgField = document.getElementById('contactMessage');
+        const typeSelect = document.getElementById('projectTypeSelect');
+        if (msgField) msgField.value = optionText;
+        if (typeSelect) {
+          for (let opt of typeSelect.options) {
+            if (opt.value.toLowerCase().includes('roll former')) { opt.selected = true; break; }
+          }
+        }
+      }, 400);
+    }
+
+    /* ---- Lightbox ---- */
+    let currentLightboxIndex = 0;
+    let visibleItems = [];
+
+    function getVisibleItems() {
+      return Array.from(document.querySelectorAll('.gallery-item:not(.hidden)'));
+    }
+
+    function openLightbox(el) {
+      visibleItems = getVisibleItems();
+      currentLightboxIndex = visibleItems.indexOf(el);
+      showLightboxImage(currentLightboxIndex);
+      document.getElementById('lightbox').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function showLightboxImage(index) {
+      visibleItems = getVisibleItems();
+      if (index < 0) index = visibleItems.length - 1;
+      if (index >= visibleItems.length) index = 0;
+      currentLightboxIndex = index;
+      const img = visibleItems[index].querySelector('img');
+      document.getElementById('lightboxImg').src = img.src;
+      document.getElementById('lightboxImg').alt = img.alt;
+      document.getElementById('lightboxCounter').textContent = (index + 1) + ' / ' + visibleItems.length;
+    }
+
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    function closeLightboxOnBg(e) {
+      if (e.target === document.getElementById('lightbox')) closeLightbox();
+    }
+
+    function navigateLightbox(dir) {
+      showLightboxImage(currentLightboxIndex + dir);
+    }
+
+    /* Keyboard navigation */
+    document.addEventListener('keydown', (e) => {
+      const lb = document.getElementById('lightbox');
+      if (!lb.classList.contains('open')) return;
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowRight') navigateLightbox(1);
+      if (e.key === 'ArrowLeft') navigateLightbox(-1);
     });
-  }
 
-  /* ---- Smooth scroll ---- */
-  document.querySelectorAll('a[href^="#"]').forEach(a => {
-    a.addEventListener('click', function(e) {
-      const id = this.getAttribute('href');
-      if (id === '#') return;
-      const target = document.querySelector(id);
-      if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
-    });
-  });
+    /* Touch swipe for mobile lightbox */
+    (function () {
+      let touchStartX = 0;
+      const lb = document.getElementById('lightbox');
+      lb.addEventListener('touchstart', e => { touchStartX = e.changedTouches[0].screenX; }, { passive: true });
+      lb.addEventListener('touchend', e => {
+        const diff = touchStartX - e.changedTouches[0].screenX;
+        if (Math.abs(diff) > 50) navigateLightbox(diff > 0 ? 1 : -1);
+      }, { passive: true });
+    })();
 
-  /* ---- Gallery filter ---- */
-  const filterBtns   = document.querySelectorAll('.filter-btn');
-  const galleryItems = document.querySelectorAll('.gallery-item');
+    /* ===================================================
+       LOCAL DXF 3D MODEL VIEWER
+       Parses 3DFACE mesh data straight out of the raw DXF
+       text (no external service, no conversion needed) and
+       renders it with Three.js. DXF data is embedded in-page above.
+       =================================================== */
+    (function () {
+      const wrap = document.getElementById('modelCanvasWrap');
+      const select = document.getElementById('modelSelect');
+      const loadingEl = document.getElementById('modelLoading');
+      const loadingText = document.getElementById('modelLoadingText');
+      const errorEl = document.getElementById('modelError');
 
-  filterBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      filterBtns.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      const filter = btn.dataset.filter;
-      gaEvent('select_content', { content_type: 'gallery_filter', item_id: filter });
-      galleryItems.forEach(item => {
-        if (filter === 'all' || item.dataset.category === filter) {
-          item.classList.remove('hidden');
+      if (!wrap || !select || typeof THREE === 'undefined') return;
+
+      /* ---- Minimal DXF 3DFACE / LINE parser ----
+         Reads group-code/value pairs. We only need 3DFACE (mesh
+         faces) and LINE (edges) — everything else is ignored. */
+      function parseDXF(text) {
+        // Normalize line endings once up front (fast) instead of matching a
+        // multi-alternative regex on every split — meaningfully faster on the
+        // larger files (some of these DXFs are 2-3MB+ with 15,000+ 3DFACE
+        // entities, which was causing long stalls/hangs on slower devices).
+        const lines = text.replace(/\r\n?/g, '\n').split('\n');
+        const positions = [];   // triangle vertex positions for 3DFACE mesh
+        let inEntities = false;
+        let i = 0;
+
+        function readEntity(type) {
+          const pt = {
+            10: null, 20: null, 30: null, 11: null, 21: null, 31: null,
+            12: null, 22: null, 32: null, 13: null, 23: null, 33: null
+          };
+          let j = i;
+          while (j < lines.length - 1) {
+            const code = lines[j].trim();
+            const val = lines[j + 1] !== undefined ? lines[j + 1].trim() : '';
+            if (code === '0') break; // next entity starts
+            if (pt.hasOwnProperty(code)) pt[code] = parseFloat(val);
+            j += 2;
+          }
+          i = j;
+          return pt;
+        }
+
+        while (i < lines.length - 1) {
+          const code = lines[i].trim();
+          const val = lines[i + 1] !== undefined ? lines[i + 1].trim() : '';
+
+          if (code === '2' && val === 'ENTITIES') { inEntities = true; i += 2; continue; }
+          if (code === '0' && inEntities && val === 'ENDSEC') { inEntities = false; i += 2; continue; }
+
+          if (code === '0' && inEntities && val === '3DFACE') {
+            i += 2;
+            const pt = readEntity('3DFACE');
+            if (pt[10] !== null && pt[11] !== null && pt[12] !== null) {
+              const v1 = [pt[10], pt[30], -pt[20]];
+              const v2 = [pt[11], pt[31], -pt[21]];
+              const v3 = [pt[12], pt[32], -pt[22]];
+              // triangle 1
+              positions.push(...v1, ...v2, ...v3);
+              // 4th point present and distinct → second triangle (quad face)
+              if (pt[13] !== null && (pt[13] !== pt[12] || pt[23] !== pt[22] || pt[33] !== pt[32])) {
+                const v4 = [pt[13], pt[33], -pt[23]];
+                positions.push(...v1, ...v3, ...v4);
+              }
+            }
+            continue;
+          }
+
+          if (code === '0' && inEntities) {
+            i += 2;
+            readEntity(val); // skip any other entity type
+            continue;
+          }
+
+          i += 2;
+        }
+
+        return positions;
+      }
+
+      /* ---- Three.js scene (created once, reused per model) ---- */
+      let renderer, scene, camera, controls, mesh, wireframe;
+      let resizeObserver;
+
+      function initScene() {
+        scene = new THREE.Scene();
+
+        camera = new THREE.PerspectiveCamera(45, 1, 0.1, 100000);
+
+        renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+        wrap.appendChild(renderer.domElement);
+
+        const hemi = new THREE.HemisphereLight(0xffffff, 0x222233, 1.1);
+        scene.add(hemi);
+        const dir = new THREE.DirectionalLight(0xffffff, 0.9);
+        dir.position.set(1, 1.5, 1);
+        scene.add(dir);
+        const dir2 = new THREE.DirectionalLight(0xf5b300, 0.35);
+        dir2.position.set(-1, 0.5, -1);
+        scene.add(dir2);
+
+        if (typeof THREE.OrbitControls === 'function') {
+          controls = new THREE.OrbitControls(camera, renderer.domElement);
+          controls.enableDamping = true;
+          controls.dampingFactor = 0.08;
         } else {
-          item.classList.add('hidden');
+          // OrbitControls script failed to load (CDN blocked, etc).
+          // Fall back to basic manual drag-to-rotate so the viewer still works.
+          console.error('[3D Model Viewer] THREE.OrbitControls not found — using manual fallback controls.');
+          controls = createFallbackControls(camera, renderer.domElement);
         }
-      });
-    });
-  });
 
-  /* ---- Resource link clicks ---- */
-  document.querySelectorAll('.resource-link').forEach(link => {
-    link.addEventListener('click', () => {
-      const title = link.closest('.resource-card')?.querySelector('h3')?.textContent || 'unknown';
-      gaEvent('select_content', { content_type: 'resource', item_id: title });
-    });
-  });
+        resizeRenderer();
+        resizeObserver = new ResizeObserver(resizeRenderer);
+        resizeObserver.observe(wrap);
 
-  /* ---- ScotCyd platform link clicks ---- */
-  document.querySelectorAll('.platform-btn').forEach(link => {
-    link.addEventListener('click', () => {
-      const platform = link.textContent.trim();
-      gaEvent('select_content', { content_type: 'scotcyd_platform', item_id: platform });
-    });
-  });
-
-  /* ---- Scroll depth tracking ---- */
-  const scrollMilestones = [25, 50, 75, 90, 100];
-  const scrollFired = new Set();
-
-  function checkScrollDepth() {
-    const scrollTop = window.scrollY;
-    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-    if (docHeight <= 0) return;
-    const pct = Math.round((scrollTop / docHeight) * 100);
-    scrollMilestones.forEach(milestone => {
-      if (pct >= milestone && !scrollFired.has(milestone)) {
-        scrollFired.add(milestone);
-        gaEvent('scroll_depth', { percent_scrolled: milestone });
+        animate();
       }
-    });
-  }
-  window.addEventListener('scroll', checkScrollDepth, { passive: true });
 
-  /* ---- Project impression tracking (which projects actually get seen) ---- */
-  if ('IntersectionObserver' in window) {
-    const seenProjects = new Set();
-    const projectObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const caption = entry.target.querySelector('.gallery-item-caption')?.textContent || 'unknown';
-          if (!seenProjects.has(caption)) {
-            seenProjects.add(caption);
-            gaEvent('view_item', { item_name: caption, item_category: entry.target.dataset.category });
+      /* Minimal drag-to-rotate / scroll-to-zoom fallback, used only if the
+         OrbitControls CDN script fails to load for some reason. */
+      function createFallbackControls(cam, domEl) {
+        const state = { target: new THREE.Vector3(), dragging: false, lastX: 0, lastY: 0, theta: 0.8, phi: 1.0, radius: 100 };
+
+        function applyPosition() {
+          const x = state.target.x + state.radius * Math.sin(state.phi) * Math.sin(state.theta);
+          const y = state.target.y + state.radius * Math.cos(state.phi);
+          const z = state.target.z + state.radius * Math.sin(state.phi) * Math.cos(state.theta);
+          cam.position.set(x, y, z);
+          cam.lookAt(state.target);
+        }
+
+        domEl.addEventListener('pointerdown', (e) => { state.dragging = true; state.lastX = e.clientX; state.lastY = e.clientY; });
+        window.addEventListener('pointerup', () => { state.dragging = false; });
+        window.addEventListener('pointermove', (e) => {
+          if (!state.dragging) return;
+          state.theta -= (e.clientX - state.lastX) * 0.007;
+          state.phi = Math.min(Math.max(state.phi - (e.clientY - state.lastY) * 0.007, 0.15), Math.PI - 0.15);
+          state.lastX = e.clientX; state.lastY = e.clientY;
+          applyPosition();
+        });
+        domEl.addEventListener('wheel', (e) => {
+          e.preventDefault();
+          state.radius = Math.max(state.radius * (1 + e.deltaY * 0.001), 0.5);
+          applyPosition();
+        }, { passive: false });
+
+        applyPosition();
+
+        return {
+          target: state.target,
+          update: applyPosition,
+          __setRadius(r) { state.radius = r; applyPosition(); }
+        };
+      }
+
+      function resizeRenderer() {
+        if (!renderer) return;
+        const w = wrap.clientWidth, h = wrap.clientHeight;
+        if (w === 0 || h === 0) return;
+        renderer.setSize(w, h);
+        camera.aspect = w / h;
+        camera.updateProjectionMatrix();
+      }
+
+      function animate() {
+        requestAnimationFrame(animate);
+        if (controls) controls.update();
+        if (renderer && scene && camera) renderer.render(scene, camera);
+      }
+
+      function clearModel() {
+        if (mesh) { scene.remove(mesh); mesh.geometry.dispose(); mesh.material.dispose(); mesh = null; }
+        if (wireframe) { scene.remove(wireframe); wireframe.geometry.dispose(); wireframe.material.dispose(); wireframe = null; }
+      }
+
+      function buildModel(positions) {
+        clearModel();
+
+        const geometry = new THREE.BufferGeometry();
+        geometry.setAttribute('position', new THREE.Float32BufferAttribute(positions, 3));
+        geometry.computeVertexNormals();
+
+        const material = new THREE.MeshStandardMaterial({
+          color: 0xb9c0cc,
+          metalness: 0.35,
+          roughness: 0.55,
+          side: THREE.DoubleSide,
+          flatShading: true
+        });
+        mesh = new THREE.Mesh(geometry, material);
+        scene.add(mesh);
+
+        const edgeGeo = new THREE.EdgesGeometry(geometry, 25);
+        const edgeMat = new THREE.LineBasicMaterial({ color: 0xf5b300, transparent: true, opacity: 0.35 });
+        wireframe = new THREE.LineSegments(edgeGeo, edgeMat);
+        scene.add(wireframe);
+
+        // Frame camera to the model's bounding sphere
+        geometry.computeBoundingSphere();
+        const sphere = geometry.boundingSphere;
+        const center = sphere.center;
+        const radius = Math.max(sphere.radius, 1);
+
+        controls.target.copy(center);
+        camera.near = radius / 100;
+        camera.far = radius * 100;
+        camera.updateProjectionMatrix();
+
+        if (typeof controls.__setRadius === 'function') {
+          // fallback controls: let it recompute camera.position from target+radius
+          controls.__setRadius(radius * 2);
+        } else {
+          // real OrbitControls: set position directly, then sync
+          camera.position.set(
+            center.x + radius * 1.4,
+            center.y + radius * 1.1,
+            center.z + radius * 1.4
+          );
+          controls.update();
+        }
+      }
+
+      /* Builds a simple illustrative stud-wall-frame mesh entirely in
+         JS — no file fetch involved. Used as the default/fallback so
+         something always renders, even before real DXF files are
+         confirmed live on the server. */
+      function buildSampleFramePositions() {
+        const positions = [];
+        const addBox = (x, y, z, w, h, d) => {
+          const x0 = x - w / 2, x1 = x + w / 2;
+          const y0 = y, y1 = y + h;
+          const z0 = z - d / 2, z1 = z + d / 2;
+          const v = [
+            [x0, y0, z0], [x1, y0, z0], [x1, y1, z0], [x0, y1, z0], // front
+            [x0, y0, z1], [x1, y0, z1], [x1, y1, z1], [x0, y1, z1]  // back
+          ];
+          const faces = [
+            [0, 1, 2], [0, 2, 3], [4, 5, 6], [4, 6, 7], // front, back
+            [0, 1, 5], [0, 5, 4], [3, 2, 6], [3, 6, 7], // bottom, top
+            [0, 3, 7], [0, 7, 4], [1, 2, 6], [1, 6, 5]  // left, right
+          ];
+          faces.forEach(f => f.forEach(i => positions.push(...v[i])));
+        };
+
+        // A simple stud-wall frame: sole plate, top plate, studs, one header.
+        const wallW = 240, wallH = 96, studD = 4, studW = 3.5;
+        addBox(0, 0, 0, wallW, 3.5, studD);          // sole plate
+        addBox(0, wallH - 3.5, 0, wallW, 3.5, studD); // top plate
+        for (let x = -wallW / 2 + studW / 2; x <= wallW / 2 - studW / 2; x += 16) {
+          addBox(x, 3.5, 0, studW, wallH - 7, studD);
+        }
+        addBox(0, wallH - 24, 0, 48, 6, studD); // header over a rough opening
+
+        return positions;
+      }
+
+      function loadModel(key) {
+        loadingText.textContent = 'Loading model…';
+        loadingEl.classList.remove('hidden');
+        errorEl.classList.remove('visible');
+
+        if (typeof THREE === 'undefined') {
+          loadingEl.classList.add('hidden');
+          errorEl.textContent = 'The 3D library (Three.js) didn\'t load — check your internet connection or try disabling any ad/script blocker, then refresh.';
+          errorEl.classList.add('visible');
+          console.error('[3D Model Viewer] THREE is undefined — the three.js CDN script did not load.');
+          return;
+        }
+
+        // Built-in sample — always works, no data lookup needed.
+        if (key === '__sample__') {
+          try {
+            const positions = buildSampleFramePositions();
+            if (!renderer) initScene();
+            buildModel(positions);
+            gaEvent('view_item', { item_name: 'sample_frame', item_category: '3d_model' });
+            loadingEl.classList.add('hidden');
+          } catch (err) {
+            loadingEl.classList.add('hidden');
+            errorEl.textContent = 'Couldn\'t render the sample frame: ' + err.message;
+            errorEl.classList.add('visible');
+            console.error('[3D Model Viewer]', err);
           }
+          return;
         }
-      });
-    }, { threshold: 0.5 });
-    galleryItems.forEach(item => projectObserver.observe(item));
-  }
 
-  /* ---- Time-on-page ping (fires once at 30s and once at 2min, catches engaged visitors) ---- */
-  [30, 120].forEach(seconds => {
-    setTimeout(() => gaEvent('engagement_time', { seconds }), seconds * 1000);
-  });
-
-})();
-
-/* ---- DIY popup ---- */
-function openDIYOptions() {
-  document.getElementById('diyOverlay').classList.add('open');
-  document.body.style.overflow = 'hidden';
-  gaEvent('select_content', { content_type: 'diy_card', item_id: 'open_options' });
-}
-
-function closeDIYOptions(e, force) {
-  if (force || (e && e.target === document.getElementById('diyOverlay'))) {
-    document.getElementById('diyOverlay').classList.remove('open');
-    document.body.style.overflow = '';
-  }
-}
-
-function setDIYContact(optionText) {
-  gaEvent('select_content', { content_type: 'diy_option', item_id: optionText });
-  closeDIYOptions(null, true);
-  setTimeout(() => {
-    const msgField   = document.getElementById('contactMessage');
-    const typeSelect = document.getElementById('projectTypeSelect');
-    if (msgField) msgField.value = optionText;
-    if (typeSelect) {
-      for (let opt of typeSelect.options) {
-        if (opt.value.toLowerCase().includes('roll former')) { opt.selected = true; break; }
-      }
-    }
-  }, 400);
-}
-
-/* ---- Lightbox ---- */
-let currentLightboxIndex = 0;
-let visibleItems = [];
-
-function getVisibleItems() {
-  return Array.from(document.querySelectorAll('.gallery-item:not(.hidden)'));
-}
-
-function openLightbox(el) {
-  visibleItems = getVisibleItems();
-  currentLightboxIndex = visibleItems.indexOf(el);
-  showLightboxImage(currentLightboxIndex);
-  document.getElementById('lightbox').classList.add('open');
-  document.body.style.overflow = 'hidden';
-}
-
-function showLightboxImage(index) {
-  visibleItems = getVisibleItems();
-  if (index < 0) index = visibleItems.length - 1;
-  if (index >= visibleItems.length) index = 0;
-  currentLightboxIndex = index;
-  const img = visibleItems[index].querySelector('img');
-  document.getElementById('lightboxImg').src = img.src;
-  document.getElementById('lightboxImg').alt = img.alt;
-  document.getElementById('lightboxCounter').textContent = (index + 1) + ' / ' + visibleItems.length;
-}
-
-function closeLightbox() {
-  document.getElementById('lightbox').classList.remove('open');
-  document.body.style.overflow = '';
-}
-
-function closeLightboxOnBg(e) {
-  if (e.target === document.getElementById('lightbox')) closeLightbox();
-}
-
-function navigateLightbox(dir) {
-  showLightboxImage(currentLightboxIndex + dir);
-}
-
-/* Keyboard navigation */
-document.addEventListener('keydown', (e) => {
-  const lb = document.getElementById('lightbox');
-  if (!lb.classList.contains('open')) return;
-  if (e.key === 'Escape')     closeLightbox();
-  if (e.key === 'ArrowRight') navigateLightbox(1);
-  if (e.key === 'ArrowLeft')  navigateLightbox(-1);
-});
-
-/* Touch swipe for mobile lightbox */
-(function() {
-  let touchStartX = 0;
-  const lb = document.getElementById('lightbox');
-  lb.addEventListener('touchstart', e => { touchStartX = e.changedTouches[0].screenX; }, { passive: true });
-  lb.addEventListener('touchend', e => {
-    const diff = touchStartX - e.changedTouches[0].screenX;
-    if (Math.abs(diff) > 50) navigateLightbox(diff > 0 ? 1 : -1);
-  }, { passive: true });
-})();
-
-/* ===================================================
-   LOCAL DXF 3D MODEL VIEWER
-   Parses 3DFACE mesh data straight out of the raw DXF
-   text (no external service, no conversion needed) and
-   renders it with Three.js. DXF data is embedded in-page above.
-   =================================================== */
-(function() {
-  const wrap       = document.getElementById('modelCanvasWrap');
-  const select      = document.getElementById('modelSelect');
-  const loadingEl   = document.getElementById('modelLoading');
-  const loadingText = document.getElementById('modelLoadingText');
-  const errorEl     = document.getElementById('modelError');
-
-  if (!wrap || !select || typeof THREE === 'undefined') return;
-
-  /* ---- Minimal DXF 3DFACE / LINE parser ----
-     Reads group-code/value pairs. We only need 3DFACE (mesh
-     faces) and LINE (edges) — everything else is ignored. */
-  function parseDXF(text) {
-    // Normalize line endings once up front (fast) instead of matching a
-    // multi-alternative regex on every split — meaningfully faster on the
-    // larger files (some of these DXFs are 2-3MB+ with 15,000+ 3DFACE
-    // entities, which was causing long stalls/hangs on slower devices).
-    const lines = text.replace(/\r\n?/g, '\n').split('\n');
-    const positions = [];   // triangle vertex positions for 3DFACE mesh
-    let inEntities = false;
-    let i = 0;
-
-    function readEntity(type) {
-      const pt = { 10: null, 20: null, 30: null, 11: null, 21: null, 31: null,
-                   12: null, 22: null, 32: null, 13: null, 23: null, 33: null };
-      let j = i;
-      while (j < lines.length - 1) {
-        const code = lines[j].trim();
-        const val  = lines[j + 1] !== undefined ? lines[j + 1].trim() : '';
-        if (code === '0') break; // next entity starts
-        if (pt.hasOwnProperty(code)) pt[code] = parseFloat(val);
-        j += 2;
-      }
-      i = j;
-      return pt;
-    }
-
-    while (i < lines.length - 1) {
-      const code = lines[i].trim();
-      const val  = lines[i + 1] !== undefined ? lines[i + 1].trim() : '';
-
-      if (code === '2' && val === 'ENTITIES') { inEntities = true; i += 2; continue; }
-      if (code === '0' && inEntities && val === 'ENDSEC') { inEntities = false; i += 2; continue; }
-
-      if (code === '0' && inEntities && val === '3DFACE') {
-        i += 2;
-        const pt = readEntity('3DFACE');
-        if (pt[10] !== null && pt[11] !== null && pt[12] !== null) {
-          const v1 = [pt[10], pt[30], -pt[20]];
-          const v2 = [pt[11], pt[31], -pt[21]];
-          const v3 = [pt[12], pt[32], -pt[22]];
-          // triangle 1
-          positions.push(...v1, ...v2, ...v3);
-          // 4th point present and distinct → second triangle (quad face)
-          if (pt[13] !== null && (pt[13] !== pt[12] || pt[23] !== pt[22] || pt[33] !== pt[32])) {
-            const v4 = [pt[13], pt[33], -pt[23]];
-            positions.push(...v1, ...v3, ...v4);
+        // All real models' raw DXF text is embedded directly in this page as
+        // <script type="text/plain" id="dxf-<key>"> blocks (see "EMBEDDED DXF
+        // DATA" further up the file). Reading .textContent is synchronous,
+        // works with the page opened straight from disk (file://), and has
+        // zero dependency on any server, folder, or deployment step — this is
+        // deliberate so the viewer can never break due to hosting/deployment
+        // issues again.
+        try {
+          const el = document.getElementById('dxf-' + key);
+          if (!el) {
+            throw new Error(`No embedded DXF data found for "${key}". Check that a <script id="dxf-${key}"> block exists in the EMBEDDED DXF DATA section.`);
           }
+          const text = el.textContent;
+          if (!text || text.trim().length === 0) {
+            throw new Error(`Embedded data for "${key}" is empty.`);
+          }
+
+          loadingText.textContent = 'Rendering geometry…';
+          const positions = parseDXF(text);
+
+          if (positions.length === 0) {
+            throw new Error(`Parsed "${key}" but found no 3DFACE mesh data in it.`);
+          }
+
+          if (!renderer) initScene();
+          buildModel(positions);
+
+          gaEvent('view_item', { item_name: key, item_category: '3d_model' });
+          loadingEl.classList.add('hidden');
+        } catch (err) {
+          loadingEl.classList.add('hidden');
+          errorEl.textContent = 'Couldn\'t load this model: ' + err.message;
+          errorEl.classList.add('visible');
+          console.error('[3D Model Viewer]', err);
         }
-        continue;
       }
 
-      if (code === '0' && inEntities) {
-        i += 2;
-        readEntity(val); // skip any other entity type
-        continue;
-      }
-
-      i += 2;
-    }
-
-    return positions;
-  }
-
-  /* ---- Three.js scene (created once, reused per model) ---- */
-  let renderer, scene, camera, controls, mesh, wireframe;
-  let resizeObserver;
-
-  function initScene() {
-    scene = new THREE.Scene();
-
-    camera = new THREE.PerspectiveCamera(45, 1, 0.1, 100000);
-
-    renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-    wrap.appendChild(renderer.domElement);
-
-    const hemi = new THREE.HemisphereLight(0xffffff, 0x222233, 1.1);
-    scene.add(hemi);
-    const dir = new THREE.DirectionalLight(0xffffff, 0.9);
-    dir.position.set(1, 1.5, 1);
-    scene.add(dir);
-    const dir2 = new THREE.DirectionalLight(0xf5b300, 0.35);
-    dir2.position.set(-1, 0.5, -1);
-    scene.add(dir2);
-
-    if (typeof THREE.OrbitControls === 'function') {
-      controls = new THREE.OrbitControls(camera, renderer.domElement);
-      controls.enableDamping = true;
-      controls.dampingFactor = 0.08;
-    } else {
-      // OrbitControls script failed to load (CDN blocked, etc).
-      // Fall back to basic manual drag-to-rotate so the viewer still works.
-      console.error('[3D Model Viewer] THREE.OrbitControls not found — using manual fallback controls.');
-      controls = createFallbackControls(camera, renderer.domElement);
-    }
-
-    resizeRenderer();
-    resizeObserver = new ResizeObserver(resizeRenderer);
-    resizeObserver.observe(wrap);
-
-    animate();
-  }
-
-  /* Minimal drag-to-rotate / scroll-to-zoom fallback, used only if the
-     OrbitControls CDN script fails to load for some reason. */
-  function createFallbackControls(cam, domEl) {
-    const state = { target: new THREE.Vector3(), dragging: false, lastX: 0, lastY: 0, theta: 0.8, phi: 1.0, radius: 100 };
-
-    function applyPosition() {
-      const x = state.target.x + state.radius * Math.sin(state.phi) * Math.sin(state.theta);
-      const y = state.target.y + state.radius * Math.cos(state.phi);
-      const z = state.target.z + state.radius * Math.sin(state.phi) * Math.cos(state.theta);
-      cam.position.set(x, y, z);
-      cam.lookAt(state.target);
-    }
-
-    domEl.addEventListener('pointerdown', (e) => { state.dragging = true; state.lastX = e.clientX; state.lastY = e.clientY; });
-    window.addEventListener('pointerup', () => { state.dragging = false; });
-    window.addEventListener('pointermove', (e) => {
-      if (!state.dragging) return;
-      state.theta -= (e.clientX - state.lastX) * 0.007;
-      state.phi = Math.min(Math.max(state.phi - (e.clientY - state.lastY) * 0.007, 0.15), Math.PI - 0.15);
-      state.lastX = e.clientX; state.lastY = e.clientY;
-      applyPosition();
-    });
-    domEl.addEventListener('wheel', (e) => {
-      e.preventDefault();
-      state.radius = Math.max(state.radius * (1 + e.deltaY * 0.001), 0.5);
-      applyPosition();
-    }, { passive: false });
-
-    applyPosition();
-
-    return {
-      target: state.target,
-      update: applyPosition,
-      __setRadius(r) { state.radius = r; applyPosition(); }
-    };
-  }
-
-  function resizeRenderer() {
-    if (!renderer) return;
-    const w = wrap.clientWidth, h = wrap.clientHeight;
-    if (w === 0 || h === 0) return;
-    renderer.setSize(w, h);
-    camera.aspect = w / h;
-    camera.updateProjectionMatrix();
-  }
-
-  function animate() {
-    requestAnimationFrame(animate);
-    if (controls) controls.update();
-    if (renderer && scene && camera) renderer.render(scene, camera);
-  }
-
-  function clearModel() {
-    if (mesh) { scene.remove(mesh); mesh.geometry.dispose(); mesh.material.dispose(); mesh = null; }
-    if (wireframe) { scene.remove(wireframe); wireframe.geometry.dispose(); wireframe.material.dispose(); wireframe = null; }
-  }
-
-  function buildModel(positions) {
-    clearModel();
-
-    const geometry = new THREE.BufferGeometry();
-    geometry.setAttribute('position', new THREE.Float32BufferAttribute(positions, 3));
-    geometry.computeVertexNormals();
-
-    const material = new THREE.MeshStandardMaterial({
-      color: 0xb9c0cc,
-      metalness: 0.35,
-      roughness: 0.55,
-      side: THREE.DoubleSide,
-      flatShading: true
-    });
-    mesh = new THREE.Mesh(geometry, material);
-    scene.add(mesh);
-
-    const edgeGeo = new THREE.EdgesGeometry(geometry, 25);
-    const edgeMat = new THREE.LineBasicMaterial({ color: 0xf5b300, transparent: true, opacity: 0.35 });
-    wireframe = new THREE.LineSegments(edgeGeo, edgeMat);
-    scene.add(wireframe);
-
-    // Frame camera to the model's bounding sphere
-    geometry.computeBoundingSphere();
-    const sphere = geometry.boundingSphere;
-    const center = sphere.center;
-    const radius = Math.max(sphere.radius, 1);
-
-    controls.target.copy(center);
-    camera.near = radius / 100;
-    camera.far  = radius * 100;
-    camera.updateProjectionMatrix();
-
-    if (typeof controls.__setRadius === 'function') {
-      // fallback controls: let it recompute camera.position from target+radius
-      controls.__setRadius(radius * 2);
-    } else {
-      // real OrbitControls: set position directly, then sync
-      camera.position.set(
-        center.x + radius * 1.4,
-        center.y + radius * 1.1,
-        center.z + radius * 1.4
-      );
-      controls.update();
-    }
-  }
-
-  /* Builds a simple illustrative stud-wall-frame mesh entirely in
-     JS — no file fetch involved. Used as the default/fallback so
-     something always renders, even before real DXF files are
-     confirmed live on the server. */
-  function buildSampleFramePositions() {
-    const positions = [];
-    const addBox = (x, y, z, w, h, d) => {
-      const x0 = x - w/2, x1 = x + w/2;
-      const y0 = y,       y1 = y + h;
-      const z0 = z - d/2, z1 = z + d/2;
-      const v = [
-        [x0,y0,z0],[x1,y0,z0],[x1,y1,z0],[x0,y1,z0], // front
-        [x0,y0,z1],[x1,y0,z1],[x1,y1,z1],[x0,y1,z1]  // back
-      ];
-      const faces = [
-        [0,1,2],[0,2,3], [4,5,6],[4,6,7], // front, back
-        [0,1,5],[0,5,4], [3,2,6],[3,6,7], // bottom, top
-        [0,3,7],[0,7,4], [1,2,6],[1,6,5]  // left, right
-      ];
-      faces.forEach(f => f.forEach(i => positions.push(...v[i])));
-    };
-
-    // A simple stud-wall frame: sole plate, top plate, studs, one header.
-    const wallW = 240, wallH = 96, studD = 4, studW = 3.5;
-    addBox(0, 0, 0, wallW, 3.5, studD);          // sole plate
-    addBox(0, wallH - 3.5, 0, wallW, 3.5, studD); // top plate
-    for (let x = -wallW/2 + studW/2; x <= wallW/2 - studW/2; x += 16) {
-      addBox(x, 3.5, 0, studW, wallH - 7, studD);
-    }
-    addBox(0, wallH - 24, 0, 48, 6, studD); // header over a rough opening
-
-    return positions;
-  }
-
-  function loadModel(key) {
-    loadingText.textContent = 'Loading model…';
-    loadingEl.classList.remove('hidden');
-    errorEl.classList.remove('visible');
-
-    if (typeof THREE === 'undefined') {
-      loadingEl.classList.add('hidden');
-      errorEl.textContent = 'The 3D library (Three.js) didn\'t load — check your internet connection or try disabling any ad/script blocker, then refresh.';
-      errorEl.classList.add('visible');
-      console.error('[3D Model Viewer] THREE is undefined — the three.js CDN script did not load.');
-      return;
-    }
-
-    // Built-in sample — always works, no data lookup needed.
-    if (key === '__sample__') {
-      try {
-        const positions = buildSampleFramePositions();
-        if (!renderer) initScene();
-        buildModel(positions);
-        gaEvent('view_item', { item_name: 'sample_frame', item_category: '3d_model' });
-        loadingEl.classList.add('hidden');
-      } catch (err) {
-        loadingEl.classList.add('hidden');
-        errorEl.textContent = 'Couldn\'t render the sample frame: ' + err.message;
-        errorEl.classList.add('visible');
-        console.error('[3D Model Viewer]', err);
-      }
-      return;
-    }
-
-    // All real models' raw DXF text is embedded directly in this page as
-    // <script type="text/plain" id="dxf-<key>"> blocks (see "EMBEDDED DXF
-    // DATA" further up the file). Reading .textContent is synchronous,
-    // works with the page opened straight from disk (file://), and has
-    // zero dependency on any server, folder, or deployment step — this is
-    // deliberate so the viewer can never break due to hosting/deployment
-    // issues again.
-    try {
-      const el = document.getElementById('dxf-' + key);
-      if (!el) {
-        throw new Error(`No embedded DXF data found for "${key}". Check that a <script id="dxf-${key}"> block exists in the EMBEDDED DXF DATA section.`);
-      }
-      const text = el.textContent;
-      if (!text || text.trim().length === 0) {
-        throw new Error(`Embedded data for "${key}" is empty.`);
-      }
-
-      loadingText.textContent = 'Rendering geometry…';
-      const positions = parseDXF(text);
-
-      if (positions.length === 0) {
-        throw new Error(`Parsed "${key}" but found no 3DFACE mesh data in it.`);
-      }
-
-      if (!renderer) initScene();
-      buildModel(positions);
-
-      gaEvent('view_item', { item_name: key, item_category: '3d_model' });
-      loadingEl.classList.add('hidden');
-    } catch (err) {
-      loadingEl.classList.add('hidden');
-      errorEl.textContent = 'Couldn\'t load this model: ' + err.message;
-      errorEl.classList.add('visible');
-      console.error('[3D Model Viewer]', err);
-    }
-  }
-
-  select.addEventListener('change', () => {
-    gaEvent('select_content', { content_type: '3d_model', item_id: select.value });
-    loadModel(select.value);
-  });
-
-  // Load the first model once this section actually scrolls into view,
-  // so we're not fetching megabytes of DXF data on every page load.
-  const section = document.getElementById('model-viewer');
-  if ('IntersectionObserver' in window && section) {
-    let started = false;
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting && !started) {
-          started = true;
-          loadModel(select.value);
-          io.disconnect();
-        }
+      select.addEventListener('change', () => {
+        gaEvent('select_content', { content_type: '3d_model', item_id: select.value });
+        loadModel(select.value);
       });
-    }, { threshold: 0.2 });
-    io.observe(section);
-  } else {
-    loadModel(select.value);
-  }
-})();
-</script>
+
+      // Load the first model once this section actually scrolls into view,
+      // so we're not fetching megabytes of DXF data on every page load.
+      const section = document.getElementById('model-viewer');
+      if ('IntersectionObserver' in window && section) {
+        let started = false;
+        const io = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting && !started) {
+              started = true;
+              loadModel(select.value);
+              io.disconnect();
+            }
+          });
+        }, { threshold: 0.2 });
+        io.observe(section);
+      } else {
+        loadModel(select.value);
+      }
+    })();
+  </script>
 </body>
+
 </html>
