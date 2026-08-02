@@ -1,30 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <title>Visitor Analytics | TDG Steel Frame</title>
-  <meta name="robots" content="noindex, nofollow" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <link rel="icon" type="image/x-icon" href="images/logo.ico" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
-  <!-- ===================================================
-       GOOGLE ANALYTICS 4 (tracking — unchanged)
-       Same property as the main site: G-XPZSK33GTF
-       =================================================== -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XPZSK33GTF"></script>
+  <title>Visitor Analytics | TDG Steel Frame</title>
+
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="description" content="Private visitor analytics dashboard for Traverse Dynamics Global LLC">
+
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+  >
+
+  <link rel="icon" type="image/x-icon" href="images/logo.ico">
+
+  <!-- =========================================================
+       GOOGLE ANALYTICS 4
+       Website Measurement ID:
+       G-XPZSK33GTF
+       ========================================================= -->
+  <script
+    async
+    src="https://www.googletagmanager.com/gtag/js?id=G-XPZSK33GTF">
+  </script>
+
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
     gtag('js', new Date());
+
     gtag('config', 'G-XPZSK33GTF');
   </script>
 
-  <!-- Chart.js for the pageviews chart -->
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
-  <!-- Google Identity Services — for the "Sign in with Google" step that
-       actually authorizes pulling real GA4 numbers -->
-  <script src="https://accounts.google.com/gsi/client" async defer></script>
+  <!-- Chart.js -->
+  <script
+    src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js">
+  </script>
+
+  <!-- Google Identity Services -->
+  <script
+    src="https://accounts.google.com/gsi/client"
+    async
+    defer>
+  </script>
 
   <style>
     :root {
@@ -32,40 +56,112 @@
       --bg-light: #ffffff;
       --text-main: #1a1a1a;
       --text-muted: #5b5e68;
-      --accent: #7CB342;
-      --accent-dark: #5C8C2E;
-      --accent-light: #DCEDC8;
+      --accent: #7cb342;
+      --accent-dark: #5c8c2e;
+      --accent-light: #dcedc8;
       --border-soft: #e1e3ea;
-      --shadow-soft: 0 10px 30px rgba(0,0,0,0.09);
+      --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.09);
       --radius: 16px;
+      --danger: #c0392b;
+      --success: #4c9f3a;
     }
 
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
 
     body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Helvetica Neue', Arial, sans-serif;
+      font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Inter",
+        "Helvetica Neue",
+        Arial,
+        sans-serif;
+
       background: var(--bg-main);
       color: var(--text-main);
       line-height: 1.6;
     }
 
-    .container { width: 100%; max-width: 1300px; margin: 0 auto; padding: 0 1.5rem; }
+    button,
+    input,
+    select {
+      font: inherit;
+    }
 
-    header.page-header { background: #0d131c; color: #fff; padding: 2.2rem 0; }
-    header.page-header .container { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
-    header.page-header h1 { font-size: 1.5rem; letter-spacing: 0.04em; display: flex; align-items: center; gap: 0.6rem; }
-    header.page-header p { color: #aab1bd; font-size: 0.88rem; margin-top: 0.3rem; }
-    .back-link { color: var(--accent); font-size: 0.85rem; font-weight: 600; text-decoration: none; }
-    .back-link:hover { text-decoration: underline; }
+    button {
+      cursor: pointer;
+    }
 
-    main { padding: 2.5rem 0 4rem; }
+    .container {
+      width: 100%;
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
 
-    /* ---- Access code gate ----
-       NOTE: same as before, this is a lightweight front-of-house gate,
-       not real security — anyone viewing page source can see the code.
-       Real protection is that pulling actual numbers still requires
-       signing in with a Google account that has Viewer access on the
-       GA4 property (see the sign-in step further down). */
+    /* =========================================================
+       HEADER
+       ========================================================= */
+
+    header.page-header {
+      background: #0d131c;
+      color: #fff;
+      padding: 2.2rem 0;
+    }
+
+    header.page-header .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    header.page-header h1 {
+      font-size: 1.5rem;
+      letter-spacing: 0.04em;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    header.page-header p {
+      color: #aab1bd;
+      font-size: 0.88rem;
+      margin-top: 0.3rem;
+    }
+
+    .back-link {
+      color: var(--accent);
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .back-link:hover {
+      text-decoration: underline;
+    }
+
+    /* =========================================================
+       MAIN
+       ========================================================= */
+
+    main {
+      padding: 2.5rem 0 4rem;
+    }
+
+    /* =========================================================
+       ACCESS GATE
+       ========================================================= */
+
     #gate {
       max-width: 420px;
       margin: 4rem auto;
@@ -74,543 +170,2575 @@
       padding: 2.5rem;
       box-shadow: var(--shadow-soft);
       text-align: center;
+      border: 1px solid var(--border-soft);
     }
-    #gate h2 { font-size: 1.2rem; margin-bottom: 0.5rem; }
-    #gate p { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1.5rem; }
-    #gate input {
-      width: 100%; padding: 0.8rem 1rem; border-radius: 12px;
-      border: 1.5px solid var(--border-soft); margin-bottom: 1rem; font-size: 0.95rem;
-    }
-    #gate button {
-      width: 100%; padding: 0.8rem; border-radius: 12px; border: none;
-      background: var(--accent); color: #1a1a1a; font-weight: 700;
-      cursor: pointer; font-size: 0.9rem; transition: background 0.2s ease;
-    }
-    #gate button:hover { background: var(--accent-dark); color: #fff; }
-    #gateError { color: #b13b2d; font-size: 0.85rem; margin-top: 0.8rem; display: none; }
 
-    #dashboard { display: none; }
+    #gate .gate-icon {
+      width: 64px;
+      height: 64px;
+      margin: 0 auto 1rem;
+      border-radius: 50%;
+      background: var(--accent-light);
+      color: var(--accent-dark);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+    }
+
+    #gate h2 {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    #gate p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin-bottom: 1.5rem;
+    }
+
+    #gate input {
+      width: 100%;
+      padding: 0.8rem 1rem;
+      border-radius: 12px;
+      border: 1.5px solid var(--border-soft);
+      margin-bottom: 1rem;
+      font-size: 0.95rem;
+      outline: none;
+    }
+
+    #gate input:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(124, 179, 66, 0.12);
+    }
+
+    #gate button {
+      width: 100%;
+      padding: 0.8rem;
+      border-radius: 12px;
+      border: none;
+      background: var(--accent);
+      color: #1a1a1a;
+      font-weight: 700;
+      font-size: 0.9rem;
+      transition: 0.2s ease;
+    }
+
+    #gate button:hover {
+      background: var(--accent-dark);
+      color: #fff;
+    }
+
+    #gateError {
+      color: var(--danger);
+      font-size: 0.85rem;
+      margin-top: 0.8rem;
+      display: none;
+    }
+
+    /* =========================================================
+       DASHBOARD
+       ========================================================= */
+
+    #dashboard {
+      display: none;
+    }
 
     .info-banner {
-      background: #eef6e6; border: 1px solid #cde3b8; border-radius: var(--radius);
-      padding: 1.25rem 1.5rem; margin-bottom: 1.5rem; font-size: 0.9rem; color: #3d5c26;
+      background: #eef6e6;
+      border: 1px solid #cde3b8;
+      border-radius: var(--radius);
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 1.5rem;
+      font-size: 0.9rem;
+      color: #3d5c26;
     }
-    .info-banner strong { color: #2c421b; }
-    .info-banner.warn { background: #fdf3e3; border-color: #f0d9a6; color: #6b4e14; }
-    .info-banner.warn strong { color: #4a350c; }
-    .info-banner.error { background: #fbeaea; border-color: #eec4c4; color: #7a2323; }
-    .info-banner.error strong { color: #5c1717; }
+
+    .info-banner strong {
+      color: #2c421b;
+    }
+
+    .info-banner.warn {
+      background: #fdf3e3;
+      border-color: #f0d9a6;
+      color: #6b4e14;
+    }
+
+    .info-banner.warn strong {
+      color: #4a350c;
+    }
+
+    .info-banner.error {
+      background: #fbeaea;
+      border-color: #eec4c4;
+      color: #7a2323;
+    }
+
+    .info-banner.error strong {
+      color: #5c1717;
+    }
+
+    /* =========================================================
+       STATUS
+       ========================================================= */
 
     .status-check {
-      display: flex; align-items: center; gap: 0.75rem;
-      background: var(--bg-light); border: 1px solid var(--border-soft); border-radius: var(--radius);
-      padding: 1rem 1.25rem; margin-bottom: 1.5rem; font-size: 0.88rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      background: var(--bg-light);
+      border: 1px solid var(--border-soft);
+      border-radius: var(--radius);
+      padding: 1rem 1.25rem;
+      margin-bottom: 1.5rem;
+      font-size: 0.88rem;
     }
-    .status-dot { width: 12px; height: 12px; border-radius: 50%; background: #999; flex-shrink: 0; }
-    .status-dot.ok { background: #4C9F3A; }
-    .status-dot.bad { background: #c0392b; }
-    .status-text strong { display: block; margin-bottom: 0.15rem; }
-    .status-text span { color: var(--text-muted); font-size: 0.82rem; }
+
+    .status-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: #999;
+      flex-shrink: 0;
+    }
+
+    .status-dot.ok {
+      background: var(--success);
+      box-shadow: 0 0 0 5px rgba(76, 159, 58, 0.12);
+    }
+
+    .status-dot.bad {
+      background: var(--danger);
+      box-shadow: 0 0 0 5px rgba(192, 57, 43, 0.12);
+    }
+
+    .status-text strong {
+      display: block;
+      margin-bottom: 0.15rem;
+    }
+
+    .status-text span {
+      color: var(--text-muted);
+      font-size: 0.82rem;
+    }
+
+    /* =========================================================
+       TOOLBAR
+       ========================================================= */
 
     .dash-toolbar {
-      display: flex; align-items: center; justify-content: space-between;
-      flex-wrap: wrap; gap: 1rem; margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
     }
-    .dash-toolbar .range-controls { display: flex; align-items: center; gap: 0.6rem; font-size: 0.88rem; }
+
+    .range-controls {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.88rem;
+      flex-wrap: wrap;
+    }
+
     select#rangeSelect {
-      padding: 0.5rem 0.75rem; border-radius: 10px; border: 1.5px solid var(--border-soft);
-      font-size: 0.88rem; background: #fff;
+      padding: 0.5rem 0.75rem;
+      border-radius: 10px;
+      border: 1.5px solid var(--border-soft);
+      font-size: 0.88rem;
+      background: #fff;
+      outline: none;
     }
 
-    .btn-signin, .btn-signout, .btn-refresh {
-      padding: 0.6rem 1.2rem; border-radius: 10px; border: none; font-size: 0.85rem;
-      font-weight: 700; cursor: pointer; transition: background 0.2s ease;
+    .btn-signin,
+    .btn-refresh {
+      padding: 0.6rem 1.2rem;
+      border-radius: 10px;
+      border: none;
+      font-size: 0.85rem;
+      font-weight: 700;
+      transition: 0.2s ease;
     }
-    .btn-signin { background: var(--accent); color: #1a1a1a; }
-    .btn-signin:hover { background: var(--accent-dark); color: #fff; }
-    .btn-signout { background: #e7e9ee; color: #333; }
-    .btn-signout:hover { background: #d7dae2; }
-    .btn-refresh { background: #e7e9ee; color: #333; }
-    .btn-refresh:hover { background: #d7dae2; }
 
-    .account-chip { display: flex; align-items: center; gap: 0.75rem; font-size: 0.85rem; color: var(--text-muted); }
+    .btn-signin {
+      background: var(--accent);
+      color: #1a1a1a;
+    }
 
-    .status-badge { display: inline-block; padding: 0.25rem 0.7rem; border-radius: 20px; font-size: 0.72rem; font-weight: 700; }
-    .status-badge.loading { background: #fef9c3; color: #854d0e; }
-    .status-badge.connected { background: #dcfce7; color: #166534; }
-    .status-badge.error { background: #fee2e2; color: #991b1b; }
+    .btn-signin:hover {
+      background: var(--accent-dark);
+      color: #fff;
+    }
+
+    .btn-refresh {
+      background: #e7e9ee;
+      color: #333;
+    }
+
+    .btn-refresh:hover {
+      background: #d7dae2;
+    }
+
+    .btn-refresh:disabled,
+    .btn-signin:disabled {
+      opacity: 0.55;
+      cursor: not-allowed;
+    }
+
+    .account-chip {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      flex-wrap: wrap;
+    }
+
+    .status-badge {
+      display: inline-block;
+      padding: 0.25rem 0.7rem;
+      border-radius: 20px;
+      font-size: 0.72rem;
+      font-weight: 700;
+    }
+
+    .status-badge.loading {
+      background: #fef9c3;
+      color: #854d0e;
+    }
+
+    .status-badge.connected {
+      background: #dcfce7;
+      color: #166534;
+    }
+
+    .status-badge.error {
+      background: #fee2e2;
+      color: #991b1b;
+    }
+
+    /* =========================================================
+       KPI CARDS
+       ========================================================= */
 
     .stat-grid {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1.25rem; margin-bottom: 2rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.25rem;
+      margin-bottom: 2rem;
     }
-    .stat-card {
-      background: var(--bg-light); border-radius: var(--radius); padding: 1.5rem;
-      box-shadow: var(--shadow-soft); border: 1px solid var(--border-soft);
-    }
-    .stat-card .stat-label {
-      font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.06em;
-      color: var(--text-muted); font-weight: 700; margin-bottom: 0.5rem;
-    }
-    .stat-card .stat-value { font-size: 1.9rem; font-weight: 800; color: var(--text-main); }
-    .stat-card .stat-value.loading { color: var(--border-soft); }
 
-    .grid-2 { display: grid; grid-template-columns: 1.6fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem; }
-    .grid-2b { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem; }
-    @media (max-width: 860px) { .grid-2, .grid-2b { grid-template-columns: 1fr; } }
+    .stat-card {
+      background: var(--bg-light);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid var(--border-soft);
+    }
+
+    .stat-card .stat-label {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--text-muted);
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .stat-card .stat-value {
+      font-size: 1.9rem;
+      font-weight: 800;
+      color: var(--text-main);
+    }
+
+    .stat-card .stat-value.loading {
+      color: var(--border-soft);
+    }
+
+    /* =========================================================
+       GRID
+       ========================================================= */
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1.6fr 1fr;
+      gap: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .grid-2b {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    /* =========================================================
+       PANELS
+       ========================================================= */
 
     .panel {
-      background: var(--bg-light); border-radius: var(--radius); padding: 1.5rem;
-      box-shadow: var(--shadow-soft); border: 1px solid var(--border-soft);
+      background: var(--bg-light);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid var(--border-soft);
     }
-    .panel h3 { font-size: 1rem; margin-bottom: 1rem; }
-    .panel .panel-empty { color: var(--text-muted); font-size: 0.85rem; padding: 1rem 0; }
-    .table-wrap { max-height: 320px; overflow-y: auto; }
+
+    .panel h3 {
+      font-size: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .panel .panel-empty {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      padding: 1rem 0;
+    }
+
+    .chart-container {
+      position: relative;
+      height: 320px;
+    }
+
+    .table-wrap {
+      max-height: 320px;
+      overflow-y: auto;
+    }
+
+    /* =========================================================
+       DATA ROWS
+       ========================================================= */
 
     .data-row {
-      display: grid; grid-template-columns: 1fr auto; gap: 0.75rem; align-items: center;
-      padding: 0.5rem 0; font-size: 0.88rem;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 0.75rem;
+      align-items: center;
+      padding: 0.65rem 0;
+      font-size: 0.88rem;
     }
-    .data-row + .data-row { border-top: 1px solid var(--border-soft); }
-    .data-row .row-label { z-index: 1; font-weight: 600; }
-    .data-row .row-bar-track {
-      grid-column: 1 / -1; height: 6px; background: #f0f1f5; border-radius: 4px;
-      overflow: hidden; margin-top: 0.35rem;
-    }
-    .data-row .row-bar-fill { height: 100%; background: var(--accent); border-radius: 4px; }
-    .data-row .row-value { font-weight: 700; z-index: 1; }
 
-    .setup-steps {
-      background: var(--bg-light); border-radius: var(--radius); padding: 2rem;
-      box-shadow: var(--shadow-soft); border: 1px solid var(--border-soft); margin-top: 2rem;
+    .data-row + .data-row {
+      border-top: 1px solid var(--border-soft);
     }
-    .setup-steps h3 { margin-bottom: 1rem; font-size: 1.05rem; }
-    .setup-steps ol { padding-left: 1.2rem; color: var(--text-muted); font-size: 0.92rem; }
-    .setup-steps li { margin-bottom: 0.7rem; }
-    .setup-steps code { background: #f0f1f5; padding: 0.1rem 0.4rem; border-radius: 6px; font-size: 0.85em; }
+
+    .data-row .row-label {
+      z-index: 1;
+      font-weight: 600;
+      overflow-wrap: anywhere;
+    }
+
+    .data-row .row-bar-track {
+      grid-column: 1 / -1;
+      height: 6px;
+      background: #f0f1f5;
+      border-radius: 4px;
+      overflow: hidden;
+      margin-top: 0.35rem;
+    }
+
+    .data-row .row-bar-fill {
+      height: 100%;
+      background: var(--accent);
+      border-radius: 4px;
+      transition: width 0.4s ease;
+    }
+
+    .data-row .row-value {
+      font-weight: 700;
+      z-index: 1;
+    }
+
+    /* =========================================================
+       LOADING
+       ========================================================= */
+
+    .loading-state {
+      opacity: 0.65;
+      pointer-events: none;
+    }
+
+    .spinner {
+      display: inline-block;
+      width: 14px;
+      height: 14px;
+      border: 2px solid rgba(0, 0, 0, 0.15);
+      border-top-color: currentColor;
+      border-radius: 50%;
+      animation: spin 0.7s linear infinite;
+      vertical-align: middle;
+      margin-right: 0.35rem;
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    /* =========================================================
+       FOOTER / SECURITY NOTE
+       ========================================================= */
+
+    .security-note {
+      margin-top: 2rem;
+      padding: 1.25rem 1.5rem;
+      border-radius: var(--radius);
+      background: #fff;
+      border: 1px solid var(--border-soft);
+      color: var(--text-muted);
+      font-size: 0.82rem;
+    }
+
+    .security-note strong {
+      color: var(--text-main);
+    }
+
+    /* =========================================================
+       RESPONSIVE
+       ========================================================= */
+
+    @media (max-width: 860px) {
+      .grid-2,
+      .grid-2b {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        padding: 0 1rem;
+      }
+
+      header.page-header {
+        padding: 1.5rem 0;
+      }
+
+      header.page-header h1 {
+        font-size: 1.2rem;
+      }
+
+      main {
+        padding: 1.5rem 0 3rem;
+      }
+
+      #gate {
+        margin: 2rem auto;
+        padding: 1.75rem;
+      }
+
+      .dash-toolbar {
+        align-items: stretch;
+      }
+
+      .range-controls,
+      .account-chip {
+        width: 100%;
+      }
+
+      .chart-container {
+        height: 250px;
+      }
+    }
   </style>
 </head>
+
 <body>
+
+  <!-- =========================================================
+       HEADER
+       ========================================================= -->
 
   <header class="page-header">
     <div class="container">
+
       <div>
-        <h1><i class="fas fa-chart-line"></i> Visitor Analytics</h1>
-        <p>TDG Steel Frame — Traverse Dynamics Global LLC</p>
+        <h1>
+          <i class="fas fa-chart-line"></i>
+          Visitor Analytics
+        </h1>
+
+        <p>
+          TDG Steel Frame — Traverse Dynamics Global LLC
+        </p>
       </div>
-      <a href="index.html" class="back-link">&larr; Back to site</a>
+
+      <a href="index.html" class="back-link">
+        &larr; Back to site
+      </a>
+
     </div>
   </header>
+
+
+  <!-- =========================================================
+       MAIN
+       ========================================================= -->
 
   <main class="container">
 
     <noscript>
       <div class="info-banner error">
-        <strong>JavaScript is disabled or blocked in this browser.</strong>
-        This page needs it to unlock the dashboard and load analytics data.
-        Please enable JavaScript (or turn off any script blocker for this
-        site) and reload.
+        <strong>JavaScript is disabled.</strong>
+        This analytics dashboard requires JavaScript to authenticate
+        and retrieve GA4 data.
       </div>
     </noscript>
 
-    <!-- ===================================================
+
+    <!-- =======================================================
          CONFIGURATION
-         =================================================== -->
+         ======================================================= -->
+
     <script>
       window.__ANALYTICS_CONFIG__ = {
-        // Web application OAuth Client ID from Google Cloud Console
-        // (APIs & Services → Credentials). Authorized JavaScript origins
-        // must include this site's live domain.
-        GOOGLE_CLIENT_ID: "628220172565-145cgr60eopg849ddo5huae1r7a996cd.apps.googleusercontent.com",
-        // GA4 numeric Property ID (GA4 Admin → Property Settings).
-        // This is NOT the "G-XPZSK33GTF" measurement ID used for
-        // tracking above — that's a separate ID.
-        GA4_PROPERTY_ID: "15257561316"
+
+        /*
+         * Google OAuth Web Client ID
+         */
+        GOOGLE_CLIENT_ID:
+          "628220172565-145cgr60eopg849ddo5huae1r7a996cd.apps.googleusercontent.com",
+
+        /*
+         * GA4 NUMERIC Property ID.
+         *
+         * This is NOT the measurement ID.
+         *
+         * Measurement ID:
+         * G-XPZSK33GTF
+         *
+         * Property ID:
+         * 15257561316
+         */
+        GA4_PROPERTY_ID:
+          "15257561316"
       };
     </script>
 
-    <!-- Lightweight access gate. NOTE: this hides the dashboard UI from
-         casual visitors but is NOT real security — anyone viewing page
-         source can see the code. Real protection is that pulling actual
-         numbers below still requires signing in with a Google account
-         that has Viewer access on the GA4 property. -->
+
+    <!-- =======================================================
+         ACCESS CODE
+         ======================================================= -->
+
     <div id="gate">
-      <h2>Private Dashboard</h2>
-      <p>This page is for TDG / Traverse Dynamics team access only.</p>
-      <input type="password" id="gatePassword" placeholder="Access code">
-      <button onclick="checkGate()">View Analytics</button>
-      <div id="gateError">Incorrect code, please try again.</div>
+
+      <div class="gate-icon">
+        <i class="fas fa-lock"></i>
+      </div>
+
+      <h2>
+        Private Analytics Dashboard
+      </h2>
+
+      <p>
+        This dashboard is restricted to TDG / Traverse Dynamics
+        Global team members.
+      </p>
+
+      <input
+        type="password"
+        id="gatePassword"
+        placeholder="Enter access code"
+        autocomplete="off"
+        aria-label="Analytics access code"
+      >
+
+      <button
+        type="button"
+        id="gateButton"
+      >
+        <i class="fas fa-chart-line"></i>
+        View Analytics
+      </button>
+
+      <div id="gateError">
+        Incorrect access code. Please try again.
+      </div>
+
     </div>
+
+
+    <!-- =======================================================
+         DASHBOARD
+         ======================================================= -->
 
     <div id="dashboard">
 
+      <!-- Tracking status -->
+
       <div class="status-check" id="statusCheck">
-        <div class="status-dot" id="statusDot"></div>
-        <div class="status-text">
-          <strong id="statusHeadline">Checking tracking status…</strong>
-          <span id="statusDetail">Verifying that the GA4 script loaded correctly in your browser.</span>
+
+        <div
+          class="status-dot"
+          id="statusDot">
         </div>
+
+        <div class="status-text">
+
+          <strong id="statusHeadline">
+            Checking Google Analytics...
+          </strong>
+
+          <span id="statusDetail">
+            Verifying that the GA4 tracking script loaded.
+          </span>
+
+        </div>
+
       </div>
+
+
+      <!-- Toolbar -->
 
       <div class="dash-toolbar">
+
         <div class="range-controls">
-          <label for="rangeSelect">Date range:</label>
+
+          <label for="rangeSelect">
+            Date range:
+          </label>
+
           <select id="rangeSelect">
-            <option value="7">Last 7 days</option>
-            <option value="28" selected>Last 28 days</option>
-            <option value="90">Last 90 days</option>
+
+            <option value="7">
+              Last 7 days
+            </option>
+
+            <option value="28" selected>
+              Last 28 days
+            </option>
+
+            <option value="90">
+              Last 90 days
+            </option>
+
           </select>
-          <button class="btn-refresh" id="refreshBtn">&#8635; Refresh</button>
+
+          <button
+            type="button"
+            class="btn-refresh"
+            id="refreshBtn">
+
+            <i class="fas fa-sync-alt"></i>
+            Refresh
+
+          </button>
+
         </div>
+
+
         <div class="account-chip">
-          <span id="auth-status" class="status-badge loading">Not signed in</span>
-          <button class="btn-signin" id="authBtn">Sign in with Google</button>
+
+          <span
+            id="auth-status"
+            class="status-badge loading">
+
+            Not signed in
+
+          </span>
+
+          <button
+            type="button"
+            class="btn-signin"
+            id="authBtn">
+
+            <i class="fab fa-google"></i>
+            Sign in with Google
+
+          </button>
+
         </div>
+
       </div>
+
+
+      <!-- Information -->
 
       <div class="info-banner">
-        <strong>Live:</strong> Pulled directly from the GA4 Data API — no
-        third-party report in between. GA4 typically takes 24–48 hours after
-        a visit to fully populate standard reports (Realtime data in GA4
-        itself shows up within seconds, but this API reads standard reports,
-        so very recent visits may not appear here yet).
+
+        <strong>Live GA4 data:</strong>
+
+        This dashboard retrieves analytics directly from the
+        Google Analytics Data API after you sign in with a Google
+        account that has permission to view this GA4 property.
+
       </div>
 
-      <div id="dashboardError" class="info-banner error" style="display:none;"></div>
-      <div id="setupNotice" class="info-banner warn" style="display:none;">
-        <strong>One setup step left:</strong> sign-in needs an OAuth Client
-        ID before it can request real data. See "How to finish setup" at
-        the bottom of this page — takes about 5 minutes, one time only.
+
+      <!-- Error -->
+
+      <div
+        id="dashboardError"
+        class="info-banner error"
+        style="display:none;">
       </div>
 
-      <div class="stat-grid" id="kpi-cards">
-        <div class="stat-card"><div class="stat-label">Active Users</div><div class="stat-value loading" data-field="activeUsers">—</div></div>
-        <div class="stat-card"><div class="stat-label">Sessions</div><div class="stat-value loading" data-field="sessions">—</div></div>
-        <div class="stat-card"><div class="stat-label">Page Views</div><div class="stat-value loading" data-field="screenPageViews">—</div></div>
-        <div class="stat-card"><div class="stat-label">Bounce Rate</div><div class="stat-value loading" data-field="bounceRate">—</div></div>
+
+      <!-- =====================================================
+           KPI CARDS
+           ===================================================== -->
+
+      <div class="stat-grid">
+
+        <div class="stat-card">
+
+          <div class="stat-label">
+            Active Users
+          </div>
+
+          <div
+            class="stat-value loading"
+            data-field="activeUsers">
+
+            —
+
+          </div>
+
+        </div>
+
+
+        <div class="stat-card">
+
+          <div class="stat-label">
+            Sessions
+          </div>
+
+          <div
+            class="stat-value loading"
+            data-field="sessions">
+
+            —
+
+          </div>
+
+        </div>
+
+
+        <div class="stat-card">
+
+          <div class="stat-label">
+            Page Views
+          </div>
+
+          <div
+            class="stat-value loading"
+            data-field="screenPageViews">
+
+            —
+
+          </div>
+
+        </div>
+
+
+        <div class="stat-card">
+
+          <div class="stat-label">
+            Bounce Rate
+          </div>
+
+          <div
+            class="stat-value loading"
+            data-field="bounceRate">
+
+            —
+
+          </div>
+
+        </div>
+
       </div>
+
+
+      <!-- =====================================================
+           CHART + CITIES
+           ===================================================== -->
 
       <div class="grid-2">
+
         <div class="panel">
-          <h3>Page Views Over Time</h3>
-          <canvas id="pageviewsChart" height="110"></canvas>
+
+          <h3>
+            Page Views Over Time
+          </h3>
+
+          <div class="chart-container">
+
+            <canvas id="pageviewsChart"></canvas>
+
+          </div>
+
         </div>
+
+
         <div class="panel">
-          <h3>Top Cities</h3>
-          <div class="table-wrap" id="cityTable"><div class="panel-empty">Sign in to load data.</div></div>
+
+          <h3>
+            Top Cities
+          </h3>
+
+          <div
+            class="table-wrap"
+            id="cityTable">
+
+            <div class="panel-empty">
+              Sign in with Google to load data.
+            </div>
+
+          </div>
+
         </div>
+
       </div>
+
+
+      <!-- =====================================================
+           COUNTRIES + PAGES
+           ===================================================== -->
 
       <div class="grid-2b">
+
         <div class="panel">
-          <h3>Top Countries</h3>
-          <div class="table-wrap" id="countryTable"><div class="panel-empty">Sign in to load data.</div></div>
+
+          <h3>
+            Top Countries
+          </h3>
+
+          <div
+            class="table-wrap"
+            id="countryTable">
+
+            <div class="panel-empty">
+              Sign in with Google to load data.
+            </div>
+
+          </div>
+
         </div>
+
+
         <div class="panel">
-          <h3>Top Pages</h3>
-          <div class="table-wrap" id="pagesTable"><div class="panel-empty">Sign in to load data.</div></div>
+
+          <h3>
+            Top Pages
+          </h3>
+
+          <div
+            class="table-wrap"
+            id="pagesTable">
+
+            <div class="panel-empty">
+              Sign in with Google to load data.
+            </div>
+
+          </div>
+
         </div>
+
       </div>
+
+
+      <!-- =====================================================
+           EVENTS
+           ===================================================== -->
 
       <div class="panel">
-        <h3>Where People Click (Events)</h3>
-        <div class="table-wrap" id="eventsTable"><div class="panel-empty">Sign in to load data.</div></div>
+
+        <h3>
+          Where People Click / Events
+        </h3>
+
+        <div
+          class="table-wrap"
+          id="eventsTable">
+
+          <div class="panel-empty">
+            Sign in with Google to load data.
+          </div>
+
+        </div>
+
       </div>
 
-    </div>
 
-    <div class="setup-steps">
- 
+      <!-- Security note -->
+
+      <div class="security-note">
+
+        <strong>Security note:</strong>
+
+        The access-code screen is only a front-end convenience
+        and should not be considered real authentication.
+        Actual GA4 data access is protected by Google's OAuth
+        authorization and the user's permissions on the GA4 property.
+
+      </div>
+
     </div>
 
   </main>
 
+
+  <!-- =========================================================
+       JAVASCRIPT
+       ========================================================= -->
+
   <script>
-    // ---------------------------------------------------------------
-    // Access gate (restored). Not real security by itself — see note
-    // in the CSS/HTML above — but keeps casual visitors out at a glance.
-    // ---------------------------------------------------------------
-    const ACCESS_CODE = "tdgsteel2026"; // TODO: change this with Cyd whenever you'd like
+
+    /* =========================================================
+       APPLICATION CONFIG
+       ========================================================= */
+
+    const CONFIG = window.__ANALYTICS_CONFIG__;
+
+    /*
+     * Front-end access code.
+     *
+     * IMPORTANT:
+     * This is NOT secure authentication because it exists
+     * inside browser JavaScript.
+     */
+    const ACCESS_CODE = "tdgsteel2026";
+
+
+    /* =========================================================
+       DOM ELEMENTS
+       ========================================================= */
+
+    const gate =
+      document.getElementById("gate");
+
+    const dashboard =
+      document.getElementById("dashboard");
+
+    const gatePassword =
+      document.getElementById("gatePassword");
+
+    const gateButton =
+      document.getElementById("gateButton");
+
+    const gateError =
+      document.getElementById("gateError");
+
+    const authBtn =
+      document.getElementById("authBtn");
+
+    const authStatus =
+      document.getElementById("auth-status");
+
+    const refreshBtn =
+      document.getElementById("refreshBtn");
+
+    const rangeSelect =
+      document.getElementById("rangeSelect");
+
+    const dashboardError =
+      document.getElementById("dashboardError");
+
+    const statusDot =
+      document.getElementById("statusDot");
+
+    const statusHeadline =
+      document.getElementById("statusHeadline");
+
+    const statusDetail =
+      document.getElementById("statusDetail");
+
+
+    /* =========================================================
+       STATE
+       ========================================================= */
+
+    let accessToken = null;
+
+    let tokenClient = null;
+
+    let signedIn = false;
+
+    let pageviewsChartInstance = null;
+
+    let loadingReports = false;
+
+
+    /* =========================================================
+       ACCESS CODE
+       ========================================================= */
 
     function checkGate() {
-      const input = document.getElementById('gatePassword').value;
+
+      const input =
+        gatePassword.value.trim();
+
       if (input === ACCESS_CODE) {
-        document.getElementById('gate').style.display = 'none';
-        document.getElementById('dashboard').style.display = 'block';
+
+        gateError.style.display = "none";
+
+        gate.style.display = "none";
+
+        dashboard.style.display = "block";
+
         runTrackingStatusCheck();
-        initSignIn();
+
+        initializeGoogleAuth();
+
       } else {
-        document.getElementById('gateError').style.display = 'block';
+
+        gateError.style.display = "block";
+
+        gatePassword.focus();
+
       }
     }
 
-    document.getElementById('gatePassword').addEventListener('keydown', (e) => {
-      if (e.key === 'Enter') checkGate();
-    });
 
-    // ---------------------------------------------------------------
-    // Live tracking-status self-check (unchanged behavior from before).
-    // ---------------------------------------------------------------
+    gateButton.addEventListener(
+      "click",
+      checkGate
+    );
+
+
+    gatePassword.addEventListener(
+      "keydown",
+      function (event) {
+
+        if (event.key === "Enter") {
+
+          checkGate();
+
+        }
+
+      }
+    );
+
+
+    /* =========================================================
+       TRACKING STATUS
+       ========================================================= */
+
     function runTrackingStatusCheck() {
-      const dot = document.getElementById('statusDot');
-      const headline = document.getElementById('statusHeadline');
-      const detail = document.getElementById('statusDetail');
-      setTimeout(() => {
-        const gtagLoaded = typeof gtag === 'function';
-        const hasQueuedEvents = Array.isArray(window.dataLayer) && window.dataLayer.length > 0;
-        if (gtagLoaded && hasQueuedEvents) {
-          dot.classList.add('ok');
-          headline.textContent = 'GA4 script is loaded and sending data';
-          detail.textContent = 'The tracking code fired correctly in this browser. To confirm data is reaching Google, open GA4 → Reports → Realtime while browsing the live site.';
+
+      setTimeout(function () {
+
+        const gtagLoaded =
+          typeof window.gtag === "function";
+
+        const dataLayerLoaded =
+          Array.isArray(window.dataLayer);
+
+        if (
+          gtagLoaded &&
+          dataLayerLoaded &&
+          window.dataLayer.length > 0
+        ) {
+
+          statusDot.className =
+            "status-dot ok";
+
+          statusHeadline.textContent =
+            "GA4 tracking code is loaded";
+
+          statusDetail.textContent =
+            "The Google Analytics tag is available on this page. Check GA4 Realtime to confirm that Google is receiving visits.";
+
         } else {
-          dot.classList.add('bad');
-          headline.textContent = 'GA4 script did not load in this browser';
-          detail.textContent = 'This usually means an ad/tracker blocker is active, or the GA4 script tag is missing on the live deployed page. Try this page in an incognito window with blockers off.';
+
+          statusDot.className =
+            "status-dot bad";
+
+          statusHeadline.textContent =
+            "GA4 tracking code could not be verified";
+
+          statusDetail.textContent =
+            "The GA4 script may be blocked by a browser extension, privacy setting, or network filter.";
+
         }
+
       }, 1200);
+
     }
 
-    // ---------------------------------------------------------------
-    // Google Sign-In (OAuth token client) + GA4 Data API calls.
-    // This IS the real access control for the actual numbers: anyone can
-    // enter the access code above, but only a Google account with Viewer
-    // access on the GA4 property will get real data back — everyone else
-    // gets a clear permission error instead.
-    // ---------------------------------------------------------------
-    (function () {
-      const CFG = window.__ANALYTICS_CONFIG__;
-      let accessToken = null;
-      let tokenClient = null;
-      let signedIn = false;
-      let pageviewsChartInstance = null;
 
-      const configIsPlaceholder = CFG.GOOGLE_CLIENT_ID.startsWith('YOUR_CLIENT_ID');
-      const authBtn = document.getElementById('authBtn');
-      const authStatus = document.getElementById('auth-status');
-      const refreshBtn = document.getElementById('refreshBtn');
-      const rangeSelect = document.getElementById('rangeSelect');
-      const dashboardError = document.getElementById('dashboardError');
-      const setupNotice = document.getElementById('setupNotice');
+    /* =========================================================
+       GOOGLE AUTH INITIALIZATION
+       ========================================================= */
 
-      window.initSignIn = function initSignIn() {
-        if (configIsPlaceholder) {
-          setupNotice.style.display = 'block';
-          authBtn.disabled = true;
-          authBtn.style.opacity = '0.5';
-          authBtn.style.cursor = 'not-allowed';
+    function initializeGoogleAuth() {
+
+      if (
+        !CONFIG ||
+        !CONFIG.GOOGLE_CLIENT_ID
+      ) {
+
+        showError(
+          "Google OAuth Client ID is missing from the configuration."
+        );
+
+        return;
+
+      }
+
+
+      waitForGoogleIdentity();
+
+    }
+
+
+    function waitForGoogleIdentity() {
+
+      if (
+        typeof google === "undefined" ||
+        !google.accounts ||
+        !google.accounts.oauth2
+      ) {
+
+        setTimeout(
+          waitForGoogleIdentity,
+          200
+        );
+
+        return;
+
+      }
+
+
+      try {
+
+        tokenClient =
+          google.accounts.oauth2.initTokenClient({
+
+            client_id:
+              CONFIG.GOOGLE_CLIENT_ID,
+
+            scope:
+              "https://www.googleapis.com/auth/analytics.readonly",
+
+            callback:
+              handleOAuthResponse
+
+          });
+
+      } catch (error) {
+
+        console.error(
+          "Google OAuth initialization error:",
+          error
+        );
+
+        showError(
+          "Unable to initialize Google Sign-In. Check the OAuth Client ID and Authorized JavaScript origins in Google Cloud."
+        );
+
+      }
+
+    }
+
+
+    /* =========================================================
+       OAUTH RESPONSE
+       ========================================================= */
+
+    function handleOAuthResponse(response) {
+
+      if (!response) {
+
+        setAuthStatus(
+          "error",
+          "No response from Google"
+        );
+
+        return;
+
+      }
+
+
+      if (response.error) {
+
+        console.error(
+          "OAuth error:",
+          response
+        );
+
+        setAuthStatus(
+          "error",
+          "Google sign-in failed"
+        );
+
+        showError(
+          getOAuthErrorMessage(response)
+        );
+
+        return;
+
+      }
+
+
+      if (!response.access_token) {
+
+        setAuthStatus(
+          "error",
+          "No access token received"
+        );
+
+        showError(
+          "Google did not return an access token."
+        );
+
+        return;
+
+      }
+
+
+      accessToken =
+        response.access_token;
+
+      signedIn = true;
+
+      setAuthStatus(
+        "connected",
+        "Connected"
+      );
+
+      authBtn.innerHTML =
+        '<i class="fas fa-sign-out-alt"></i> Sign out';
+
+      loadAllReports();
+
+    }
+
+
+    function getOAuthErrorMessage(response) {
+
+      if (
+        response.error ===
+        "popup_failed_to_open"
+      ) {
+
+        return (
+          "Google Sign-In popup was blocked. Please allow popups for this website and try again."
+        );
+
+      }
+
+      if (
+        response.error ===
+        "access_denied"
+      ) {
+
+        return (
+          "Google access was denied. You must authorize access to the GA4 property."
+        );
+
+      }
+
+      if (
+        response.error ===
+        "origin_mismatch"
+      ) {
+
+        return (
+          "OAuth origin mismatch. Add this website's exact HTTPS origin to Authorized JavaScript origins in Google Cloud."
+        );
+
+      }
+
+      return (
+        "Google authentication failed: " +
+        (response.error_description ||
+          response.error ||
+          "Unknown error")
+      );
+
+    }
+
+
+    /* =========================================================
+       AUTH BUTTON
+       ========================================================= */
+
+    authBtn.addEventListener(
+      "click",
+      function () {
+
+        if (!tokenClient) {
+
+          showError(
+            "Google Sign-In is not ready yet. Please wait a moment and try again."
+          );
+
           return;
-        }
-        if (typeof google === 'undefined' || !google.accounts) {
-          setTimeout(initSignIn, 200);
-          return;
-        }
-        tokenClient = google.accounts.oauth2.initTokenClient({
-          client_id: CFG.GOOGLE_CLIENT_ID,
-          scope: 'https://www.googleapis.com/auth/analytics.readonly',
-          callback: (resp) => {
-            if (resp.error) {
-              setAuthStatus('error', 'Sign-in error: ' + resp.error);
-              return;
-            }
-            accessToken = resp.access_token;
-            signedIn = true;
-            setAuthStatus('connected', 'Connected');
-            loadAllReports();
-          }
-        });
-      };
 
-      authBtn.addEventListener('click', () => {
-        if (configIsPlaceholder) return;
+        }
+
+
         if (signedIn) {
-          if (accessToken) google.accounts.oauth2.revoke(accessToken, () => {});
-          accessToken = null;
-          signedIn = false;
-          setAuthStatus('loading', 'Not signed in');
-          clearDashboard();
+
+          signOut();
+
           return;
+
         }
-        if (tokenClient) tokenClient.requestAccessToken({ prompt: '' });
-      });
 
-      refreshBtn.addEventListener('click', () => {
-        if (signedIn && accessToken) loadAllReports();
-      });
-      rangeSelect.addEventListener('change', () => {
-        if (signedIn && accessToken) loadAllReports();
-      });
 
-      function setAuthStatus(type, text) {
-        authStatus.className = 'status-badge ' + type;
-        authStatus.textContent = text;
-        authBtn.textContent = signedIn ? 'Sign out' : 'Sign in with Google';
-      }
+        clearError();
 
-      function clearDashboard() {
-        document.querySelectorAll('.stat-value').forEach(el => { el.textContent = '—'; el.classList.add('loading'); });
-        ['cityTable','countryTable','pagesTable','eventsTable'].forEach(id => {
-          document.getElementById(id).innerHTML = '<div class="panel-empty">Sign in to load data.</div>';
+
+        tokenClient.requestAccessToken({
+          prompt: "consent"
         });
-        if (pageviewsChartInstance) { pageviewsChartInstance.destroy(); pageviewsChartInstance = null; }
-      }
 
-      function dateRange() {
-        const days = rangeSelect.value;
-        return [{ startDate: `${days}daysAgo`, endDate: 'today' }];
       }
+    );
 
-      async function runReport(body) {
-        const url = `https://analyticsdata.googleapis.com/v1beta/properties/${CFG.GA4_PROPERTY_ID}:runReport`;
-        const res = await fetch(url, {
-          method: 'POST',
-          headers: { 'Authorization': `Bearer ${accessToken}`, 'Content-Type': 'application/json' },
-          body: JSON.stringify(body)
-        });
-        if (!res.ok) {
-          const status = res.status;
-          let msg;
-          if (status === 401) msg = 'Your sign-in expired — sign out and sign in again.';
-          else if (status === 403) msg = "This Google account doesn't have access to this GA4 property. Ask for the Viewer role in GA4 Admin → Property Access Management, then sign in again.";
-          else if (status === 400) msg = 'Google Analytics rejected this request — double check GA4_PROPERTY_ID at the top of this file is the numeric Property ID.';
-          else msg = `Google Analytics API error (HTTP ${status}).`;
-          throw new Error(msg);
-        }
-        return res.json();
-      }
 
-      function metricValue(report, index) {
-        const row = report.rows && report.rows[0];
-        return row ? Number(row.metricValues[index].value) : 0;
-      }
+    /* =========================================================
+       SIGN OUT
+       ========================================================= */
 
-      function formatNumber(n) {
-        return new Intl.NumberFormat('en-US', { maximumFractionDigits: 1 }).format(n);
-      }
+    function signOut() {
 
-      function escapeHtml(s) {
-        return String(s).replace(/[&<>"']/g, c => ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[c]));
-      }
-
-      function renderTable(containerId, report) {
-        const container = document.getElementById(containerId);
-        const rows = report.rows || [];
-        if (rows.length === 0) {
-          container.innerHTML = '<div class="panel-empty">No data yet for this date range.</div>';
-          return;
-        }
-        const values = rows.map(r => Number(r.metricValues[0].value));
-        const max = Math.max(...values, 1);
-        container.innerHTML = rows.map(r => {
-          const label = r.dimensionValues[0].value || '(not set)';
-          const value = Number(r.metricValues[0].value);
-          const pct = Math.max(4, Math.round((value / max) * 100));
-          return `
-            <div class="data-row">
-              <div class="row-label">${escapeHtml(label)}</div>
-              <div class="row-value">${formatNumber(value)}</div>
-              <div class="row-bar-track"><div class="row-bar-fill" style="width:${pct}%"></div></div>
-            </div>`;
-        }).join('');
-      }
-
-      function renderPageviewsChart(dailyRows) {
-        const ctx = document.getElementById('pageviewsChart').getContext('2d');
-        if (pageviewsChartInstance) pageviewsChartInstance.destroy();
-        const sorted = dailyRows.slice().sort((a, b) => a.date.localeCompare(b.date));
-        const labels = sorted.map(d => `${d.date.slice(4,6)}/${d.date.slice(6,8)}`);
-        const values = sorted.map(d => d.value);
-        pageviewsChartInstance = new Chart(ctx, {
-          type: 'line',
-          data: {
-            labels,
-            datasets: [{
-              label: 'Page Views',
-              data: values,
-              borderColor: '#7CB342',
-              backgroundColor: 'rgba(124,179,66,0.12)',
-              fill: true,
-              tension: 0.25,
-              pointRadius: 2
-            }]
-          },
-          options: {
-            responsive: true,
-            maintainAspectRatio: true,
-            plugins: { legend: { display: false } },
-            scales: {
-              y: { beginAtZero: true, grid: { color: '#f1f5f9' } },
-              x: { grid: { display: false } }
-            }
-          }
-        });
-      }
-
-      async function loadAllReports() {
-        dashboardError.style.display = 'none';
-        document.querySelectorAll('.stat-value').forEach(el => el.classList.add('loading'));
-        const ranges = dateRange();
+      if (
+        accessToken &&
+        google &&
+        google.accounts &&
+        google.accounts.oauth2
+      ) {
 
         try {
-          const [summary, daily, city, country, pages, events] = await Promise.all([
-            runReport({
-              dateRanges: ranges,
-              metrics: [{ name: 'activeUsers' }, { name: 'sessions' }, { name: 'screenPageViews' }, { name: 'bounceRate' }]
-            }),
-            runReport({
-              dateRanges: ranges,
-              dimensions: [{ name: 'date' }],
-              metrics: [{ name: 'screenPageViews' }]
-            }),
-            runReport({
-              dateRanges: ranges,
-              dimensions: [{ name: 'city' }],
-              metrics: [{ name: 'activeUsers' }],
-              orderBys: [{ metric: { metricName: 'activeUsers' }, desc: true }],
-              limit: 10
-            }),
-            runReport({
-              dateRanges: ranges,
-              dimensions: [{ name: 'country' }],
-              metrics: [{ name: 'activeUsers' }],
-              orderBys: [{ metric: { metricName: 'activeUsers' }, desc: true }],
-              limit: 10
-            }),
-            runReport({
-              dateRanges: ranges,
-              dimensions: [{ name: 'pagePath' }],
-              metrics: [{ name: 'screenPageViews' }],
-              orderBys: [{ metric: { metricName: 'screenPageViews' }, desc: true }],
-              limit: 10
-            }),
-            runReport({
-              dateRanges: ranges,
-              dimensions: [{ name: 'eventName' }],
-              metrics: [{ name: 'eventCount' }],
-              orderBys: [{ metric: { metricName: 'eventCount' }, desc: true }],
-              limit: 15
-            })
-          ]);
 
-          document.querySelector('[data-field="activeUsers"]').textContent = formatNumber(metricValue(summary, 0));
-          document.querySelector('[data-field="sessions"]').textContent = formatNumber(metricValue(summary, 1));
-          document.querySelector('[data-field="screenPageViews"]').textContent = formatNumber(metricValue(summary, 2));
-          document.querySelector('[data-field="bounceRate"]').textContent = (metricValue(summary, 3) * 100).toFixed(1) + '%';
-          document.querySelectorAll('.stat-value').forEach(el => el.classList.remove('loading'));
+          google.accounts.oauth2.revoke(
+            accessToken,
+            function () {}
+          );
 
-          const dailyRows = (daily.rows || []).map(r => ({ date: r.dimensionValues[0].value, value: Number(r.metricValues[0].value) }));
-          renderPageviewsChart(dailyRows);
+        } catch (error) {
 
-          renderTable('cityTable', city);
-          renderTable('countryTable', country);
-          renderTable('pagesTable', pages);
-          renderTable('eventsTable', events);
-        } catch (err) {
-          dashboardError.textContent = err.message;
-          dashboardError.style.display = 'block';
-          console.error('[Analytics Dashboard]', err);
+          console.warn(
+            "Token revoke failed:",
+            error
+          );
+
         }
+
       }
-    })();
+
+
+      accessToken = null;
+
+      signedIn = false;
+
+      setAuthStatus(
+        "loading",
+        "Not signed in"
+      );
+
+      authBtn.innerHTML =
+        '<i class="fab fa-google"></i> Sign in with Google';
+
+      clearDashboard();
+
+      clearError();
+
+    }
+
+
+    /* =========================================================
+       AUTH STATUS
+       ========================================================= */
+
+    function setAuthStatus(
+      type,
+      text
+    ) {
+
+      authStatus.className =
+        "status-badge " + type;
+
+      authStatus.textContent =
+        text;
+
+    }
+
+
+    /* =========================================================
+       ERROR HANDLING
+       ========================================================= */
+
+    function showError(message) {
+
+      dashboardError.textContent =
+        message;
+
+      dashboardError.style.display =
+        "block";
+
+    }
+
+
+    function clearError() {
+
+      dashboardError.textContent =
+        "";
+
+      dashboardError.style.display =
+        "none";
+
+    }
+
+
+    /* =========================================================
+       DATE RANGE
+       ========================================================= */
+
+    function getDateRange() {
+
+      const days =
+        Number(rangeSelect.value);
+
+      return [
+        {
+          startDate:
+            `${days}daysAgo`,
+
+          endDate:
+            "today"
+        }
+      ];
+
+    }
+
+
+    /* =========================================================
+       GA4 DATA API
+       ========================================================= */
+
+    async function runReport(
+      requestBody
+    ) {
+
+      if (!accessToken) {
+
+        throw new Error(
+          "You are not signed in to Google."
+        );
+
+      }
+
+
+      const propertyId =
+        String(
+          CONFIG.GA4_PROPERTY_ID
+        ).replace(
+          /^properties\//,
+          ""
+        );
+
+
+      if (!/^\d+$/.test(propertyId)) {
+
+        throw new Error(
+          "Invalid GA4 Property ID. Use the numeric Property ID, not the G-XXXXXXXXXX measurement ID."
+        );
+
+      }
+
+
+      const endpoint =
+        `https://analyticsdata.googleapis.com/v1beta/properties/${propertyId}:runReport`;
+
+
+      const response =
+        await fetch(
+          endpoint,
+          {
+            method: "POST",
+
+            headers: {
+              "Authorization":
+                `Bearer ${accessToken}`,
+
+              "Content-Type":
+                "application/json"
+            },
+
+            body:
+              JSON.stringify(
+                requestBody
+              )
+          }
+        );
+
+
+      let data = null;
+
+      try {
+
+        data =
+          await response.json();
+
+      } catch (error) {
+
+        data = null;
+
+      }
+
+
+      if (!response.ok) {
+
+        const message =
+          data &&
+          data.error &&
+          data.error.message
+            ? data.error.message
+            : `Google Analytics API returned HTTP ${response.status}.`;
+
+
+        if (response.status === 401) {
+
+          throw new Error(
+            "Your Google authorization expired. Please sign out and sign in again."
+          );
+
+        }
+
+
+        if (response.status === 403) {
+
+          throw new Error(
+            "Your Google account does not have permission to view this GA4 property. Add the Google account as a Viewer in GA4 → Admin → Property Access Management."
+          );
+
+        }
+
+
+        if (response.status === 400) {
+
+          throw new Error(
+            "GA4 rejected the report request: " +
+            message
+          );
+
+        }
+
+
+        throw new Error(
+          "Google Analytics API error: " +
+          message
+        );
+
+      }
+
+
+      return data;
+
+    }
+
+
+    /* =========================================================
+       METRIC VALUE
+       ========================================================= */
+
+    function metricValue(
+      report,
+      index
+    ) {
+
+      if (
+        !report ||
+        !report.rows ||
+        !report.rows.length
+      ) {
+
+        return 0;
+
+      }
+
+
+      const row =
+        report.rows[0];
+
+      if (
+        !row.metricValues ||
+        !row.metricValues[index]
+      ) {
+
+        return 0;
+
+      }
+
+
+      return Number(
+        row.metricValues[index].value
+      ) || 0;
+
+    }
+
+
+    /* =========================================================
+       FORMAT NUMBER
+       ========================================================= */
+
+    function formatNumber(
+      number
+    ) {
+
+      return new Intl.NumberFormat(
+        "en-US",
+        {
+          maximumFractionDigits: 1
+        }
+      ).format(
+        Number(number) || 0
+      );
+
+    }
+
+
+    /* =========================================================
+       ESCAPE HTML
+       ========================================================= */
+
+    function escapeHtml(
+      value
+    ) {
+
+      return String(value)
+        .replace(
+          /[&<>"']/g,
+          function (character) {
+
+            const map = {
+              "&": "&amp;",
+              "<": "&lt;",
+              ">": "&gt;",
+              '"': "&quot;",
+              "'": "&#39;"
+            };
+
+            return map[character];
+
+          }
+        );
+
+    }
+
+
+    /* =========================================================
+       RENDER TABLE
+       ========================================================= */
+
+    function renderTable(
+      containerId,
+      report
+    ) {
+
+      const container =
+        document.getElementById(
+          containerId
+        );
+
+
+      if (!container) {
+        return;
+      }
+
+
+      const rows =
+        report &&
+        report.rows
+          ? report.rows
+          : [];
+
+
+      if (!rows.length) {
+
+        container.innerHTML =
+          '<div class="panel-empty">No data available for this date range.</div>';
+
+        return;
+
+      }
+
+
+      const values =
+        rows.map(
+          function (row) {
+
+            return Number(
+              row.metricValues &&
+              row.metricValues[0]
+                ? row.metricValues[0].value
+                : 0
+            );
+
+          }
+        );
+
+
+      const max =
+        Math.max(
+          ...values,
+          1
+        );
+
+
+      container.innerHTML =
+        rows.map(
+          function (row) {
+
+            const label =
+              row.dimensionValues &&
+              row.dimensionValues[0]
+                ? row.dimensionValues[0].value
+                : "(not set)";
+
+
+            const value =
+              row.metricValues &&
+              row.metricValues[0]
+                ? Number(
+                    row.metricValues[0].value
+                  )
+                : 0;
+
+
+            const percentage =
+              Math.max(
+                4,
+                Math.round(
+                  (value / max) * 100
+                )
+              );
+
+
+            return `
+              <div class="data-row">
+
+                <div class="row-label">
+                  ${escapeHtml(label)}
+                </div>
+
+                <div class="row-value">
+                  ${formatNumber(value)}
+                </div>
+
+                <div class="row-bar-track">
+                  <div
+                    class="row-bar-fill"
+                    style="width:${percentage}%">
+                  </div>
+                </div>
+
+              </div>
+            `;
+
+          }
+        ).join("");
+
+    }
+
+
+    /* =========================================================
+       PAGEVIEWS CHART
+       ========================================================= */
+
+    function renderPageviewsChart(
+      rows
+    ) {
+
+      const canvas =
+        document.getElementById(
+          "pageviewsChart"
+        );
+
+
+      if (!canvas) {
+        return;
+      }
+
+
+      if (
+        pageviewsChartInstance
+      ) {
+
+        pageviewsChartInstance.destroy();
+
+        pageviewsChartInstance =
+          null;
+
+      }
+
+
+      const sorted =
+        rows
+          .slice()
+          .sort(
+            function (a, b) {
+
+              return a.date.localeCompare(
+                b.date
+              );
+
+            }
+          );
+
+
+      const labels =
+        sorted.map(
+          function (item) {
+
+            if (
+              !item.date ||
+              item.date.length !== 8
+            ) {
+
+              return item.date;
+
+            }
+
+
+            return (
+              item.date.slice(4, 6) +
+              "/" +
+              item.date.slice(6, 8)
+            );
+
+          }
+        );
+
+
+      const values =
+        sorted.map(
+          function (item) {
+
+            return item.value;
+
+          }
+        );
+
+
+      pageviewsChartInstance =
+        new Chart(
+          canvas.getContext("2d"),
+          {
+            type: "line",
+
+            data: {
+
+              labels: labels,
+
+              datasets: [
+                {
+                  label:
+                    "Page Views",
+
+                  data:
+                    values,
+
+                  borderColor:
+                    "#7CB342",
+
+                  backgroundColor:
+                    "rgba(124,179,66,0.12)",
+
+                  fill: true,
+
+                  tension: 0.25,
+
+                  pointRadius: 3,
+
+                  pointHoverRadius: 5
+                }
+              ]
+
+            },
+
+            options: {
+
+              responsive: true,
+
+              maintainAspectRatio: false,
+
+              interaction: {
+                intersect: false,
+                mode: "index"
+              },
+
+              plugins: {
+
+                legend: {
+                  display: false
+                }
+
+              },
+
+              scales: {
+
+                y: {
+                  beginAtZero: true,
+
+                  ticks: {
+                    precision: 0
+                  },
+
+                  grid: {
+                    color:
+                      "#f1f5f9"
+                  }
+
+                },
+
+                x: {
+                  grid: {
+                    display: false
+                  }
+
+                }
+
+              }
+
+            }
+
+          }
+        );
+
+    }
+
+
+    /* =========================================================
+       LOAD ALL REPORTS
+       ========================================================= */
+
+    async function loadAllReports() {
+
+      if (
+        loadingReports
+      ) {
+
+        return;
+
+      }
+
+
+      if (
+        !signedIn ||
+        !accessToken
+      ) {
+
+        return;
+
+      }
+
+
+      loadingReports = true;
+
+      clearError();
+
+
+      refreshBtn.disabled =
+        true;
+
+      rangeSelect.disabled =
+        true;
+
+
+      refreshBtn.innerHTML =
+        '<span class="spinner"></span> Loading...';
+
+
+      document
+        .querySelectorAll(
+          ".stat-value"
+        )
+        .forEach(
+          function (element) {
+
+            element.classList.add(
+              "loading"
+            );
+
+          }
+        );
+
+
+      const ranges =
+        getDateRange();
+
+
+      try {
+
+        /*
+         * Summary
+         */
+
+        const summaryPromise =
+          runReport({
+
+            dateRanges:
+              ranges,
+
+            metrics: [
+              {
+                name:
+                  "activeUsers"
+              },
+
+              {
+                name:
+                  "sessions"
+              },
+
+              {
+                name:
+                  "screenPageViews"
+              },
+
+              {
+                name:
+                  "bounceRate"
+              }
+            ]
+
+          });
+
+
+        /*
+         * Daily page views
+         */
+
+        const dailyPromise =
+          runReport({
+
+            dateRanges:
+              ranges,
+
+            dimensions: [
+              {
+                name:
+                  "date"
+              }
+            ],
+
+            metrics: [
+              {
+                name:
+                  "screenPageViews"
+              }
+            ]
+
+          });
+
+
+        /*
+         * Cities
+         */
+
+        const cityPromise =
+          runReport({
+
+            dateRanges:
+              ranges,
+
+            dimensions: [
+              {
+                name:
+                  "city"
+              }
+            ],
+
+            metrics: [
+              {
+                name:
+                  "activeUsers"
+              }
+            ],
+
+            orderBys: [
+              {
+                metric: {
+                  metricName:
+                    "activeUsers"
+                },
+
+                desc:
+                  true
+              }
+            ],
+
+            limit:
+              10
+
+          });
+
+
+        /*
+         * Countries
+         */
+
+        const countryPromise =
+          runReport({
+
+            dateRanges:
+              ranges,
+
+            dimensions: [
+              {
+                name:
+                  "country"
+              }
+            ],
+
+            metrics: [
+              {
+                name:
+                  "activeUsers"
+              }
+            ],
+
+            orderBys: [
+              {
+                metric: {
+                  metricName:
+                    "activeUsers"
+                },
+
+                desc:
+                  true
+              }
+            ],
+
+            limit:
+              10
+
+          });
+
+
+        /*
+         * Pages
+         */
+
+        const pagesPromise =
+          runReport({
+
+            dateRanges:
+              ranges,
+
+            dimensions: [
+              {
+                name:
+                  "pagePath"
+              }
+            ],
+
+            metrics: [
+              {
+                name:
+                  "screenPageViews"
+              }
+            ],
+
+            orderBys: [
+              {
+                metric: {
+                  metricName:
+                    "screenPageViews"
+                },
+
+                desc:
+                  true
+              }
+            ],
+
+            limit:
+              10
+
+          });
+
+
+        /*
+         * Events
+         */
+
+        const eventsPromise =
+          runReport({
+
+            dateRanges:
+              ranges,
+
+            dimensions: [
+              {
+                name:
+                  "eventName"
+              }
+            ],
+
+            metrics: [
+              {
+                name:
+                  "eventCount"
+              }
+            ],
+
+            orderBys: [
+              {
+                metric: {
+                  metricName:
+                    "eventCount"
+                },
+
+                desc:
+                  true
+              }
+            ],
+
+            limit:
+              15
+
+          });
+
+
+        const [
+          summary,
+          daily,
+          city,
+          country,
+          pages,
+          events
+        ] = await Promise.all([
+          summaryPromise,
+          dailyPromise,
+          cityPromise,
+          countryPromise,
+          pagesPromise,
+          eventsPromise
+        ]);
+
+
+        /* =====================================================
+           KPI VALUES
+           ===================================================== */
+
+        document.querySelector(
+          '[data-field="activeUsers"]'
+        ).textContent =
+          formatNumber(
+            metricValue(
+              summary,
+              0
+            )
+          );
+
+
+        document.querySelector(
+          '[data-field="sessions"]'
+        ).textContent =
+          formatNumber(
+            metricValue(
+              summary,
+              1
+            )
+          );
+
+
+        document.querySelector(
+          '[data-field="screenPageViews"]'
+        ).textContent =
+          formatNumber(
+            metricValue(
+              summary,
+              2
+            )
+          );
+
+
+        const bounceRate =
+          metricValue(
+            summary,
+            3
+          );
+
+
+        document.querySelector(
+          '[data-field="bounceRate"]'
+        ).textContent =
+          (
+            bounceRate * 100
+          ).toFixed(1) +
+          "%";
+
+
+        document
+          .querySelectorAll(
+            ".stat-value"
+          )
+          .forEach(
+            function (element) {
+
+              element.classList.remove(
+                "loading"
+              );
+
+            }
+          );
+
+
+        /* =====================================================
+           DAILY CHART
+           ===================================================== */
+
+        const dailyRows =
+          (
+            daily.rows || []
+          ).map(
+            function (row) {
+
+              return {
+
+                date:
+                  row.dimensionValues[0]
+                    .value,
+
+                value:
+                  Number(
+                    row.metricValues[0]
+                      .value
+                  )
+
+              };
+
+            }
+          );
+
+
+        renderPageviewsChart(
+          dailyRows
+        );
+
+
+        /* =====================================================
+           TABLES
+           ===================================================== */
+
+        renderTable(
+          "cityTable",
+          city
+        );
+
+        renderTable(
+          "countryTable",
+          country
+        );
+
+        renderTable(
+          "pagesTable",
+          pages
+        );
+
+        renderTable(
+          "eventsTable",
+          events
+        );
+
+
+        setAuthStatus(
+          "connected",
+          "Connected"
+        );
+
+
+      } catch (error) {
+
+        console.error(
+          "[Analytics Dashboard]",
+          error
+        );
+
+
+        document
+          .querySelectorAll(
+            ".stat-value"
+          )
+          .forEach(
+            function (element) {
+
+              element.classList.remove(
+                "loading"
+              );
+
+              element.textContent =
+                "—";
+
+            }
+          );
+
+
+        showError(
+          error.message ||
+          "Unable to load Google Analytics data."
+        );
+
+
+        /*
+         * If authorization expired,
+         * reset authentication state.
+         */
+
+        if (
+          error.message &&
+          (
+            error.message.includes(
+              "authorization expired"
+            ) ||
+            error.message.includes(
+              "HTTP 401"
+            )
+          )
+        ) {
+
+          signedIn =
+            false;
+
+          accessToken =
+            null;
+
+          setAuthStatus(
+            "error",
+            "Authorization expired"
+          );
+
+          authBtn.innerHTML =
+            '<i class="fab fa-google"></i> Sign in with Google';
+
+        }
+
+      } finally {
+
+        loadingReports =
+          false;
+
+        refreshBtn.disabled =
+          false;
+
+        rangeSelect.disabled =
+          false;
+
+        refreshBtn.innerHTML =
+          '<i class="fas fa-sync-alt"></i> Refresh';
+
+      }
+
+    }
+
+
+    /* =========================================================
+       REFRESH
+       ========================================================= */
+
+    refreshBtn.addEventListener(
+      "click",
+      function () {
+
+        if (
+          signedIn &&
+          accessToken
+        ) {
+
+          loadAllReports();
+
+        }
+
+      }
+    );
+
+
+    /* =========================================================
+       DATE RANGE CHANGE
+       ========================================================= */
+
+    rangeSelect.addEventListener(
+      "change",
+      function () {
+
+        if (
+          signedIn &&
+          accessToken
+        ) {
+
+          loadAllReports();
+
+        }
+
+      }
+    );
+
+
+    /* =========================================================
+       CLEAR DASHBOARD
+       ========================================================= */
+
+    function clearDashboard() {
+
+      document
+        .querySelectorAll(
+          ".stat-value"
+        )
+        .forEach(
+          function (element) {
+
+            element.textContent =
+              "—";
+
+            element.classList.add(
+              "loading"
+            );
+
+          }
+        );
+
+
+      const emptyMessage =
+        '<div class="panel-empty">Sign in with Google to load data.</div>';
+
+
+      [
+        "cityTable",
+        "countryTable",
+        "pagesTable",
+        "eventsTable"
+      ].forEach(
+        function (id) {
+
+          const element =
+            document.getElementById(
+              id
+            );
+
+          if (element) {
+
+            element.innerHTML =
+              emptyMessage;
+
+          }
+
+        }
+      );
+
+
+      if (
+        pageviewsChartInstance
+      ) {
+
+        pageviewsChartInstance.destroy();
+
+        pageviewsChartInstance =
+          null;
+
+      }
+
+    }
+
   </script>
 
 </body>
