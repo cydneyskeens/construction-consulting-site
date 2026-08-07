@@ -1258,9 +1258,32 @@
 
     .scotcyd-layout {
       display: grid;
-      grid-template-columns: 0.85fr 1.15fr;
+      grid-template-columns: 1.3fr 1fr;
       gap: 2.5rem;
       align-items: center;
+    }
+
+    .scotcyd-media {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .scotcyd-cartoon {
+      width: 100%;
+      max-width: 320px;
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow-soft);
+      flex-shrink: 0;
+    }
+
+    .scotcyd-cartoon img {
+      width: 100%;
+      height: auto;
+      display: block;
     }
 
     .video-embed-wrap {
@@ -1665,10 +1688,10 @@
         <div class="model-viewer-shell">
           <div class="model-toolbar">
             <select class="model-select" id="modelSelect">
-              <option value="__sample__">Sample Frame (instant preview)</option>
+              <!-- <option value="__sample__">Sample Frame (instant preview)</option> -->
               <option value="tiny-home-structure">Tiny Home Structure</option>
               <option value="container-house">Container House</option>
-              <option value="2-story-residence-garage">2-Story Residence with Garage</option>
+              <option value="2-story-residence-garage" selected>2-Story Residence with Garage</option>
               <option value="modern-plan-940-00198_dxf">Modern Plan 940-00198</option>
               <option value="adu-project">ADU Project</option>
               <option value="encanto-modular">Encanto Modular</option>
@@ -1885706,19 +1885729,26 @@ EOF
         </p>
 
         <div class="scotcyd-layout">
-          <div class="video-embed-wrap" id="scotcydVideoWrap" data-video-id="lkLgA7loscs">
-            <!-- Click-to-play facade: shows YouTube's own thumbnail image
-               immediately (this always works — it's a plain <img>, not an
-               iframe, so it can't hit Error 153). The actual embedded
-               player only gets created on click, using the exact embed
-               code YouTube's own Share → Embed panel generates. This also
-               means visitors who never click never touch YouTube's player
-               at all — fewer places for anything to fail. -->
-            <button type="button" class="video-thumb-btn" id="scotcydPlayBtn" aria-label="Play video">
-              <img src="https://i.ytimg.com/vi/lkLgA7loscs/hqdefault.jpg"
-                alt="ScotCyd Series — latest episode thumbnail" loading="lazy">
-              <span class="video-play-icon"><i class="fas fa-play"></i></span>
-            </button>
+          <div class="scotcyd-media">
+            <div class="video-embed-wrap" id="scotcydVideoWrap" data-video-id="lkLgA7loscs">
+              <!-- Click-to-play facade: shows YouTube's own thumbnail image
+                 immediately (this always works — it's a plain <img>, not an
+                 iframe, so it can't hit Error 153). The actual embedded
+                 player only gets created on click, using the exact embed
+                 code YouTube's own Share → Embed panel generates. This also
+                 means visitors who never click never touch YouTube's player
+                 at all — fewer places for anything to fail. -->
+              <button type="button" class="video-thumb-btn" id="scotcydPlayBtn" aria-label="Play video">
+                <img src="https://i.ytimg.com/vi/lkLgA7loscs/hqdefault.jpg"
+                  alt="ScotCyd Series — latest episode thumbnail" loading="lazy">
+                <span class="video-play-icon"><i class="fas fa-play"></i></span>
+              </button>
+            </div>
+            <div class="scotcyd-cartoon">
+              <img src="images/ScotCyd-Anime.webp"
+                alt="Cartoon-style illustration of Cydney Skeens with ScotCyd branding, steel framing equipment, and travel gear"
+                loading="lazy">
+            </div>
           </div>
           <div class="scotcyd-side">
             <h3>Watch the Latest Episode</h3>
