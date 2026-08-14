@@ -1,4 +1,4 @@
-    /* =====================================================
+/* =====================================================
        TDG — PREMIUM ARCHITECTURAL PLATFORM
        Production Ready | Fully Responsive | Mobile-First
        ===================================================== */
@@ -1177,48 +1177,36 @@
       color: #c4c9d4;
     }
 
+    /* Two-column row: video on the left, cartoon image + copy on the right */
     .scotcyd-layout {
-      display: grid;
-      grid-template-columns: 1.4fr 1fr;
+      display: flex;
+      flex-wrap: wrap;
       gap: 2.5rem;
       align-items: center;
-    }
-
-    .scotcyd-media {
-      display: flex;
-      align-items: center;
       justify-content: center;
-      gap: 1.25rem;
-      flex-wrap: wrap;
+      margin-top: 2rem;
     }
 
-    .scotcyd-cartoon {
-      width: 100%;
+    /* Left column — video, sized so it doesn't dwarf the right side */
+    .scotcyd-video-col {
+      flex: 0 0 260px;
       max-width: 260px;
-      border-radius: var(--radius);
-      overflow: hidden;
-      box-shadow: var(--shadow-soft);
-      flex-shrink: 0;
-    }
-
-    .scotcyd-cartoon img {
       width: 100%;
-      height: auto;
-      display: block;
     }
 
+    /* 9:16 vertical ratio box. box-sizing:border-box + padding-top:0 keeps
+       this from ever stacking with older padding-hack aspect ratio rules. */
     .video-embed-wrap {
       position: relative;
+      display: block;
       width: 100%;
-      max-width: 340px;
-      margin: 0 auto;
-      /* 9:16 vertical ratio — ScotCyd content is Reels/Shorts, not
-         widescreen video, so this replaces the old 56.25% (16:9) ratio. */
-      padding-top: 177.78%;
+      aspect-ratio: 9 / 16;
+      padding-top: 0;
+      box-sizing: border-box;
       border-radius: var(--radius);
       overflow: hidden;
-      box-shadow: var(--shadow-soft);
       background: #000;
+      box-shadow: var(--shadow-soft);
     }
 
     .video-embed-wrap iframe {
@@ -1232,18 +1220,23 @@
     .video-thumb-btn {
       position: absolute;
       inset: 0;
+      display: block;
       width: 100%;
       height: 100%;
       border: none;
       padding: 0;
+      margin: 0;
       cursor: pointer;
       background: #000;
     }
 
     .video-thumb-btn img {
+      position: absolute;
+      inset: 0;
       width: 100%;
       height: 100%;
       object-fit: cover;
+      object-position: center;
       display: block;
       opacity: 0.85;
       transition: opacity 0.2s ease;
@@ -1258,17 +1251,19 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      width: 64px;
-      height: 64px;
+      width: 56px;
+      height: 56px;
       border-radius: 50%;
       background: rgba(255, 255, 255, 0.92);
       color: #1a1a1a;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.3rem;
+      font-size: 1.1rem;
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
       transition: transform 0.2s ease, background 0.2s ease;
+      pointer-events: none;
+      z-index: 2;
     }
 
     .video-thumb-btn:hover .video-play-icon {
@@ -1276,13 +1271,43 @@
       background: var(--accent);
     }
 
-    .scotcyd-side h3 {
-      margin-bottom: 0.75rem;
+    /* Right column — a balanced card: cartoon image next to the description */
+    .scotcyd-side {
+      flex: 1 1 420px;
+      max-width: 540px;
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      gap: 1.5rem;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 16px;
+      padding: 1.75rem;
     }
 
-    .scotcyd-side p {
+    .scotcyd-cartoon-img {
+      flex: 0 0 170px;
+      width: 170px;
+      height: auto;
+      border-radius: 12px;
+      display: block;
+    }
+
+    .scotcyd-text {
+      flex: 1 1 200px;
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+      min-width: 0;
+    }
+
+    .scotcyd-text h3 {
+      margin: 0;
+    }
+
+    .scotcyd-text p {
       color: #c4c9d4;
-      margin-bottom: 1.5rem;
+      margin: 0;
     }
 
     .platform-links {
@@ -1309,9 +1334,26 @@
       color: #1a1a1a;
     }
 
-    @media (max-width: 1100px) {
+    @media (max-width: 900px) {
       .scotcyd-layout {
-        grid-template-columns: 1fr;
+        flex-direction: column;
+        align-items: center;
+        text-align: left;
+      }
+
+      .scotcyd-video-col {
+        flex: 0 0 auto;
+        max-width: 260px;
+      }
+
+      .scotcyd-side {
+        flex-direction: column;
+        max-width: 100%;
+      }
+
+      .scotcyd-cartoon-img {
+        flex: 0 0 auto;
+        width: 140px;
       }
     }
 
@@ -1449,4 +1491,3 @@
     .model-error.visible {
       display: flex;
     }
-  

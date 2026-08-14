@@ -262,55 +262,52 @@
     <!-- ===================================================
        SCOTCYD VIDEO SERIES
        =================================================== -->
-    <section id="scotcyd" class="section">
-      <div class="container">
-        <h2 class="section-title">ScotCyd Series</h2>
-        <p class="scotcyd-intro">Follow along as we walk through real steel-frame projects, roll-forming setups, and
-          behind-the-scenes builds. Now on Episode 34 and streaming across Facebook, YouTube, Instagram, and LinkedIn.
-        </p>
+<section id="scotcyd" class="section">
+  <div class="container">
+    <h2 class="section-title">ScotCyd Series</h2>
+    <p class="scotcyd-intro">Follow along as we walk through real steel-frame projects, roll-forming setups, and
+      behind-the-scenes builds. Now on Episode 34 and streaming across Facebook, YouTube, Instagram, and LinkedIn.
+    </p>
 
-        <div class="scotcyd-layout">
-          <div class="scotcyd-media">
-            <div class="video-embed-wrap" id="scotcydVideoWrap" data-video-id="lkLgA7loscs">
-              <!-- Click-to-play facade: shows YouTube's own thumbnail image
-                 immediately (this always works — it's a plain <img>, not an
-                 iframe, so it can't hit Error 153). The actual embedded
-                 player only gets created on click, using the exact embed
-                 code YouTube's own Share → Embed panel generates. This also
-                 means visitors who never click never touch YouTube's player
-                 at all — fewer places for anything to fail. -->
-              <button type="button" class="video-thumb-btn" id="scotcydPlayBtn" aria-label="Play video">
-                <img src="https://i.ytimg.com/vi/lkLgA7loscs/hqdefault.jpg"
-                  alt="ScotCyd Series — latest episode thumbnail" loading="lazy">
-                <span class="video-play-icon"><i class="fas fa-play"></i></span>
-              </button>
-            </div>
-            <div class="scotcyd-cartoon">
-              <img src="images/ScotCyd-Anime.webp"
-                alt="Cartoon-style illustration of Cydney Skeens with ScotCyd branding, steel framing equipment, and travel gear"
-                loading="lazy">
-            </div>
-          </div>
-          <div class="scotcyd-side">
-            <h3>Watch the Latest Episode</h3>
-            <p>New episodes cover project walkthroughs, equipment setup, and steel framing tips straight from the field.
-              This player is set to the latest episode — swap in the new video ID each time a fresh one goes live.</p>
-            <div class="platform-links">
-              <a class="platform-btn" href="https://www.youtube.com/@scottsdalenz/shorts" target="_blank"
-                rel="noopener noreferrer"><i class="fab fa-youtube"></i> YouTube</a>
-              <a class="platform-btn" href="https://www.facebook.com/scottsdaleconstructionsystems/reels/"
-                target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook"></i> Facebook</a>
-              <a class="platform-btn" href="https://www.instagram.com/scottsdaleconstructionsystems/reels/"
-                target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i> Instagram</a>
-              <a class="platform-btn" href="https://www.linkedin.com/in/cydney-skeens/" target="_blank"
-                rel="noopener noreferrer"><i class="fab fa-linkedin"></i> LinkedIn</a>
-            </div>
+    <div class="scotcyd-layout">
+
+      <div class="scotcyd-video-col">
+        <div class="video-embed-wrap" id="scotcydVideoWrap" data-video-id="lkLgA7loscs">
+          <button type="button" class="video-thumb-btn" id="scotcydPlayBtn" aria-label="Play video">
+            <img src="https://i.ytimg.com/vi/lkLgA7loscs/hqdefault.jpg"
+              alt="ScotCyd Series — latest episode thumbnail" loading="lazy"
+              data-fallback-step="0"
+              onerror="var steps=['https://i.ytimg.com/vi/lkLgA7loscs/mqdefault.jpg','https://i.ytimg.com/vi/lkLgA7loscs/default.jpg'];var i=parseInt(this.dataset.fallbackStep,10);if(i&lt;steps.length){this.dataset.fallbackStep=i+1;this.src=steps[i];}else{this.onerror=null;this.style.display='none';}">
+            <span class="video-play-icon"><i class="fas fa-play"></i></span>
+          </button>
+        </div>
+      </div>
+
+      <div class="scotcyd-side">
+        <img class="scotcyd-cartoon-img"
+          src="images/ScotCyd-Anime.webp"
+          alt="Cartoon-style illustration of Cydney Skeens with ScotCyd branding, steel framing equipment, and travel gear"
+          loading="lazy">
+        <div class="scotcyd-text">
+          <h3>Watch the Latest Episode</h3>
+          <p>New episodes cover project walkthroughs, equipment setup, and steel framing tips straight from the field.
+            This player is set to the latest episode — swap in the new video ID each time a fresh one goes live.</p>
+          <div class="platform-links">
+            <a class="platform-btn" href="https://www.youtube.com/@scottsdalenz/shorts" target="_blank"
+              rel="noopener noreferrer"><i class="fab fa-youtube"></i> YouTube</a>
+            <a class="platform-btn" href="https://www.facebook.com/scottsdaleconstructionsystems/reels/"
+              target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook"></i> Facebook</a>
+            <a class="platform-btn" href="https://www.instagram.com/scottsdaleconstructionsystems/reels/"
+              target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i> Instagram</a>
+            <a class="platform-btn" href="https://www.linkedin.com/in/cydney-skeens/" target="_blank"
+              rel="noopener noreferrer"><i class="fab fa-linkedin"></i> LinkedIn</a>
           </div>
         </div>
       </div>
-    </section>
 
-    
+    </div>
+  </div>
+</section>
 
     <!-- ===================================================
        PROJECTS GALLERY — DARK MASONRY
